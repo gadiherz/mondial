@@ -13,9 +13,6 @@ htmlcov/
 dist/
 build/
 
-# Streamlit
-.streamlit/secrets.toml
-
 # Local scratch
 *.ipynb_checkpoints/
 scratch/

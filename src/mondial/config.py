@@ -5,7 +5,6 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data"
 DB_PATH = DATA_DIR / "mondial.db"
-SNAPSHOT_PATH = DATA_DIR / "snapshot.json"
 DC_PARAMS_PATH = DATA_DIR / "dc_params.json"
 CALIBRATOR_PATH = DATA_DIR / "calibrator.json"
 

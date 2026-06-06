@@ -2,7 +2,7 @@
 
 In PRODUCTION the work is split across two GitHub Actions routines that import
 these steps: Routine A `pipelines/markets_intel.py` (.github/workflows/markets-
-intel.yml -- odds + play-day intel + predict + snapshot) and Routine B
+intel.yml -- odds + play-day intel + predict + publish) and Routine B
 `pipelines/results.py` (.github/workflows/results.yml -- ingest results +
 re-backfill ratings). This module's `main()` runs the whole sequence in one shot
 for local/manual use; the old single `daily.yml` it once backed was removed.
@@ -14,8 +14,7 @@ Pipeline (each step is failure-isolated via @step):
                                 results (this is what makes round-2 features pick
                                 up round-1 outcomes).
   3. predict_upcoming        -- model P(H/D/A) for scheduled matches, persisted
-                                to `predictions`, plus a value pick vs. live odds
-                                written into data/snapshot.json for Streamlit.
+                                to `predictions`, plus a value pick vs. live odds.
 
 The six-player betting simulator (settle_bets / place_virtual_bets) is the
 front-end evaluation layer and is intentionally left out here; see eval/.
@@ -23,12 +22,11 @@ front-end evaluation layer and is intentionally left out here; see eval/.
 from __future__ import annotations
 
 import argparse
-import json
 import logging
 import sys
 from datetime import UTC, datetime
 
-from mondial.config import CALIBRATOR_PATH, SNAPSHOT_PATH
+from mondial.config import CALIBRATOR_PATH
 from mondial.data.db import connect, init_db
 from mondial.eval.betting import place_bets, settle_bets
 from mondial.eval.odds import devig, load_eval_odds, load_match_odds
@@ -251,15 +249,6 @@ def predict_upcoming() -> list[dict]:
     return snapshot
 
 
-def write_snapshot(predictions: list[dict]) -> None:
-    SNAPSHOT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    payload = {
-        "generated_at": datetime.now(UTC).isoformat(),
-        "predictions": predictions or [],
-    }
-    SNAPSHOT_PATH.write_text(json.dumps(payload, indent=2))
-
-
 @step("place_bets")
 def place_virtual_bets() -> None:
     """Place the six-player virtual bets for priced upcoming matches (Routine A).
@@ -311,12 +300,11 @@ def main() -> int:
     refresh_team_intel()
     update_ratings_for_completed()
     predictions = predict_upcoming() or []
-    write_snapshot(predictions)
     place_virtual_bets()      # place six-player bets at the Winner line
     settle_virtual_bets()     # settle any bets whose matches are now final
     generate_bracket()        # create knockout fixtures once group stage is done
     publish_web()             # refresh the static-site data feed
-    log.info("daily_run complete: snapshot written to %s", SNAPSHOT_PATH)
+    log.info("daily_run complete: %d predictions; web feed published", len(predictions))
     return 0
 
 

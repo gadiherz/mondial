@@ -13,16 +13,14 @@ dependencies = [
     "pydantic>=2.6",
     "pydantic-settings>=2.2",
     "python-dotenv>=1.0",
-    "streamlit>=1.34",
-    "plotly>=5.20",
     "tenacity>=8.2",
 ]
 
 [project.optional-dependencies]
 # Deep team-intel (Track B stage 2a): local semantic distillation. Sources are
 # now APIs (Guardian/World News/API-Football via plain requests), so no scraper
-# deps -- only the local embedder. Optional so the lean Streamlit deploy needn't
-# carry it; the cron installs `.[intel]`. Absent -> degrades to the headline path.
+# deps -- only the local embedder. Optional so a lean install needn't carry it;
+# the cron installs `.[intel]`. Absent -> degrades to the headline path.
 intel = [
     "fastembed>=0.4",
 ]

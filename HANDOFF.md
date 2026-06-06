@@ -93,7 +93,7 @@ pass.** What's left is the **TOTO scraper**, the **frontend**, and **deployment*
     (`qualitative_used`, `intel_*_status` ∈ informed/no_signal/missing).
 - **Schedulers** (the two routines, by data nature):
   - `pipelines/markets_intel.py` + `.github/workflows/markets-intel.yml`
-    (Routine A: odds + play-day intel + predict + snapshot; cron 14:00 UTC daily).
+    (Routine A: odds + play-day intel + predict + publish; cron 14:00 UTC daily).
   - `pipelines/results.py` + `.github/workflows/results.yml`
     (Routine B: **Jurisoo CSV refresh (primary, key-less, catches prep
     friendlies)** + Odds API `/scores` (supplementary, failure-isolated) →
@@ -130,16 +130,18 @@ and put the new values in **GitHub Actions Secrets** at deploy time.
    **EVAL REWIRED vs Winner (2026-06-05):** `eval/odds.load_eval_odds` (strict
    `bookmaker='winner'`, no fallback) is now the value-pick/settlement price;
    sharp Pinnacle stays the "true market" edge reference only. `predict_upcoming`
-   snapshot carries `winner_*` + `value_vs='winner'`; `value_picks.py` shows
+   output carries `winner_*` + `value_vs='winner'`; `value_picks.py` shows
    Winner. Historical backtest stays on `fd_avg` (no archived Winner odds).
    Validated: 72 predictions, 10 WC-2026 matches priced vs Winner. 28 tests pass.
-2. **Frontend** — Streamlit (`app/streamlit_app.py`) Section 1 (predictions, with
-   the 🟢 intel / ⚪ ratings-only badge) is done; **Sections 2–4 (leaderboard,
-   bankroll curves, calibration) are TODO placeholders.**
-3. **Deploy**: move repo OUT of Google Drive → `git init` → GitHub → set the 5
-   Actions Secrets → Streamlit Community Cloud → enable the crons. (README warns:
-   don't `git init` inside Drive.)
-4. **Rotate keys** (user does this pre-deploy).
+2. **Frontend** — DONE: a self-contained static site in `web/` (hand-written
+   HTML/CSS/vanilla-JS, zero external deps) reading `web/data/dashboard.json`
+   from `pipelines/export_web.py`. Replaces the earlier Streamlit plan. Three
+   pages: home (matches/odds/model pick + countdowns), players dashboard
+   (leaderboard + revenue chart), engine explainer. See README + DEPLOY.md.
+3. **Deploy**: DONE — repo on GitHub (private→public), served by Cloudflare
+   (output dir `web`), 5 keys in Actions Secrets, both crons live. Full
+   step-by-step in `DEPLOY.md`.
+4. **Rotate keys** — DONE (4/5; Guardian deferred as accepted low risk).
 5. **Evaluation loop**: the §7.3 pre-kickoff **backtest is BUILT and RUN**
    (`eval/backtest.py` + `scripts/run_backtest.py`, 2026-06-03). Layer-1
    skill/calibration runs on real WC22/Euro24/Copa24 results (no odds). Findings:
@@ -181,7 +183,7 @@ and put the new values in **GitHub Actions Secrets** at deploy time.
 ```
 # train / refit / recalibrate
 PYTHONPATH=src python -m mondial.pipelines.train --bootstrap --fit --calibrate
-# Routine A (odds + intel + predict + snapshot)
+# Routine A (odds + intel + predict + publish)
 PYTHONPATH=src python -m mondial.pipelines.markets_intel
 # Routine B (ingest results + re-backfill)
 PYTHONPATH=src python -m mondial.pipelines.results

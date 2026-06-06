@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="The Monkey">
+  <circle cx="64" cy="64" r="62" fill="#3a2a1c"/>
+  <circle cx="26" cy="58" r="15" fill="#7a5638"/><circle cx="26" cy="58" r="7" fill="#caa06a"/>
+  <circle cx="102" cy="58" r="15" fill="#7a5638"/><circle cx="102" cy="58" r="7" fill="#caa06a"/>
+  <circle cx="64" cy="62" r="40" fill="#8a6240"/>
+  <ellipse cx="64" cy="76" rx="30" ry="25" fill="#d8b483"/>
+  <circle cx="52" cy="58" r="10" fill="#fff"/><circle cx="76" cy="58" r="10" fill="#fff"/>
+  <circle cx="54" cy="60" r="5" fill="#2a1c10"/><circle cx="78" cy="60" r="5" fill="#2a1c10"/>
+  <ellipse cx="58" cy="79" rx="2.6" ry="3.6" fill="#8a6240"/>
+  <ellipse cx="70" cy="79" rx="2.6" ry="3.6" fill="#8a6240"/>
+  <path d="M47 88 Q64 103 81 88" stroke="#5a3c24" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <path d="M64 22 q-7 -9 2 -13 q5 9 -2 13" fill="#5a3c24"/>
+</svg>

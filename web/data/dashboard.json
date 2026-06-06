@@ -1,0 +1,757 @@
+{
+  "meta": {
+    "generated_at": "2026-06-06T14:38:03.667620Z",
+    "kickoff_utc": "2026-06-11T19:00:00Z",
+    "next_scrape_utc": "2026-06-07T14:00:00Z"
+  },
+  "matches": [
+    {
+      "date": "2026-06-11",
+      "stage": "group",
+      "home": "Mexico",
+      "away": "South Africa",
+      "home_code": "mx",
+      "away_code": "za",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.737,
+        "draw": 0.179,
+        "away": 0.085
+      },
+      "winner_odds": {
+        "home": 1.4,
+        "draw": 4.0,
+        "away": 7.0,
+        "true": [
+          0.645,
+          0.226,
+          0.129
+        ]
+      },
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-11",
+      "stage": "group",
+      "home": "South Korea",
+      "away": "Czech Republic",
+      "home_code": "kr",
+      "away_code": "cz",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.482,
+        "draw": 0.285,
+        "away": 0.233
+      },
+      "winner_odds": {
+        "home": 2.55,
+        "draw": 3.0,
+        "away": 2.65,
+        "true": [
+          0.356,
+          0.302,
+          0.342
+        ]
+      },
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-12",
+      "stage": "group",
+      "home": "Canada",
+      "away": "Bosnia and Herzegovina",
+      "home_code": "ca",
+      "away_code": "ba",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.753,
+        "draw": 0.167,
+        "away": 0.08
+      },
+      "winner_odds": {
+        "home": 1.75,
+        "draw": 3.35,
+        "away": 4.2,
+        "true": [
+          0.516,
+          0.269,
+          0.215
+        ]
+      },
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-12",
+      "stage": "group",
+      "home": "United States",
+      "away": "Paraguay",
+      "home_code": "us",
+      "away_code": "py",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.514,
+        "draw": 0.259,
+        "away": 0.227
+      },
+      "winner_odds": {
+        "home": 1.9,
+        "draw": 3.2,
+        "away": 3.65,
+        "true": [
+          0.473,
+          0.281,
+          0.246
+        ]
+      },
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-13",
+      "stage": "group",
+      "home": "Qatar",
+      "away": "Switzerland",
+      "home_code": "qa",
+      "away_code": "ch",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.127,
+        "draw": 0.216,
+        "away": 0.657
+      },
+      "winner_odds": {
+        "home": 10.5,
+        "draw": 5.4,
+        "away": 1.2,
+        "true": [
+          0.086,
+          0.166,
+          0.748
+        ]
+      },
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-13",
+      "stage": "group",
+      "home": "Brazil",
+      "away": "Morocco",
+      "home_code": "br",
+      "away_code": "ma",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.431,
+        "draw": 0.375,
+        "away": 0.195
+      },
+      "winner_odds": {
+        "home": 1.55,
+        "draw": 3.65,
+        "away": 5.2,
+        "true": [
+          0.58,
+          0.247,
+          0.173
+        ]
+      },
+      "model_pick": "D"
+    },
+    {
+      "date": "2026-06-13",
+      "stage": "group",
+      "home": "Haiti",
+      "away": "Scotland",
+      "home_code": "ht",
+      "away_code": "gb-sct",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.215,
+        "draw": 0.287,
+        "away": 0.499
+      },
+      "winner_odds": {
+        "home": 5.8,
+        "draw": 4.0,
+        "away": 1.45,
+        "true": [
+          0.155,
+          0.225,
+          0.62
+        ]
+      },
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-13",
+      "stage": "group",
+      "home": "Australia",
+      "away": "Turkey",
+      "home_code": "au",
+      "away_code": "tr",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.476,
+        "draw": 0.282,
+        "away": 0.241
+      },
+      "winner_odds": {
+        "home": 4.3,
+        "draw": 3.4,
+        "away": 1.75,
+        "true": [
+          0.212,
+          0.268,
+          0.52
+        ]
+      },
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-14",
+      "stage": "group",
+      "home": "Germany",
+      "away": "Curaçao",
+      "home_code": "de",
+      "away_code": "cw",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.841,
+        "draw": 0.117,
+        "away": 0.042
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-14",
+      "stage": "group",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "home_code": "ci",
+      "away_code": "ec",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.159,
+        "draw": 0.279,
+        "away": 0.562
+      },
+      "winner_odds": {
+        "home": 3.4,
+        "draw": 2.8,
+        "away": 2.2,
+        "true": [
+          0.266,
+          0.323,
+          0.411
+        ]
+      },
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-14",
+      "stage": "group",
+      "home": "Netherlands",
+      "away": "Japan",
+      "home_code": "nl",
+      "away_code": "jp",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.368,
+        "draw": 0.258,
+        "away": 0.374
+      },
+      "winner_odds": {
+        "home": 1.9,
+        "draw": 3.4,
+        "away": 3.4,
+        "true": [
+          0.472,
+          0.264,
+          0.264
+        ]
+      },
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-14",
+      "stage": "group",
+      "home": "Sweden",
+      "away": "Tunisia",
+      "home_code": "se",
+      "away_code": "tn",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.316,
+        "draw": 0.334,
+        "away": 0.35
+      },
+      "winner_odds": {
+        "home": 1.85,
+        "draw": 3.2,
+        "away": 3.9,
+        "true": [
+          0.487,
+          0.282,
+          0.231
+        ]
+      },
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-15",
+      "stage": "group",
+      "home": "Belgium",
+      "away": "Egypt",
+      "home_code": "be",
+      "away_code": "eg",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.449,
+        "draw": 0.305,
+        "away": 0.246
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-15",
+      "stage": "group",
+      "home": "Iran",
+      "away": "New Zealand",
+      "home_code": "ir",
+      "away_code": "nz",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.522,
+        "draw": 0.326,
+        "away": 0.152
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-15",
+      "stage": "group",
+      "home": "Spain",
+      "away": "Cape Verde",
+      "home_code": "es",
+      "away_code": "cv",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.878,
+        "draw": 0.098,
+        "away": 0.024
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-15",
+      "stage": "group",
+      "home": "Saudi Arabia",
+      "away": "Uruguay",
+      "home_code": "sa",
+      "away_code": "uy",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.074,
+        "draw": 0.196,
+        "away": 0.73
+      },
+      "winner_odds": null,
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-16",
+      "stage": "group",
+      "home": "France",
+      "away": "Senegal",
+      "home_code": "fr",
+      "away_code": "sn",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.493,
+        "draw": 0.298,
+        "away": 0.209
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-16",
+      "stage": "group",
+      "home": "Iraq",
+      "away": "Norway",
+      "home_code": "iq",
+      "away_code": "no",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.188,
+        "draw": 0.286,
+        "away": 0.526
+      },
+      "winner_odds": null,
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-16",
+      "stage": "group",
+      "home": "Argentina",
+      "away": "Algeria",
+      "home_code": "ar",
+      "away_code": "dz",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.755,
+        "draw": 0.174,
+        "away": 0.072
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-16",
+      "stage": "group",
+      "home": "Austria",
+      "away": "Jordan",
+      "home_code": "at",
+      "away_code": "jo",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.534,
+        "draw": 0.275,
+        "away": 0.191
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-17",
+      "stage": "group",
+      "home": "Portugal",
+      "away": "DR Congo",
+      "home_code": "pt",
+      "away_code": "cd",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.692,
+        "draw": 0.211,
+        "away": 0.097
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-17",
+      "stage": "group",
+      "home": "Uzbekistan",
+      "away": "Colombia",
+      "home_code": "uz",
+      "away_code": "co",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.106,
+        "draw": 0.253,
+        "away": 0.641
+      },
+      "winner_odds": null,
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-17",
+      "stage": "group",
+      "home": "England",
+      "away": "Croatia",
+      "home_code": "gb-eng",
+      "away_code": "hr",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.488,
+        "draw": 0.304,
+        "away": 0.208
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-17",
+      "stage": "group",
+      "home": "Ghana",
+      "away": "Panama",
+      "home_code": "gh",
+      "away_code": "pa",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.246,
+        "draw": 0.305,
+        "away": 0.449
+      },
+      "winner_odds": null,
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-18",
+      "stage": "group",
+      "home": "Czech Republic",
+      "away": "South Africa",
+      "home_code": "cz",
+      "away_code": "za",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.445,
+        "draw": 0.298,
+        "away": 0.257
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-18",
+      "stage": "group",
+      "home": "Mexico",
+      "away": "South Korea",
+      "home_code": "mx",
+      "away_code": "kr",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.509,
+        "draw": 0.264,
+        "away": 0.227
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-18",
+      "stage": "group",
+      "home": "Switzerland",
+      "away": "Bosnia and Herzegovina",
+      "home_code": "ch",
+      "away_code": "ba",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.662,
+        "draw": 0.218,
+        "away": 0.12
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-18",
+      "stage": "group",
+      "home": "Canada",
+      "away": "Qatar",
+      "home_code": "ca",
+      "away_code": "qa",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.75,
+        "draw": 0.166,
+        "away": 0.084
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    },
+    {
+      "date": "2026-06-19",
+      "stage": "group",
+      "home": "Scotland",
+      "away": "Morocco",
+      "home_code": "gb-sct",
+      "away_code": "ma",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.107,
+        "draw": 0.302,
+        "away": 0.591
+      },
+      "winner_odds": null,
+      "model_pick": "A"
+    },
+    {
+      "date": "2026-06-19",
+      "stage": "group",
+      "home": "Brazil",
+      "away": "Haiti",
+      "home_code": "br",
+      "away_code": "ht",
+      "venue": null,
+      "status": "scheduled",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.901,
+        "draw": 0.081,
+        "away": 0.018
+      },
+      "winner_odds": null,
+      "model_pick": "H"
+    }
+  ],
+  "leaderboard": [
+    {
+      "player": "model_full",
+      "n_bets": 10,
+      "n_settled": 0,
+      "wins": 0,
+      "hit_rate": null,
+      "staked": 100.0,
+      "returned": 0.0,
+      "profit": 0.0,
+      "roi": null,
+      "best_bet": null
+    },
+    {
+      "player": "model_fundamental",
+      "n_bets": 10,
+      "n_settled": 0,
+      "wins": 0,
+      "hit_rate": null,
+      "staked": 100.0,
+      "returned": 0.0,
+      "profit": 0.0,
+      "roi": null,
+      "best_bet": null
+    },
+    {
+      "player": "safe",
+      "n_bets": 10,
+      "n_settled": 0,
+      "wins": 0,
+      "hit_rate": null,
+      "staked": 100.0,
+      "returned": 0.0,
+      "profit": 0.0,
+      "roi": null,
+      "best_bet": null
+    },
+    {
+      "player": "tide",
+      "n_bets": 10,
+      "n_settled": 0,
+      "wins": 0,
+      "hit_rate": null,
+      "staked": 100.0,
+      "returned": 0.0,
+      "profit": 0.0,
+      "roi": null,
+      "best_bet": null
+    },
+    {
+      "player": "risk",
+      "n_bets": 10,
+      "n_settled": 0,
+      "wins": 0,
+      "hit_rate": null,
+      "staked": 100.0,
+      "returned": 0.0,
+      "profit": 0.0,
+      "roi": null,
+      "best_bet": null
+    },
+    {
+      "player": "monkey",
+      "n_bets": 10,
+      "n_settled": 0,
+      "wins": 0,
+      "hit_rate": null,
+      "staked": 100.0,
+      "returned": 0.0,
+      "profit": 0.0,
+      "roi": null,
+      "best_bet": null
+    }
+  ],
+  "bankroll": {
+    "n": 0,
+    "labels": [],
+    "series": {}
+  }
+}

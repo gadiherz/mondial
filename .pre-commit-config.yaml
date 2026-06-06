@@ -1,0 +1,7 @@
+# Local secret-scan guard. One-time setup:  pip install pre-commit && pre-commit install
+# Then every `git commit` is blocked if a key-like string is staged.
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks

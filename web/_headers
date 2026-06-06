@@ -1,0 +1,21 @@
+# Cloudflare Pages security headers. Applied to every response.
+# The site is fully self-contained (no external CSS/JS/fonts/images/trackers), so
+# the CSP can lock everything to 'self' with NO 'unsafe-inline' / 'unsafe-eval'.
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# The live data feed must never be cached, so the site updates after every match.
+/data/*
+  Cache-Control: no-cache, must-revalidate
+
+# If you later enable Cloudflare Web Analytics with its beacon, replace the CSP
+# line above with one that also allows its script + beacon, e.g. add to the policy:
+#   script-src 'self' https://static.cloudflareinsights.com;
+#   connect-src 'self' https://cloudflareinsights.com

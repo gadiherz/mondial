@@ -1,0 +1,27 @@
+name: gitleaks
+
+# Backstop secret scan. Runs on every push/PR; fails the build if any key-like
+# string is committed. .env is gitignored, so this catches accidental hardcoding.
+on:
+  push:
+  pull_request:
+  workflow_dispatch: {}
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # scan full history, not just the latest commit
+
+      - name: Install gitleaks (latest release)
+        run: |
+          VERSION=$(curl -fsSL https://api.github.com/repos/gitleaks/gitleaks/releases/latest \
+            | grep -m1 tag_name | cut -d '"' -f4 | sed 's/^v//')
+          curl -fsSL "https://github.com/gitleaks/gitleaks/releases/download/v${VERSION}/gitleaks_${VERSION}_linux_x64.tar.gz" \
+            | tar -xz gitleaks
+          sudo mv gitleaks /usr/local/bin/
+
+      - name: Scan
+        run: gitleaks detect --source . --config .gitleaks.toml --no-banner --redact --verbose

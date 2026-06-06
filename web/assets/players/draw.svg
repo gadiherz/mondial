@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Mr. Draw">
+  <circle cx="64" cy="64" r="62" fill="#1d2b4a"/>
+  <circle cx="64" cy="66" r="32" fill="#cdd7ee"/>
+  <path d="M46 62 Q52 56 58 62" stroke="#2a3b63" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M70 62 Q76 56 82 62" stroke="#2a3b63" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M54 80 H74" stroke="#2a3b63" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M16 96 q12 -10 24 0 t24 0 t24 0 t24 0" stroke="#4f8cff" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <text x="64" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#4f8cff" text-anchor="middle">X</text>
+</svg>

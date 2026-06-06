@@ -1,0 +1,5 @@
+# Normalise line endings: text as LF in the repo (correct for Linux CI runners).
+* text=auto eol=lf
+*.db binary
+*.docx binary
+*.xlsx binary

@@ -1,0 +1,17 @@
+# gitleaks config — backstop against committing secrets. .env is gitignored;
+# this catches accidental hardcoding of a key into any tracked file.
+title = "mondial secret scan"
+
+[extend]
+useDefault = true   # all of gitleaks' built-in rules (Groq gsk_, generic high-entropy, etc.)
+
+# Targeted rule: any of THIS project's key env-vars assigned a literal value.
+# Empty assignments (.env.example: KEY=) and GitHub Actions ${{ secrets.* }} do
+# not match (they aren't a 16+ char [A-Za-z0-9_-] literal).
+[[rules]]
+id = "mondial-hardcoded-key"
+description = "Hardcoded project API key/token"
+regex = '''(?i)\b(odds_api_key|intel_api_key|groq_api_key|guardian_api_key|worldnews_api_key|apifootball_api_key|football_data_token)\b\s*[:=]\s*['"]?[A-Za-z0-9_\-]{16,}['"]?'''
+
+[[rules.allowlist]]
+paths = ['''\.env\.example$''']

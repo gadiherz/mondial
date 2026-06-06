@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="The Banker">
+  <circle cx="64" cy="64" r="62" fill="#3b2f10"/>
+  <circle cx="64" cy="70" r="31" fill="#e8c9a0"/>
+  <circle cx="55" cy="70" r="4.5" fill="#3a2c0c"/><circle cx="73" cy="70" r="4.5" fill="#3a2c0c"/>
+  <path d="M55 84 Q64 88 73 84" stroke="#9a6b3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M30 56 a34 30 0 0 1 68 0 Z" fill="#f6c659"/>
+  <rect x="24" y="52" width="80" height="8" rx="4" fill="#caa23a"/>
+  <circle cx="64" cy="38" r="6" fill="#caa23a"/>
+  <text x="64" y="118" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#f6c659" text-anchor="middle">1</text>
+</svg>

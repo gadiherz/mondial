@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="The Purist">
+  <circle cx="64" cy="64" r="62" fill="#11343b"/>
+  <circle cx="64" cy="72" r="31" fill="#e8c9a0"/>
+  <circle cx="55" cy="70" r="9.5" fill="#fff" stroke="#0c2429" stroke-width="2.5"/>
+  <circle cx="73" cy="70" r="9.5" fill="#fff" stroke="#0c2429" stroke-width="2.5"/>
+  <circle cx="55" cy="70" r="3.5" fill="#243b41"/><circle cx="73" cy="70" r="3.5" fill="#243b41"/>
+  <line x1="64" y1="70" x2="64" y2="70" stroke="#0c2429" stroke-width="2.5"/>
+  <path d="M56 86 Q64 93 72 86" stroke="#9a6b3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M64 28 L102 44 L64 60 L26 44 Z" fill="#0fb39a"/>
+  <rect x="60" y="50" width="8" height="11" fill="#0fb39a"/>
+  <line x1="98" y1="45" x2="98" y2="66" stroke="#f6c659" stroke-width="2.5"/>
+  <circle cx="98" cy="68" r="3.5" fill="#f6c659"/>
+</svg>

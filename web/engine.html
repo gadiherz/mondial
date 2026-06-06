@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Mondial 2026 — how the model works</title>
+  <meta name="description" content="A plain-language, visual tour of the prediction engine, end to end." />
+  <link rel="stylesheet" href="css/style.css?v=5" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">⚽</span>
+        <span class="brand-col"><span class="brand-text">Mondial<span class="accent">2026</span></span><span class="brand-by">by Gadi Herzlinger</span></span></a>
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Matches</a>
+        <a class="nav-link" href="dashboard.html">Players</a>
+        <a class="nav-link active" href="engine.html">How it works</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero"><div class="wrap"><h1 class="hero-title">How the model thinks</h1></div></section>
+
+  <main class="wrap main">
+    <p class="lead">No crystal ball — just statistics. For every match the engine works out the chance
+      of a home win, a draw, or an away win, then checks whether the bookmaker’s price is generous
+      enough to bet. Here’s the whole pipeline, with a picture for each idea.</p>
+
+    <div class="pipeline" aria-hidden="true">
+      <div class="pipe-chip"><span class="ico">⚖️</span><span class="lbl">Rate</span></div>
+      <div class="pipe-chip"><span class="ico">🔥</span><span class="lbl">Momentum</span></div>
+      <div class="pipe-chip"><span class="ico">📰</span><span class="lbl">News</span></div>
+      <div class="pipe-chip"><span class="ico">🎯</span><span class="lbl">Forecast</span></div>
+      <div class="pipe-chip"><span class="ico">✅</span><span class="lbl">Honesty</span></div>
+      <div class="pipe-chip"><span class="ico">💰</span><span class="lbl">Value</span></div>
+      <div class="pipe-chip"><span class="ico">🎮</span><span class="lbl">Players</span></div>
+      <div class="pipe-chip"><span class="ico">🧪</span><span class="lbl">Proof</span></div>
+    </div>
+
+    <div class="steps">
+      <!-- 1. RATING: Elo + Glicko-2 confidence band -->
+      <div class="step"><div class="step-num ico">⚖️</div><div>
+        <span class="tag">STEP 1 · TEAM STRENGTH — Elo &amp; Glicko-2</span>
+        <h3>Rate every team</h3>
+        <p>Every side has a strength rating. Beat a strong team and it climbs; lose and it dips — that’s the
+          classic <strong>Elo</strong> idea. <strong>Glicko-2</strong> adds a second number: how <em>sure</em>
+          we are. A team that plays often has a tight band; a rusty or unknown side has a wide one.</p>
+        <div class="diagram">
+          <svg viewBox="0 0 520 180" role="img" aria-label="Rating dot with a confidence band on a weak–strong scale">
+            <text x="6" y="22" fill="#93a2c4" font-size="12">Plays a lot — we’re sure</text>
+            <line x1="40" y1="52" x2="500" y2="52" stroke="#25324f" stroke-width="2"/>
+            <rect x="416" y="44" width="44" height="16" rx="8" fill="#28e0a8" opacity=".25"/>
+            <circle cx="438" cy="52" r="8" fill="#28e0a8"/>
+            <text x="438" y="36" fill="#e9eefb" font-size="13" font-weight="700" text-anchor="middle">Brazil ▲</text>
+            <text x="6" y="108" fill="#93a2c4" font-size="12">New or rusty — unsure</text>
+            <line x1="40" y1="138" x2="500" y2="138" stroke="#25324f" stroke-width="2"/>
+            <rect x="250" y="130" width="130" height="16" rx="8" fill="#f6c659" opacity=".22"/>
+            <circle cx="315" cy="138" r="8" fill="#f6c659"/>
+            <text x="315" y="122" fill="#e9eefb" font-size="13" font-weight="700" text-anchor="middle">Newcomer</text>
+            <text x="40" y="170" fill="#93a2c4" font-size="11">← weaker</text>
+            <text x="500" y="170" fill="#93a2c4" font-size="11" text-anchor="end">stronger →</text>
+          </svg>
+          <p class="fig-cap">The dot is the rating; the band is our uncertainty. Results slide the dot along
+            the scale; playing regularly shrinks the band.</p>
+        </div>
+        <p class="cite"><b>References</b> — Elo, A. E. (1978). <em>The Rating of Chessplayers, Past and Present.</em>
+          Arco Pub.<br>Glickman, M. E. (2012). <em>Example of the Glicko-2 System.</em> Boston University, pp. 1–6.</p>
+      </div></div>
+
+      <!-- 2. MOMENTUM flow -->
+      <div class="step"><div class="step-num ico">🔥</div><div>
+        <span class="tag">STEP 2 · MOMENTUM</span>
+        <h3>Catch who’s hot</h3>
+        <p>We also track the <em>surprise</em> in recent results — a team winning games it “shouldn’t”. That
+          form signal flags a side riding a wave before its rating fully catches up.</p>
+        <div class="diagram">
+          <svg viewBox="0 0 540 96" role="img" aria-label="Expected loss, actual win, momentum rises">
+            <defs><marker id="m2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#5b6b8c"/></marker></defs>
+            <g font-size="12" fill="#c4cfe6" text-anchor="middle">
+              <rect x="8" y="22" width="150" height="52" rx="10" fill="#16203a" stroke="#25324f"/>
+              <text x="83" y="44">Model expected</text><text x="83" y="62" fill="#93a2c4">a narrow loss</text>
+              <line x1="160" y1="48" x2="194" y2="48" stroke="#5b6b8c" stroke-width="2" marker-end="url(#m2)"/>
+              <rect x="196" y="22" width="150" height="52" rx="10" fill="#16203a" stroke="#25324f"/>
+              <text x="271" y="44">Actual result</text><text x="271" y="62" fill="#28e0a8" font-weight="700">Won 2–0</text>
+              <line x1="348" y1="48" x2="382" y2="48" stroke="#5b6b8c" stroke-width="2" marker-end="url(#m2)"/>
+              <rect x="384" y="22" width="150" height="52" rx="10" fill="#16203a" stroke="#28e0a8"/>
+              <text x="459" y="44">Beating expectations</text><text x="459" y="62" fill="#28e0a8" font-weight="700">momentum ▲</text>
+            </g>
+          </svg>
+        </div>
+      </div></div>
+
+      <!-- 3. SEMANTIC ANALYSIS pipeline -->
+      <div class="step"><div class="step-num ico">📰</div><div>
+        <span class="tag">STEP 3 · THE NEWS — semantic analysis</span>
+        <h3>Read the headlines</h3>
+        <p>An AI scans recent, reputable coverage and pulls out what matters — key injuries, a settled or
+          sacked coach, morale, a player in red-hot form. <strong>Semantic analysis</strong> means it judges
+          by <em>meaning</em>, not keywords, and only for the players on that team. The verdict nudges the rating.</p>
+        <div class="diagram">
+          <svg viewBox="0 0 560 104" role="img" aria-label="News to filter to AI scoring to rating nudge">
+            <defs><marker id="m3" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#5b6b8c"/></marker></defs>
+            <g font-size="12" fill="#c4cfe6" text-anchor="middle">
+              <rect x="6" y="26" width="122" height="54" rx="10" fill="#16203a" stroke="#25324f"/>
+              <text x="67" y="50" font-size="16">📰</text><text x="67" y="70" fill="#93a2c4">match news</text>
+              <line x1="130" y1="53" x2="142" y2="53" stroke="#5b6b8c" stroke-width="2" marker-end="url(#m3)"/>
+              <rect x="144" y="26" width="122" height="54" rx="10" fill="#16203a" stroke="#25324f"/>
+              <text x="205" y="48">Filter</text><text x="205" y="66" fill="#93a2c4">this team only</text>
+              <line x1="268" y1="53" x2="280" y2="53" stroke="#5b6b8c" stroke-width="2" marker-end="url(#m3)"/>
+              <rect x="282" y="26" width="122" height="54" rx="10" fill="#16203a" stroke="#25324f"/>
+              <text x="343" y="48">AI scores</text><text x="343" y="66" fill="#93a2c4">injury · form · mood</text>
+              <line x1="406" y1="53" x2="418" y2="53" stroke="#5b6b8c" stroke-width="2" marker-end="url(#m3)"/>
+              <rect x="420" y="26" width="122" height="54" rx="10" fill="#16203a" stroke="#28e0a8"/>
+              <text x="481" y="48">Nudge</text><text x="481" y="66" fill="#28e0a8" font-weight="700">rating ±</text>
+            </g>
+          </svg>
+        </div>
+      </div></div>
+
+      <!-- 4. FORECAST: scoreline grid -> H/D/A -->
+      <div class="step"><div class="step-num ico">🎯</div><div>
+        <span class="tag">STEP 4 · THE FORECAST — Dixon-Coles</span>
+        <h3>Turn strength into a scoreline</h3>
+        <p>From the two strengths the engine estimates how many goals each side should score, then works out
+          the chance of <em>every</em> scoreline. Add up the green squares for a home win, the diagonal for a
+          draw, the blue for an away win — three numbers that always total 100%.</p>
+        <div class="diagram">
+          <svg viewBox="0 0 540 210" role="img" aria-label="Scoreline grid split into home, draw and away zones, becoming three bars">
+            <defs><marker id="m4" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#5b6b8c"/></marker></defs>
+            <!-- zones -->
+            <polygon points="60,170 60,20 210,20" fill="#28e0a8" opacity=".16"/>
+            <polygon points="60,170 210,170 210,20" fill="#4f8cff" opacity=".16"/>
+            <line x1="60" y1="170" x2="210" y2="20" stroke="#8a97b8" stroke-width="12" opacity=".4" stroke-linecap="round"/>
+            <!-- grid -->
+            <g stroke="#25324f" stroke-width="1">
+              <line x1="90" y1="20" x2="90" y2="170"/><line x1="120" y1="20" x2="120" y2="170"/>
+              <line x1="150" y1="20" x2="150" y2="170"/><line x1="180" y1="20" x2="180" y2="170"/>
+              <line x1="60" y1="50" x2="210" y2="50"/><line x1="60" y1="80" x2="210" y2="80"/>
+              <line x1="60" y1="110" x2="210" y2="110"/><line x1="60" y1="140" x2="210" y2="140"/>
+              <rect x="60" y="20" width="150" height="150" fill="none" stroke="#25324f" stroke-width="1.5"/>
+            </g>
+            <text x="86" y="40" fill="#28e0a8" font-size="12" font-weight="700">HOME</text>
+            <text x="150" y="100" fill="#cdd7ee" font-size="12" font-weight="700" transform="rotate(-45 150 100)">DRAW</text>
+            <text x="150" y="158" fill="#4f8cff" font-size="12" font-weight="700">AWAY</text>
+            <text x="34" y="98" fill="#93a2c4" font-size="11" transform="rotate(-90 34 98)">Home goals →</text>
+            <text x="135" y="195" fill="#93a2c4" font-size="11" text-anchor="middle">Away goals →</text>
+            <line x1="216" y1="95" x2="252" y2="95" stroke="#5b6b8c" stroke-width="2" marker-end="url(#m4)"/>
+            <!-- bars -->
+            <g font-size="12" font-weight="700">
+              <text x="270" y="52" fill="#93a2c4">1</text>
+              <rect x="286" y="40" width="180" height="16" rx="6" fill="#0e1626"/>
+              <rect x="286" y="40" width="112" height="16" rx="6" fill="#28e0a8"/>
+              <text x="404" y="53" fill="#28e0a8">62%</text>
+              <text x="270" y="92" fill="#93a2c4">X</text>
+              <rect x="286" y="80" width="180" height="16" rx="6" fill="#0e1626"/>
+              <rect x="286" y="80" width="40" height="16" rx="6" fill="#8a97b8"/>
+              <text x="332" y="93" fill="#cdd7ee">22%</text>
+              <text x="270" y="132" fill="#93a2c4">2</text>
+              <rect x="286" y="120" width="180" height="16" rx="6" fill="#0e1626"/>
+              <rect x="286" y="120" width="29" height="16" rx="6" fill="#4f8cff"/>
+              <text x="321" y="133" fill="#4f8cff">16%</text>
+            </g>
+          </svg>
+          <p class="fig-cap">Every scoreline gets a probability; summing the three zones gives Home / Draw / Away.</p>
+        </div>
+        <p class="cite"><b>Reference</b> — Dixon, M. J. &amp; Coles, S. G. (1997). Modelling association football
+          scores and inefficiencies in the football betting market. <em>Journal of the Royal Statistical Society:
+          Series C (Applied Statistics)</em>, 46(2), 265–280.</p>
+      </div></div>
+
+      <!-- 5. CALIBRATION reliability plot -->
+      <div class="step"><div class="step-num ico">✅</div><div>
+        <span class="tag">STEP 5 · HONESTY CHECK — calibration</span>
+        <h3>Make the percentages mean what they say</h3>
+        <p>We replay past matches and bend the model’s confidence until “predicted” lines up with “what really
+          happened”. After the fix, a 70% really means about 70%.</p>
+        <div class="diagram">
+          <svg viewBox="0 0 360 210" role="img" aria-label="Reliability plot: a raw curve corrected onto the perfect diagonal">
+            <line x1="50" y1="180" x2="320" y2="180" stroke="#25324f" stroke-width="1.5"/>
+            <line x1="50" y1="180" x2="50" y2="20" stroke="#25324f" stroke-width="1.5"/>
+            <line x1="50" y1="180" x2="320" y2="20" stroke="#8a97b8" stroke-width="1.5" stroke-dasharray="5 5"/>
+            <path d="M50,180 C130,165 230,150 320,110" fill="none" stroke="#ff6b6b" stroke-width="2.5"/>
+            <path d="M50,180 L320,20" fill="none" stroke="#28e0a8" stroke-width="2.5"/>
+            <text x="185" y="202" fill="#93a2c4" font-size="11" text-anchor="middle">model says % →</text>
+            <text x="20" y="100" fill="#93a2c4" font-size="11" transform="rotate(-90 20 100)">really happens % →</text>
+            <g font-size="11">
+              <rect x="225" y="34" width="14" height="3" fill="#ff6b6b"/><text x="245" y="39" fill="#c4cfe6">before</text>
+              <rect x="225" y="52" width="14" height="3" fill="#28e0a8"/><text x="245" y="57" fill="#c4cfe6">after fix</text>
+            </g>
+          </svg>
+          <p class="fig-cap">The dashed line is “perfect”. The red curve is over-confident; calibration pulls it
+            onto the line.</p>
+        </div>
+        <p class="cite"><b>Reference</b> — Guo, C., Pleiss, G., Sun, Y. &amp; Weinberger, K. Q. (2017). On
+          Calibration of Modern Neural Networks. <em>Proceedings of the 34th International Conference on Machine
+          Learning (ICML)</em>. arXiv:1706.04599.</p>
+      </div></div>
+
+      <!-- 6. VALUE compare -->
+      <div class="step"><div class="step-num ico">💰</div><div>
+        <span class="tag">STEP 6 · FINDING VALUE</span>
+        <h3>Compare to the price</h3>
+        <p>A good bet isn’t the most likely result — it’s one the odds <em>under-rate</em>. The model backs an
+          outcome only when its own % clearly beats the bookmaker’s implied %, so it won’t chase long-shots on noise.</p>
+        <div class="demo compare">
+          <div class="crow"><span>Model says (Home)</span><b class="accent">62%</b></div>
+          <div class="crow"><span>Odds imply (Home)</span><b>55%</b></div>
+          <div class="cverdict">→ a 7-point edge — worth backing ✅</div>
+        </div>
+      </div></div>
+
+      <!-- 7. PLAYERS -->
+      <div class="step"><div class="step-num ico">🎮</div><div>
+        <span class="tag">STEP 7 · THE GAME</span>
+        <h3>Six players bet it out</h3>
+        <p>To see if the model is any good, six characters each stake the same on every match in their own way —
+          the model, the favourite-backer, the draw-merchant, the long-shot daredevil, and a random monkey.
+          <a class="accent" href="dashboard.html">See the leaderboard →</a></p>
+        <div class="avatars">
+          <img src="assets/players/quant.svg" width="52" height="52" alt="The Quant" loading="lazy" />
+          <img src="assets/players/purist.svg" width="52" height="52" alt="The Purist" loading="lazy" />
+          <img src="assets/players/banker.svg" width="52" height="52" alt="The Banker" loading="lazy" />
+          <img src="assets/players/draw.svg" width="52" height="52" alt="Mr. Draw" loading="lazy" />
+          <img src="assets/players/risk.svg" width="52" height="52" alt="The Daredevil" loading="lazy" />
+          <img src="assets/players/monkey.svg" width="52" height="52" alt="The Monkey" loading="lazy" />
+        </div>
+      </div></div>
+
+      <!-- 8. PROOF -->
+      <div class="step"><div class="step-num ico">🧪</div><div>
+        <span class="tag">STEP 8 · PROOF</span>
+        <h3>Test it on the past</h3>
+        <p>Before trusting it, we replay whole past tournaments as if they hadn’t happened yet. The model beats a
+          no-skill baseline every time — real predictive skill, not luck. <span class="tag">(backtesting)</span></p>
+      </div></div>
+    </div>
+  </main>
+
+  <section class="disclaimer">
+    <div class="wrap">
+      <h4>Disclaimer</h4>
+      <p>This site is a personal, non-commercial statistics experiment — a nerdy game, nothing more.
+        It does <strong>not</strong> encourage, promote or support gambling in any form, and nothing here is
+        betting, financial or any other advice. All odds, “players” and predictions are illustrative model
+        output. The author accepts <strong>no responsibility or liability whatsoever</strong> for any decision,
+        action, loss or damage arising from this site or its data. If gambling is affecting you or someone
+        you know, please seek professional help.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="muted">Engine: Glicko-2 · Dixon-Coles · temperature calibration · value picker.</span>
+      <span class="muted">A statistics game — not betting advice.</span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+[project]
+name = "mondial"
+version = "0.1.0"
+description = "2026 FIFA World Cup match outcome predictor"
+authors = [{ name = "Gadi Herzlinger" }]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scipy>=1.13",
+    "scikit-learn>=1.4",
+    "requests>=2.32",
+    "pydantic>=2.6",
+    "pydantic-settings>=2.2",
+    "python-dotenv>=1.0",
+    "streamlit>=1.34",
+    "plotly>=5.20",
+    "tenacity>=8.2",
+]
+
+[project.optional-dependencies]
+# Deep team-intel (Track B stage 2a): local semantic distillation. Sources are
+# now APIs (Guardian/World News/API-Football via plain requests), so no scraper
+# deps -- only the local embedder. Optional so the lean Streamlit deploy needn't
+# carry it; the cron installs `.[intel]`. Absent -> degrades to the headline path.
+intel = [
+    "fastembed>=0.4",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mondial"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

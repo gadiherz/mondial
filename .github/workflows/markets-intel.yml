@@ -1,0 +1,47 @@
+name: markets-intel
+
+# Routine A: odds + qualitative intel + predictions, once per play-day.
+# Set the cron to land ~2h before the day's earliest kickoff (UTC). It scopes
+# intel to teams playing within intel_play_window_days, so on non-play-days it
+# refreshes odds + re-predicts cheaply and the intel step simply no-ops.
+on:
+  schedule:
+    - cron: "0 14 * * *"   # 14:00 UTC daily — tune to ~2h pre-kickoff
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mondial-data        # never let A and B commit-race
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .[intel]
+      - name: Markets & Intel
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          INTEL_API_KEY: ${{ secrets.INTEL_API_KEY }}
+          GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
+          WORLDNEWS_API_KEY: ${{ secrets.WORLDNEWS_API_KEY }}
+          APIFOOTBALL_API_KEY: ${{ secrets.APIFOOTBALL_API_KEY }}
+        run: python -m mondial.pipelines.markets_intel
+      - name: Commit refreshed data
+        run: |
+          git config user.name "mondial-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git pull --rebase --autostash || true
+          git add data/mondial.db data/snapshot.json web/data/dashboard.json
+          git diff --cached --quiet || git commit -m "markets-intel $(date -u +%FT%TZ)"
+          git push

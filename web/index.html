@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Mondial 2026 — model predictions</title>
+  <meta name="description" content="Model predictions and the six-player betting sim for the 2026 World Cup." />
+  <link rel="stylesheet" href="css/style.css?v=4" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">⚽</span>
+        <span class="brand-col"><span class="brand-text">Mondial<span class="accent">2026</span></span><span class="brand-by">by Gadi Herzlinger</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link active" href="index.html">Matches</a>
+        <a class="nav-link" href="dashboard.html">Players</a>
+        <a class="nav-link" href="engine.html">How it works</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="hero-title">The model picks every match.<br />Six players bet it out.</h1>
+      <p class="hero-sub">Predictions from a Dixon–Coles + Glicko-2 engine, valued against the Winner line.</p>
+      <div class="countdowns" id="countdowns">
+        <div class="cd-card" id="cd-kickoff">
+          <div class="cd-label">Kickoff in</div>
+          <div class="cd-clock" data-clock="kickoff">—</div>
+          <div class="cd-foot">Mexico · June 11</div>
+        </div>
+        <div class="cd-card" id="cd-scrape">
+          <div class="cd-label">Next model update in</div>
+          <div class="cd-clock" data-clock="scrape">—</div>
+          <div class="cd-foot">odds + value recalculated daily</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap main">
+    <div class="section-head">
+      <h2 id="matches-title">Matches</h2>
+      <div class="tabs" id="tabs" role="tablist">
+        <button class="tab active" data-tab="upcoming" role="tab">Upcoming</button>
+        <button class="tab" data-tab="results" role="tab">Results</button>
+      </div>
+    </div>
+
+    <div id="matches" class="matches" aria-live="polite">
+      <p class="empty">Loading matches…</p>
+    </div>
+  </main>
+
+  <section class="disclaimer">
+    <div class="wrap">
+      <h4>Disclaimer</h4>
+      <p>This site is a personal, non-commercial statistics experiment — a nerdy game, nothing more.
+        It does <strong>not</strong> encourage, promote or support gambling in any form, and nothing here is
+        betting, financial or any other advice. All odds, “players” and predictions are illustrative model
+        output. The author accepts <strong>no responsibility or liability whatsoever</strong> for any decision,
+        action, loss or damage arising from this site or its data. If gambling is affecting you or someone
+        you know, please seek professional help.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span id="updated" class="muted">—</span>
+      <span class="muted">A statistics game — not betting advice.</span>
+    </div>
+  </footer>
+
+  <script src="js/app.js?v=2" defer></script>
+</body>
+</html>

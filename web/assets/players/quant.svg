@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="The Quant">
+  <circle cx="64" cy="64" r="62" fill="#0f3b30"/>
+  <line x1="64" y1="20" x2="64" y2="34" stroke="#28e0a8" stroke-width="4"/>
+  <circle cx="64" cy="17" r="5.5" fill="#28e0a8"/>
+  <rect x="33" y="34" width="62" height="56" rx="14" fill="#1b5a49"/>
+  <rect x="41" y="46" width="46" height="22" rx="11" fill="#0c241d"/>
+  <circle cx="55" cy="57" r="6.5" fill="#28e0a8"/><circle cx="73" cy="57" r="6.5" fill="#28e0a8"/>
+  <rect x="49" y="76" width="30" height="6" rx="3" fill="#0c241d"/>
+  <rect x="24" y="56" width="9" height="16" rx="3" fill="#1b5a49"/>
+  <rect x="95" y="56" width="9" height="16" rx="3" fill="#1b5a49"/>
+  <text x="64" y="115" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#28e0a8" text-anchor="middle">%</text>
+</svg>

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-06T17:01:14.514733Z",
+    "generated_at": "2026-06-06T17:47:09.068192Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-07T14:00:00Z"
   },
@@ -17,9 +17,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.737,
-        "draw": 0.179,
-        "away": 0.085
+        "home": 0.745,
+        "draw": 0.174,
+        "away": 0.081
       },
       "winner_odds": {
         "home": 1.4,
@@ -45,9 +45,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.482,
-        "draw": 0.285,
-        "away": 0.233
+        "home": 0.468,
+        "draw": 0.288,
+        "away": 0.244
       },
       "winner_odds": {
         "home": 2.55,
@@ -73,9 +73,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.753,
-        "draw": 0.167,
-        "away": 0.08
+        "home": 0.75,
+        "draw": 0.169,
+        "away": 0.081
       },
       "winner_odds": {
         "home": 1.75,
@@ -101,9 +101,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.514,
-        "draw": 0.259,
-        "away": 0.227
+        "home": 0.502,
+        "draw": 0.262,
+        "away": 0.236
       },
       "winner_odds": {
         "home": 1.9,
@@ -185,9 +185,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.215,
-        "draw": 0.287,
-        "away": 0.499
+        "home": 0.209,
+        "draw": 0.285,
+        "away": 0.507
       },
       "winner_odds": {
         "home": 5.8,
@@ -260,9 +260,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.159,
-        "draw": 0.279,
-        "away": 0.562
+        "home": 0.156,
+        "draw": 0.277,
+        "away": 0.567
       },
       "winner_odds": {
         "home": 3.4,
@@ -288,9 +288,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.368,
+        "home": 0.349,
         "draw": 0.258,
-        "away": 0.374
+        "away": 0.394
       },
       "winner_odds": {
         "home": 1.9,
@@ -318,7 +318,7 @@
       "model": {
         "home": 0.316,
         "draw": 0.334,
-        "away": 0.35
+        "away": 0.351
       },
       "winner_odds": {
         "home": 1.85,
@@ -363,9 +363,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.522,
-        "draw": 0.326,
-        "away": 0.152
+        "home": 0.526,
+        "draw": 0.324,
+        "away": 0.15
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -382,9 +382,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.878,
-        "draw": 0.098,
-        "away": 0.024
+        "home": 0.87,
+        "draw": 0.104,
+        "away": 0.026
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -401,9 +401,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.074,
-        "draw": 0.196,
-        "away": 0.73
+        "home": 0.077,
+        "draw": 0.2,
+        "away": 0.723
       },
       "winner_odds": null,
       "model_pick": "A"
@@ -420,9 +420,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.493,
-        "draw": 0.298,
-        "away": 0.209
+        "home": 0.476,
+        "draw": 0.303,
+        "away": 0.221
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -440,7 +440,7 @@
       "score": null,
       "model": {
         "home": 0.188,
-        "draw": 0.286,
+        "draw": 0.285,
         "away": 0.526
       },
       "winner_odds": null,
@@ -458,9 +458,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.755,
-        "draw": 0.174,
-        "away": 0.072
+        "home": 0.759,
+        "draw": 0.171,
+        "away": 0.07
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -496,9 +496,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.692,
-        "draw": 0.211,
-        "away": 0.097
+        "home": 0.7,
+        "draw": 0.207,
+        "away": 0.094
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -553,9 +553,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.246,
-        "draw": 0.305,
-        "away": 0.449
+        "home": 0.242,
+        "draw": 0.304,
+        "away": 0.454
       },
       "winner_odds": null,
       "model_pick": "A"
@@ -572,9 +572,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.445,
-        "draw": 0.298,
-        "away": 0.257
+        "home": 0.46,
+        "draw": 0.295,
+        "away": 0.245
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -591,9 +591,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.509,
-        "draw": 0.264,
-        "away": 0.227
+        "home": 0.518,
+        "draw": 0.261,
+        "away": 0.22
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -629,9 +629,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.75,
-        "draw": 0.166,
-        "away": 0.084
+        "home": 0.747,
+        "draw": 0.167,
+        "away": 0.086
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -667,9 +667,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.901,
-        "draw": 0.081,
-        "away": 0.018
+        "home": 0.904,
+        "draw": 0.078,
+        "away": 0.017
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -678,11 +678,11 @@
   "leaderboard": [
     {
       "player": "model_full",
-      "n_bets": 10,
+      "n_bets": 11,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 100.0,
+      "staked": 110.0,
       "returned": 0.0,
       "profit": 0.0,
       "roi": null,
@@ -690,11 +690,11 @@
     },
     {
       "player": "model_fundamental",
-      "n_bets": 10,
+      "n_bets": 11,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 100.0,
+      "staked": 110.0,
       "returned": 0.0,
       "profit": 0.0,
       "roi": null,
@@ -702,11 +702,11 @@
     },
     {
       "player": "safe",
-      "n_bets": 10,
+      "n_bets": 11,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 100.0,
+      "staked": 110.0,
       "returned": 0.0,
       "profit": 0.0,
       "roi": null,
@@ -714,11 +714,11 @@
     },
     {
       "player": "tide",
-      "n_bets": 10,
+      "n_bets": 11,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 100.0,
+      "staked": 110.0,
       "returned": 0.0,
       "profit": 0.0,
       "roi": null,
@@ -726,11 +726,11 @@
     },
     {
       "player": "risk",
-      "n_bets": 10,
+      "n_bets": 11,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 100.0,
+      "staked": 110.0,
       "returned": 0.0,
       "profit": 0.0,
       "roi": null,
@@ -738,11 +738,11 @@
     },
     {
       "player": "monkey",
-      "n_bets": 10,
+      "n_bets": 11,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 100.0,
+      "staked": 110.0,
       "returned": 0.0,
       "profit": 0.0,
       "roi": null,

@@ -15,10 +15,9 @@ jobs:
         with:
           fetch-depth: 0   # scan full history, not just the latest commit
 
-      - name: Install gitleaks (latest release)
+      - name: Install gitleaks (pinned for deploy-and-forget stability)
         run: |
-          VERSION=$(curl -fsSL https://api.github.com/repos/gitleaks/gitleaks/releases/latest \
-            | grep -m1 tag_name | cut -d '"' -f4 | sed 's/^v//')
+          VERSION=8.30.1
           curl -fsSL "https://github.com/gitleaks/gitleaks/releases/download/v${VERSION}/gitleaks_${VERSION}_linux_x64.tar.gz" \
             | tar -xz gitleaks
           sudo mv gitleaks /usr/local/bin/

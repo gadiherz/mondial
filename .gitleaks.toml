@@ -13,5 +13,5 @@ id = "mondial-hardcoded-key"
 description = "Hardcoded project API key/token"
 regex = '''(?i)\b(odds_api_key|intel_api_key|groq_api_key|guardian_api_key|worldnews_api_key|apifootball_api_key|football_data_token)\b\s*[:=]\s*['"]?[A-Za-z0-9_\-]{16,}['"]?'''
 
-[[rules.allowlist]]
+[rules.allowlist]
 paths = ['''\.env\.example$''']

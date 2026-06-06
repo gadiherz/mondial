@@ -6,11 +6,12 @@ SETTLES them once results are final, persisting every bet so the dashboard can s
 running bankroll / ROI per player. See ARCHITECTURE.md §7.
 
 Flow (the two routines call these):
-  place_bets   (Routine A, pre-kickoff): for each scheduled match that has BOTH a
-               model prediction and Winner odds, each of the six players stakes a
-               flat 10 NIS on its pick at the Winner price. Idempotent -- one bet
-               per (player, match), locked at first placement (INSERT OR IGNORE on
-               the unique index), so re-runs never duplicate or re-price.
+  place_bets   (Routine A, each match day): for each scheduled, priced match whose
+               MATCH DAY has arrived (date <= today), the six players each stake a
+               flat 10 NIS on its pick at the Winner price. The match-day guard
+               means "invested" tracks match-days, never how often the routine runs
+               (no pre-betting future matches). Idempotent -- one bet per (player,
+               match), locked at first placement (INSERT OR IGNORE).
   settle_bets  (Routine B, post-match): for every still-open bet whose match is now
                final, compute the payout (stake*odd if the pick hit, else 0).
 
@@ -26,6 +27,7 @@ from __future__ import annotations
 import logging
 import random
 import sqlite3
+from datetime import UTC, datetime
 
 from mondial.config import MIN_PROB_EDGE
 from mondial.eval.odds import load_eval_odds
@@ -43,19 +45,25 @@ log = logging.getLogger("betting")
 PLAYERS = ("model_full", "model_fundamental", "safe", "tide", "risk", "monkey")
 
 
-def place_bets(conn: sqlite3.Connection) -> int:
-    """Place the six players' bets on every priced, predicted, scheduled match.
+def place_bets(conn: sqlite3.Connection, *, as_of: str | None = None) -> int:
+    """Place the six players' bets for matches whose MATCH DAY has arrived.
 
-    A match is bet only when it has BOTH a `predictions` row and Winner odds. Each
-    bet is locked at its Winner price at first placement; re-runs are no-ops for
-    already-placed (player, match) pairs. Returns the number of NEW bets written.
+    The guard (this is the key rule): a match is bet only when it is scheduled,
+    priced (has Winner odds), AND its date is on/before `as_of` (default = today,
+    UTC). This ties each player's invested total to MATCH-DAYS, not to how often the
+    predict/intel routine runs: future matches are never pre-bet, so "risked" only
+    grows as match-days arrive (each day a player effectively pays 10 NIS x that
+    day's matches). Each bet is locked at its Winner price at first placement;
+    idempotent per (player, match). Returns the number of NEW bets written.
     """
+    today = as_of or datetime.now(UTC).date().isoformat()
     rows = conn.execute(
         """SELECT pr.match_id, pr.p_home, pr.p_draw, pr.p_away
            FROM predictions pr
            JOIN matches m ON m.match_id = pr.match_id
-           WHERE m.status = 'scheduled'
-           ORDER BY m.date, pr.match_id"""
+           WHERE m.status = 'scheduled' AND m.date <= ?
+           ORDER BY m.date, pr.match_id""",
+        (today,),
     ).fetchall()
 
     placed = priced = 0
@@ -77,8 +85,8 @@ def place_bets(conn: sqlite3.Connection) -> int:
                 (player, r["match_id"], pick, STAKE_NIS, wodds.by_outcome(pick)),
             )
             placed += cur.rowcount
-    log.info("place_bets: %d new bets across %d priced matches (6 players each)",
-             placed, priced)
+    log.info("place_bets: %d new bets across %d priced match-day matches (<= %s)",
+             placed, priced, today)
     return placed
 
 
@@ -131,15 +139,22 @@ def _best_bets(conn: sqlite3.Connection) -> dict[str, dict]:
 
 
 def leaderboard(conn: sqlite3.Connection) -> list[dict]:
-    """Per-player standings. ROI / hit-rate are on SETTLED bets only (open bets have
-    no payout yet); `staked` is total exposure. `best_bet` = most profitable win."""
+    """Per-player standings using the match-day investment model.
+
+    `staked` (invested) = 10 NIS x every bet placed -- and since placement is
+    match-day-guarded (see place_bets), that is exactly "10 x matches whose day has
+    arrived". `returned` = total payout from settled bets. **revenue/profit =
+    returned - staked** (money out vs money back, accruing per match), and
+    **roi = profit / staked**. So a bet placed today but not yet settled counts as
+    paid (in `staked`) with 0 returned until its result lands. hit-rate is over
+    settled bets; `best_bet` = most profitable win.
+    """
     rows = conn.execute(
         """SELECT player_name,
                   COUNT(*)                                        AS n_bets,
                   SUM(settled)                                    AS n_settled,
                   SUM(CASE WHEN settled=1 AND payout>0 THEN 1 ELSE 0 END) AS wins,
                   SUM(stake)                                      AS staked,
-                  SUM(CASE WHEN settled = 1 THEN stake ELSE 0 END) AS settled_stake,
                   SUM(COALESCE(payout, 0.0))                      AS returned
            FROM bets GROUP BY player_name"""
     ).fetchall()
@@ -150,10 +165,15 @@ def leaderboard(conn: sqlite3.Connection) -> list[dict]:
     for name in (*PLAYERS, *(p for p in by_player if p not in PLAYERS)):
         r = by_player.get(name)
         if r is None:
+            # No bets yet (e.g. before any match day) -> show the player at zero,
+            # so the six characters always appear on the dashboard.
+            board.append({"player": name, "n_bets": 0, "n_settled": 0, "wins": 0,
+                          "hit_rate": None, "staked": 0.0, "returned": 0.0,
+                          "profit": 0.0, "roi": None, "best_bet": None})
             continue
-        settled_stake = float(r["settled_stake"] or 0.0)
+        staked = float(r["staked"] or 0.0)            # invested = paid by match-day
         returned = float(r["returned"] or 0.0)
-        profit = returned - settled_stake
+        profit = returned - staked                     # revenue
         n_settled = int(r["n_settled"] or 0)
         wins = int(r["wins"] or 0)
         board.append({
@@ -162,10 +182,10 @@ def leaderboard(conn: sqlite3.Connection) -> list[dict]:
             "n_settled": n_settled,
             "wins": wins,
             "hit_rate": round(wins / n_settled, 4) if n_settled else None,
-            "staked": float(r["staked"] or 0.0),
+            "staked": staked,
             "returned": round(returned, 2),
             "profit": round(profit, 2),
-            "roi": round(profit / settled_stake, 4) if settled_stake else None,
+            "roi": round(profit / staked, 4) if staked else None,
             "best_bet": best.get(name),
         })
     return board

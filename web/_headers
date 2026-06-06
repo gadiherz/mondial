@@ -1,8 +1,9 @@
-# Cloudflare Pages security headers. Applied to every response.
-# The site is fully self-contained (no external CSS/JS/fonts/images/trackers), so
-# the CSP can lock everything to 'self' with NO 'unsafe-inline' / 'unsafe-eval'.
+# Cloudflare security headers. Applied to every response.
+# The site is self-contained (no external CSS/fonts/images), so the CSP locks
+# everything to 'self' with NO 'unsafe-inline' / 'unsafe-eval'. The ONLY external
+# origin allowed is Cloudflare Web Analytics (privacy-first, no cookies).
 /*
-  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self'; connect-src 'self' https://cloudflareinsights.com; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: no-referrer
@@ -15,7 +16,6 @@
 /data/*
   Cache-Control: no-cache, must-revalidate
 
-# If you later enable Cloudflare Web Analytics with its beacon, replace the CSP
-# line above with one that also allows its script + beacon, e.g. add to the policy:
-#   script-src 'self' https://static.cloudflareinsights.com;
-#   connect-src 'self' https://cloudflareinsights.com
+# Cloudflare Web Analytics: the CSP above already allows its beacon
+# (static.cloudflareinsights.com = the script; cloudflareinsights.com = the data
+# POST). If you ever turn analytics off, remove those two origins from the CSP.

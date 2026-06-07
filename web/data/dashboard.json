@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-07T15:19:03.114633Z",
+    "generated_at": "2026-06-07T15:20:04.369301Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-08T14:00:00Z"
   },
@@ -17,9 +17,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.745,
-        "draw": 0.174,
-        "away": 0.081
+        "home": 0.743,
+        "draw": 0.175,
+        "away": 0.082
       },
       "winner_odds": {
         "home": 1.4,
@@ -101,9 +101,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.502,
-        "draw": 0.262,
-        "away": 0.236
+        "home": 0.496,
+        "draw": 0.263,
+        "away": 0.24
       },
       "winner_odds": {
         "home": 1.9,
@@ -129,9 +129,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.127,
-        "draw": 0.216,
-        "away": 0.657
+        "home": 0.129,
+        "draw": 0.217,
+        "away": 0.654
       },
       "winner_odds": {
         "home": 10.5,
@@ -185,9 +185,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.209,
-        "draw": 0.285,
-        "away": 0.507
+        "home": 0.198,
+        "draw": 0.28,
+        "away": 0.522
       },
       "winner_odds": {
         "home": 5.8,
@@ -213,9 +213,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.476,
-        "draw": 0.282,
-        "away": 0.241
+        "home": 0.472,
+        "draw": 0.283,
+        "away": 0.245
       },
       "winner_odds": {
         "home": 4.3,
@@ -241,9 +241,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.841,
-        "draw": 0.117,
-        "away": 0.042
+        "home": 0.831,
+        "draw": 0.123,
+        "away": 0.046
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -316,9 +316,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.316,
+        "home": 0.329,
         "draw": 0.334,
-        "away": 0.351
+        "away": 0.337
       },
       "winner_odds": {
         "home": 1.85,
@@ -344,9 +344,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.449,
-        "draw": 0.305,
-        "away": 0.246
+        "home": 0.466,
+        "draw": 0.301,
+        "away": 0.233
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -363,9 +363,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.526,
-        "draw": 0.324,
-        "away": 0.15
+        "home": 0.53,
+        "draw": 0.322,
+        "away": 0.148
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -382,9 +382,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.87,
-        "draw": 0.104,
-        "away": 0.026
+        "home": 0.88,
+        "draw": 0.097,
+        "away": 0.023
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -458,9 +458,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.759,
-        "draw": 0.171,
-        "away": 0.07
+        "home": 0.755,
+        "draw": 0.173,
+        "away": 0.071
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -496,9 +496,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.7,
-        "draw": 0.207,
-        "away": 0.094
+        "home": 0.693,
+        "draw": 0.21,
+        "away": 0.097
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -534,9 +534,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.488,
-        "draw": 0.304,
-        "away": 0.208
+        "home": 0.48,
+        "draw": 0.306,
+        "away": 0.213
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -553,9 +553,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.242,
+        "home": 0.244,
         "draw": 0.304,
-        "away": 0.454
+        "away": 0.452
       },
       "winner_odds": null,
       "model_pick": "A"
@@ -572,9 +572,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.46,
+        "home": 0.458,
         "draw": 0.295,
-        "away": 0.245
+        "away": 0.247
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -610,9 +610,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.662,
-        "draw": 0.218,
-        "away": 0.12
+        "home": 0.658,
+        "draw": 0.22,
+        "away": 0.122
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -629,9 +629,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.747,
+        "home": 0.748,
         "draw": 0.167,
-        "away": 0.086
+        "away": 0.085
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -648,9 +648,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.107,
-        "draw": 0.302,
-        "away": 0.591
+        "home": 0.113,
+        "draw": 0.309,
+        "away": 0.578
       },
       "winner_odds": null,
       "model_pick": "A"

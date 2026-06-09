@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-09T14:28:45.368955Z",
+    "generated_at": "2026-06-09T16:27:53.252904Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-10T14:00:00Z"
   },
@@ -288,7 +288,7 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.349,
+        "home": 0.348,
         "draw": 0.258,
         "away": 0.394
       },
@@ -382,8 +382,8 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.88,
-        "draw": 0.097,
+        "home": 0.881,
+        "draw": 0.096,
         "away": 0.023
       },
       "winner_odds": null,
@@ -420,9 +420,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.476,
-        "draw": 0.303,
-        "away": 0.221
+        "home": 0.479,
+        "draw": 0.302,
+        "away": 0.219
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -515,9 +515,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.104,
-        "draw": 0.251,
-        "away": 0.645
+        "home": 0.101,
+        "draw": 0.248,
+        "away": 0.651
       },
       "winner_odds": null,
       "model_pick": "A"

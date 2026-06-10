@@ -38,10 +38,4 @@ jobs:
           APIFOOTBALL_API_KEY: ${{ secrets.APIFOOTBALL_API_KEY }}
         run: python -m mondial.pipelines.markets_intel
       - name: Commit refreshed data
-        run: |
-          git config user.name "mondial-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git pull --rebase --autostash || true
-          git add data/mondial.db web/data/dashboard.json
-          git diff --cached --quiet || git commit -m "markets-intel $(date -u +%FT%TZ)"
-          git push
+        run: bash scripts/commit_data.sh markets-intel

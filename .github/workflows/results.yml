@@ -34,10 +34,4 @@ jobs:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python -m mondial.pipelines.results
       - name: Commit refreshed data
-        run: |
-          git config user.name "mondial-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git pull --rebase --autostash || true
-          git add data/mondial.db web/data/dashboard.json
-          git diff --cached --quiet || git commit -m "results $(date -u +%FT%TZ)"
-          git push
+        run: bash scripts/commit_data.sh results

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-11T20:11:05.440037Z",
+    "generated_at": "2026-06-11T23:15:13.051544Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-12T14:00:00Z"
   },
@@ -13,9 +13,12 @@
       "home_code": "mx",
       "away_code": "za",
       "venue": null,
-      "status": "scheduled",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "result": "H",
+      "score": [
+        2,
+        0
+      ],
       "model": {
         "home": 0.745,
         "draw": 0.174,
@@ -679,45 +682,60 @@
     {
       "player": "model_full",
       "n_bets": 2,
-      "n_settled": 0,
-      "wins": 0,
-      "hit_rate": null,
+      "n_settled": 1,
+      "wins": 1,
+      "hit_rate": 1.0,
       "staked": 20.0,
-      "returned": 0.0,
-      "profit": -20.0,
-      "roi": -1.0,
-      "best_bet": null
+      "returned": 14.0,
+      "profit": -6.0,
+      "roi": -0.3,
+      "best_bet": {
+        "match": "Mexico v South Africa",
+        "pick": "Mexico",
+        "odd": 1.4,
+        "profit": 4.0
+      }
     },
     {
       "player": "model_fundamental",
       "n_bets": 2,
-      "n_settled": 0,
-      "wins": 0,
-      "hit_rate": null,
+      "n_settled": 1,
+      "wins": 1,
+      "hit_rate": 1.0,
       "staked": 20.0,
-      "returned": 0.0,
-      "profit": -20.0,
-      "roi": -1.0,
-      "best_bet": null
+      "returned": 14.0,
+      "profit": -6.0,
+      "roi": -0.3,
+      "best_bet": {
+        "match": "Mexico v South Africa",
+        "pick": "Mexico",
+        "odd": 1.4,
+        "profit": 4.0
+      }
     },
     {
       "player": "safe",
       "n_bets": 2,
-      "n_settled": 0,
-      "wins": 0,
-      "hit_rate": null,
+      "n_settled": 1,
+      "wins": 1,
+      "hit_rate": 1.0,
       "staked": 20.0,
-      "returned": 0.0,
-      "profit": -20.0,
-      "roi": -1.0,
-      "best_bet": null
+      "returned": 14.0,
+      "profit": -6.0,
+      "roi": -0.3,
+      "best_bet": {
+        "match": "Mexico v South Africa",
+        "pick": "Mexico",
+        "odd": 1.4,
+        "profit": 4.0
+      }
     },
     {
       "player": "tide",
       "n_bets": 2,
-      "n_settled": 0,
+      "n_settled": 1,
       "wins": 0,
-      "hit_rate": null,
+      "hit_rate": 0.0,
       "staked": 20.0,
       "returned": 0.0,
       "profit": -20.0,
@@ -727,9 +745,9 @@
     {
       "player": "risk",
       "n_bets": 2,
-      "n_settled": 0,
+      "n_settled": 1,
       "wins": 0,
-      "hit_rate": null,
+      "hit_rate": 0.0,
       "staked": 20.0,
       "returned": 0.0,
       "profit": -20.0,
@@ -739,19 +757,45 @@
     {
       "player": "monkey",
       "n_bets": 2,
-      "n_settled": 0,
-      "wins": 0,
-      "hit_rate": null,
+      "n_settled": 1,
+      "wins": 1,
+      "hit_rate": 1.0,
       "staked": 20.0,
-      "returned": 0.0,
-      "profit": -20.0,
-      "roi": -1.0,
-      "best_bet": null
+      "returned": 14.0,
+      "profit": -6.0,
+      "roi": -0.3,
+      "best_bet": {
+        "match": "Mexico v South Africa",
+        "pick": "Mexico",
+        "odd": 1.4,
+        "profit": 4.0
+      }
     }
   ],
   "bankroll": {
-    "n": 0,
-    "labels": [],
-    "series": {}
+    "n": 1,
+    "labels": [
+      "2026-06-11"
+    ],
+    "series": {
+      "model_full": [
+        4.0
+      ],
+      "model_fundamental": [
+        4.0
+      ],
+      "safe": [
+        4.0
+      ],
+      "tide": [
+        -10.0
+      ],
+      "risk": [
+        -10.0
+      ],
+      "monkey": [
+        4.0
+      ]
+    }
   }
 }

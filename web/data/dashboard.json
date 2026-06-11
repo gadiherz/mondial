@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-11T17:33:28.986173Z",
+    "generated_at": "2026-06-11T17:34:38.827807Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-12T14:00:00Z"
   },
@@ -17,9 +17,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.737,
-        "draw": 0.178,
-        "away": 0.084
+        "home": 0.745,
+        "draw": 0.174,
+        "away": 0.081
       },
       "winner_odds": {
         "home": 1.4,
@@ -73,9 +73,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.75,
-        "draw": 0.169,
-        "away": 0.081
+        "home": 0.744,
+        "draw": 0.172,
+        "away": 0.084
       },
       "winner_odds": {
         "home": 1.75,
@@ -101,9 +101,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.496,
-        "draw": 0.263,
-        "away": 0.24
+        "home": 0.487,
+        "draw": 0.265,
+        "away": 0.248
       },
       "winner_odds": {
         "home": 1.9,
@@ -458,9 +458,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.759,
-        "draw": 0.171,
-        "away": 0.07
+        "home": 0.753,
+        "draw": 0.174,
+        "away": 0.072
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -534,9 +534,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.479,
-        "draw": 0.306,
-        "away": 0.214
+        "home": 0.486,
+        "draw": 0.305,
+        "away": 0.21
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -572,9 +572,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.448,
-        "draw": 0.297,
-        "away": 0.255
+        "home": 0.458,
+        "draw": 0.295,
+        "away": 0.247
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -591,9 +591,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.519,
-        "draw": 0.261,
-        "away": 0.22
+        "home": 0.518,
+        "draw": 0.262,
+        "away": 0.221
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -629,9 +629,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.748,
-        "draw": 0.167,
-        "away": 0.085
+        "home": 0.741,
+        "draw": 0.17,
+        "away": 0.089
       },
       "winner_odds": null,
       "model_pick": "H"
@@ -678,74 +678,74 @@
   "leaderboard": [
     {
       "player": "model_full",
-      "n_bets": 0,
+      "n_bets": 2,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 0.0,
+      "staked": 20.0,
       "returned": 0.0,
-      "profit": 0.0,
-      "roi": null,
+      "profit": -20.0,
+      "roi": -1.0,
       "best_bet": null
     },
     {
       "player": "model_fundamental",
-      "n_bets": 0,
+      "n_bets": 2,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 0.0,
+      "staked": 20.0,
       "returned": 0.0,
-      "profit": 0.0,
-      "roi": null,
+      "profit": -20.0,
+      "roi": -1.0,
       "best_bet": null
     },
     {
       "player": "safe",
-      "n_bets": 0,
+      "n_bets": 2,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 0.0,
+      "staked": 20.0,
       "returned": 0.0,
-      "profit": 0.0,
-      "roi": null,
+      "profit": -20.0,
+      "roi": -1.0,
       "best_bet": null
     },
     {
       "player": "tide",
-      "n_bets": 0,
+      "n_bets": 2,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 0.0,
+      "staked": 20.0,
       "returned": 0.0,
-      "profit": 0.0,
-      "roi": null,
+      "profit": -20.0,
+      "roi": -1.0,
       "best_bet": null
     },
     {
       "player": "risk",
-      "n_bets": 0,
+      "n_bets": 2,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 0.0,
+      "staked": 20.0,
       "returned": 0.0,
-      "profit": 0.0,
-      "roi": null,
+      "profit": -20.0,
+      "roi": -1.0,
       "best_bet": null
     },
     {
       "player": "monkey",
-      "n_bets": 0,
+      "n_bets": 2,
       "n_settled": 0,
       "wins": 0,
       "hit_rate": null,
-      "staked": 0.0,
+      "staked": 20.0,
       "returned": 0.0,
-      "profit": 0.0,
-      "roi": null,
+      "profit": -20.0,
+      "roi": -1.0,
       "best_bet": null
     }
   ],

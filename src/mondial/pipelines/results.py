@@ -23,7 +23,9 @@ from mondial.pipelines.daily_run import (
     update_ratings_for_completed,
 )
 from mondial.scrapers.historical_results import HistoricalResultsScraper, _is_nan
-from mondial.scrapers.odds_api import OddsAPIScraper, _norm_index, resolve_match, resolve_team_id
+from mondial.scrapers.odds_api import (
+    OddsAPIScraper, _norm_index, record_kickoff, resolve_match, resolve_team_id,
+)
 
 log = logging.getLogger("results")
 
@@ -88,24 +90,47 @@ def refresh_international_results() -> int:
     return new_finals
 
 
-def _odds_scan_warranted(conn) -> bool:
-    """True iff a WC fixture dated today or yesterday (UTC) is still unfinalized.
+# A match should be over ~FINISH_AFTER_MIN past kickoff (90' + half-time +
+# stoppage, ~5 min margin). We then "keep insisting" every cron tick until the
+# score lands or GIVEUP_AFTER_MIN passes (covers extra time / penalties / late
+# postings; beyond that the daily Jurisoo CSV is the backstop).
+FINISH_AFTER_MIN = 110
+GIVEUP_AFTER_MIN = 8 * 60
 
-    Gates the paid Odds API /scores call so the HOURLY cron only spends quota when
-    a match could plausibly have just finished. The DB stores match dates without a
-    clock time, so we use a 1-day window around 'today' to cover timezone edges.
-    On empty hours (no match day, or the day's slate already final) we skip the API
-    entirely and rely on the free Jurisoo CSV refresh.
+
+def _odds_scan_warranted(conn, now: datetime | None = None) -> bool:
+    """True iff some unfinalized WC fixture is in its post-kickoff results window.
+
+    Event-driven gate for the paid Odds API /scores call: it fires only from
+    ~FINISH_AFTER_MIN after a fixture's real kickoff (captured in kickoff_utc from
+    the odds feed) until the score is in or GIVEUP_AFTER_MIN elapses. So on a
+    match day the scanner polls every cron tick right after each game ends and
+    stops once it's final -- a handful of calls per match, never all day. Fixtures
+    whose kickoff time isn't known yet fall back to a date window so we never miss
+    one. Outside any window we skip the API and rely on the free CSV refresh.
     """
-    today = datetime.now(UTC).date()
-    yday = today - timedelta(days=1)
-    row = conn.execute(
-        """SELECT 1 FROM matches
-           WHERE tournament='WC' AND status='scheduled' AND date IN (?, ?)
-           LIMIT 1""",
-        (yday.isoformat(), today.isoformat()),
-    ).fetchone()
-    return row is not None
+    now = now or datetime.now(UTC)
+    rows = conn.execute(
+        """SELECT kickoff_utc, date FROM matches
+           WHERE tournament='WC' AND status='scheduled'
+             AND date BETWEEN ? AND ?""",
+        ((now.date() - timedelta(days=2)).isoformat(),
+         (now.date() + timedelta(days=1)).isoformat()),
+    ).fetchall()
+    for r in rows:
+        ko = r["kickoff_utc"]
+        if ko:
+            kt = datetime.fromisoformat(ko.replace("Z", "+00:00"))
+            mins = (now - kt).total_seconds() / 60.0
+            if FINISH_AFTER_MIN <= mins <= GIVEUP_AFTER_MIN:
+                return True
+        else:
+            # Kickoff time unknown (odds not scraped yet): coarse fallback so a
+            # result is never missed -- poll if the fixture is dated today/yesterday.
+            if r["date"] in (now.date().isoformat(),
+                             (now.date() - timedelta(days=1)).isoformat()):
+                return True
+    return False
 
 
 def ingest_results() -> int:
@@ -128,7 +153,10 @@ def ingest_results() -> int:
                 continue
             commence = datetime.fromisoformat(ev["commence_time"].replace("Z", "+00:00"))
             m = resolve_match(conn, h_id, a_id, commence)
-            if m is None or m["status"] == "final":
+            if m is None:
+                continue
+            record_kickoff(conn, m["match_id"], commence)  # keep kickoff times fresh
+            if m["status"] == "final":
                 continue
             goals: dict[int, int] = {}
             for s in ev["scores"]:

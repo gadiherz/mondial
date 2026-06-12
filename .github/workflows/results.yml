@@ -1,14 +1,16 @@
 name: results
 
 # Routine B: ingest completed scores, finalize matches, re-run the Glicko/
-# momentum backfill. Light + immutable, so it runs HOURLY for low-latency results.
-# Primary source is the free, key-less Jurisoo CSV (runs every hour). The paid
-# Odds API /scores path is gated inside ingest_results() to fire ONLY when an
-# unfinalized WC fixture is dated today/yesterday, so hourly scanning cannot burn
-# the monthly Odds API quota on empty (overnight / off-day) hours.
+# momentum backfill. Runs every 10 min during WC result hours (UTC) so a finished
+# match is picked up within ~10 min and retried until its score lands. The paid
+# Odds API /scores call is gated in results.ingest_results() to fire ONLY from
+# ~110 min after a fixture's real kickoff until it's final (event-driven), so it
+# costs only a few credits per match -- well under the free 500/month -- not one
+# per tick. The cron is windowed to match hours (not 24/7) to bound GitHub Actions
+# minutes on the private repo; the free Jurisoo CSV refresh runs every tick anyway.
 on:
   schedule:
-    - cron: "0 * * * *"   # hourly
+    - cron: "*/10 16-23,0-6 * * *"   # every 10 min, ~16:00-06:59 UTC (WC result window)
   workflow_dispatch: {}
 
 permissions:

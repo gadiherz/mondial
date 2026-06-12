@@ -102,6 +102,17 @@ def resolve_match(
     )
 
 
+def record_kickoff(conn: sqlite3.Connection, match_id: int, commence: datetime) -> None:
+    """Store a fixture's real kickoff time (UTC ISO) from an Odds API event.
+
+    The DB otherwise holds only the match date; the results scanner needs the
+    actual kickoff to know when a match should have finished. Captured for free
+    from the commence_time already present in every odds/scores event.
+    """
+    conn.execute("UPDATE matches SET kickoff_utc=? WHERE match_id=?",
+                 (commence.astimezone(UTC).isoformat().replace("+00:00", "Z"), match_id))
+
+
 class OddsAPIScraper:
     name = "odds_api"
     rate_limit = RateLimit(requests=500, per_seconds=30 * 24 * 3600)
@@ -185,6 +196,7 @@ class OddsAPIScraper:
                 skipped_match += 1
                 continue
 
+            record_kickoff(conn, m["match_id"], commence)  # capture real kickoff time
             db_home_is_ev_home = m["home_id"] == h_id  # else feed is swapped
 
             for bk in ev.get("bookmakers", []):

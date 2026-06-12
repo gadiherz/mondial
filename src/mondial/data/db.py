@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS matches (
     status TEXT NOT NULL DEFAULT 'scheduled',   -- scheduled | live | final
     stage TEXT,                                 -- knockout stage (R32/R16/QF/SF/3P/F); NULL=group
     bracket_no INTEGER,                          -- WC fixture number 73..104 for knockout slots
+    kickoff_utc TEXT,                            -- ISO kickoff time (from Odds API commence_time)
     UNIQUE(date, home_id, away_id)
 );
 
@@ -171,6 +172,8 @@ def init_db(path: Path = DB_PATH) -> None:
             conn.execute("ALTER TABLE matches ADD COLUMN stage TEXT")
         if "bracket_no" not in mcols:
             conn.execute("ALTER TABLE matches ADD COLUMN bracket_no INTEGER")
+        if "kickoff_utc" not in mcols:
+            conn.execute("ALTER TABLE matches ADD COLUMN kickoff_utc TEXT")
         # One match per knockout bracket slot (idempotent generation). Created here,
         # after the column exists on both fresh and migrated DBs.
         conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_matches_bracket "

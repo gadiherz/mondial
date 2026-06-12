@@ -23,7 +23,12 @@ function el(tag, cls, text) {
   if (text != null) n.textContent = text;
   return n;
 }
-const money = (n) => (n < 0 ? "−₪" : "₪") + Math.abs(n).toFixed(0);
+// Keep the half-shekels: show up to 2 decimals, trimming trailing zeros
+// (₪39.5, ₪14, ₪28.75) so payouts aren't rounded into the wrong number.
+const money = (n) => {
+  const s = Math.abs(n).toFixed(2).replace(/\.?0+$/, "");
+  return (n < 0 ? "−₪" : "₪") + s;
+};
 
 function statBlock(label, value, cls) {
   const s = el("div", "stat");
@@ -53,8 +58,11 @@ function card(row, rank) {
 
   const stats = el("div", "pc-stats");
   stats.appendChild(statBlock("Risked", money(row.staked)));
+  // "Made" = money actually returned (gross), e.g. ₪14 on Mexico + ₪25.5 on
+  // South Korea = ₪39.5 back on ₪20 risked. Coloured by whether that beats the
+  // stake (net up = green). Net profit (returned − staked) is the revenue chart.
   const made = row.n_settled
-    ? statBlock("Made", money(row.profit), row.profit >= 0 ? "pos" : "neg")
+    ? statBlock("Made", money(row.returned), row.profit >= 0 ? "pos" : "neg")
     : statBlock("Made", "—");
   stats.appendChild(made);
   stats.appendChild(statBlock(

@@ -103,6 +103,18 @@ def _matches(conn) -> list[dict]:
                 item["model_pick"] = value_pick(ModelProbs(*p), o, MIN_PROB_EDGE)
             else:
                 item["model_pick"] = OUTCOMES[max(range(3), key=lambda i: p[i])]
+            # Attach the per-match "why this prediction" breakdown when present
+            # (written at predict time; absent for matches predicted before the
+            # feature existed -- the frontend just omits the panel then).
+            bd = conn.execute(
+                "SELECT json FROM match_breakdown WHERE match_id=?",
+                (r["match_id"],)).fetchone()
+            if bd is not None:
+                try:
+                    item["breakdown"] = json.loads(bd["json"])
+                except (ValueError, TypeError):
+                    log.warning("export: bad breakdown JSON for match_id=%s; omitting",
+                                r["match_id"])
         out.append(item)
     return out
 

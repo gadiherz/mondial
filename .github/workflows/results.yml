@@ -1,12 +1,14 @@
 name: results
 
-# Routine B: ingest completed scores (Odds API), finalize matches, re-run the
-# Glicko/momentum backfill. Light + immutable, so it runs frequently during
-# match windows. On non-match hours it fetches scores, finds nothing new, and
-# exits without touching ratings.
+# Routine B: ingest completed scores, finalize matches, re-run the Glicko/
+# momentum backfill. Light + immutable, so it runs HOURLY for low-latency results.
+# Primary source is the free, key-less Jurisoo CSV (runs every hour). The paid
+# Odds API /scores path is gated inside ingest_results() to fire ONLY when an
+# unfinalized WC fixture is dated today/yesterday, so hourly scanning cannot burn
+# the monthly Odds API quota on empty (overnight / off-day) hours.
 on:
   schedule:
-    - cron: "0 */2 * * *"   # every 2 hours
+    - cron: "0 * * * *"   # hourly
   workflow_dispatch: {}
 
 permissions:

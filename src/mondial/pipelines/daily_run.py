@@ -22,6 +22,7 @@ front-end evaluation layer and is intentionally left out here; see eval/.
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import sys
 from datetime import UTC, datetime
@@ -33,9 +34,10 @@ from mondial.eval.odds import devig, load_eval_odds, load_match_odds
 from mondial.eval.simulator import ModelProbs, value_pick
 from mondial.intel.collect import collect_intel
 from mondial.model import features as feat_module
+from mondial.model import glicko
 from mondial.model import ratings as ratings_module
 from mondial.model.calibration import calibrate_hda, load_calibrator
-from mondial.model.dixon_coles import DCParams, predict_match
+from mondial.model.dixon_coles import DCParams, predict_match, predict_match_breakdown
 from mondial.scrapers.odds_api import OddsAPIScraper
 from mondial.scrapers.winner_odds import WinnerOddsScraper
 
@@ -135,6 +137,66 @@ def _intel_status(row) -> dict:
     }
 
 
+def _build_breakdown(conn, params, cal, row, xh, xa, raw_probs, cal_probs, intel_rows) -> dict:
+    """Assemble one match's 'why this prediction' payload (JSON-serialisable).
+
+    Combines the Dixon-Coles decomposition (lambdas, score grid, per-feature
+    contributions) with the Glicko/momentum inputs, the LLM-intel read, and the
+    raw-vs-calibrated probabilities. Computed from the SAME x_home/x_away that
+    produced the stored prediction, so the explanation can never disagree with it.
+    """
+    home_id, away_id, mdate = row["home_id"], row["away_id"], row["date"]
+    neutral = _neutral(row)
+    dc = predict_match_breakdown(
+        params, home_id, away_id, x_home=xh, x_away=xa,
+        neutral=neutral, feature_names=feat_module.feature_names())
+    desc = {s.name: s.description for s in feat_module.SPEC}
+    for f in dc["features"]:
+        f["description"] = desc.get(f["name"], "")
+
+    fs = feat_module.feature_state_breakdown(home_id, away_id, mdate, conn)
+    home_rating = glicko.Rating(fs["home"]["glicko"], fs["home"]["rd"], fs["home"]["vol"])
+    away_rating = glicko.Rating(fs["away"]["glicko"], fs["away"]["rd"], fs["away"]["vol"])
+    home_expected = float(glicko.expected_score(home_rating, away_rating, neutral=neutral))
+
+    def intel_block(team_id: int) -> dict:
+        st = _intel_status(intel_rows.get(team_id))
+        r = intel_rows.get(team_id)
+        dims = summary = None
+        if r is not None:
+            dims = {k: (round(r[k], 3) if r[k] is not None else None) for k in
+                    ("form_outlook", "availability", "coach_stability", "morale", "motivation")}
+            summary = r["summary"]
+        return {"status": st["status"], "composite": st["composite"],
+                "confidence": st["confidence"], "summary": summary, "dims": dims}
+
+    return {
+        **dc,
+        "glicko": {
+            "home": {"rating": round(fs["home"]["glicko"]), "rd": round(fs["home"]["rd"]),
+                     "intel_points": round(fs["home"]["intel_delta"], 1)},
+            "away": {"rating": round(fs["away"]["glicko"]), "rd": round(fs["away"]["rd"]),
+                     "intel_points": round(fs["away"]["intel_delta"], 1)},
+            "home_expected": round(home_expected, 3),
+        },
+        "momentum": {
+            "home": {"resid_ewma": round(fs["home"]["resid_ewma"], 3),
+                     "gd_ewma": round(fs["home"]["gd_ewma"], 2),
+                     "idle_days": round(fs["home"]["idle_days"])},
+            "away": {"resid_ewma": round(fs["away"]["resid_ewma"], 3),
+                     "gd_ewma": round(fs["away"]["gd_ewma"], 2),
+                     "idle_days": round(fs["away"]["idle_days"])},
+        },
+        "intel": {"home": intel_block(home_id), "away": intel_block(away_id)},
+        "calibration": {
+            "temperature": (round(cal.temperature, 4)
+                            if cal is not None and hasattr(cal, "temperature") else None),
+            "raw": [round(p, 4) for p in raw_probs],
+            "calibrated": [round(p, 4) for p in cal_probs],
+        },
+    }
+
+
 @step("predict")
 def predict_upcoming() -> list[dict]:
     """Predict all scheduled matches; persist to `predictions`; return snapshot rows.
@@ -156,7 +218,8 @@ def predict_upcoming() -> list[dict]:
 
     with connect() as conn:
         intel = {r["team_id"]: r for r in conn.execute(
-            "SELECT team_id, composite, confidence FROM team_intel")}
+            "SELECT team_id, composite, confidence, summary, form_outlook, "
+            "availability, coach_stability, morale, motivation FROM team_intel")}
         if not intel:
             log.warning("predict: no team_intel rows -- EVERY prediction uses "
                         "ratings only (run `scripts/fetch_intel.py`).")
@@ -190,6 +253,7 @@ def predict_upcoming() -> list[dict]:
                 log.warning("predict: skipping %s v %s -- team %s not in fit",
                             r["home"], r["away"], e)
                 continue
+            raw_probs = (p_h, p_d, p_a)  # pre-calibration, for the breakdown panel
             if cal is not None:
                 p_h, p_d, p_a = calibrate_hda(cal, p_h, p_d, p_a)
 
@@ -201,6 +265,22 @@ def predict_upcoming() -> list[dict]:
                        p_away=excluded.p_away, predicted_at=excluded.predicted_at""",
                 (r["match_id"], p_h, p_d, p_a, predicted_at),
             )
+
+            # Persist the per-match explanation alongside the prediction. Failure-
+            # isolated: a breakdown error must never lose the prediction itself.
+            try:
+                bd = _build_breakdown(conn, params, cal, r, xh, xa,
+                                      raw_probs, (p_h, p_d, p_a), intel)
+                conn.execute(
+                    """INSERT INTO match_breakdown (match_id, json, computed_at)
+                       VALUES (?, ?, ?)
+                       ON CONFLICT(match_id) DO UPDATE SET
+                           json=excluded.json, computed_at=excluded.computed_at""",
+                    (r["match_id"], json.dumps(bd), predicted_at),
+                )
+            except Exception as e:  # noqa: BLE001
+                log.warning("predict: breakdown skipped for %s v %s (%s)",
+                            r["home"], r["away"], e)
 
             row = {
                 "match_id": r["match_id"], "date": r["date"],

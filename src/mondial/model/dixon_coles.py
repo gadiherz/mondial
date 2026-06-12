@@ -282,9 +282,113 @@ def predict_match(
     xa = np.zeros(k) if x_away is None else np.asarray(x_away, dtype=float)
     if xh.shape != (k,) or xa.shape != (k,):
         raise ValueError(f"feature vectors must have shape ({k},)")
-    h = 0.0 if neutral else params.home_adv
-    log_lh = params.mu + params.attack[home_id] + params.defence[away_id] + h + xh @ params.feature_weights
-    log_la = params.mu + params.attack[away_id] + params.defence[home_id] + xa @ params.feature_weights
+    log_lh, log_la = _log_lambdas(params, home_id, away_id, xh, xa, neutral)
     lam_h = float(np.exp(log_lh))
     lam_a = float(np.exp(log_la))
     return match_probs(lam_h, lam_a, params.rho)
+
+
+def _log_lambdas(
+    params: DCParams, home_id: int, away_id: int,
+    xh: np.ndarray, xa: np.ndarray, neutral: bool,
+) -> tuple[float, float]:
+    """Log expected-goal rates for both sides (the additive DC linear predictor).
+
+    Single source of truth for the lambda computation shared by predict_match and
+    predict_match_breakdown, so the explanatory breakdown can never drift from the
+    probabilities actually predicted.
+    """
+    h = 0.0 if neutral else params.home_adv
+    log_lh = params.mu + params.attack[home_id] + params.defence[away_id] + h + float(xh @ params.feature_weights)
+    log_la = params.mu + params.attack[away_id] + params.defence[home_id] + float(xa @ params.feature_weights)
+    return log_lh, log_la
+
+
+def predict_match_breakdown(
+    params: DCParams,
+    home_id: int,
+    away_id: int,
+    x_home: np.ndarray | None = None,
+    x_away: np.ndarray | None = None,
+    *,
+    neutral: bool = True,
+    feature_names: list[str] | None = None,
+    top_scores: int = 6,
+    max_goals: int = 10,
+) -> dict:
+    """Decompose one match's prediction into its additive Dixon-Coles ingredients.
+
+    Returns the same lambdas / probabilities as predict_match (it shares
+    _log_lambdas), plus the per-term decomposition of each side's log-lambda
+    (base rate, attack, opponent defence, home advantage, feature adjustment),
+    the per-feature contributions, the most likely scorelines, and the RAW
+    (pre-calibration) 1X2 probabilities. Everything is JSON-serialisable so the
+    pipeline can persist it for the site's per-match "why this prediction" panel.
+    """
+    k = len(params.feature_weights)
+    xh = np.zeros(k) if x_home is None else np.asarray(x_home, dtype=float)
+    xa = np.zeros(k) if x_away is None else np.asarray(x_away, dtype=float)
+    if xh.shape != (k,) or xa.shape != (k,):
+        raise ValueError(f"feature vectors must have shape ({k},)")
+    names = feature_names if feature_names is not None else [f"f{i}" for i in range(k)]
+    if len(names) != k:
+        raise ValueError(f"feature_names has {len(names)} entries but model has {k} weights")
+
+    w = params.feature_weights
+    contrib_home = xh * w
+    contrib_away = xa * w
+    h_adv = 0.0 if neutral else params.home_adv
+    comp_home = {
+        "base": float(params.mu),
+        "attack": float(params.attack[home_id]),
+        "opp_defence": float(params.defence[away_id]),
+        "home_adv": float(h_adv),
+        "features": float(contrib_home.sum()),
+    }
+    comp_away = {
+        "base": float(params.mu),
+        "attack": float(params.attack[away_id]),
+        "opp_defence": float(params.defence[home_id]),
+        "home_adv": 0.0,
+        "features": float(contrib_away.sum()),
+    }
+    log_lh, log_la = _log_lambdas(params, home_id, away_id, xh, xa, neutral)
+    lam_h = float(np.exp(log_lh))
+    lam_a = float(np.exp(log_la))
+    p_h, p_d, p_a = match_probs(lam_h, lam_a, params.rho)
+
+    # Rebuild the score grid (same math as match_probs) to surface likely scores.
+    h_pmf = poisson.pmf(np.arange(max_goals + 1), lam_h)
+    a_pmf = poisson.pmf(np.arange(max_goals + 1), lam_a)
+    grid = np.outer(h_pmf, a_pmf)
+    for x in (0, 1):
+        for y in (0, 1):
+            grid[x, y] *= tau(x, y, lam_h, lam_a, params.rho)
+    grid /= grid.sum()
+    cells = [(i, j, float(grid[i, j]))
+             for i in range(max_goals + 1) for j in range(max_goals + 1)]
+    cells.sort(key=lambda c: c[2], reverse=True)
+    scorelines = [{"h": i, "a": j, "p": round(p, 4)} for i, j, p in cells[:top_scores]]
+
+    features = [
+        {
+            "name": names[i],
+            "weight": float(w[i]),
+            "x_home": float(xh[i]),
+            "x_away": float(xa[i]),
+            "contrib_home": float(contrib_home[i]),
+            "contrib_away": float(contrib_away[i]),
+        }
+        for i in range(k)
+    ]
+
+    return {
+        "neutral": bool(neutral),
+        "rho": float(params.rho),
+        "lambda": {"home": round(lam_h, 3), "away": round(lam_a, 3)},
+        "log_lambda": {"home": float(log_lh), "away": float(log_la)},
+        "components": {"home": comp_home, "away": comp_away},
+        "features": features,
+        "scorelines": scorelines,
+        "raw_probs": {"home": round(p_h, 4), "draw": round(p_d, 4), "away": round(p_a, 4)},
+    }

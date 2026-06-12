@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import logging
 import sys
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 
 from mondial.data.db import connect, init_db
 from mondial.pipelines.daily_run import (
@@ -88,8 +88,33 @@ def refresh_international_results() -> int:
     return new_finals
 
 
+def _odds_scan_warranted(conn) -> bool:
+    """True iff a WC fixture dated today or yesterday (UTC) is still unfinalized.
+
+    Gates the paid Odds API /scores call so the HOURLY cron only spends quota when
+    a match could plausibly have just finished. The DB stores match dates without a
+    clock time, so we use a 1-day window around 'today' to cover timezone edges.
+    On empty hours (no match day, or the day's slate already final) we skip the API
+    entirely and rely on the free Jurisoo CSV refresh.
+    """
+    today = datetime.now(UTC).date()
+    yday = today - timedelta(days=1)
+    row = conn.execute(
+        """SELECT 1 FROM matches
+           WHERE tournament='WC' AND status='scheduled' AND date IN (?, ?)
+           LIMIT 1""",
+        (yday.isoformat(), today.isoformat()),
+    ).fetchone()
+    return row is not None
+
+
 def ingest_results() -> int:
     """Finalize scheduled matches that have completed scores. Returns count."""
+    with connect() as conn:
+        if not _odds_scan_warranted(conn):
+            log.info("results: no unfinalized WC fixture dated today/yesterday; "
+                     "skipping paid Odds API /scores call (quota saver).")
+            return 0
     events = OddsAPIScraper().fetch_scores()
     finalized = 0
     with connect() as conn:

@@ -11,6 +11,7 @@ from mondial.model.dixon_coles import (
     match_probs,
     neg_log_likelihood,
     predict_match,
+    predict_match_breakdown,
     tau,
 )
 
@@ -142,3 +143,30 @@ def test_predict_match_uses_features():
     p_no = predict_match(params, 1, 2, x_home=np.array([0.0]), x_away=np.array([0.0]))
     p_pos = predict_match(params, 1, 2, x_home=np.array([1.0]), x_away=np.array([-1.0]))
     assert p_pos[0] > p_no[0]  # positive home feature -> more home wins
+
+
+def test_breakdown_probs_match_predict_match():
+    """The explanation must never drift from the prediction: predict_match_breakdown
+    reports exactly the probabilities predict_match returns (shared _log_lambdas)."""
+    matches = _toy_matches()
+    X = np.zeros((len(matches), 1))
+    params = fit(matches, X, X, l2=0.0)
+    params.feature_weights[:] = 0.5
+    xh, xa = np.array([0.7]), np.array([-0.7])
+    for neutral in (True, False):
+        p = predict_match(params, 1, 2, x_home=xh, x_away=xa, neutral=neutral)
+        bd = predict_match_breakdown(params, 1, 2, x_home=xh, x_away=xa,
+                                     neutral=neutral, feature_names=["f0"])
+        assert bd["raw_probs"]["home"] == round(p[0], 4)
+        assert bd["raw_probs"]["draw"] == round(p[1], 4)
+        assert bd["raw_probs"]["away"] == round(p[2], 4)
+        # Decomposed log-lambda terms must sum back to the reported log-lambda.
+        ch = bd["components"]["home"]
+        assert math.isclose(sum(ch.values()), bd["log_lambda"]["home"], rel_tol=1e-9)
+
+
+def test_breakdown_rejects_bad_feature_names():
+    params = fit(_toy_matches(), np.zeros((6, 1)), np.zeros((6, 1)), l2=0.0)
+    with pytest.raises(ValueError, match="feature_names"):
+        predict_match_breakdown(params, 1, 2, x_home=np.array([0.0]),
+                                x_away=np.array([0.0]), feature_names=["a", "b"])

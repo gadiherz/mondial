@@ -71,6 +71,17 @@ CREATE TABLE IF NOT EXISTS predictions (
     predicted_at TEXT NOT NULL
 );
 
+-- Per-match explanation of a prediction: a JSON blob holding the Dixon-Coles
+-- decomposition (lambdas, score grid, per-feature contributions), the Glicko/
+-- momentum inputs, the LLM-intel read, and raw-vs-calibrated probabilities.
+-- Written at predict time (so it matches the stored `predictions` row exactly)
+-- and surfaced read-only on the site's per-match "why this prediction" panel.
+CREATE TABLE IF NOT EXISTS match_breakdown (
+    match_id INTEGER PRIMARY KEY REFERENCES matches(match_id),
+    json TEXT NOT NULL,
+    computed_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS bets (
     bet_id INTEGER PRIMARY KEY AUTOINCREMENT,
     player_name TEXT NOT NULL,

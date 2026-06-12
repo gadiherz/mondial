@@ -171,6 +171,61 @@ def _intel_glicko_delta(conn: sqlite3.Connection, team_id: int) -> float:
     return float(row["composite"]) * settings.intel_glicko_points
 
 
+def _gather_state(
+    home_id: int, away_id: int, match_date: str, conn: sqlite3.Connection,
+) -> tuple[np.ndarray, dict]:
+    """Read both teams' latest `team_state`, assemble x_home, and return the raw
+    per-team inputs alongside. Single source of truth shared by
+    build_feature_vector (which needs only x) and feature_state_breakdown (which
+    needs the raw quantities for the site's prediction-explanation panel).
+
+    Raises LookupError -- loudly, never a silent zero-feature fallback -- if
+    either team has no team_state row.
+    """
+    rows = {
+        r["team_id"]: r
+        for r in conn.execute(
+            """SELECT team_id, glicko, rd, vol, resid_ewma, gd_ewma, last_match_date
+               FROM team_state WHERE team_id IN (?, ?)""",
+            (home_id, away_id),
+        ).fetchall()
+    }
+    missing = [tid for tid in (home_id, away_id) if tid not in rows]
+    if missing:
+        raise LookupError(
+            f"team_state missing for team_id(s) {missing}; run "
+            f"`python -m mondial.pipelines.train --bootstrap` to populate."
+        )
+
+    h, a = rows[home_id], rows[away_id]
+    home_idle = _idle_days(match_date, h["last_match_date"])
+    away_idle = _idle_days(match_date, a["last_match_date"])
+    # Track B: nudge each team's effective rating by its LLM-intel composite,
+    # so it flows through the fitted glicko_diff weight.
+    home_delta = _intel_glicko_delta(conn, home_id)
+    away_delta = _intel_glicko_delta(conn, away_id)
+    x_home = _home_vector(
+        h["glicko"] + home_delta, a["glicko"] + away_delta,
+        h["rd"], a["rd"],
+        h["resid_ewma"], a["resid_ewma"],
+        h["gd_ewma"], a["gd_ewma"],
+        home_idle, away_idle,
+    )
+    # Raw, pre-nudge quantities (intel reported separately as its own delta) so a
+    # breakdown can show the base rating AND the intel adjustment distinctly.
+    info = {
+        "home": {"glicko": float(h["glicko"]), "rd": float(h["rd"]),
+                 "vol": float(h["vol"]), "resid_ewma": float(h["resid_ewma"]),
+                 "gd_ewma": float(h["gd_ewma"]), "idle_days": float(home_idle),
+                 "intel_delta": float(home_delta)},
+        "away": {"glicko": float(a["glicko"]), "rd": float(a["rd"]),
+                 "vol": float(a["vol"]), "resid_ewma": float(a["resid_ewma"]),
+                 "gd_ewma": float(a["gd_ewma"]), "idle_days": float(away_idle),
+                 "intel_delta": float(away_delta)},
+    }
+    return x_home, info
+
+
 def build_feature_vector(
     home_id: int, away_id: int, match_date: str, conn: sqlite3.Connection,
 ) -> tuple[np.ndarray, np.ndarray]:
@@ -184,32 +239,20 @@ def build_feature_vector(
     either team has no team_state row (e.g. backfill not run, or a brand-new
     side). Callers decide how to handle (skip the fixture, etc.).
     """
-    rows = {
-        r["team_id"]: r
-        for r in conn.execute(
-            """SELECT team_id, glicko, rd, resid_ewma, gd_ewma, last_match_date
-               FROM team_state WHERE team_id IN (?, ?)""",
-            (home_id, away_id),
-        ).fetchall()
-    }
-    missing = [tid for tid in (home_id, away_id) if tid not in rows]
-    if missing:
-        raise LookupError(
-            f"team_state missing for team_id(s) {missing}; run "
-            f"`python -m mondial.pipelines.train --bootstrap` to populate."
-        )
-
-    h, a = rows[home_id], rows[away_id]
-    # Track B: nudge each team's effective rating by its LLM-intel composite,
-    # so it flows through the fitted glicko_diff weight.
-    home_glicko = h["glicko"] + _intel_glicko_delta(conn, home_id)
-    away_glicko = a["glicko"] + _intel_glicko_delta(conn, away_id)
-    x_home = _home_vector(
-        home_glicko, away_glicko,
-        h["rd"], a["rd"],
-        h["resid_ewma"], a["resid_ewma"],
-        h["gd_ewma"], a["gd_ewma"],
-        _idle_days(match_date, h["last_match_date"]),
-        _idle_days(match_date, a["last_match_date"]),
-    )
+    x_home, _ = _gather_state(home_id, away_id, match_date, conn)
     return x_home, x_home * SIGN
+
+
+def feature_state_breakdown(
+    home_id: int, away_id: int, match_date: str, conn: sqlite3.Connection,
+) -> dict:
+    """Raw per-team rating/momentum/intel inputs behind a prediction.
+
+    Returns {"home": {...}, "away": {...}} where each dict carries the base
+    Glicko rating, rating deviation (rd), volatility, residual- and goal-diff
+    EWMA momentum, idle days, and the LLM-intel rating delta (points). Used to
+    populate the site's "why this prediction" panel; reads the same team_state
+    snapshot build_feature_vector uses, so the two never disagree.
+    """
+    _, info = _gather_state(home_id, away_id, match_date, conn)
+    return info

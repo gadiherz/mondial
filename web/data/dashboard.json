@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-12T07:25:24.087300Z",
+    "generated_at": "2026-06-12T07:36:19.381437Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-12T14:00:00Z"
   },
@@ -44,9 +44,12 @@
       "home_code": "kr",
       "away_code": "cz",
       "venue": null,
-      "status": "scheduled",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "result": "H",
+      "score": [
+        2,
+        1
+      ],
       "model": {
         "home": 0.471,
         "draw": 0.288,
@@ -5844,58 +5847,58 @@
     {
       "player": "model_full",
       "n_bets": 2,
-      "n_settled": 1,
-      "wins": 1,
+      "n_settled": 2,
+      "wins": 2,
       "hit_rate": 1.0,
       "staked": 20.0,
-      "returned": 14.0,
-      "profit": -6.0,
-      "roi": -0.3,
+      "returned": 39.5,
+      "profit": 19.5,
+      "roi": 0.975,
       "best_bet": {
-        "match": "Mexico v South Africa",
-        "pick": "Mexico",
-        "odd": 1.4,
-        "profit": 4.0
+        "match": "South Korea v Czech Republic",
+        "pick": "South Korea",
+        "odd": 2.55,
+        "profit": 15.5
       }
     },
     {
       "player": "model_fundamental",
       "n_bets": 2,
-      "n_settled": 1,
-      "wins": 1,
+      "n_settled": 2,
+      "wins": 2,
       "hit_rate": 1.0,
       "staked": 20.0,
-      "returned": 14.0,
-      "profit": -6.0,
-      "roi": -0.3,
+      "returned": 39.5,
+      "profit": 19.5,
+      "roi": 0.975,
       "best_bet": {
-        "match": "Mexico v South Africa",
-        "pick": "Mexico",
-        "odd": 1.4,
-        "profit": 4.0
+        "match": "South Korea v Czech Republic",
+        "pick": "South Korea",
+        "odd": 2.55,
+        "profit": 15.5
       }
     },
     {
       "player": "safe",
       "n_bets": 2,
-      "n_settled": 1,
-      "wins": 1,
+      "n_settled": 2,
+      "wins": 2,
       "hit_rate": 1.0,
       "staked": 20.0,
-      "returned": 14.0,
-      "profit": -6.0,
-      "roi": -0.3,
+      "returned": 39.5,
+      "profit": 19.5,
+      "roi": 0.975,
       "best_bet": {
-        "match": "Mexico v South Africa",
-        "pick": "Mexico",
-        "odd": 1.4,
-        "profit": 4.0
+        "match": "South Korea v Czech Republic",
+        "pick": "South Korea",
+        "odd": 2.55,
+        "profit": 15.5
       }
     },
     {
       "player": "tide",
       "n_bets": 2,
-      "n_settled": 1,
+      "n_settled": 2,
       "wins": 0,
       "hit_rate": 0.0,
       "staked": 20.0,
@@ -5907,7 +5910,7 @@
     {
       "player": "risk",
       "n_bets": 2,
-      "n_settled": 1,
+      "n_settled": 2,
       "wins": 0,
       "hit_rate": 0.0,
       "staked": 20.0,
@@ -5919,9 +5922,9 @@
     {
       "player": "monkey",
       "n_bets": 2,
-      "n_settled": 1,
+      "n_settled": 2,
       "wins": 1,
-      "hit_rate": 1.0,
+      "hit_rate": 0.5,
       "staked": 20.0,
       "returned": 14.0,
       "profit": -6.0,
@@ -5935,28 +5938,35 @@
     }
   ],
   "bankroll": {
-    "n": 1,
+    "n": 2,
     "labels": [
+      "2026-06-11",
       "2026-06-11"
     ],
     "series": {
       "model_full": [
-        4.0
+        4.0,
+        19.5
       ],
       "model_fundamental": [
-        4.0
+        4.0,
+        19.5
       ],
       "safe": [
-        4.0
+        4.0,
+        19.5
       ],
       "tide": [
-        -10.0
+        -10.0,
+        -20.0
       ],
       "risk": [
-        -10.0
+        -10.0,
+        -20.0
       ],
       "monkey": [
-        4.0
+        4.0,
+        -6.0
       ]
     }
   }

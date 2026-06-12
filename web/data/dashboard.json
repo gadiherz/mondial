@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-12T20:23:08.553243Z",
+    "generated_at": "2026-06-12T21:20:16.479208Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-13T14:00:00Z"
   },
@@ -253,9 +253,12 @@
       "home_code": "ca",
       "away_code": "ba",
       "venue": null,
-      "status": "scheduled",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "result": "D",
+      "score": [
+        1,
+        1
+      ],
       "model": {
         "home": 0.749,
         "draw": 0.169,
@@ -5847,9 +5850,9 @@
     {
       "player": "model_full",
       "n_bets": 4,
-      "n_settled": 2,
+      "n_settled": 3,
       "wins": 2,
-      "hit_rate": 1.0,
+      "hit_rate": 0.6667,
       "staked": 40.0,
       "returned": 39.5,
       "profit": -0.5,
@@ -5864,9 +5867,9 @@
     {
       "player": "model_fundamental",
       "n_bets": 4,
-      "n_settled": 2,
+      "n_settled": 3,
       "wins": 2,
-      "hit_rate": 1.0,
+      "hit_rate": 0.6667,
       "staked": 40.0,
       "returned": 39.5,
       "profit": -0.5,
@@ -5881,9 +5884,9 @@
     {
       "player": "safe",
       "n_bets": 4,
-      "n_settled": 2,
+      "n_settled": 3,
       "wins": 2,
-      "hit_rate": 1.0,
+      "hit_rate": 0.6667,
       "staked": 40.0,
       "returned": 39.5,
       "profit": -0.5,
@@ -5898,19 +5901,24 @@
     {
       "player": "tide",
       "n_bets": 4,
-      "n_settled": 2,
-      "wins": 0,
-      "hit_rate": 0.0,
+      "n_settled": 3,
+      "wins": 1,
+      "hit_rate": 0.3333,
       "staked": 40.0,
-      "returned": 0.0,
-      "profit": -40.0,
-      "roi": -1.0,
-      "best_bet": null
+      "returned": 33.5,
+      "profit": -6.5,
+      "roi": -0.1625,
+      "best_bet": {
+        "match": "Canada v Bosnia and Herzegovina",
+        "pick": "Draw",
+        "odd": 3.35,
+        "profit": 23.5
+      }
     },
     {
       "player": "risk",
       "n_bets": 4,
-      "n_settled": 2,
+      "n_settled": 3,
       "wins": 0,
       "hit_rate": 0.0,
       "staked": 40.0,
@@ -5922,9 +5930,9 @@
     {
       "player": "monkey",
       "n_bets": 4,
-      "n_settled": 2,
+      "n_settled": 3,
       "wins": 1,
-      "hit_rate": 0.5,
+      "hit_rate": 0.3333,
       "staked": 40.0,
       "returned": 14.0,
       "profit": -26.0,
@@ -5938,35 +5946,42 @@
     }
   ],
   "bankroll": {
-    "n": 2,
+    "n": 3,
     "labels": [
       "2026-06-11",
-      "2026-06-11"
+      "2026-06-11",
+      "2026-06-12"
     ],
     "series": {
       "model_full": [
         4.0,
-        19.5
+        19.5,
+        9.5
       ],
       "model_fundamental": [
         4.0,
-        19.5
+        19.5,
+        9.5
       ],
       "safe": [
         4.0,
-        19.5
+        19.5,
+        9.5
       ],
       "tide": [
         -10.0,
-        -20.0
+        -20.0,
+        3.5
       ],
       "risk": [
         -10.0,
-        -20.0
+        -20.0,
+        -30.0
       ],
       "monkey": [
         4.0,
-        -6.0
+        -6.0,
+        -16.0
       ]
     }
   }

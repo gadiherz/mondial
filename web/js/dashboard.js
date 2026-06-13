@@ -16,6 +16,10 @@ const META = {
 };
 const ORDER = Object.keys(META);
 const SVGNS = "http://www.w3.org/2000/svg";
+// Which player cards are expanded to show their bet history (survives the 60s
+// re-render, keyed by player name).
+const openPlayers = new Set();
+const OUTCOME_LABEL = { H: "home", D: "draw", A: "away" };
 
 function el(tag, cls, text) {
   const n = document.createElement(tag);
@@ -29,6 +33,47 @@ const money = (n) => {
   const s = Math.abs(n).toFixed(2).replace(/\.?0+$/, "");
   return (n < 0 ? "−₪" : "₪") + s;
 };
+const signedMoney = (n) => (n >= 0 ? "+" : "") + money(n);   // +₪4 / −₪10
+
+// ---- bet history (per-player drill-down) ---------------------------------
+const pickName = (b) => (b.pick === "D" ? "Draw" : b.pick === "H" ? b.home : b.away);
+const shortDate = (iso) =>
+  new Date(iso + "T12:00:00Z").toLocaleDateString(undefined, { month: "short", day: "numeric" });
+
+function betRow(b) {
+  const settledCls = b.settled ? (b.won ? " won" : " lost") : " pending";
+  const row = el("div", "bet" + settledCls);
+
+  const left = el("div", "bet-left");
+  left.appendChild(el("span", "bet-date", shortDate(b.date)));
+  const desc = el("div", "bet-desc");
+  desc.appendChild(el("span", "bet-pick", pickName(b)));
+  desc.appendChild(el("span", "bet-match", `${b.home} v ${b.away}`));
+  left.appendChild(desc);
+  row.appendChild(left);
+
+  const right = el("div", "bet-right");
+  if (b.settled) {
+    if (b.score) right.appendChild(el("span", "bet-score", `${b.score[0]}–${b.score[1]}`));
+    right.appendChild(el("span", "bet-tag " + (b.won ? "won" : "lost"), b.won ? "WON" : "LOST"));
+    right.appendChild(el("span", "bet-money " + (b.profit >= 0 ? "pos" : "neg"), signedMoney(b.profit)));
+  } else {
+    right.appendChild(el("span", "bet-tag pending", "PENDING"));
+    right.appendChild(el("span", "bet-stake", `${money(b.stake)} @ ${b.odd}`));
+  }
+  row.appendChild(right);
+  return row;
+}
+
+function betsPanel(bets) {
+  const panel = el("div", "bets-panel");
+  if (!bets || !bets.length) {
+    panel.appendChild(el("p", "bets-empty", "No bets placed yet — they appear on match day."));
+    return panel;
+  }
+  bets.forEach((b) => panel.appendChild(betRow(b)));
+  return panel;
+}
 
 function statBlock(label, value, cls) {
   const s = el("div", "stat");
@@ -81,6 +126,16 @@ function card(row, rank) {
     best.appendChild(el("span", "muted", row.n_settled ? "no wins yet" : "awaiting first results"));
   }
   c.appendChild(best);
+
+  // Click the card to drill into this player's full bet history.
+  c.classList.add("expandable");
+  c.dataset.player = row.player;
+  const toggle = el("div", "pc-toggle");
+  toggle.appendChild(el("span", "pc-toggle-t", `Bet history (${row.n_bets})`));
+  toggle.appendChild(el("span", "pc-caret", "▾"));
+  c.appendChild(toggle);
+  c.appendChild(betsPanel(row.bets));
+  if (openPlayers.has(row.player)) c.classList.add("open");
   return c;
 }
 
@@ -172,6 +227,15 @@ async function load() {
       "Updated " + new Date(data.meta.generated_at).toLocaleString();
   }
 }
+
+// Toggle a player's bet-history panel (state survives the 60s re-render).
+document.addEventListener("click", (e) => {
+  const card = e.target.closest(".player-card.expandable");
+  if (!card) return;
+  const p = card.dataset.player;
+  if (card.classList.toggle("open")) openPlayers.add(p);
+  else openPlayers.delete(p);
+});
 
 load();
 setInterval(load, POLL_MS);

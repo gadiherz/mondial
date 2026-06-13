@@ -1,6 +1,32 @@
 """Web export: bankroll (cumulative-profit) time-series for the revenue chart."""
 from mondial.data.db import connect, init_db
-from mondial.pipelines.export_web import _bankroll, _matches
+from mondial.pipelines.export_web import _bankroll, _matches, _player_bets
+
+
+def test_player_bets_history(tmp_path):
+    """Per-player drill-down: a won bet, a lost bet, and a pending one."""
+    db = tmp_path / "h.db"
+    init_db(db)
+    with connect(db) as c:
+        c.execute("INSERT INTO teams(team_id,name,confederation) VALUES (1,'A','X'),(2,'B','X')")
+        c.execute("INSERT INTO matches(match_id,date,home_id,away_id,tournament,"
+                  "home_goals,away_goals,status) VALUES "
+                  "(10,'2026-06-11',1,2,'WC',2,0,'final'),"      # A wins
+                  "(11,'2026-06-12',1,2,'WC',0,1,'final'),"      # A loses
+                  "(12,'2026-06-13',1,2,'WC',NULL,NULL,'scheduled')")  # not played
+        c.execute("INSERT INTO bets(player_name,match_id,pick,stake,odd,payout,settled) VALUES "
+                  "('safe',10,'H',10,1.5,15,1),"     # won:  +5
+                  "('safe',11,'H',10,1.5,0,1),"      # lost: -10
+                  "('safe',12,'H',10,2.0,NULL,0)")   # pending
+        hist = _player_bets(c)
+    bets = hist["safe"]
+    assert len(bets) == 3
+    assert bets[0]["date"] == "2026-06-13"          # newest first
+    assert bets[0]["settled"] is False and bets[0]["won"] is None and bets[0]["profit"] is None
+    won = next(b for b in bets if b["date"] == "2026-06-11")
+    assert won["won"] is True and won["profit"] == 5.0 and won["score"] == [2, 0]
+    lost = next(b for b in bets if b["date"] == "2026-06-12")
+    assert lost["won"] is False and lost["profit"] == -10.0
 
 
 def test_matches_feed_carries_kickoff_utc(tmp_path):

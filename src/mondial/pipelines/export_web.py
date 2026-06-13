@@ -152,10 +152,49 @@ def _bankroll(conn) -> dict:
     return {"n": len(matches), "labels": labels, "series": series}
 
 
+def _player_bets(conn) -> dict[str, list]:
+    """Per-player bet history for the players-page drill-down: every bet, its pick,
+    whether it won/lost (or is still pending), and the money made on it.
+
+    Keyed by player_name, newest match first. profit = payout - stake (settled
+    bets only); pending bets carry profit=None and won=None.
+    """
+    rows = conn.execute(
+        """SELECT b.player_name, b.pick, b.stake, b.odd, b.payout, b.settled,
+                  m.date, m.home_goals, m.away_goals,
+                  h.name AS home, a.name AS away
+           FROM bets b
+           JOIN matches m ON m.match_id = b.match_id
+           JOIN teams h ON h.team_id = m.home_id
+           JOIN teams a ON a.team_id = m.away_id
+           ORDER BY m.date DESC, b.bet_id DESC"""
+    ).fetchall()
+    out: dict[str, list] = {}
+    for r in rows:
+        settled = bool(r["settled"])
+        won = bool((r["payout"] or 0.0) > 0) if settled else None
+        profit = round((r["payout"] or 0.0) - r["stake"], 2) if settled else None
+        out.setdefault(r["player_name"], []).append({
+            "date": r["date"], "home": r["home"], "away": r["away"],
+            "pick": r["pick"],                                   # 'H' | 'D' | 'A'
+            "result": _result(r["home_goals"], r["away_goals"]),  # match outcome or None
+            "score": ([r["home_goals"], r["away_goals"]]
+                      if r["home_goals"] is not None else None),
+            "stake": r["stake"], "odd": r["odd"],
+            "payout": r["payout"], "profit": profit,
+            "settled": settled, "won": won,
+        })
+    return out
+
+
 def export() -> dict:
     """Build the dashboard payload and write it to web/data/dashboard.json."""
     now = _now()
     with connect() as conn:
+        board = leaderboard(conn)
+        history = _player_bets(conn)
+        for row in board:                       # drill-down bet list per player card
+            row["bets"] = history.get(row["player"], [])
         payload = {
             "meta": {
                 "generated_at": now.isoformat().replace("+00:00", "Z"),
@@ -163,7 +202,7 @@ def export() -> dict:
                 "next_scrape_utc": _next_scrape(now),
             },
             "matches": _matches(conn),
-            "leaderboard": leaderboard(conn),
+            "leaderboard": board,
             "bankroll": _bankroll(conn),
         }
     WEB_DATA.parent.mkdir(parents=True, exist_ok=True)

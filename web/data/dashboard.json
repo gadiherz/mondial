@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-06-13T09:36:16.342083Z",
+    "generated_at": "2026-06-13T14:13:09.307269Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
-    "next_scrape_utc": "2026-06-13T14:00:00Z"
+    "next_scrape_utc": "2026-06-14T14:00:00Z"
   },
   "matches": [
     {
@@ -14,6 +14,7 @@
       "away_code": "za",
       "venue": null,
       "status": "final",
+      "kickoff_utc": "2026-06-11T19:00:00Z",
       "result": "H",
       "score": [
         2,
@@ -45,6 +46,7 @@
       "away_code": "cz",
       "venue": null,
       "status": "final",
+      "kickoff_utc": "2026-06-12T02:00:00Z",
       "result": "H",
       "score": [
         2,
@@ -254,6 +256,7 @@
       "away_code": "ba",
       "venue": null,
       "status": "final",
+      "kickoff_utc": "2026-06-12T19:02:00Z",
       "result": "D",
       "score": [
         1,
@@ -463,6 +466,7 @@
       "away_code": "py",
       "venue": null,
       "status": "final",
+      "kickoff_utc": "2026-06-13T01:02:00Z",
       "result": "H",
       "score": [
         4,
@@ -672,6 +676,7 @@
       "away_code": "ch",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-13T19:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -878,6 +883,7 @@
       "away_code": "ma",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-13T22:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -1084,6 +1090,7 @@
       "away_code": "gb-sct",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-14T01:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -1290,6 +1297,7 @@
       "away_code": "tr",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-14T04:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -1496,6 +1504,7 @@
       "away_code": "cw",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-14T17:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -1693,6 +1702,7 @@
       "away_code": "ec",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-14T23:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -1899,6 +1909,7 @@
       "away_code": "jp",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-14T20:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -2105,6 +2116,7 @@
       "away_code": "tn",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-15T02:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -2311,6 +2323,7 @@
       "away_code": "eg",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-15T19:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -2508,6 +2521,7 @@
       "away_code": "nz",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-16T01:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -2705,6 +2719,7 @@
       "away_code": "cv",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-15T16:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -2902,6 +2917,7 @@
       "away_code": "uy",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-15T22:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -3099,6 +3115,7 @@
       "away_code": "sn",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-16T19:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -3296,6 +3313,7 @@
       "away_code": "no",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-16T22:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -3493,6 +3511,7 @@
       "away_code": "dz",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-17T01:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -3690,6 +3709,7 @@
       "away_code": "jo",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-17T04:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -3887,6 +3907,7 @@
       "away_code": "cd",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-17T17:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -4084,6 +4105,7 @@
       "away_code": "co",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-18T02:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -4281,6 +4303,7 @@
       "away_code": "hr",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-17T20:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -4478,6 +4501,7 @@
       "away_code": "pa",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-17T23:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -4675,6 +4699,7 @@
       "away_code": "za",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-18T16:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -4872,6 +4897,7 @@
       "away_code": "kr",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-19T01:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -5069,6 +5095,7 @@
       "away_code": "ba",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-18T19:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -5266,6 +5293,7 @@
       "away_code": "qa",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-18T22:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -5463,6 +5491,7 @@
       "away_code": "ma",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-19T22:00:00Z",
       "result": null,
       "score": null,
       "model": {
@@ -5660,6 +5689,7 @@
       "away_code": "ht",
       "venue": null,
       "status": "scheduled",
+      "kickoff_utc": "2026-06-20T01:00:00Z",
       "result": null,
       "score": null,
       "model": {

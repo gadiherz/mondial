@@ -62,7 +62,7 @@ def _matches(conn) -> list[dict]:
     lo = (today - timedelta(days=PAST_DAYS)).isoformat()
     rows = conn.execute(
         """SELECT m.match_id, m.date, m.stage, m.neutral, m.status,
-                  m.home_goals, m.away_goals,
+                  m.home_goals, m.away_goals, m.kickoff_utc,
                   h.name AS home, a.name AS away
            FROM matches m
            JOIN teams h ON h.team_id = m.home_id
@@ -84,6 +84,7 @@ def _matches(conn) -> list[dict]:
             "home_code": code_for(r["home"]), "away_code": code_for(r["away"]),
             "venue": None,
             "status": r["status"],
+            "kickoff_utc": r["kickoff_utc"],   # drives the Cloudflare results-trigger worker
             "result": _result(r["home_goals"], r["away_goals"]),
             "score": ([r["home_goals"], r["away_goals"]]
                       if r["home_goals"] is not None else None),

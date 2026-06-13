@@ -1,0 +1,15 @@
+{
+  // Standalone Cloudflare Worker that reliably triggers the GitHub `results`
+  // workflow when a match finishes. Separate from the site worker, so it cannot
+  // affect the live site. Deploy via the dashboard (see README.md) or, if you
+  // have Node, `npx wrangler deploy` from this directory.
+  "name": "mondial-results-cron",
+  "main": "worker.js",
+  "compatibility_date": "2026-06-01",
+  "triggers": {
+    "crons": ["*/10 * * * *"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}

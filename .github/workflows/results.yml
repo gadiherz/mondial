@@ -1,16 +1,17 @@
 name: results
 
 # Routine B: ingest completed scores, finalize matches, re-run the Glicko/
-# momentum backfill. Runs every 10 min during WC result hours (UTC) so a finished
-# match is picked up within ~10 min and retried until its score lands. The paid
-# Odds API /scores call is gated in results.ingest_results() to fire ONLY from
-# ~110 min after a fixture's real kickoff until it's final (event-driven), so it
-# costs only a few credits per match -- well under the free 500/month -- not one
-# per tick. The cron is windowed to match hours (not 24/7) to bound GitHub Actions
-# minutes on the private repo; the free Jurisoo CSV refresh runs every tick anyway.
+# momentum backfill.
+#
+# TIMELY trigger: the Cloudflare cron worker (cron-worker/) pokes this via
+# workflow_dispatch within minutes of a match finishing -- GitHub's own cron is
+# unreliable (drops scheduled runs for hours), so it is NOT the primary clock.
+# The schedule below is only a sparse safety net in case the worker is down; it
+# runs every 6 h so it costs almost no Actions minutes. The paid Odds API call is
+# still gated in results.ingest_results() to ~110 min-8 h after a real kickoff.
 on:
   schedule:
-    - cron: "*/10 16-23,0-6 * * *"   # every 10 min, ~16:00-06:59 UTC (WC result window)
+    - cron: "0 */6 * * *"   # backup only (every 6 h); Cloudflare worker is the real trigger
   workflow_dispatch: {}
 
 permissions:

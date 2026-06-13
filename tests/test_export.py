@@ -1,6 +1,23 @@
 """Web export: bankroll (cumulative-profit) time-series for the revenue chart."""
 from mondial.data.db import connect, init_db
-from mondial.pipelines.export_web import _bankroll
+from mondial.pipelines.export_web import _bankroll, _matches
+
+
+def test_matches_feed_carries_kickoff_utc(tmp_path):
+    """The Cloudflare results-trigger worker reads match.kickoff_utc from the feed;
+    guard the contract so it can't be dropped silently."""
+    from datetime import UTC, datetime
+    today = datetime.now(UTC).date().isoformat()   # keep it inside the feed's recent window
+    ko = today + "T19:00:00Z"
+    db = tmp_path / "k.db"
+    init_db(db)
+    with connect(db) as c:
+        c.execute("INSERT INTO teams(team_id,name,confederation) VALUES (1,'A','X'),(2,'B','X')")
+        c.execute("INSERT INTO matches(match_id,date,home_id,away_id,tournament,"
+                  "status,kickoff_utc) VALUES (10,?,1,2,'WC','scheduled',?)", (today, ko))
+        rows = _matches(c)
+    assert len(rows) == 1
+    assert rows[0]["kickoff_utc"] == ko
 
 
 def test_bankroll_empty_when_nothing_settled(tmp_path):

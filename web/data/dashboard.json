@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-13T01:53:53.378838Z",
+    "generated_at": "2026-06-13T06:11:45.317681Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-13T14:00:00Z"
   },
@@ -462,9 +462,12 @@
       "home_code": "us",
       "away_code": "py",
       "venue": null,
-      "status": "scheduled",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "result": "H",
+      "score": [
+        4,
+        1
+      ],
       "model": {
         "home": 0.483,
         "draw": 0.266,
@@ -5850,13 +5853,13 @@
     {
       "player": "model_full",
       "n_bets": 4,
-      "n_settled": 3,
-      "wins": 2,
-      "hit_rate": 0.6667,
+      "n_settled": 4,
+      "wins": 3,
+      "hit_rate": 0.75,
       "staked": 40.0,
-      "returned": 39.5,
-      "profit": -0.5,
-      "roi": -0.0125,
+      "returned": 58.5,
+      "profit": 18.5,
+      "roi": 0.4625,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -5867,13 +5870,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 4,
-      "n_settled": 3,
-      "wins": 2,
-      "hit_rate": 0.6667,
+      "n_settled": 4,
+      "wins": 3,
+      "hit_rate": 0.75,
       "staked": 40.0,
-      "returned": 39.5,
-      "profit": -0.5,
-      "roi": -0.0125,
+      "returned": 58.5,
+      "profit": 18.5,
+      "roi": 0.4625,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -5884,13 +5887,13 @@
     {
       "player": "safe",
       "n_bets": 4,
-      "n_settled": 3,
-      "wins": 2,
-      "hit_rate": 0.6667,
+      "n_settled": 4,
+      "wins": 3,
+      "hit_rate": 0.75,
       "staked": 40.0,
-      "returned": 39.5,
-      "profit": -0.5,
-      "roi": -0.0125,
+      "returned": 58.5,
+      "profit": 18.5,
+      "roi": 0.4625,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -5901,9 +5904,9 @@
     {
       "player": "tide",
       "n_bets": 4,
-      "n_settled": 3,
+      "n_settled": 4,
       "wins": 1,
-      "hit_rate": 0.3333,
+      "hit_rate": 0.25,
       "staked": 40.0,
       "returned": 33.5,
       "profit": -6.5,
@@ -5918,7 +5921,7 @@
     {
       "player": "risk",
       "n_bets": 4,
-      "n_settled": 3,
+      "n_settled": 4,
       "wins": 0,
       "hit_rate": 0.0,
       "staked": 40.0,
@@ -5930,9 +5933,9 @@
     {
       "player": "monkey",
       "n_bets": 4,
-      "n_settled": 3,
+      "n_settled": 4,
       "wins": 1,
-      "hit_rate": 0.3333,
+      "hit_rate": 0.25,
       "staked": 40.0,
       "returned": 14.0,
       "profit": -26.0,
@@ -5946,42 +5949,49 @@
     }
   ],
   "bankroll": {
-    "n": 3,
+    "n": 4,
     "labels": [
       "2026-06-11",
       "2026-06-11",
+      "2026-06-12",
       "2026-06-12"
     ],
     "series": {
       "model_full": [
         4.0,
         19.5,
-        9.5
+        9.5,
+        18.5
       ],
       "model_fundamental": [
         4.0,
         19.5,
-        9.5
+        9.5,
+        18.5
       ],
       "safe": [
         4.0,
         19.5,
-        9.5
+        9.5,
+        18.5
       ],
       "tide": [
         -10.0,
         -20.0,
-        3.5
+        3.5,
+        -6.5
       ],
       "risk": [
         -10.0,
         -20.0,
-        -30.0
+        -30.0,
+        -40.0
       ],
       "monkey": [
         4.0,
         -6.0,
-        -16.0
+        -16.0,
+        -26.0
       ]
     }
   }

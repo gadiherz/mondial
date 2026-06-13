@@ -8,17 +8,18 @@ from mondial.eval.simulator import (
 def test_player_picks():
     odds = MatchOdds(odd_home=1.5, odd_draw=4.0, odd_away=6.0)
     # Strong draw edge: model_D=0.35 vs book's de-vigged ~0.23 -> +12pp, clears
-    # the default min_prob_edge guard, so the model players back the draw even
-    # though argmax-probability would pick H. This is the whole point of the
-    # value picker AND that the guard lets a STRONG deviation through.
+    # the default min_prob_edge guard. The Quant (model_full) backs the draw on
+    # that value; the Purist (model_fundamental) ignores the market and backs the
+    # single most-likely outcome (argmax = H). The two diverge by design.
     probs = ModelProbs(p_home=0.50, p_draw=0.35, p_away=0.15)
     picks = pick_per_player(odds, probs, probs, random.Random(42))
     assert picks["safe"] == "H"
     assert picks["risk"] == "A"
     assert picks["tide"] == "D"
     assert probs.argmax() == "H"
-    assert picks["model_full"] == "D"
-    assert picks["model_fundamental"] == "D"
+    assert picks["model_full"] == "D"            # value vs market
+    assert picks["model_fundamental"] == "H"     # pure argmax, ignores odds
+    assert picks["model_full"] != picks["model_fundamental"]
     assert picks["monkey"] in ("H", "D", "A")
 
 

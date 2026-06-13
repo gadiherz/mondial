@@ -100,8 +100,12 @@ def pick_per_player(
     min_prob_edge: float = MIN_PROB_EDGE,
 ) -> dict[str, str]:
     return {
+        # The Quant: bet the outcome whose price most over-rewards the model.
         "model_full": value_pick(model_full, odds, min_prob_edge),
-        "model_fundamental": value_pick(model_fundamental, odds, min_prob_edge),
+        # The Purist: bet the model's single most-likely outcome, ignoring the
+        # market entirely (pure argmax probability). Distinct from model_full,
+        # which only deserts the favourite when the odds justify it.
+        "model_fundamental": model_fundamental.argmax(),
         "safe": odds.lowest(),
         "tide": "D",
         "risk": odds.highest(),

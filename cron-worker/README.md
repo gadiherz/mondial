@@ -14,8 +14,10 @@ Actions-minute budget.
 
 **1. Create the GitHub token** (if you haven't): GitHub → Settings → Developer
 settings → **Fine-grained tokens** → Generate. Repository access: **Only
-`gadiherz/mondial`**. Permissions → Repository → **Actions: Read and write**.
-Generate and copy it.
+`gadiherz/mondial`**. Permissions → Repository → **Actions: Read and write** AND
+**Contents: Read** (the worker reads the feed from the repo via the API). Generate
+and copy it. *(If your existing token has only Actions, edit it and add Contents:
+Read.)*
 
 **2. Create the Worker:** Cloudflare dashboard → Workers & Pages → **Create** →
 **Create Worker** → name it `mondial-results-cron` → Deploy. Then **Edit code**,
@@ -35,6 +37,8 @@ Add → `*/10 * * * *` → Add.
 ## Verify it works (do this once, before trusting it)
 
 Your worker URL is `https://mondial-results-cron.<your-subdomain>.workers.dev`.
+(Add the `GH_TOKEN` secret first — the worker reads the feed via the GitHub API,
+so even the dry run needs it.)
 
 1. **Logic check** — open the URL plain. You should get JSON like
    `{"dryRun":true,"wouldDispatch":false,"reason":"no match awaiting a result"}`.

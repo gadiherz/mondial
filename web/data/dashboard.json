@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-13T17:59:48.543641Z",
+    "generated_at": "2026-06-13T18:12:00.875353Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-14T14:00:00Z"
   },
@@ -5895,7 +5895,133 @@
         "pick": "South Korea",
         "odd": 2.55,
         "profit": 15.5
-      }
+      },
+      "bets": [
+        {
+          "date": "2026-06-13",
+          "home": "Australia",
+          "away": "Turkey",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 4.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Haiti",
+          "away": "Scotland",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.45,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Brazil",
+          "away": "Morocco",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.65,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Qatar",
+          "away": "Switzerland",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.2,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-12",
+          "home": "United States",
+          "away": "Paraguay",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 1.9,
+          "payout": 19.0,
+          "profit": 9.0,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Canada",
+          "away": "Bosnia and Herzegovina",
+          "pick": "H",
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 1.75,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-11",
+          "home": "South Korea",
+          "away": "Czech Republic",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 2.55,
+          "payout": 25.5,
+          "profit": 15.5,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-11",
+          "home": "Mexico",
+          "away": "South Africa",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.4,
+          "payout": 14.0,
+          "profit": 4.0,
+          "settled": true,
+          "won": true
+        }
+      ]
     },
     {
       "player": "model_fundamental",
@@ -5912,7 +6038,133 @@
         "pick": "South Korea",
         "odd": 2.55,
         "profit": 15.5
-      }
+      },
+      "bets": [
+        {
+          "date": "2026-06-13",
+          "home": "Australia",
+          "away": "Turkey",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 4.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Haiti",
+          "away": "Scotland",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.45,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Brazil",
+          "away": "Morocco",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.65,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Qatar",
+          "away": "Switzerland",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.2,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-12",
+          "home": "United States",
+          "away": "Paraguay",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 1.9,
+          "payout": 19.0,
+          "profit": 9.0,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Canada",
+          "away": "Bosnia and Herzegovina",
+          "pick": "H",
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 1.75,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-11",
+          "home": "South Korea",
+          "away": "Czech Republic",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 2.55,
+          "payout": 25.5,
+          "profit": 15.5,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-11",
+          "home": "Mexico",
+          "away": "South Africa",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.4,
+          "payout": 14.0,
+          "profit": 4.0,
+          "settled": true,
+          "won": true
+        }
+      ]
     },
     {
       "player": "safe",
@@ -5929,7 +6181,133 @@
         "pick": "South Korea",
         "odd": 2.55,
         "profit": 15.5
-      }
+      },
+      "bets": [
+        {
+          "date": "2026-06-13",
+          "home": "Australia",
+          "away": "Turkey",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.75,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Haiti",
+          "away": "Scotland",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.45,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Brazil",
+          "away": "Morocco",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.55,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Qatar",
+          "away": "Switzerland",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.2,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-12",
+          "home": "United States",
+          "away": "Paraguay",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 1.9,
+          "payout": 19.0,
+          "profit": 9.0,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Canada",
+          "away": "Bosnia and Herzegovina",
+          "pick": "H",
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 1.75,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-11",
+          "home": "South Korea",
+          "away": "Czech Republic",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 2.55,
+          "payout": 25.5,
+          "profit": 15.5,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-11",
+          "home": "Mexico",
+          "away": "South Africa",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.4,
+          "payout": 14.0,
+          "profit": 4.0,
+          "settled": true,
+          "won": true
+        }
+      ]
     },
     {
       "player": "tide",
@@ -5946,7 +6324,133 @@
         "pick": "Draw",
         "odd": 3.35,
         "profit": 23.5
-      }
+      },
+      "bets": [
+        {
+          "date": "2026-06-13",
+          "home": "Australia",
+          "away": "Turkey",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.4,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Haiti",
+          "away": "Scotland",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 4.0,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Brazil",
+          "away": "Morocco",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.65,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Qatar",
+          "away": "Switzerland",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 5.4,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-12",
+          "home": "United States",
+          "away": "Paraguay",
+          "pick": "D",
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 3.2,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Canada",
+          "away": "Bosnia and Herzegovina",
+          "pick": "D",
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 3.35,
+          "payout": 33.5,
+          "profit": 23.5,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-11",
+          "home": "South Korea",
+          "away": "Czech Republic",
+          "pick": "D",
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 3.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-11",
+          "home": "Mexico",
+          "away": "South Africa",
+          "pick": "D",
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 4.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        }
+      ]
     },
     {
       "player": "risk",
@@ -5958,7 +6462,133 @@
       "returned": 0.0,
       "profit": -80.0,
       "roi": -1.0,
-      "best_bet": null
+      "best_bet": null,
+      "bets": [
+        {
+          "date": "2026-06-13",
+          "home": "Australia",
+          "away": "Turkey",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 4.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Haiti",
+          "away": "Scotland",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 5.8,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Brazil",
+          "away": "Morocco",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 5.2,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Qatar",
+          "away": "Switzerland",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 10.5,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-12",
+          "home": "United States",
+          "away": "Paraguay",
+          "pick": "A",
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 3.65,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Canada",
+          "away": "Bosnia and Herzegovina",
+          "pick": "A",
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 4.2,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-11",
+          "home": "South Korea",
+          "away": "Czech Republic",
+          "pick": "D",
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 3.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-11",
+          "home": "Mexico",
+          "away": "South Africa",
+          "pick": "A",
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 7.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        }
+      ]
     },
     {
       "player": "monkey",
@@ -5975,7 +6605,133 @@
         "pick": "Mexico",
         "odd": 1.4,
         "profit": 4.0
-      }
+      },
+      "bets": [
+        {
+          "date": "2026-06-13",
+          "home": "Australia",
+          "away": "Turkey",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.75,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Haiti",
+          "away": "Scotland",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.45,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Brazil",
+          "away": "Morocco",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.55,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Qatar",
+          "away": "Switzerland",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.2,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-12",
+          "home": "United States",
+          "away": "Paraguay",
+          "pick": "A",
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 3.65,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Canada",
+          "away": "Bosnia and Herzegovina",
+          "pick": "A",
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 4.2,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-11",
+          "home": "South Korea",
+          "away": "Czech Republic",
+          "pick": "A",
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
+          "stake": 10.0,
+          "odd": 2.65,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-11",
+          "home": "Mexico",
+          "away": "South Africa",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.4,
+          "payout": 14.0,
+          "profit": 4.0,
+          "settled": true,
+          "won": true
+        }
+      ]
     }
   ],
   "bankroll": {

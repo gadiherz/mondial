@@ -401,3 +401,13 @@ document.addEventListener("click", (e) => {
 load();
 setInterval(tickClocks, 1000);
 setInterval(load, POLL_MS);
+
+// A tab left open/backgrounded gets its poll timer throttled or frozen by the
+// browser, and load() silently keeps the last STATE if a refresh fetch fails --
+// both can leave a stale snapshot (e.g. Results missing the newest finals). So
+// force a fresh fetch + re-render the moment the tab is shown or focused again;
+// it can never sit on old data.
+function refreshIfVisible() { if (!document.hidden) load(); }
+document.addEventListener("visibilitychange", refreshIfVisible);
+window.addEventListener("focus", refreshIfVisible);
+window.addEventListener("pageshow", refreshIfVisible);

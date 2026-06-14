@@ -239,3 +239,10 @@ document.addEventListener("click", (e) => {
 
 load();
 setInterval(load, POLL_MS);
+
+// Re-fetch when the tab is shown/focused again: a backgrounded tab's poll timer
+// gets throttled or frozen, so without this it can sit on a stale snapshot.
+function refreshIfVisible() { if (!document.hidden) load(); }
+document.addEventListener("visibilitychange", refreshIfVisible);
+window.addEventListener("focus", refreshIfVisible);
+window.addEventListener("pageshow", refreshIfVisible);

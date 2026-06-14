@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-14T18:51:40.671565Z",
+    "generated_at": "2026-06-14T19:01:33.697006Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-15T14:00:00Z"
   },
@@ -1515,10 +1515,13 @@
       "home_code": "de",
       "away_code": "cw",
       "venue": null,
-      "status": "scheduled",
-      "kickoff_utc": "2026-06-14T17:00:00Z",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "kickoff_utc": "2026-06-14T17:01:00Z",
+      "result": "H",
+      "score": [
+        7,
+        1
+      ],
       "model": {
         "home": 0.832,
         "draw": 0.122,
@@ -7470,6 +7473,204 @@
             0.2223,
             0.3822,
             0.3955
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-06-21",
+      "stage": "group",
+      "home": "Spain",
+      "away": "Saudi Arabia",
+      "home_code": "es",
+      "away_code": "sa",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": "2026-06-21T16:00:00Z",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.849,
+        "draw": 0.115,
+        "away": 0.036
+      },
+      "winner_odds": null,
+      "model_pick": "H",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 2.46,
+          "away": 0.504
+        },
+        "log_lambda": {
+          "home": 0.9001157528708947,
+          "away": -0.6850346589650151
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.8902889833154088,
+            "opp_defence": -0.31820043071800586,
+            "home_adv": 0.0,
+            "features": 0.28168272346496265
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.31836067215416364,
+            "opp_defence": -0.7288066836435247,
+            "home_adv": 0.0,
+            "features": -0.320933124284183
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": 1.0661353613741686,
+            "x_away": -1.0661353613741686,
+            "contrib_home": 0.20153856391843694,
+            "contrib_away": -0.20153856391843694,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.4711158775739409,
+            "x_away": 0.4711158775739409,
+            "contrib_home": -0.019625200409610178,
+            "contrib_away": -0.019625200409610178,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": -0.010150950059433212,
+            "x_away": 0.010150950059433212,
+            "contrib_home": 0.0005721423735068173,
+            "contrib_away": -0.0005721423735068173,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": 0.3975110666491926,
+            "x_away": -0.3975110666491926,
+            "contrib_home": 0.09904510818049013,
+            "contrib_away": -0.09904510818049013,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0027397260273972603,
+            "x_away": -0.0027397260273972603,
+            "contrib_home": 0.000152109402138944,
+            "contrib_away": -0.000152109402138944,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 2,
+            "a": 0,
+            "p": 0.1562
+          },
+          {
+            "h": 3,
+            "a": 0,
+            "p": 0.1281
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.1239
+          },
+          {
+            "h": 4,
+            "a": 0,
+            "p": 0.0787
+          },
+          {
+            "h": 2,
+            "a": 1,
+            "p": 0.0787
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.0671
+          }
+        ],
+        "raw_probs": {
+          "home": 0.8012,
+          "draw": 0.1446,
+          "away": 0.0542
+        },
+        "glicko": {
+          "home": {
+            "rating": 1908,
+            "rd": 87,
+            "intel_points": 35.5
+          },
+          "away": {
+            "rating": 1517,
+            "rd": 78,
+            "intel_points": 0.0
+          },
+          "home_expected": 0.899
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": -0.013,
+            "gd_ewma": 1.63,
+            "idle_days": 13
+          },
+          "away": {
+            "resid_ewma": -0.003,
+            "gd_ewma": 0.04,
+            "idle_days": 12
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.237,
+            "confidence": 0.6,
+            "summary": "Spain in good form after Euro 2024 win, cautious approach with Yamal",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.5,
+              "coach_stability": 0.5,
+              "morale": 0.8,
+              "motivation": 0.5
+            }
+          },
+          "away": {
+            "status": "no_signal",
+            "composite": 0.0,
+            "confidence": 0.0,
+            "summary": "No relevant information about Saudi Arabia's team",
+            "dims": {
+              "form_outlook": 0.0,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.0,
+              "motivation": 0.0
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8555,
+          "raw": [
+            0.8012,
+            0.1446,
+            0.0542
+          ],
+          "calibrated": [
+            0.8489,
+            0.1147,
+            0.0364
           ]
         }
       }

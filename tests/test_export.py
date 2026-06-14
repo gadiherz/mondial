@@ -29,6 +29,23 @@ def test_player_bets_history(tmp_path):
     assert lost["won"] is False and lost["profit"] == -10.0
 
 
+def test_matches_excludes_historical_world_cups(tmp_path):
+    """`tournament='WC'` also tags the 2014/2018/2022 training data; the feed must
+    surface only THIS World Cup's finals, not decades of old results."""
+    db = tmp_path / "hist.db"
+    init_db(db)
+    with connect(db) as c:
+        c.execute("INSERT INTO teams(team_id,name,confederation) VALUES (1,'A','X'),(2,'B','X')")
+        c.execute("INSERT INTO matches(match_id,date,home_id,away_id,tournament,"
+                  "home_goals,away_goals,status) VALUES "
+                  "(1,'2018-06-14',1,2,'WC',5,0,'final'),"      # historical -> excluded
+                  "(2,'2022-12-18',2,1,'WC',3,3,'final'),"      # historical -> excluded
+                  "(3,'2026-06-11',1,2,'WC',2,0,'final')")      # this edition -> included
+        dates = {m["date"] for m in _matches(c)}
+    assert "2026-06-11" in dates
+    assert "2018-06-14" not in dates and "2022-12-18" not in dates
+
+
 def test_matches_feed_carries_kickoff_utc(tmp_path):
     """The Cloudflare results-trigger worker reads match.kickoff_utc from the feed;
     guard the contract so it can't be dropped silently."""

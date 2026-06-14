@@ -31,11 +31,19 @@ WEB_DATA = ROOT / "web" / "data" / "dashboard.json"
 SCRAPE_CRON_UTC_HOUR = 14
 KICKOFF_UTC = "2026-06-11T19:00:00Z"
 
-# Matches to surface: recent results (last PAST_DAYS) + the next UPCOMING fixtures.
-# Always populated -- before kickoff it shows the opening slate; during the
-# tournament, recent + upcoming.
-PAST_DAYS = 2
+# Matches to surface: the FULL results history (every finished WC match) plus the
+# next UPCOMING_LIMIT scheduled fixtures. Finished matches are kept indefinitely so
+# the Results tab is a complete archive, not a rolling window.
+# CRUCIAL: `tournament='WC'` also tags the historical World Cups used for training
+# (2014/2018/2022), so finals are scoped to this edition by date (>= WC_SEASON_START)
+# to keep decades of old results out of the feed.
 UPCOMING_LIMIT = 30
+WC_SEASON_START = KICKOFF_UTC[:4] + "-01-01"   # e.g. "2026-01-01"
+# The per-match "why this prediction" breakdown is the bulk of the feed (~3 KB
+# each). Keep it only for upcoming matches and recently-finished ones, so the
+# growing results archive doesn't bloat the feed; older finals still show their
+# result + hit/miss, just without the explain panel.
+BREAKDOWN_DAYS = 7
 
 OUTCOMES = ("H", "D", "A")
 
@@ -58,8 +66,8 @@ def _result(hg, ag) -> str | None:
 
 
 def _matches(conn) -> list[dict]:
-    today = _now().date()
-    lo = (today - timedelta(days=PAST_DAYS)).isoformat()
+    # Every finished WC match (full archive) + the next UPCOMING_LIMIT scheduled.
+    recent_cutoff = (_now().date() - timedelta(days=BREAKDOWN_DAYS)).isoformat()
     rows = conn.execute(
         """SELECT m.match_id, m.date, m.stage, m.neutral, m.status,
                   m.home_goals, m.away_goals, m.kickoff_utc,
@@ -67,10 +75,14 @@ def _matches(conn) -> list[dict]:
            FROM matches m
            JOIN teams h ON h.team_id = m.home_id
            JOIN teams a ON a.team_id = m.away_id
-           WHERE m.tournament='WC' AND m.date >= ?
-           ORDER BY m.date, m.match_id
-           LIMIT ?""",
-        (lo, UPCOMING_LIMIT),
+           WHERE m.tournament='WC' AND (
+                 (m.status='final' AND m.date >= ?)
+                 OR m.match_id IN (
+                     SELECT match_id FROM matches
+                     WHERE tournament='WC' AND status != 'final'
+                     ORDER BY date, match_id LIMIT ?))
+           ORDER BY m.date, m.match_id""",
+        (WC_SEASON_START, UPCOMING_LIMIT),
     ).fetchall()
 
     out = []
@@ -104,12 +116,16 @@ def _matches(conn) -> list[dict]:
                 item["model_pick"] = value_pick(ModelProbs(*p), o, MIN_PROB_EDGE)
             else:
                 item["model_pick"] = OUTCOMES[max(range(3), key=lambda i: p[i])]
-            # Attach the per-match "why this prediction" breakdown when present
-            # (written at predict time; absent for matches predicted before the
-            # feature existed -- the frontend just omits the panel then).
-            bd = conn.execute(
-                "SELECT json FROM match_breakdown WHERE match_id=?",
-                (r["match_id"],)).fetchone()
+            # Attach the per-match "why this prediction" breakdown for upcoming and
+            # recently-finished matches only (it's the bulk of the feed; older finals
+            # keep their result but drop the explain panel -- the frontend omits it
+            # gracefully). Absent too for matches predicted before the feature existed.
+            if r["status"] != "final" or r["date"] >= recent_cutoff:
+                bd = conn.execute(
+                    "SELECT json FROM match_breakdown WHERE match_id=?",
+                    (r["match_id"],)).fetchone()
+            else:
+                bd = None
             if bd is not None:
                 try:
                     item["breakdown"] = json.loads(bd["json"])

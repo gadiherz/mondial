@@ -369,11 +369,14 @@ function render() {
   const groups = new Map();
   for (const m of list) (groups.get(m.date) || groups.set(m.date, []).get(m.date)).push(m);
   const frag = document.createDocumentFragment();
-  for (const [date, ms] of groups) {
+  // Results = full archive, newest day first; Upcoming = soonest day first.
+  const dates = [...groups.keys()];
+  if (activeTab === "results") dates.reverse();
+  for (const date of dates) {
     const g = el("section", "date-group");
     g.appendChild(el("div", "date-head", dateLabel(date)));
     const wrap = el("div", "matches");
-    ms.forEach((m) => wrap.appendChild(matchCard(m)));
+    groups.get(date).forEach((m) => wrap.appendChild(matchCard(m)));
     g.appendChild(wrap);
     frag.appendChild(g);
   }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-14T03:01:40.786645Z",
+    "generated_at": "2026-06-14T03:11:28.760653Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-14T14:00:00Z"
   },
@@ -853,10 +853,13 @@
       "home_code": "ht",
       "away_code": "gb-sct",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-06-14T01:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "A",
+      "score": [
+        0,
+        1
+      ],
       "model": {
         "home": 0.203,
         "draw": 0.282,
@@ -6043,13 +6046,13 @@
     {
       "player": "model_full",
       "n_bets": 8,
-      "n_settled": 6,
-      "wins": 4,
-      "hit_rate": 0.6667,
+      "n_settled": 7,
+      "wins": 5,
+      "hit_rate": 0.7143,
       "staked": 80.0,
-      "returned": 95.0,
-      "profit": 15.0,
-      "roi": 0.1875,
+      "returned": 109.5,
+      "profit": 29.5,
+      "roi": 0.3688,
       "best_bet": {
         "match": "Brazil v Morocco",
         "pick": "Draw",
@@ -6076,14 +6079,17 @@
           "home": "Haiti",
           "away": "Scotland",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.45,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 14.5,
+          "profit": 4.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-13",
@@ -6192,13 +6198,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 8,
-      "n_settled": 6,
-      "wins": 3,
-      "hit_rate": 0.5,
+      "n_settled": 7,
+      "wins": 4,
+      "hit_rate": 0.5714,
       "staked": 80.0,
-      "returned": 58.5,
-      "profit": -21.5,
-      "roi": -0.2687,
+      "returned": 73.0,
+      "profit": -7.0,
+      "roi": -0.0875,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -6225,14 +6231,17 @@
           "home": "Haiti",
           "away": "Scotland",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.45,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 14.5,
+          "profit": 4.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-13",
@@ -6341,13 +6350,13 @@
     {
       "player": "safe",
       "n_bets": 8,
-      "n_settled": 6,
-      "wins": 3,
-      "hit_rate": 0.5,
+      "n_settled": 7,
+      "wins": 4,
+      "hit_rate": 0.5714,
       "staked": 80.0,
-      "returned": 58.5,
-      "profit": -21.5,
-      "roi": -0.2687,
+      "returned": 73.0,
+      "profit": -7.0,
+      "roi": -0.0875,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -6374,14 +6383,17 @@
           "home": "Haiti",
           "away": "Scotland",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.45,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 14.5,
+          "profit": 4.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-13",
@@ -6490,9 +6502,9 @@
     {
       "player": "tide",
       "n_bets": 8,
-      "n_settled": 6,
+      "n_settled": 7,
       "wins": 3,
-      "hit_rate": 0.5,
+      "hit_rate": 0.4286,
       "staked": 80.0,
       "returned": 124.0,
       "profit": 44.0,
@@ -6523,14 +6535,17 @@
           "home": "Haiti",
           "away": "Scotland",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 4.0,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-13",
@@ -6639,7 +6654,7 @@
     {
       "player": "risk",
       "n_bets": 8,
-      "n_settled": 6,
+      "n_settled": 7,
       "wins": 0,
       "hit_rate": 0.0,
       "staked": 80.0,
@@ -6667,14 +6682,17 @@
           "home": "Haiti",
           "away": "Scotland",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 5.8,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-13",
@@ -6783,18 +6801,18 @@
     {
       "player": "monkey",
       "n_bets": 8,
-      "n_settled": 6,
-      "wins": 1,
-      "hit_rate": 0.1667,
+      "n_settled": 7,
+      "wins": 2,
+      "hit_rate": 0.2857,
       "staked": 80.0,
-      "returned": 14.0,
-      "profit": -66.0,
-      "roi": -0.825,
+      "returned": 28.5,
+      "profit": -51.5,
+      "roi": -0.6438,
       "best_bet": {
-        "match": "Mexico v South Africa",
-        "pick": "Mexico",
-        "odd": 1.4,
-        "profit": 4.0
+        "match": "Haiti v Scotland",
+        "pick": "Scotland",
+        "odd": 1.45,
+        "profit": 4.5
       },
       "bets": [
         {
@@ -6816,14 +6834,17 @@
           "home": "Haiti",
           "away": "Scotland",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.45,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 14.5,
+          "profit": 4.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-13",
@@ -6931,12 +6952,13 @@
     }
   ],
   "bankroll": {
-    "n": 6,
+    "n": 7,
     "labels": [
       "2026-06-11",
       "2026-06-11",
       "2026-06-12",
       "2026-06-12",
+      "2026-06-13",
       "2026-06-13",
       "2026-06-13"
     ],
@@ -6947,7 +6969,8 @@
         9.5,
         18.5,
         8.5,
-        35.0
+        35.0,
+        39.5
       ],
       "model_fundamental": [
         4.0,
@@ -6955,7 +6978,8 @@
         9.5,
         18.5,
         8.5,
-        -1.5
+        -1.5,
+        3.0
       ],
       "safe": [
         4.0,
@@ -6963,7 +6987,8 @@
         9.5,
         18.5,
         8.5,
-        -1.5
+        -1.5,
+        3.0
       ],
       "tide": [
         -10.0,
@@ -6971,7 +6996,8 @@
         3.5,
         -6.5,
         37.5,
-        64.0
+        64.0,
+        54.0
       ],
       "risk": [
         -10.0,
@@ -6979,7 +7005,8 @@
         -30.0,
         -40.0,
         -50.0,
-        -60.0
+        -60.0,
+        -70.0
       ],
       "monkey": [
         4.0,
@@ -6987,7 +7014,8 @@
         -16.0,
         -26.0,
         -36.0,
-        -46.0
+        -46.0,
+        -41.5
       ]
     }
   }

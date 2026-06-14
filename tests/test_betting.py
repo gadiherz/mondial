@@ -1,7 +1,34 @@
 """Live six-player betting sim: match-day placement -> settle -> leaderboard."""
+from collections import Counter
+from datetime import date, timedelta
+
 from mondial.data.db import connect, init_db
 from mondial.eval.betting import leaderboard, place_bets, settle_bets
 from mondial.eval.simulator import STAKE_NIS
+
+
+def test_monkey_is_uniform_over_hda(tmp_path):
+    """The monkey must spread evenly over H/D/A. A raw int per-match seed left the
+    Mersenne Twister's first draw correlated -> Away-heavy, draw almost never picked."""
+    db = tmp_path / "monkey.db"
+    init_db(db)
+    with connect(db) as conn:
+        conn.execute("INSERT INTO teams(team_id,name,confederation) VALUES (1,'A','X'),(2,'B','Y')")
+        base = date(2026, 4, 1)
+        for i in range(60):                       # 60 distinct match-days, same pair
+            conn.execute("INSERT INTO matches(match_id,date,home_id,away_id,tournament,"
+                         "neutral,status) VALUES (?,?,1,2,'WC',0,'scheduled')",
+                         (1000 + i, (base + timedelta(days=i)).isoformat()))
+            conn.execute("INSERT INTO predictions(match_id,p_home,p_draw,p_away,predicted_at) "
+                         "VALUES (?,0.4,0.3,0.3,'t')", (1000 + i,))
+            conn.execute("INSERT INTO odds_snapshots(match_id,bookmaker,ts,odd_home,odd_draw,"
+                         "odd_away) VALUES (?,'winner','t',2.0,3.0,4.0)", (1000 + i,))
+        place_bets(conn, as_of="2026-08-01")
+        picks = Counter(r["pick"] for r in
+                        conn.execute("SELECT pick FROM bets WHERE player_name='monkey'"))
+    assert sum(picks.values()) == 60
+    # each outcome appears a fair share (expected ~20 of 60); draw not starved.
+    assert all(picks[o] >= 12 for o in ("H", "D", "A")), picks
 
 MATCH_DAY = "2026-06-11"
 

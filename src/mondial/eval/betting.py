@@ -15,10 +15,13 @@ Flow (the two routines call these):
   settle_bets  (Routine B, post-match): for every still-open bet whose match is now
                final, compute the payout (stake*odd if the pick hit, else 0).
 
-Picks come from eval/simulator.pick_per_player: model_full / model_fundamental
-value-pick vs the Winner line (identical in V1 -- no market feature is wired); safe
-= lowest Winner odd; tide = draw; risk = highest Winner odd; monkey = uniform random
-seeded PER MATCH (Random(match_id)) so it is reproducible across incremental runs.
+Picks come from eval/simulator.pick_per_player: model_full value-picks vs the
+Winner line; model_fundamental backs the model's most-likely outcome (argmax,
+ignores the market); safe = lowest Winner odd; tide = draw; risk = highest Winner
+odd; monkey = uniform random over H/D/A, seeded PER MATCH with a STRING (so
+consecutive match_ids decorrelate -- a raw int seed left the Mersenne Twister's
+first draw correlated and the monkey almost never picked the draw). Reproducible
+across incremental runs.
 The eval book is Winner throughout (eval/odds.load_eval_odds), the benchmark the
 players bet and settle against (ARCHITECTURE D2).
 """
@@ -74,8 +77,11 @@ def place_bets(conn: sqlite3.Connection, *, as_of: str | None = None) -> int:
         wodds, _ = res
         priced += 1
         mp = ModelProbs(r["p_home"], r["p_draw"], r["p_away"])
-        # Per-match seed -> monkey is deterministic regardless of when it's placed.
-        rng = random.Random(r["match_id"])
+        # Per-match seed (a STRING, so Python mixes it through SHA-512 and
+        # consecutive match_ids don't correlate) -> the monkey is deterministic
+        # regardless of when it's placed, AND uniform over H/D/A. A raw int seed
+        # left the first draw biased (Away-heavy, almost never the draw).
+        rng = random.Random(f"monkey-{r['match_id']}")
         picks = pick_per_player(wodds, mp, mp, rng, MIN_PROB_EDGE)
         for player, pick in picks.items():
             cur = conn.execute(

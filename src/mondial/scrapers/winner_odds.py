@@ -75,6 +75,7 @@ HE_TEAM_ALIASES: dict[str, str] = {
     "תוניסיה": "Tunisia", "טוניסיה": "Tunisia",  # both ת/ט spellings appear
     "אלג'יריה": "Algeria", "גאנה": "Ghana", "חוף השנהב": "Ivory Coast",
     "קמרון": "Cameroon", "דרום אפריקה": "South Africa", "מאלי": "Mali", "כף ורדה": "Cape Verde",
+    "קייפ ורדה": "Cape Verde",  # site spelling variant of כף ורדה
     "קונגו": "DR Congo", "בורקינה פאסו": "Burkina Faso",
     "הרפובליקה הדמוקרטית של קונגו": "DR Congo",  # site's full name for קונגו
     # AFC
@@ -150,8 +151,12 @@ def parse_cards(html: str) -> list[dict[str, Any]]:
             continue
         desc = _RE["desc"].search(card)
         tm = _RE["time"].search(card)
-        if not desc or not tm:
+        if not desc:
             continue
+        # `data-time` is absent on already-kicked-off cards (the time span shows
+        # "הסתיים"/in-play instead). Keep the card -- its CLOSING 1X2 line is still
+        # priced -- but flag commence=None so upsert resolves it by team pair and
+        # never clobbers a match already priced pre-kickoff.
         teams = desc.group(1).strip()
         # Plain full match only: skip derivative markets that annotate the teams
         # with a parenthetical (handicap "(1+)", half "(מחצית)", minutes "(60 דק')").
@@ -163,11 +168,37 @@ def parse_cards(html: str) -> list[dict[str, Any]]:
             continue
         lg = _RE["league"].search(card)
         out.append({
-            "commence": tm.group(1), "league": lg.group(1).strip() if lg else None,
+            "commence": tm.group(1) if tm else None,
+            "league": lg.group(1).strip() if lg else None,
             "home_he": home_he, "away_he": away_he,
             "odd_home": oh, "odd_draw": od, "odd_away": oa,
         })
     return out
+
+
+def _resolve_pair(conn: sqlite3.Connection, home_id: int, away_id: int) -> sqlite3.Row | None:
+    """Resolve a WC fixture by unordered team pair when the card carries no date.
+
+    Finished/in-play bankerim cards drop `data-time`, so `resolve_match` (which
+    windows on the commence date) can't be used. Scope to tournament='WC' and
+    prefer a still-scheduled fixture, then the one nearest today -- this keeps the
+    line off the historical 2014/2018/2022 editions (years from now) that share
+    the same `tournament='WC'` tag.
+    """
+    rows = conn.execute(
+        """SELECT match_id, home_id, away_id, date, status FROM matches
+           WHERE tournament='WC' AND
+                 ((home_id=? AND away_id=?) OR (home_id=? AND away_id=?))""",
+        (home_id, away_id, away_id, home_id),
+    ).fetchall()
+    if not rows:
+        return None
+    today = datetime.now(UTC).date()
+    return min(
+        rows,
+        key=lambda r: (r["status"] != "scheduled",
+                       abs((datetime.fromisoformat(r["date"]).date() - today).days)),
+    )
 
 
 class WinnerOddsScraper:
@@ -199,7 +230,7 @@ class WinnerOddsScraper:
         # de-dup by (date, home_he, away_he)
         seen, deduped = set(), []
         for r in records:
-            key = (r["commence"][:10], r["home_he"], r["away_he"])
+            key = ((r["commence"] or "")[:10], r["home_he"], r["away_he"])
             if key not in seen:
                 seen.add(key)
                 deduped.append(r)
@@ -216,7 +247,7 @@ class WinnerOddsScraper:
         """
         idx = _norm_index(conn)
         ts_now = datetime.now(UTC).isoformat()
-        written = skipped_name = skipped_match = 0
+        written = skipped_name = skipped_match = skipped_settled = 0
         unresolved: set[str] = set()
 
         for r in records:
@@ -234,10 +265,22 @@ class WinnerOddsScraper:
             if h_id is None or a_id is None:
                 skipped_name += 1
                 continue
-            commence = datetime.fromisoformat(r["commence"]).replace(tzinfo=UTC)
-            m = resolve_match(conn, h_id, a_id, commence)
+            if r["commence"] is not None:
+                commence = datetime.fromisoformat(r["commence"]).replace(tzinfo=UTC)
+                m = resolve_match(conn, h_id, a_id, commence)
+            else:
+                # Finished/in-play card (no data-time): resolve by team pair alone so
+                # the closing line still prices the match for settlement + Results.
+                m = _resolve_pair(conn, h_id, a_id)
             if m is None:
                 skipped_match += 1
+                continue
+            if r["commence"] is None and conn.execute(
+                    "SELECT 1 FROM odds_snapshots WHERE match_id=? AND bookmaker='winner'",
+                    (m["match_id"],)).fetchone():
+                # Already priced pre-kickoff -- never overwrite that line (bets settle
+                # against it) with the post-hoc closing line from a finished card.
+                skipped_settled += 1
                 continue
             # Orient to OUR DB home/away (the aggregator may differ for neutral venues).
             db_home_is_winner_home = m["home_id"] == h_id
@@ -256,4 +299,5 @@ class WinnerOddsScraper:
             log.warning("winner_odds: %d unresolved Hebrew team name(s) -> add to "
                         "HE_TEAM_ALIASES: %s", len(unresolved), sorted(unresolved))
         log.info("winner_odds upsert: wrote %d 'winner' rows; skipped %d (unknown "
-                 "team), %d (no DB match)", written, skipped_name, skipped_match)
+                 "team), %d (no DB match), %d (already priced pre-kickoff)",
+                 written, skipped_name, skipped_match, skipped_settled)

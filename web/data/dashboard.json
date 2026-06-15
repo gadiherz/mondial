@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-15T18:01:19.761669Z",
+    "generated_at": "2026-06-15T18:17:08.178491Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-16T14:00:00Z"
   },
@@ -2772,7 +2772,16 @@
         "draw": 0.092,
         "away": 0.022
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.05,
+        "draw": 9.5,
+        "away": 19.0,
+        "true": [
+          0.858,
+          0.095,
+          0.047
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,

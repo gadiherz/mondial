@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-06-15T11:57:17.000666Z",
+    "generated_at": "2026-06-15T17:01:07.100757Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
-    "next_scrape_utc": "2026-06-15T14:00:00Z"
+    "next_scrape_utc": "2026-06-16T14:00:00Z"
   },
   "matches": [
     {
@@ -2355,8 +2355,17 @@
         "draw": 0.302,
         "away": 0.237
       },
-      "winner_odds": null,
-      "model_pick": "H",
+      "winner_odds": {
+        "home": 1.45,
+        "draw": 3.95,
+        "away": 5.9,
+        "true": [
+          0.62,
+          0.228,
+          0.152
+        ]
+      },
+      "model_pick": "A",
       "breakdown": {
         "neutral": true,
         "rho": -0.04813971608415197,
@@ -2553,7 +2562,16 @@
         "draw": 0.321,
         "away": 0.146
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.7,
+        "draw": 3.25,
+        "away": 4.6,
+        "true": [
+          0.528,
+          0.276,
+          0.195
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -2949,7 +2967,16 @@
         "draw": 0.2,
         "away": 0.723
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 7.5,
+        "draw": 4.2,
+        "away": 1.35,
+        "true": [
+          0.12,
+          0.214,
+          0.666
+        ]
+      },
       "model_pick": "A",
       "breakdown": {
         "neutral": true,
@@ -3147,8 +3174,17 @@
         "draw": 0.301,
         "away": 0.215
       },
-      "winner_odds": null,
-      "model_pick": "H",
+      "winner_odds": {
+        "home": 1.35,
+        "draw": 4.4,
+        "away": 6.9,
+        "true": [
+          0.666,
+          0.204,
+          0.13
+        ]
+      },
+      "model_pick": "A",
       "breakdown": {
         "neutral": true,
         "rho": -0.04813971608415197,
@@ -3345,8 +3381,17 @@
         "draw": 0.284,
         "away": 0.531
       },
-      "winner_odds": null,
-      "model_pick": "A",
+      "winner_odds": {
+        "home": 12.0,
+        "draw": 6.0,
+        "away": 1.15,
+        "true": [
+          0.074,
+          0.149,
+          0.777
+        ]
+      },
+      "model_pick": "H",
       "breakdown": {
         "neutral": true,
         "rho": -0.04813971608415197,
@@ -3543,7 +3588,16 @@
         "draw": 0.174,
         "away": 0.072
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.35,
+        "draw": 4.2,
+        "away": 7.6,
+        "true": [
+          0.667,
+          0.214,
+          0.118
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -3741,7 +3795,16 @@
         "draw": 0.273,
         "away": 0.186
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.3,
+        "draw": 4.9,
+        "away": 7.6,
+        "true": [
+          0.696,
+          0.185,
+          0.119
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -3939,7 +4002,16 @@
         "draw": 0.207,
         "away": 0.093
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.25,
+        "draw": 5.0,
+        "away": 9.2,
+        "true": [
+          0.722,
+          0.18,
+          0.098
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -4137,7 +4209,16 @@
         "draw": 0.248,
         "away": 0.651
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 8.2,
+        "draw": 4.4,
+        "away": 1.3,
+        "true": [
+          0.109,
+          0.203,
+          0.688
+        ]
+      },
       "model_pick": "A",
       "breakdown": {
         "neutral": true,
@@ -4335,7 +4416,16 @@
         "draw": 0.305,
         "away": 0.21
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.65,
+        "draw": 3.5,
+        "away": 4.5,
+        "true": [
+          0.544,
+          0.256,
+          0.199
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -4533,7 +4623,16 @@
         "draw": 0.304,
         "away": 0.452
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 2.05,
+        "draw": 3.15,
+        "away": 3.25,
+        "true": [
+          0.438,
+          0.285,
+          0.276
+        ]
+      },
       "model_pick": "A",
       "breakdown": {
         "neutral": true,
@@ -4731,7 +4830,16 @@
         "draw": 0.295,
         "away": 0.246
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.7,
+        "draw": 3.45,
+        "away": 4.3,
+        "true": [
+          0.53,
+          0.261,
+          0.209
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -4929,7 +5037,16 @@
         "draw": 0.261,
         "away": 0.219
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.9,
+        "draw": 3.05,
+        "away": 3.85,
+        "true": [
+          0.472,
+          0.294,
+          0.233
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": false,
@@ -5127,7 +5244,16 @@
         "draw": 0.219,
         "away": 0.12
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.5,
+        "draw": 3.75,
+        "away": 5.6,
+        "true": [
+          0.6,
+          0.24,
+          0.161
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -5325,7 +5451,16 @@
         "draw": 0.172,
         "away": 0.09
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.25,
+        "draw": 5.0,
+        "away": 9.8,
+        "true": [
+          0.726,
+          0.181,
+          0.093
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": false,
@@ -5523,7 +5658,16 @@
         "draw": 0.308,
         "away": 0.58
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 4.6,
+        "draw": 3.35,
+        "away": 1.7,
+        "true": [
+          0.197,
+          0.27,
+          0.533
+        ]
+      },
       "model_pick": "A",
       "breakdown": {
         "neutral": true,
@@ -5919,8 +6063,17 @@
         "draw": 0.263,
         "away": 0.308
       },
-      "winner_odds": null,
-      "model_pick": "H",
+      "winner_odds": {
+        "home": 1.55,
+        "draw": 3.75,
+        "away": 5.0,
+        "true": [
+          0.58,
+          0.24,
+          0.18
+        ]
+      },
+      "model_pick": "A",
       "breakdown": {
         "neutral": false,
         "rho": -0.04813971608415197,
@@ -6117,7 +6270,16 @@
         "draw": 0.308,
         "away": 0.392
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.9,
+        "draw": 3.15,
+        "away": 3.7,
+        "true": [
+          0.472,
+          0.285,
+          0.243
+        ]
+      },
       "model_pick": "A",
       "breakdown": {
         "neutral": true,
@@ -6315,7 +6477,16 @@
         "draw": 0.242,
         "away": 0.175
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.5,
+        "draw": 4.0,
+        "away": 5.2,
+        "true": [
+          0.601,
+          0.225,
+          0.173
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -6513,7 +6684,16 @@
         "draw": 0.147,
         "away": 0.043
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.1,
+        "draw": 7.8,
+        "away": 19.0,
+        "true": [
+          0.834,
+          0.118,
+          0.048
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -6711,7 +6891,16 @@
         "draw": 0.24,
         "away": 0.183
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.6,
+        "draw": 3.7,
+        "away": 4.6,
+        "true": [
+          0.562,
+          0.243,
+          0.195
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -6909,7 +7098,16 @@
         "draw": 0.271,
         "away": 0.557
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 6.2,
+        "draw": 3.7,
+        "away": 1.5,
+        "true": [
+          0.147,
+          0.246,
+          0.607
+        ]
+      },
       "model_pick": "A",
       "breakdown": {
         "neutral": true,

@@ -76,10 +76,14 @@ HE_TEAM_ALIASES: dict[str, str] = {
     "אלג'יריה": "Algeria", "גאנה": "Ghana", "חוף השנהב": "Ivory Coast",
     "קמרון": "Cameroon", "דרום אפריקה": "South Africa", "מאלי": "Mali", "כף ורדה": "Cape Verde",
     "קונגו": "DR Congo", "בורקינה פאסו": "Burkina Faso",
+    "הרפובליקה הדמוקרטית של קונגו": "DR Congo",  # site's full name for קונגו
     # AFC
     "יפן": "Japan", "דרום קוריאה": "South Korea", "איראן": "Iran", "אוסטרליה": "Australia",
+    "אירן": "Iran",  # site spelling variant of איראן
     "ערב הסעודית": "Saudi Arabia", "קטאר": "Qatar", "עיראק": "Iraq",
+    "עירק": "Iraq",  # site spelling variant of עיראק
     "איחוד האמירויות": "United Arab Emirates", "אוזבקיסטן": "Uzbekistan",
+    "אוזבקיסטאן": "Uzbekistan",  # site spelling variant of אוזבקיסטן
     "סין": "China PR", "ירדן": "Jordan",
     # CONCACAF / OFC
     "ארהב": "United States", "ארצות הברית": "United States", "מקסיקו": "Mexico",

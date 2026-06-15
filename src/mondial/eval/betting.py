@@ -51,20 +51,27 @@ PLAYERS = ("model_full", "model_fundamental", "safe", "tide", "risk", "monkey")
 def place_bets(conn: sqlite3.Connection, *, as_of: str | None = None) -> int:
     """Place the six players' bets for matches whose MATCH DAY has arrived.
 
-    The guard (this is the key rule): a match is bet only when it is scheduled,
-    priced (has Winner odds), AND its date is on/before `as_of` (default = today,
-    UTC). This ties each player's invested total to MATCH-DAYS, not to how often the
-    predict/intel routine runs: future matches are never pre-bet, so "risked" only
-    grows as match-days arrive (each day a player effectively pays 10 NIS x that
-    day's matches). Each bet is locked at its Winner price at first placement;
+    The guard (this is the key rule): a match is bet only when it is priced (has
+    Winner odds) AND its date is on/before `as_of` (default = today, UTC). This ties
+    each player's invested total to MATCH-DAYS, not to how often the predict/intel
+    routine runs: future matches are never pre-bet (the date guard), so "risked"
+    only grows as match-days arrive (each day a player effectively pays 10 NIS x
+    that day's matches). Each bet is locked at its Winner price at first placement;
     idempotent per (player, match). Returns the number of NEW bets written.
+
+    Both `scheduled` and `final` matches are eligible: a match-day that arrived is a
+    bet the players should have made, even if the match has since finished. This
+    backfills any match that was priced late -- e.g. its Winner line landed only
+    after kickoff -- so a scrape gap can't silently drop it from the standings.
+    `INSERT OR IGNORE` keeps already-bet matches untouched, and the strict odds
+    check below still excludes any final that was never priced.
     """
     today = as_of or datetime.now(UTC).date().isoformat()
     rows = conn.execute(
         """SELECT pr.match_id, pr.p_home, pr.p_draw, pr.p_away
            FROM predictions pr
            JOIN matches m ON m.match_id = pr.match_id
-           WHERE m.status = 'scheduled' AND m.date <= ?
+           WHERE m.status IN ('scheduled', 'final') AND m.date <= ?
            ORDER BY m.date, pr.match_id""",
         (today,),
     ).fetchall()

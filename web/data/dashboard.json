@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-15T18:22:58.176194Z",
+    "generated_at": "2026-06-15T18:26:25.545330Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-16T14:00:00Z"
   },
@@ -8690,14 +8690,14 @@
   "leaderboard": [
     {
       "player": "model_full",
-      "n_bets": 14,
-      "n_settled": 11,
+      "n_bets": 15,
+      "n_settled": 12,
       "wins": 6,
-      "hit_rate": 0.5455,
-      "staked": 140.0,
+      "hit_rate": 0.5,
+      "staked": 150.0,
       "returned": 152.5,
-      "profit": 12.5,
-      "roi": 0.0893,
+      "profit": 2.5,
+      "roi": 0.0167,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -8705,6 +8705,23 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-06-15",
+          "home": "Spain",
+          "away": "Cape Verde",
+          "pick": "H",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.05,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
         {
           "date": "2026-06-15",
           "home": "Saudi Arabia",
@@ -8938,14 +8955,14 @@
     },
     {
       "player": "model_fundamental",
-      "n_bets": 14,
-      "n_settled": 11,
+      "n_bets": 15,
+      "n_settled": 12,
       "wins": 5,
-      "hit_rate": 0.4545,
-      "staked": 140.0,
+      "hit_rate": 0.4167,
+      "staked": 150.0,
       "returned": 116.0,
-      "profit": -24.0,
-      "roi": -0.1714,
+      "profit": -34.0,
+      "roi": -0.2267,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -8953,6 +8970,23 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-06-15",
+          "home": "Spain",
+          "away": "Cape Verde",
+          "pick": "H",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.05,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
         {
           "date": "2026-06-15",
           "home": "Saudi Arabia",
@@ -9186,14 +9220,14 @@
     },
     {
       "player": "safe",
-      "n_bets": 14,
-      "n_settled": 11,
+      "n_bets": 15,
+      "n_settled": 12,
       "wins": 5,
-      "hit_rate": 0.4545,
-      "staked": 140.0,
+      "hit_rate": 0.4167,
+      "staked": 150.0,
       "returned": 91.5,
-      "profit": -48.5,
-      "roi": -0.3464,
+      "profit": -58.5,
+      "roi": -0.39,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -9201,6 +9235,23 @@
         "profit": 15.5
       },
       "bets": [
+        {
+          "date": "2026-06-15",
+          "home": "Spain",
+          "away": "Cape Verde",
+          "pick": "H",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.05,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
         {
           "date": "2026-06-15",
           "home": "Saudi Arabia",
@@ -9434,21 +9485,38 @@
     },
     {
       "player": "tide",
-      "n_bets": 14,
-      "n_settled": 11,
-      "wins": 4,
-      "hit_rate": 0.3636,
-      "staked": 140.0,
-      "returned": 158.0,
-      "profit": 18.0,
-      "roi": 0.1286,
+      "n_bets": 15,
+      "n_settled": 12,
+      "wins": 5,
+      "hit_rate": 0.4167,
+      "staked": 150.0,
+      "returned": 253.0,
+      "profit": 103.0,
+      "roi": 0.6867,
       "best_bet": {
-        "match": "Qatar v Switzerland",
+        "match": "Spain v Cape Verde",
         "pick": "Draw",
-        "odd": 5.4,
-        "profit": 44.0
+        "odd": 9.5,
+        "profit": 85.0
       },
       "bets": [
+        {
+          "date": "2026-06-15",
+          "home": "Spain",
+          "away": "Cape Verde",
+          "pick": "D",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 9.5,
+          "payout": 95.0,
+          "profit": 85.0,
+          "settled": true,
+          "won": true
+        },
         {
           "date": "2026-06-15",
           "home": "Saudi Arabia",
@@ -9682,14 +9750,14 @@
     },
     {
       "player": "risk",
-      "n_bets": 14,
-      "n_settled": 11,
+      "n_bets": 15,
+      "n_settled": 12,
       "wins": 3,
-      "hit_rate": 0.2727,
-      "staked": 140.0,
+      "hit_rate": 0.25,
+      "staked": 150.0,
       "returned": 111.0,
-      "profit": -29.0,
-      "roi": -0.2071,
+      "profit": -39.0,
+      "roi": -0.26,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -9697,6 +9765,23 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-06-15",
+          "home": "Spain",
+          "away": "Cape Verde",
+          "pick": "A",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 19.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
         {
           "date": "2026-06-15",
           "home": "Saudi Arabia",
@@ -9930,14 +10015,14 @@
     },
     {
       "player": "monkey",
-      "n_bets": 14,
-      "n_settled": 11,
+      "n_bets": 15,
+      "n_settled": 12,
       "wins": 2,
-      "hit_rate": 0.1818,
-      "staked": 140.0,
+      "hit_rate": 0.1667,
+      "staked": 150.0,
       "returned": 28.5,
-      "profit": -111.5,
-      "roi": -0.7964,
+      "profit": -121.5,
+      "roi": -0.81,
       "best_bet": {
         "match": "Haiti v Scotland",
         "pick": "Scotland",
@@ -9945,6 +10030,23 @@
         "profit": 4.5
       },
       "bets": [
+        {
+          "date": "2026-06-15",
+          "home": "Spain",
+          "away": "Cape Verde",
+          "pick": "A",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 19.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
         {
           "date": "2026-06-15",
           "home": "Saudi Arabia",
@@ -10178,7 +10280,7 @@
     }
   ],
   "bankroll": {
-    "n": 11,
+    "n": 12,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -10190,7 +10292,8 @@
       "2026-06-13",
       "2026-06-14",
       "2026-06-14",
-      "2026-06-14"
+      "2026-06-14",
+      "2026-06-15"
     ],
     "series": {
       "model_full": [
@@ -10204,7 +10307,8 @@
         72.5,
         62.5,
         52.5,
-        42.5
+        42.5,
+        32.5
       ],
       "model_fundamental": [
         4.0,
@@ -10217,7 +10321,8 @@
         36.0,
         26.0,
         16.0,
-        6.0
+        6.0,
+        -4.0
       ],
       "safe": [
         4.0,
@@ -10230,7 +10335,8 @@
         -7.0,
         -17.0,
         -27.0,
-        -18.5
+        -18.5,
+        -28.5
       ],
       "tide": [
         -10.0,
@@ -10243,7 +10349,8 @@
         44.0,
         34.0,
         58.0,
-        48.0
+        48.0,
+        133.0
       ],
       "risk": [
         -10.0,
@@ -10256,7 +10363,8 @@
         -37.0,
         -13.0,
         11.0,
-        1.0
+        1.0,
+        -9.0
       ],
       "monkey": [
         4.0,
@@ -10269,7 +10377,8 @@
         -51.5,
         -61.5,
         -71.5,
-        -81.5
+        -81.5,
+        -91.5
       ]
     }
   }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-18T20:51:01.998680Z",
+    "generated_at": "2026-06-18T21:01:06.839851Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-19T14:00:00Z"
   },
@@ -5283,10 +5283,13 @@
       "home_code": "ch",
       "away_code": "ba",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-06-18T19:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "H",
+      "score": [
+        4,
+        1
+      ],
       "model": {
         "home": 0.647,
         "draw": 0.225,
@@ -11097,19 +11100,217 @@
           ]
         }
       }
+    },
+    {
+      "date": "2026-06-25",
+      "stage": "group",
+      "home": "Paraguay",
+      "away": "Australia",
+      "home_code": "py",
+      "away_code": "au",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": "2026-06-26T02:00:00Z",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.252,
+        "draw": 0.328,
+        "away": 0.42
+      },
+      "winner_odds": null,
+      "model_pick": "A",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 0.8,
+          "away": 1.069
+        },
+        "log_lambda": {
+          "home": -0.2228155608088792,
+          "away": 0.06704195351610404
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.4902359814302315,
+            "opp_defence": -0.6156429934167177,
+            "home_adv": 0.0,
+            "features": -0.14375302563092207
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.5800069020522266,
+            "opp_defence": -0.6645818760696655,
+            "home_adv": 0.0,
+            "features": 0.10527245072501384
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": -0.3700734558562255,
+            "x_away": 0.3700734558562255,
+            "contrib_home": -0.06995741398302695,
+            "contrib_away": 0.06995741398302695,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.46187578822046865,
+            "x_away": 0.46187578822046865,
+            "contrib_home": -0.019240287452954124,
+            "contrib_away": -0.019240287452954124,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": 0.08351231473084655,
+            "x_away": -0.08351231473084655,
+            "contrib_home": -0.004707040591018609,
+            "contrib_away": 0.004707040591018609,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": -0.2006733085747024,
+            "x_away": 0.2006733085747024,
+            "contrib_home": -0.05000039300606135,
+            "contrib_away": 0.05000039300606135,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0027397260273972603,
+            "x_away": -0.0027397260273972603,
+            "contrib_home": 0.000152109402138944,
+            "contrib_away": -0.000152109402138944,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.1605
+          },
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.1585
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.1383
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.117
+          },
+          {
+            "h": 0,
+            "a": 2,
+            "p": 0.0882
+          },
+          {
+            "h": 1,
+            "a": 2,
+            "p": 0.0705
+          }
+        ],
+        "raw_probs": {
+          "home": 0.2629,
+          "draw": 0.3299,
+          "away": 0.4072
+        },
+        "glicko": {
+          "home": {
+            "rating": 1583,
+            "rd": 80,
+            "intel_points": -20.2
+          },
+          "away": {
+            "rating": 1706,
+            "rd": 81,
+            "intel_points": 4.5
+          },
+          "home_expected": 0.335
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.113,
+            "gd_ewma": 0.01,
+            "idle_days": 13
+          },
+          "away": {
+            "resid_ewma": 0.03,
+            "gd_ewma": 0.82,
+            "idle_days": 12
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": -0.135,
+            "confidence": 0.6,
+            "summary": "Paraguay lost 4-1 to US, conceded many touches in penalty area",
+            "dims": {
+              "form_outlook": -0.5,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": -0.5,
+              "motivation": 0.5
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.03,
+            "confidence": 0.2,
+            "summary": "Australia has a young player with a promising debut and a player with a 'Player of the Match' award, but overall information is limited",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.1,
+              "motivation": 0.5
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8555,
+          "raw": [
+            0.2629,
+            0.3299,
+            0.4072
+          ],
+          "calibrated": [
+            0.2518,
+            0.3283,
+            0.4199
+          ]
+        }
+      }
     }
   ],
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 27,
-      "n_settled": 24,
-      "wins": 10,
-      "hit_rate": 0.4167,
+      "n_settled": 25,
+      "wins": 11,
+      "hit_rate": 0.44,
       "staked": 270.0,
-      "returned": 208.5,
-      "profit": -61.5,
-      "roi": -0.2278,
+      "returned": 223.5,
+      "profit": -46.5,
+      "roi": -0.1722,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -11136,14 +11337,17 @@
           "home": "Switzerland",
           "away": "Bosnia and Herzegovina",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.0,
+          "profit": 5.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -11572,13 +11776,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 27,
-      "n_settled": 24,
-      "wins": 11,
-      "hit_rate": 0.4583,
+      "n_settled": 25,
+      "wins": 12,
+      "hit_rate": 0.48,
       "staked": 270.0,
-      "returned": 197.0,
-      "profit": -73.0,
-      "roi": -0.2704,
+      "returned": 212.0,
+      "profit": -58.0,
+      "roi": -0.2148,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -11605,14 +11809,17 @@
           "home": "Switzerland",
           "away": "Bosnia and Herzegovina",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.0,
+          "profit": 5.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -12041,13 +12248,13 @@
     {
       "player": "safe",
       "n_bets": 27,
-      "n_settled": 24,
-      "wins": 12,
-      "hit_rate": 0.5,
+      "n_settled": 25,
+      "wins": 13,
+      "hit_rate": 0.52,
       "staked": 270.0,
-      "returned": 193.0,
-      "profit": -77.0,
-      "roi": -0.2852,
+      "returned": 208.0,
+      "profit": -62.0,
+      "roi": -0.2296,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -12074,14 +12281,17 @@
           "home": "Switzerland",
           "away": "Bosnia and Herzegovina",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.0,
+          "profit": 5.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -12510,9 +12720,9 @@
     {
       "player": "tide",
       "n_bets": 27,
-      "n_settled": 24,
+      "n_settled": 25,
       "wins": 10,
-      "hit_rate": 0.4167,
+      "hit_rate": 0.4,
       "staked": 270.0,
       "returned": 451.5,
       "profit": 181.5,
@@ -12543,14 +12753,17 @@
           "home": "Switzerland",
           "away": "Bosnia and Herzegovina",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
           "stake": 10.0,
           "odd": 3.75,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-18",
@@ -12979,9 +13192,9 @@
     {
       "player": "risk",
       "n_bets": 27,
-      "n_settled": 24,
+      "n_settled": 25,
       "wins": 3,
-      "hit_rate": 0.125,
+      "hit_rate": 0.12,
       "staked": 270.0,
       "returned": 111.0,
       "profit": -159.0,
@@ -13012,14 +13225,17 @@
           "home": "Switzerland",
           "away": "Bosnia and Herzegovina",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
           "stake": 10.0,
           "odd": 5.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-18",
@@ -13448,9 +13664,9 @@
     {
       "player": "monkey",
       "n_bets": 27,
-      "n_settled": 24,
+      "n_settled": 25,
       "wins": 6,
-      "hit_rate": 0.25,
+      "hit_rate": 0.24,
       "staked": 270.0,
       "returned": 164.0,
       "profit": -106.0,
@@ -13481,14 +13697,17 @@
           "home": "Switzerland",
           "away": "Bosnia and Herzegovina",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            4,
+            1
+          ],
           "stake": 10.0,
           "odd": 3.75,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-18",
@@ -13916,7 +14135,7 @@
     }
   ],
   "bankroll": {
-    "n": 24,
+    "n": 25,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -13941,6 +14160,7 @@
       "2026-06-17",
       "2026-06-17",
       "2026-06-17",
+      "2026-06-18",
       "2026-06-18"
     ],
     "series": {
@@ -13968,7 +14188,8 @@
         -18.0,
         -11.5,
         -21.5,
-        -31.5
+        -31.5,
+        -26.5
       ],
       "model_fundamental": [
         4.0,
@@ -13994,7 +14215,8 @@
         -29.5,
         -23.0,
         -33.0,
-        -43.0
+        -43.0,
+        -38.0
       ],
       "safe": [
         4.0,
@@ -14020,7 +14242,8 @@
         -54.0,
         -47.5,
         -37.0,
-        -47.0
+        -47.0,
+        -42.0
       ],
       "tide": [
         -10.0,
@@ -14046,7 +14269,8 @@
         207.0,
         197.0,
         187.0,
-        211.5
+        211.5,
+        201.5
       ],
       "risk": [
         -10.0,
@@ -14072,7 +14296,8 @@
         -99.0,
         -109.0,
         -119.0,
-        -129.0
+        -129.0,
+        -139.0
       ],
       "monkey": [
         4.0,
@@ -14098,7 +14323,8 @@
         -46.0,
         -56.0,
         -66.0,
-        -76.0
+        -76.0,
+        -86.0
       ]
     }
   }

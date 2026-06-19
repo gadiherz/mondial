@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-19T02:50:55.644828Z",
+    "generated_at": "2026-06-19T03:00:59.988396Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-19T14:00:00Z"
   },
@@ -4898,10 +4898,13 @@
       "home_code": "mx",
       "away_code": "kr",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-06-19T01:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "H",
+      "score": [
+        1,
+        0
+      ],
       "model": {
         "home": 0.518,
         "draw": 0.262,
@@ -11321,19 +11324,217 @@
           ]
         }
       }
+    },
+    {
+      "date": "2026-06-25",
+      "stage": "group",
+      "home": "Ecuador",
+      "away": "Germany",
+      "home_code": "ec",
+      "away_code": "de",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": "2026-06-25T20:00:00Z",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.379,
+        "draw": 0.279,
+        "away": 0.342
+      },
+      "winner_odds": null,
+      "model_pick": "H",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 1.25,
+          "away": 1.184
+        },
+        "log_lambda": {
+          "home": 0.2228122040917928,
+          "away": 0.16862201893454376
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.7280255116396032,
+            "opp_defence": -0.4408842861727827,
+            "home_adv": 0.0,
+            "features": -0.1106734981835567
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.8204154296692986,
+            "opp_defence": -0.7702372164978866,
+            "home_adv": 0.0,
+            "features": 0.07209932895460268
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": -0.16439609830287907,
+            "x_away": 0.16439609830287907,
+            "contrib_home": -0.031076873318460773,
+            "contrib_away": 0.031076873318460773,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.462999184942982,
+            "x_away": 0.462999184942982,
+            "contrib_home": -0.019287084614477007,
+            "contrib_away": -0.019287084614477007,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": 0.00016126201817416586,
+            "x_away": -0.00016126201817416586,
+            "contrib_home": -9.089280638212346e-06,
+            "contrib_away": 9.089280638212346e-06,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": -0.24201191785084034,
+            "x_away": 0.24201191785084034,
+            "contrib_home": -0.060300450969980705,
+            "contrib_away": 0.060300450969980705,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0,
+            "x_away": -0.0,
+            "contrib_home": 0.0,
+            "contrib_away": -0.0,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.136
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.1034
+          },
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.0976
+          },
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.094
+          },
+          {
+            "h": 2,
+            "a": 1,
+            "p": 0.0811
+          },
+          {
+            "h": 1,
+            "a": 2,
+            "p": 0.0768
+          }
+        ],
+        "raw_probs": {
+          "home": 0.3725,
+          "draw": 0.2867,
+          "away": 0.3408
+        },
+        "glicko": {
+          "home": {
+            "rating": 1706,
+            "rd": 81,
+            "intel_points": 2.7
+          },
+          "away": {
+            "rating": 1751,
+            "rd": 81,
+            "intel_points": 23.9
+          },
+          "home_expected": 0.438
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.073,
+            "gd_ewma": 0.53,
+            "idle_days": 11
+          },
+          "away": {
+            "resid_ewma": 0.073,
+            "gd_ewma": 1.5,
+            "idle_days": 11
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.018,
+            "confidence": 0.2,
+            "summary": "Strong center-back pairing in Pacho and Hincapié",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.0,
+              "motivation": 0.0
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.159,
+            "confidence": 0.6,
+            "summary": "Germany have a talented squad, 9-match winning run, and Manuel Neuer returning, but coach and recent World Cup history are concerns",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.5,
+              "coach_stability": -0.5,
+              "morale": 0.5,
+              "motivation": 0.5
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8555,
+          "raw": [
+            0.3725,
+            0.2867,
+            0.3408
+          ],
+          "calibrated": [
+            0.3792,
+            0.2792,
+            0.3416
+          ]
+        }
+      }
     }
   ],
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 27,
-      "n_settled": 26,
-      "wins": 12,
-      "hit_rate": 0.4615,
+      "n_settled": 27,
+      "wins": 13,
+      "hit_rate": 0.4815,
       "staked": 270.0,
-      "returned": 236.0,
-      "profit": -34.0,
-      "roi": -0.1259,
+      "returned": 255.0,
+      "profit": -15.0,
+      "roi": -0.0556,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -11380,14 +11581,17 @@
           "home": "Mexico",
           "away": "South Korea",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            1,
+            0
+          ],
           "stake": 10.0,
           "odd": 1.9,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 19.0,
+          "profit": 9.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -11802,13 +12006,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 27,
-      "n_settled": 26,
-      "wins": 13,
-      "hit_rate": 0.5,
+      "n_settled": 27,
+      "wins": 14,
+      "hit_rate": 0.5185,
       "staked": 270.0,
-      "returned": 224.5,
-      "profit": -45.5,
-      "roi": -0.1685,
+      "returned": 243.5,
+      "profit": -26.5,
+      "roi": -0.0981,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -11855,14 +12059,17 @@
           "home": "Mexico",
           "away": "South Korea",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            1,
+            0
+          ],
           "stake": 10.0,
           "odd": 1.9,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 19.0,
+          "profit": 9.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -12277,13 +12484,13 @@
     {
       "player": "safe",
       "n_bets": 27,
-      "n_settled": 26,
-      "wins": 14,
-      "hit_rate": 0.5385,
+      "n_settled": 27,
+      "wins": 15,
+      "hit_rate": 0.5556,
       "staked": 270.0,
-      "returned": 220.5,
-      "profit": -49.5,
-      "roi": -0.1833,
+      "returned": 239.5,
+      "profit": -30.5,
+      "roi": -0.113,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -12330,14 +12537,17 @@
           "home": "Mexico",
           "away": "South Korea",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            1,
+            0
+          ],
           "stake": 10.0,
           "odd": 1.9,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 19.0,
+          "profit": 9.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -12752,9 +12962,9 @@
     {
       "player": "tide",
       "n_bets": 27,
-      "n_settled": 26,
+      "n_settled": 27,
       "wins": 10,
-      "hit_rate": 0.3846,
+      "hit_rate": 0.3704,
       "staked": 270.0,
       "returned": 451.5,
       "profit": 181.5,
@@ -12805,14 +13015,17 @@
           "home": "Mexico",
           "away": "South Korea",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            1,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.05,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-18",
@@ -13227,9 +13440,9 @@
     {
       "player": "risk",
       "n_bets": 27,
-      "n_settled": 26,
+      "n_settled": 27,
       "wins": 3,
-      "hit_rate": 0.1154,
+      "hit_rate": 0.1111,
       "staked": 270.0,
       "returned": 111.0,
       "profit": -159.0,
@@ -13280,14 +13493,17 @@
           "home": "Mexico",
           "away": "South Korea",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            1,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.85,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-18",
@@ -13702,9 +13918,9 @@
     {
       "player": "monkey",
       "n_bets": 27,
-      "n_settled": 26,
+      "n_settled": 27,
       "wins": 6,
-      "hit_rate": 0.2308,
+      "hit_rate": 0.2222,
       "staked": 270.0,
       "returned": 164.0,
       "profit": -106.0,
@@ -13755,14 +13971,17 @@
           "home": "Mexico",
           "away": "South Korea",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            1,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.85,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-18",
@@ -14176,7 +14395,7 @@
     }
   ],
   "bankroll": {
-    "n": 26,
+    "n": 27,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -14201,6 +14420,7 @@
       "2026-06-17",
       "2026-06-17",
       "2026-06-17",
+      "2026-06-18",
       "2026-06-18",
       "2026-06-18",
       "2026-06-18"
@@ -14231,8 +14451,9 @@
         -11.5,
         -21.5,
         -31.5,
-        -26.5,
-        -24.0
+        -22.5,
+        -17.5,
+        -15.0
       ],
       "model_fundamental": [
         4.0,
@@ -14259,8 +14480,9 @@
         -23.0,
         -33.0,
         -43.0,
-        -38.0,
-        -35.5
+        -34.0,
+        -29.0,
+        -26.5
       ],
       "safe": [
         4.0,
@@ -14287,8 +14509,9 @@
         -47.5,
         -37.0,
         -47.0,
-        -42.0,
-        -39.5
+        -38.0,
+        -33.0,
+        -30.5
       ],
       "tide": [
         -10.0,
@@ -14316,7 +14539,8 @@
         187.0,
         211.5,
         201.5,
-        191.5
+        191.5,
+        181.5
       ],
       "risk": [
         -10.0,
@@ -14344,7 +14568,8 @@
         -119.0,
         -129.0,
         -139.0,
-        -149.0
+        -149.0,
+        -159.0
       ],
       "monkey": [
         4.0,
@@ -14372,7 +14597,8 @@
         -66.0,
         -76.0,
         -86.0,
-        -96.0
+        -96.0,
+        -106.0
       ]
     }
   }

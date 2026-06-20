@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-19T23:50:59.157958Z",
+    "generated_at": "2026-06-20T00:00:55.931594Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-20T14:00:00Z"
   },
@@ -99,185 +99,7 @@
           0.215
         ]
       },
-      "model_pick": "H",
-      "breakdown": {
-        "neutral": false,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 2.107,
-          "away": 0.687
-        },
-        "log_lambda": {
-          "home": 0.7452876447376601,
-          "away": -0.37565321311264144
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.5172401533642669,
-            "opp_defence": -0.2543546994635343,
-            "home_adv": 0.27280723568055365,
-            "features": 0.16325047834784476
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.3118400261999603,
-            "opp_defence": -0.5310472054275496,
-            "home_adv": 0.0,
-            "features": -0.20279051069358126
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.7687616771478963,
-            "x_away": -0.7687616771478963,
-            "contrib_home": 0.14532406486191052,
-            "contrib_away": -0.14532406486191052,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.47459227546898886,
-            "x_away": 0.47459227546898886,
-            "contrib_home": -0.019770016172868242,
-            "contrib_away": -0.019770016172868242,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": -0.09545948484949923,
-            "x_away": 0.09545948484949923,
-            "contrib_home": 0.005380424089937855,
-            "contrib_away": -0.005380424089937855,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": 0.12908769456367242,
-            "x_away": -0.12908769456367242,
-            "contrib_home": 0.03216389616672568,
-            "contrib_away": -0.03216389616672568,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0027397260273972603,
-            "x_away": -0.0027397260273972603,
-            "contrib_home": 0.000152109402138944,
-            "contrib_away": -0.000152109402138944,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 2,
-            "a": 0,
-            "p": 0.1358
-          },
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1247
-          },
-          {
-            "h": 3,
-            "a": 0,
-            "p": 0.0954
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0933
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.0928
-          },
-          {
-            "h": 3,
-            "a": 1,
-            "p": 0.0655
-          }
-        ],
-        "raw_probs": {
-          "home": 0.6993,
-          "draw": 0.1959,
-          "away": 0.1048
-        },
-        "glicko": {
-          "home": {
-            "rating": 1668,
-            "rd": 81,
-            "intel_points": 29.3
-          },
-          "away": {
-            "rating": 1380,
-            "rd": 86,
-            "intel_points": 10.2
-          },
-          "home_expected": 0.877
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.016,
-            "gd_ewma": 0.62,
-            "idle_days": 7
-          },
-          "away": {
-            "resid_ewma": 0.111,
-            "gd_ewma": 0.1,
-            "idle_days": 6
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.195,
-            "confidence": 0.6,
-            "summary": "Canada have a gifted squad, home support, and Jonathan David in form, but lack World Cup experience",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.5,
-              "coach_stability": 0.0,
-              "morale": 0.3,
-              "motivation": 0.8
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.068,
-            "confidence": 0.4,
-            "summary": "Bosnia and Herzegovina riding high after playoff win over Italy, Nikola Vasilj played all 960 minutes in UEFA qualifiers",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.3,
-              "motivation": 0.5
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8555,
-          "raw": [
-            0.6993,
-            0.1959,
-            0.1048
-          ],
-          "calibrated": [
-            0.7492,
-            0.1693,
-            0.0815
-          ]
-        }
-      }
+      "model_pick": "H"
     },
     {
       "date": "2026-06-12",
@@ -309,185 +131,7 @@
           0.246
         ]
       },
-      "model_pick": "H",
-      "breakdown": {
-        "neutral": false,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 1.444,
-          "away": 1.03
-        },
-        "log_lambda": {
-          "home": 0.36740514188665346,
-          "away": 0.029182640721845104
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.7212201816677085,
-            "opp_defence": -0.6645818760696655,
-            "home_adv": 0.27280723568055365,
-            "features": -0.008384876200472277
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.4902359814302315,
-            "opp_defence": -0.4775229498784276,
-            "home_adv": 0.0,
-            "features": -0.029874867638487863
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.023222631684037084,
-            "x_away": -0.023222631684037084,
-            "contrib_home": 0.0043899264667247575,
-            "contrib_away": -0.0043899264667247575,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.4592251905264471,
-            "x_away": 0.4592251905264471,
-            "contrib_home": -0.019129871919480068,
-            "contrib_away": -0.019129871919480068,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": -0.22102561380042782,
-            "x_away": 0.22102561380042782,
-            "contrib_home": 0.012457761938062261,
-            "contrib_away": -0.012457761938062261,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": -0.02388227699195592,
-            "x_away": 0.02388227699195592,
-            "contrib_home": -0.005950583283640285,
-            "contrib_away": 0.005950583283640285,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": -0.0027397260273972603,
-            "x_away": 0.0027397260273972603,
-            "contrib_home": -0.000152109402138944,
-            "contrib_away": 0.000152109402138944,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1313
-          },
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1157
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0905
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.0903
-          },
-          {
-            "h": 2,
-            "a": 0,
-            "p": 0.0879
-          },
-          {
-            "h": 0,
-            "a": 1,
-            "p": 0.0807
-          }
-        ],
-        "raw_probs": {
-          "home": 0.4601,
-          "draw": 0.2767,
-          "away": 0.2632
-        },
-        "glicko": {
-          "home": {
-            "rating": 1635,
-            "rd": 77,
-            "intel_points": 0.0
-          },
-          "away": {
-            "rating": 1612,
-            "rd": 83,
-            "intel_points": 13.2
-          },
-          "home_expected": 0.619
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": -0.061,
-            "gd_ewma": 0.2,
-            "idle_days": 6
-          },
-          "away": {
-            "resid_ewma": 0.16,
-            "gd_ewma": 0.3,
-            "idle_days": 7
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "No concrete performance info, only World Cup context and betting odds",
-            "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.088,
-            "confidence": 0.4,
-            "summary": "Paraguay has a settled coach, Gustavo Alfaro, and is a formidable opponent, but there's limited information on player form and availability.",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.0,
-              "coach_stability": 0.5,
-              "morale": 0.3,
-              "motivation": 0.5
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8555,
-          "raw": [
-            0.4601,
-            0.2767,
-            0.2632
-          ],
-          "calibrated": [
-            0.4825,
-            0.2663,
-            0.2512
-          ]
-        }
-      }
+      "model_pick": "H"
     },
     {
       "date": "2026-06-13",
@@ -5528,10 +5172,13 @@
       "home_code": "gb-sct",
       "away_code": "ma",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-06-19T22:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "A",
+      "score": [
+        0,
+        1
+      ],
       "model": {
         "home": 0.116,
         "draw": 0.311,
@@ -11723,19 +11370,217 @@
           ]
         }
       }
+    },
+    {
+      "date": "2026-06-25",
+      "stage": "group",
+      "home": "Tunisia",
+      "away": "Netherlands",
+      "home_code": "tn",
+      "away_code": "nl",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": "2026-06-25T23:00:00Z",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.17,
+        "draw": 0.261,
+        "away": 0.569
+      },
+      "winner_odds": null,
+      "model_pick": "A",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 0.782,
+          "away": 1.492
+        },
+        "log_lambda": {
+          "home": -0.24587156664930232,
+          "away": 0.40004376519140955
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.3380801419022718,
+            "opp_defence": -0.441553372914926,
+            "home_adv": 0.0,
+            "features": -0.18874281244517715
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.7663675669213595,
+            "opp_defence": -0.56292904885356,
+            "home_adv": 0.0,
+            "features": 0.15026077031508095
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": -0.5867836883626057,
+            "x_away": 0.5867836883626057,
+            "contrib_home": -0.11092357140366821,
+            "contrib_away": 0.11092357140366821,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.46189339906256155,
+            "x_away": 0.46189339906256155,
+            "contrib_home": -0.019241021065048103,
+            "contrib_away": -0.019241021065048103,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": -0.04252880450114566,
+            "x_away": 0.04252880450114566,
+            "contrib_home": 0.00239706933904978,
+            "contrib_away": -0.00239706933904978,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": -0.24472033743334543,
+            "x_away": 0.24472033743334543,
+            "contrib_home": -0.06097528931551063,
+            "contrib_away": 0.06097528931551063,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0,
+            "x_away": -0.0,
+            "contrib_home": 0.0,
+            "contrib_away": -0.0,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.1477
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.1258
+          },
+          {
+            "h": 0,
+            "a": 2,
+            "p": 0.1145
+          },
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.1087
+          },
+          {
+            "h": 1,
+            "a": 2,
+            "p": 0.0896
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.0747
+          }
+        ],
+        "raw_probs": {
+          "home": 0.1906,
+          "draw": 0.2744,
+          "away": 0.535
+        },
+        "glicko": {
+          "home": {
+            "rating": 1532,
+            "rd": 77,
+            "intel_points": -13.5
+          },
+          "away": {
+            "rating": 1747,
+            "rd": 85,
+            "intel_points": 6.8
+          },
+          "home_expected": 0.233
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": -0.076,
+            "gd_ewma": 0.14,
+            "idle_days": 11
+          },
+          "away": {
+            "resid_ewma": -0.033,
+            "gd_ewma": 1.12,
+            "idle_days": 11
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": -0.09,
+            "confidence": 0.4,
+            "summary": "Tunisia lost 5-1 to Sweden, no major injuries reported",
+            "dims": {
+              "form_outlook": -0.5,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": -0.5,
+              "motivation": 0.5
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.045,
+            "confidence": 0.2,
+            "summary": "Netherlands has no fresh injury concerns, Memphis Depay recovered",
+            "dims": {
+              "form_outlook": 0.0,
+              "availability": 0.5,
+              "coach_stability": 0.5,
+              "morale": 0.0,
+              "motivation": 0.5
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8555,
+          "raw": [
+            0.1906,
+            0.2744,
+            0.535
+          ],
+          "calibrated": [
+            0.1703,
+            0.2608,
+            0.5689
+          ]
+        }
+      }
     }
   ],
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 30,
-      "n_settled": 28,
-      "wins": 13,
-      "hit_rate": 0.4643,
+      "n_settled": 29,
+      "wins": 14,
+      "hit_rate": 0.4828,
       "staked": 300.0,
-      "returned": 255.0,
-      "profit": -45.0,
-      "roi": -0.15,
+      "returned": 272.0,
+      "profit": -28.0,
+      "roi": -0.0933,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -11779,14 +11624,17 @@
           "home": "Scotland",
           "away": "Morocco",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.7,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 17.0,
+          "profit": 7.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -12252,13 +12100,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 30,
-      "n_settled": 28,
-      "wins": 15,
-      "hit_rate": 0.5357,
+      "n_settled": 29,
+      "wins": 16,
+      "hit_rate": 0.5517,
       "staked": 300.0,
-      "returned": 259.0,
-      "profit": -41.0,
-      "roi": -0.1367,
+      "returned": 276.0,
+      "profit": -24.0,
+      "roi": -0.08,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -12302,14 +12150,17 @@
           "home": "Scotland",
           "away": "Morocco",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.7,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 17.0,
+          "profit": 7.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -12775,13 +12626,13 @@
     {
       "player": "safe",
       "n_bets": 30,
-      "n_settled": 28,
-      "wins": 16,
-      "hit_rate": 0.5714,
+      "n_settled": 29,
+      "wins": 17,
+      "hit_rate": 0.5862,
       "staked": 300.0,
-      "returned": 255.0,
-      "profit": -45.0,
-      "roi": -0.15,
+      "returned": 272.0,
+      "profit": -28.0,
+      "roi": -0.0933,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -12825,14 +12676,17 @@
           "home": "Scotland",
           "away": "Morocco",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.7,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 17.0,
+          "profit": 7.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -13298,9 +13152,9 @@
     {
       "player": "tide",
       "n_bets": 30,
-      "n_settled": 28,
+      "n_settled": 29,
       "wins": 10,
-      "hit_rate": 0.3571,
+      "hit_rate": 0.3448,
       "staked": 300.0,
       "returned": 451.5,
       "profit": 151.5,
@@ -13348,14 +13202,17 @@
           "home": "Scotland",
           "away": "Morocco",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 3.35,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-18",
@@ -13821,9 +13678,9 @@
     {
       "player": "risk",
       "n_bets": 30,
-      "n_settled": 28,
+      "n_settled": 29,
       "wins": 3,
-      "hit_rate": 0.1071,
+      "hit_rate": 0.1034,
       "staked": 300.0,
       "returned": 111.0,
       "profit": -189.0,
@@ -13871,14 +13728,17 @@
           "home": "Scotland",
           "away": "Morocco",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 4.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-18",
@@ -14344,13 +14204,13 @@
     {
       "player": "monkey",
       "n_bets": 30,
-      "n_settled": 28,
-      "wins": 7,
-      "hit_rate": 0.25,
+      "n_settled": 29,
+      "wins": 8,
+      "hit_rate": 0.2759,
       "staked": 300.0,
-      "returned": 179.5,
-      "profit": -120.5,
-      "roi": -0.4017,
+      "returned": 196.5,
+      "profit": -103.5,
+      "roi": -0.345,
       "best_bet": {
         "match": "Portugal v DR Congo",
         "pick": "Draw",
@@ -14394,14 +14254,17 @@
           "home": "Scotland",
           "away": "Morocco",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.7,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 17.0,
+          "profit": 7.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-18",
@@ -14866,7 +14729,7 @@
     }
   ],
   "bankroll": {
-    "n": 28,
+    "n": 29,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -14895,6 +14758,7 @@
       "2026-06-18",
       "2026-06-18",
       "2026-06-18",
+      "2026-06-19",
       "2026-06-19"
     ],
     "series": {
@@ -14926,7 +14790,8 @@
         -22.5,
         -17.5,
         -15.0,
-        -25.0
+        -8.0,
+        -18.0
       ],
       "model_fundamental": [
         4.0,
@@ -14956,7 +14821,8 @@
         -34.0,
         -29.0,
         -26.5,
-        -21.0
+        -19.5,
+        -14.0
       ],
       "safe": [
         4.0,
@@ -14986,7 +14852,8 @@
         -38.0,
         -33.0,
         -30.5,
-        -25.0
+        -23.5,
+        -18.0
       ],
       "tide": [
         -10.0,
@@ -15016,7 +14883,8 @@
         201.5,
         191.5,
         181.5,
-        171.5
+        171.5,
+        161.5
       ],
       "risk": [
         -10.0,
@@ -15046,7 +14914,8 @@
         -139.0,
         -149.0,
         -159.0,
-        -169.0
+        -169.0,
+        -179.0
       ],
       "monkey": [
         4.0,
@@ -15076,7 +14945,8 @@
         -86.0,
         -96.0,
         -106.0,
-        -100.5
+        -99.0,
+        -93.5
       ]
     }
   }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-20T02:31:02.222861Z",
+    "generated_at": "2026-06-20T02:41:01.653525Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-20T14:00:00Z"
   },
@@ -5382,10 +5382,13 @@
       "home_code": "br",
       "away_code": "ht",
       "venue": null,
-      "status": "scheduled",
-      "kickoff_utc": "2026-06-20T00:30:00Z",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "kickoff_utc": "2026-06-20T00:32:00Z",
+      "result": "H",
+      "score": [
+        3,
+        0
+      ],
       "model": {
         "home": 0.905,
         "draw": 0.077,
@@ -11565,6 +11568,204 @@
             0.1703,
             0.2608,
             0.5689
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-06-26",
+      "stage": "group",
+      "home": "Egypt",
+      "away": "Iran",
+      "home_code": "eg",
+      "away_code": "ir",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": "2026-06-27T03:00:00Z",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.225,
+        "draw": 0.362,
+        "away": 0.413
+      },
+      "winner_odds": null,
+      "model_pick": "A",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 0.661,
+          "away": 0.947
+        },
+        "log_lambda": {
+          "home": -0.4135606811496875,
+          "away": -0.05493834212026713
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.31924764342622636,
+            "opp_defence": -0.702624557861789,
+            "home_adv": 0.0,
+            "features": -0.07652824352265392
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.5194014934733602,
+            "opp_defence": -0.6583866555802992,
+            "home_adv": 0.0,
+            "features": 0.03770234317814283
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": -0.10470845268884829,
+            "x_away": 0.10470845268884829,
+            "contrib_home": -0.019793725965371003,
+            "contrib_away": 0.019793725965371003,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.4660206706588746,
+            "x_away": 0.4660206706588746,
+            "contrib_home": -0.01941295017225554,
+            "contrib_away": -0.01941295017225554,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": 0.07196436140477641,
+            "x_away": -0.07196436140477641,
+            "contrib_home": -0.004056158320251863,
+            "contrib_away": 0.004056158320251863,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": -0.1335085445690428,
+            "x_away": 0.1335085445690428,
+            "contrib_home": -0.03326540906477551,
+            "contrib_away": 0.03326540906477551,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0,
+            "x_away": -0.0,
+            "contrib_home": 0.0,
+            "contrib_away": -0.0,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.2064
+          },
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.1836
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.1314
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.1264
+          },
+          {
+            "h": 0,
+            "a": 2,
+            "p": 0.0897
+          },
+          {
+            "h": 1,
+            "a": 2,
+            "p": 0.0593
+          }
+        ],
+        "raw_probs": {
+          "home": 0.2395,
+          "draw": 0.3588,
+          "away": 0.4017
+        },
+        "glicko": {
+          "home": {
+            "rating": 1644,
+            "rd": 78,
+            "intel_points": 26.6
+          },
+          "away": {
+            "rating": 1713,
+            "rd": 85,
+            "intel_points": -1.5
+          },
+          "home_expected": 0.404
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.026,
+            "gd_ewma": 0.57,
+            "idle_days": 11
+          },
+          "away": {
+            "resid_ewma": -0.046,
+            "gd_ewma": 1.1,
+            "idle_days": 11
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.177,
+            "confidence": 0.6,
+            "summary": "Egypt has a favourable group stage draw, Mo Salah is a key player, and the team has a mix of experienced and young players",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.5,
+              "coach_stability": 0.0,
+              "morale": 0.3,
+              "motivation": 0.5
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": -0.01,
+            "confidence": 0.2,
+            "summary": "Iran faces opposition, off-field issues",
+            "dims": {
+              "form_outlook": 0.0,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": -0.5,
+              "motivation": 0.0
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8555,
+          "raw": [
+            0.2395,
+            0.3588,
+            0.4017
+          ],
+          "calibrated": [
+            0.2255,
+            0.3617,
+            0.4128
           ]
         }
       }

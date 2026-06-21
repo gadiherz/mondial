@@ -10,13 +10,25 @@ bankerim.co.il aggregator, which mirrors Winner's line server-rendered, with no 
 wall (datacenter-friendly). It is a third-party mirror, not the source of truth, so
 treat it as a Winner *proxy* and spot-check against the official ticket.
 
-Markup contract (per match, a `<div class="game ...">` card):
+Markup contract (per match, a `<div class="game is-father ...">` card):
   data-sportid="2"           football (filter: only sport 2)
   data-event-type="2X1"      the 1X2 full-match market (excludes handicaps/halves)
-  <span class="time" data-time="YYYY-MM-DD HH:MM:SS">
-  <span class="league">...   competition (Hebrew)
+  <span ... data-original-title="HH:MM DD.MM.YYYY" class="time">STATUS</span>
+                             kickoff datetime now lives in the time span's tooltip
+                             (Israel local); the span TEXT is the live status
+                             (kickoff time / minute / "הסתיים"). It used to be a
+                             `data-time="YYYY-MM-DD HH:MM:SS"` attribute (2026-06
+                             aggregator redesign).
   <span class="desc">HOME - AWAY   team names (Hebrew, " - " separated)
-  <span class="bet-home"> O1 ; <span class="bet-x"> OX ; <span class="bet-guest"> O2
+  <span class="bet-home win"> O1 ; <span class="bet-x "> OX ; <span class="bet-guest "> O2
+                             odds now nested in a <span class="box-colors"> wrapper;
+                             _odd() still finds the first NN.NN after the class.
+
+The competition/league is no longer per-card; it is a `data-league` attribute on
+the section headline row, so `league` is dropped from the record (it was only
+informational). The WINNER-16 coupon page is now client-rendered (returns no cards
+to a scripted GET), so the full Winner-Line page is the effective source; both are
+still fetched and a 0-card parse is logged loudly as a breakage canary.
 
 Hebrew team names are mapped to the DB's English names via HE_TEAM_ALIASES, then
 resolved to DB matches by the existing odds_api resolver (team pair +/-1 day).
@@ -76,6 +88,7 @@ HE_TEAM_ALIASES: dict[str, str] = {
     "אלג'יריה": "Algeria", "גאנה": "Ghana", "חוף השנהב": "Ivory Coast",
     "קמרון": "Cameroon", "דרום אפריקה": "South Africa", "מאלי": "Mali", "כף ורדה": "Cape Verde",
     "קייפ ורדה": "Cape Verde",  # site spelling variant of כף ורדה
+    "קאפו ורדה": "Cape Verde",  # site spelling variant of כף ורדה
     "קונגו": "DR Congo", "בורקינה פאסו": "Burkina Faso",
     "הרפובליקה הדמוקרטית של קונגו": "DR Congo",  # site's full name for קונגו
     # AFC
@@ -118,10 +131,28 @@ _CARD = re.compile(r'<div class="game\b[^>]*>')
 _RE = {
     "sportid": re.compile(r'data-sportid="(\d+)"'),
     "event_type": re.compile(r'data-event-type="([^"]+)"'),
-    "time": re.compile(r'data-time="([^"]+)"'),
-    "league": re.compile(r'class="league"[^>]*>([^<]+)<'),
+    # Kickoff datetime moved from a `data-time` attribute to the tooltip
+    # (`data-original-title`, "HH:MM DD.MM.YYYY", Israel local) of the status
+    # `<span class="time">`. It is present on every card -- scheduled, in-play AND
+    # finished -- so it is now MORE reliable than the old data-time (which finished
+    # cards dropped). Anchoring on the trailing `class="time"` keeps the round-id
+    # tooltip ("תוכניה מס' ...") on the same card from being mistaken for it.
+    "time": re.compile(
+        r'data-original-title="(\d{1,2}:\d{2}\s+\d{1,2}\.\d{1,2}\.\d{4})"[^>]*class="time"'),
     "desc": re.compile(r'class="desc"[^>]*>([^<]+)<'),
 }
+
+
+def _parse_dt(raw: str) -> str | None:
+    """bankerim's kickoff tooltip is 'HH:MM DD.MM.YYYY' (Israel local). Convert to
+    an ISO 'YYYY-MM-DDTHH:MM:00' string the upsert resolver can parse. The exact
+    timezone is irrelevant here: resolve_match windows the commence date +/-1 day,
+    so a 3h IDT/UTC offset never changes which fixture it lands on."""
+    try:
+        return datetime.strptime(re.sub(r"\s+", " ", raw).strip(),
+                                 "%H:%M %d.%m.%Y").isoformat()
+    except ValueError:
+        return None
 
 
 def _odd(card: str, cls: str) -> float | None:
@@ -137,7 +168,7 @@ def parse_cards(html: str) -> list[dict[str, Any]]:
 
     Keeps only sport=football (data-sportid=2) and the full-match 1X2 market
     (data-event-type=2X1) with a clean two-team `desc` and all three odds.
-    Returns dicts: {commence, league, home_he, away_he, odd_home, odd_draw, odd_away}.
+    Returns dicts: {commence, home_he, away_he, odd_home, odd_draw, odd_away}.
     """
     starts = [m.start() for m in _CARD.finditer(html)]
     out: list[dict[str, Any]] = []
@@ -153,10 +184,12 @@ def parse_cards(html: str) -> list[dict[str, Any]]:
         tm = _RE["time"].search(card)
         if not desc:
             continue
-        # `data-time` is absent on already-kicked-off cards (the time span shows
-        # "הסתיים"/in-play instead). Keep the card -- its CLOSING 1X2 line is still
-        # priced -- but flag commence=None so upsert resolves it by team pair and
-        # never clobbers a match already priced pre-kickoff.
+        # The kickoff tooltip is present on every card (scheduled, in-play AND
+        # finished), so `commence` is normally populated; it falls back to None only
+        # if the datetime fails to parse, in which case upsert resolves by team pair.
+        # Overwrite protection for already-priced finished matches now keys on the DB
+        # status in upsert (not on commence), so a finished card's closing line never
+        # clobbers a pre-kickoff line.
         teams = desc.group(1).strip()
         # Plain full match only: skip derivative markets that annotate the teams
         # with a parenthetical (handicap "(1+)", half "(מחצית)", minutes "(60 דק')").
@@ -166,10 +199,8 @@ def parse_cards(html: str) -> list[dict[str, Any]]:
         oh, od, oa = _odd(card, "bet-home"), _odd(card, "bet-x"), _odd(card, "bet-guest")
         if None in (oh, od, oa):
             continue
-        lg = _RE["league"].search(card)
         out.append({
-            "commence": tm.group(1) if tm else None,
-            "league": lg.group(1).strip() if lg else None,
+            "commence": _parse_dt(tm.group(1)) if tm else None,
             "home_he": home_he, "away_he": away_he,
             "odd_home": oh, "odd_draw": od, "odd_away": oa,
         })
@@ -224,7 +255,15 @@ class WinnerOddsScraper:
         urls = [WINNER16_URL] + ([WINNER_LINE_URL] if line else [])
         for url in urls:
             try:
-                records += parse_cards(self._get(url))
+                page = parse_cards(self._get(url))
+                if not page:
+                    log.warning(
+                        "winner_odds: 0 football 1X2 cards parsed from %s -- the "
+                        "aggregator markup may have changed again, or this page is "
+                        "now client-rendered (the WINNER-16 coupon is). The full "
+                        "Winner-Line page is the working source; see parse_cards.",
+                        url)
+                records += page
             except requests.RequestException as e:
                 log.warning("winner_odds: fetch failed for %s: %s", url, e)
         # de-dup by (date, home_he, away_he)
@@ -269,17 +308,21 @@ class WinnerOddsScraper:
                 commence = datetime.fromisoformat(r["commence"]).replace(tzinfo=UTC)
                 m = resolve_match(conn, h_id, a_id, commence)
             else:
-                # Finished/in-play card (no data-time): resolve by team pair alone so
-                # the closing line still prices the match for settlement + Results.
+                # Card with no parseable kickoff tooltip: resolve by team pair alone
+                # so the line still prices the match for settlement + Results.
                 m = _resolve_pair(conn, h_id, a_id)
             if m is None:
                 skipped_match += 1
                 continue
-            if r["commence"] is None and conn.execute(
+            if m["status"] == "final" and conn.execute(
                     "SELECT 1 FROM odds_snapshots WHERE match_id=? AND bookmaker='winner'",
                     (m["match_id"],)).fetchone():
-                # Already priced pre-kickoff -- never overwrite that line (bets settle
-                # against it) with the post-hoc closing line from a finished card.
+                # Match already final AND already priced pre-kickoff -- never overwrite
+                # that opening line (the bets settle against it) with the post-hoc
+                # closing line. A final match with NO prior Winner row (priced only
+                # after an aggregator outage, e.g. Spain v Saudi Arabia 2026-06-21)
+                # still falls through below and gets its closing line written, so a
+                # match missed during the outage can be back-priced and counted.
                 skipped_settled += 1
                 continue
             # Orient to OUR DB home/away (the aggregator may differ for neutral venues).

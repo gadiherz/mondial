@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-21T19:25:46.743599Z",
+    "generated_at": "2026-06-21T19:49:35.245605Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-22T14:00:00Z"
   },
@@ -6140,7 +6140,16 @@
         "draw": 0.299,
         "away": 0.371
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.3,
+        "draw": 4.55,
+        "away": 8.1,
+        "true": [
+          0.691,
+          0.198,
+          0.111
+        ]
+      },
       "model_pick": "A",
       "breakdown": {
         "neutral": true,
@@ -6338,8 +6347,17 @@
         "draw": 0.38,
         "away": 0.406
       },
-      "winner_odds": null,
-      "model_pick": "A",
+      "winner_odds": {
+        "home": 5.65,
+        "draw": 3.75,
+        "away": 1.5,
+        "true": [
+          0.159,
+          0.24,
+          0.6
+        ]
+      },
+      "model_pick": "D",
       "breakdown": {
         "neutral": true,
         "rho": -0.04813971608415197,
@@ -6539,7 +6557,16 @@
         "draw": 0.122,
         "away": 0.04
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.1,
+        "draw": 9.0,
+        "away": 11.0,
+        "true": [
+          0.818,
+          0.1,
+          0.082
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -6737,7 +6764,16 @@
         "draw": 0.184,
         "away": 0.055
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.3,
+        "draw": 4.3,
+        "away": 9.0,
+        "true": [
+          0.691,
+          0.209,
+          0.1
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -6935,7 +6971,16 @@
         "draw": 0.191,
         "away": 0.078
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.05,
+        "draw": 8.4,
+        "away": 23.0,
+        "true": [
+          0.854,
+          0.107,
+          0.039
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -7133,8 +7178,17 @@
         "draw": 0.326,
         "away": 0.34
       },
-      "winner_odds": null,
-      "model_pick": "A",
+      "winner_odds": {
+        "home": 2.15,
+        "draw": 3.25,
+        "away": 2.95,
+        "true": [
+          0.418,
+          0.277,
+          0.305
+        ]
+      },
+      "model_pick": "H",
       "breakdown": {
         "neutral": true,
         "rho": -0.04813971608415197,
@@ -7331,7 +7385,16 @@
         "draw": 0.188,
         "away": 0.069
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.4,
+        "draw": 4.0,
+        "away": 6.8,
+        "true": [
+          0.643,
+          0.225,
+          0.132
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -7529,7 +7592,16 @@
         "draw": 0.249,
         "away": 0.569
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 5.4,
+        "draw": 3.8,
+        "away": 1.5,
+        "true": [
+          0.166,
+          0.236,
+          0.598
+        ]
+      },
       "model_pick": "A",
       "breakdown": {
         "neutral": true,
@@ -7727,7 +7799,16 @@
         "draw": 0.272,
         "away": 0.145
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.15,
+        "draw": 5.8,
+        "away": 12.0,
+        "true": [
+          0.773,
+          0.153,
+          0.074
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -7925,7 +8006,16 @@
         "draw": 0.166,
         "away": 0.055
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.45,
+        "draw": 3.75,
+        "away": 6.2,
+        "true": [
+          0.617,
+          0.239,
+          0.144
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -8123,7 +8213,16 @@
         "draw": 0.194,
         "away": 0.06
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 1.2,
+        "draw": 5.8,
+        "away": 12.0,
+        "true": [
+          0.765,
+          0.158,
+          0.077
+        ]
+      },
       "model_pick": "H",
       "breakdown": {
         "neutral": true,
@@ -8321,7 +8420,16 @@
         "draw": 0.261,
         "away": 0.558
       },
-      "winner_odds": null,
+      "winner_odds": {
+        "home": 5.8,
+        "draw": 3.8,
+        "away": 1.5,
+        "true": [
+          0.156,
+          0.239,
+          0.605
+        ]
+      },
       "model_pick": "A",
       "breakdown": {
         "neutral": true,
@@ -12268,14 +12376,14 @@
   "leaderboard": [
     {
       "player": "model_full",
-      "n_bets": 34,
-      "n_settled": 34,
-      "wins": 18,
-      "hit_rate": 0.5294,
-      "staked": 340.0,
-      "returned": 355.0,
-      "profit": 15.0,
-      "roi": 0.0441,
+      "n_bets": 38,
+      "n_settled": 35,
+      "wins": 19,
+      "hit_rate": 0.5429,
+      "staked": 380.0,
+      "returned": 366.0,
+      "profit": -14.0,
+      "roi": -0.0368,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -12283,6 +12391,65 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-06-21",
+          "home": "Uruguay",
+          "away": "Cape Verde",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Spain",
+          "away": "Saudi Arabia",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            4,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.1,
+          "payout": 11.0,
+          "profit": 1.0,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-21",
+          "home": "New Zealand",
+          "away": "Egypt",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.75,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Belgium",
+          "away": "Iran",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 8.1,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-20",
           "home": "Tunisia",
@@ -12865,14 +13032,14 @@
     },
     {
       "player": "model_fundamental",
-      "n_bets": 34,
-      "n_settled": 34,
-      "wins": 20,
-      "hit_rate": 0.5882,
-      "staked": 340.0,
-      "returned": 359.0,
-      "profit": 19.0,
-      "roi": 0.0559,
+      "n_bets": 38,
+      "n_settled": 35,
+      "wins": 21,
+      "hit_rate": 0.6,
+      "staked": 380.0,
+      "returned": 370.0,
+      "profit": -10.0,
+      "roi": -0.0263,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -12880,6 +13047,65 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-06-21",
+          "home": "Uruguay",
+          "away": "Cape Verde",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Spain",
+          "away": "Saudi Arabia",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            4,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.1,
+          "payout": 11.0,
+          "profit": 1.0,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-21",
+          "home": "New Zealand",
+          "away": "Egypt",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.5,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Belgium",
+          "away": "Iran",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 8.1,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-20",
           "home": "Tunisia",
@@ -13462,14 +13688,14 @@
     },
     {
       "player": "safe",
-      "n_bets": 34,
-      "n_settled": 34,
-      "wins": 20,
-      "hit_rate": 0.5882,
-      "staked": 340.0,
-      "returned": 318.0,
-      "profit": -22.0,
-      "roi": -0.0647,
+      "n_bets": 38,
+      "n_settled": 35,
+      "wins": 21,
+      "hit_rate": 0.6,
+      "staked": 380.0,
+      "returned": 329.0,
+      "profit": -51.0,
+      "roi": -0.1342,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -13477,6 +13703,65 @@
         "profit": 15.5
       },
       "bets": [
+        {
+          "date": "2026-06-21",
+          "home": "Uruguay",
+          "away": "Cape Verde",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Spain",
+          "away": "Saudi Arabia",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            4,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 1.1,
+          "payout": 11.0,
+          "profit": 1.0,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-06-21",
+          "home": "New Zealand",
+          "away": "Egypt",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.5,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Belgium",
+          "away": "Iran",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-20",
           "home": "Tunisia",
@@ -14059,14 +14344,14 @@
     },
     {
       "player": "tide",
-      "n_bets": 34,
-      "n_settled": 34,
+      "n_bets": 38,
+      "n_settled": 35,
       "wins": 11,
-      "hit_rate": 0.3235,
-      "staked": 340.0,
+      "hit_rate": 0.3143,
+      "staked": 380.0,
       "returned": 529.5,
-      "profit": 189.5,
-      "roi": 0.5574,
+      "profit": 149.5,
+      "roi": 0.3934,
       "best_bet": {
         "match": "Spain v Cape Verde",
         "pick": "Draw",
@@ -14074,6 +14359,65 @@
         "profit": 85.0
       },
       "bets": [
+        {
+          "date": "2026-06-21",
+          "home": "Uruguay",
+          "away": "Cape Verde",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 4.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Spain",
+          "away": "Saudi Arabia",
+          "pick": "D",
+          "result": "H",
+          "score": [
+            4,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 9.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-21",
+          "home": "New Zealand",
+          "away": "Egypt",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.75,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Belgium",
+          "away": "Iran",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 4.55,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-20",
           "home": "Tunisia",
@@ -14656,14 +15000,14 @@
     },
     {
       "player": "risk",
-      "n_bets": 34,
-      "n_settled": 34,
+      "n_bets": 38,
+      "n_settled": 35,
       "wins": 4,
-      "hit_rate": 0.1176,
-      "staked": 340.0,
+      "hit_rate": 0.1143,
+      "staked": 380.0,
       "returned": 148.0,
-      "profit": -192.0,
-      "roi": -0.5647,
+      "profit": -232.0,
+      "roi": -0.6105,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -14671,6 +15015,65 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-06-21",
+          "home": "Uruguay",
+          "away": "Cape Verde",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 9.0,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Spain",
+          "away": "Saudi Arabia",
+          "pick": "A",
+          "result": "H",
+          "score": [
+            4,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 11.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-21",
+          "home": "New Zealand",
+          "away": "Egypt",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 5.65,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Belgium",
+          "away": "Iran",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 8.1,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-20",
           "home": "Tunisia",
@@ -15253,14 +15656,14 @@
     },
     {
       "player": "monkey",
-      "n_bets": 34,
-      "n_settled": 34,
+      "n_bets": 38,
+      "n_settled": 35,
       "wins": 12,
-      "hit_rate": 0.3529,
-      "staked": 340.0,
+      "hit_rate": 0.3429,
+      "staked": 380.0,
       "returned": 342.5,
-      "profit": 2.5,
-      "roi": 0.0074,
+      "profit": -37.5,
+      "roi": -0.0987,
       "best_bet": {
         "match": "Ecuador v Curaçao",
         "pick": "Draw",
@@ -15268,6 +15671,65 @@
         "profit": 68.0
       },
       "bets": [
+        {
+          "date": "2026-06-21",
+          "home": "Uruguay",
+          "away": "Cape Verde",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 4.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Spain",
+          "away": "Saudi Arabia",
+          "pick": "D",
+          "result": "H",
+          "score": [
+            4,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 9.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-06-21",
+          "home": "New Zealand",
+          "away": "Egypt",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.5,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Belgium",
+          "away": "Iran",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 8.1,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-20",
           "home": "Tunisia",
@@ -15850,7 +16312,7 @@
     }
   ],
   "bankroll": {
-    "n": 34,
+    "n": 35,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -15885,7 +16347,8 @@
       "2026-06-20",
       "2026-06-20",
       "2026-06-20",
-      "2026-06-20"
+      "2026-06-20",
+      "2026-06-21"
     ],
     "series": {
       "model_full": [
@@ -15922,7 +16385,8 @@
         14.0,
         4.0,
         10.0,
-        15.0
+        15.0,
+        16.0
       ],
       "model_fundamental": [
         4.0,
@@ -15958,7 +16422,8 @@
         18.0,
         8.0,
         14.0,
-        19.0
+        19.0,
+        20.0
       ],
       "safe": [
         4.0,
@@ -15994,7 +16459,8 @@
         -23.0,
         -33.0,
         -27.0,
-        -22.0
+        -22.0,
+        -21.0
       ],
       "tide": [
         -10.0,
@@ -16030,7 +16496,8 @@
         141.5,
         209.5,
         199.5,
-        189.5
+        189.5,
+        179.5
       ],
       "risk": [
         -10.0,
@@ -16066,7 +16533,8 @@
         -162.0,
         -172.0,
         -182.0,
-        -192.0
+        -192.0,
+        -202.0
       ],
       "monkey": [
         4.0,
@@ -16102,7 +16570,8 @@
         -61.5,
         6.5,
         12.5,
-        2.5
+        2.5,
+        -7.5
       ]
     }
   }

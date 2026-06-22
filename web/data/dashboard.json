@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-22T03:00:53.372737Z",
+    "generated_at": "2026-06-22T03:10:49.591937Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-22T14:00:00Z"
   },
@@ -5629,10 +5629,13 @@
       "home_code": "nz",
       "away_code": "eg",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-06-22T01:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "A",
+      "score": [
+        1,
+        3
+      ],
       "model": {
         "home": 0.214,
         "draw": 0.38,
@@ -12061,15 +12064,213 @@
           ]
         }
       }
+    },
+    {
+      "date": "2026-06-27",
+      "stage": "group",
+      "home": "DR Congo",
+      "away": "Uzbekistan",
+      "home_code": "cd",
+      "away_code": "uz",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": "2026-06-27T23:30:00Z",
+      "result": null,
+      "score": null,
+      "model": {
+        "home": 0.249,
+        "draw": 0.331,
+        "away": 0.42
+      },
+      "winner_odds": null,
+      "model_pick": "A",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 0.784,
+          "away": 1.057
+        },
+        "log_lambda": {
+          "home": -0.24274742834024907,
+          "away": 0.055780237005624775
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.2712000042127227,
+            "opp_defence": -0.5529580131103423,
+            "home_adv": 0.0,
+            "features": -0.0073338962511585205
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.34296356292901664,
+            "opp_defence": -0.30280129931334826,
+            "home_adv": 0.0,
+            "features": -0.030726503418572648
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": -0.020900162914827547,
+            "x_away": 0.020900162914827547,
+            "contrib_home": -0.003950894953982692,
+            "contrib_away": 0.003950894953982692,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.4568324964070137,
+            "x_away": 0.4568324964070137,
+            "contrib_home": -0.019030199834865584,
+            "contrib_away": -0.019030199834865584,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": 0.13606770022155895,
+            "x_away": -0.13606770022155895,
+            "contrib_home": -0.00766924243608422,
+            "contrib_away": 0.00766924243608422,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": 0.09357901154550455,
+            "x_away": -0.09357901154550455,
+            "contrib_home": 0.023316440973773975,
+            "contrib_away": -0.023316440973773975,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0,
+            "x_away": -0.0,
+            "contrib_home": 0.0,
+            "contrib_away": -0.0,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.1649
+          },
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.1613
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.1378
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.118
+          },
+          {
+            "h": 0,
+            "a": 2,
+            "p": 0.0886
+          },
+          {
+            "h": 1,
+            "a": 2,
+            "p": 0.0695
+          }
+        ],
+        "raw_probs": {
+          "home": 0.2601,
+          "draw": 0.3326,
+          "away": 0.4073
+        },
+        "glicko": {
+          "home": {
+            "rating": 1584,
+            "rd": 78,
+            "intel_points": 17.7
+          },
+          "away": {
+            "rating": 1610,
+            "rd": 82,
+            "intel_points": 0.0
+          },
+          "home_expected": 0.464
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.086,
+            "gd_ewma": 0.61,
+            "idle_days": 10
+          },
+          "away": {
+            "resid_ewma": -0.05,
+            "gd_ewma": 0.24,
+            "idle_days": 10
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.118,
+            "confidence": 0.4,
+            "summary": "DR Congo has a disciplined back four and some players to prove themselves",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.5,
+              "coach_stability": 0.0,
+              "morale": 0.3,
+              "motivation": 0.5
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.0,
+            "confidence": 0.1,
+            "summary": "No relevant performance data, only fixture information",
+            "dims": {
+              "form_outlook": 0.0,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.0,
+              "motivation": 0.0
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8555,
+          "raw": [
+            0.2601,
+            0.3326,
+            0.4073
+          ],
+          "calibrated": [
+            0.2486,
+            0.3314,
+            0.42
+          ]
+        }
+      }
     }
   ],
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 38,
-      "n_settled": 37,
+      "n_settled": 38,
       "wins": 19,
-      "hit_rate": 0.5135,
+      "hit_rate": 0.5,
       "staked": 380.0,
       "returned": 366.0,
       "profit": -14.0,
@@ -12120,14 +12321,17 @@
           "home": "New Zealand",
           "away": "Egypt",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            3
+          ],
           "stake": 10.0,
           "odd": 3.75,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-21",
@@ -12729,13 +12933,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 38,
-      "n_settled": 37,
-      "wins": 21,
-      "hit_rate": 0.5676,
+      "n_settled": 38,
+      "wins": 22,
+      "hit_rate": 0.5789,
       "staked": 380.0,
-      "returned": 370.0,
-      "profit": -10.0,
-      "roi": -0.0263,
+      "returned": 385.0,
+      "profit": 5.0,
+      "roi": 0.0132,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -12782,14 +12986,17 @@
           "home": "New Zealand",
           "away": "Egypt",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            3
+          ],
           "stake": 10.0,
           "odd": 1.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.0,
+          "profit": 5.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-21",
@@ -13391,13 +13598,13 @@
     {
       "player": "safe",
       "n_bets": 38,
-      "n_settled": 37,
-      "wins": 21,
-      "hit_rate": 0.5676,
+      "n_settled": 38,
+      "wins": 22,
+      "hit_rate": 0.5789,
       "staked": 380.0,
-      "returned": 329.0,
-      "profit": -51.0,
-      "roi": -0.1342,
+      "returned": 344.0,
+      "profit": -36.0,
+      "roi": -0.0947,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -13444,14 +13651,17 @@
           "home": "New Zealand",
           "away": "Egypt",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            3
+          ],
           "stake": 10.0,
           "odd": 1.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.0,
+          "profit": 5.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-21",
@@ -14053,9 +14263,9 @@
     {
       "player": "tide",
       "n_bets": 38,
-      "n_settled": 37,
+      "n_settled": 38,
       "wins": 13,
-      "hit_rate": 0.3514,
+      "hit_rate": 0.3421,
       "staked": 380.0,
       "returned": 618.0,
       "profit": 238.0,
@@ -14106,14 +14316,17 @@
           "home": "New Zealand",
           "away": "Egypt",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            3
+          ],
           "stake": 10.0,
           "odd": 3.75,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-21",
@@ -14715,9 +14928,9 @@
     {
       "player": "risk",
       "n_bets": 38,
-      "n_settled": 37,
+      "n_settled": 38,
       "wins": 4,
-      "hit_rate": 0.1081,
+      "hit_rate": 0.1053,
       "staked": 380.0,
       "returned": 148.0,
       "profit": -232.0,
@@ -14768,14 +14981,17 @@
           "home": "New Zealand",
           "away": "Egypt",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            3
+          ],
           "stake": 10.0,
           "odd": 5.65,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-21",
@@ -15377,13 +15593,13 @@
     {
       "player": "monkey",
       "n_bets": 38,
-      "n_settled": 37,
-      "wins": 13,
-      "hit_rate": 0.3514,
+      "n_settled": 38,
+      "wins": 14,
+      "hit_rate": 0.3684,
       "staked": 380.0,
-      "returned": 385.5,
-      "profit": 5.5,
-      "roi": 0.0145,
+      "returned": 400.5,
+      "profit": 20.5,
+      "roi": 0.0539,
       "best_bet": {
         "match": "Ecuador v Curaçao",
         "pick": "Draw",
@@ -15430,14 +15646,17 @@
           "home": "New Zealand",
           "away": "Egypt",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            3
+          ],
           "stake": 10.0,
           "odd": 1.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.0,
+          "profit": 5.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-21",
@@ -16038,7 +16257,7 @@
     }
   ],
   "bankroll": {
-    "n": 37,
+    "n": 38,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -16074,6 +16293,7 @@
       "2026-06-20",
       "2026-06-20",
       "2026-06-20",
+      "2026-06-21",
       "2026-06-21",
       "2026-06-21",
       "2026-06-21"
@@ -16115,8 +16335,9 @@
         10.0,
         15.0,
         5.0,
-        6.0,
-        -4.0
+        -5.0,
+        -4.0,
+        -14.0
       ],
       "model_fundamental": [
         4.0,
@@ -16154,8 +16375,9 @@
         14.0,
         19.0,
         9.0,
-        10.0,
-        0.0
+        14.0,
+        15.0,
+        5.0
       ],
       "safe": [
         4.0,
@@ -16193,8 +16415,9 @@
         -27.0,
         -22.0,
         -32.0,
-        -31.0,
-        -41.0
+        -27.0,
+        -26.0,
+        -36.0
       ],
       "tide": [
         -10.0,
@@ -16233,7 +16456,8 @@
         189.5,
         225.0,
         215.0,
-        248.0
+        205.0,
+        238.0
       ],
       "risk": [
         -10.0,
@@ -16272,7 +16496,8 @@
         -192.0,
         -202.0,
         -212.0,
-        -222.0
+        -222.0,
+        -232.0
       ],
       "monkey": [
         4.0,
@@ -16310,8 +16535,9 @@
         12.5,
         2.5,
         -7.5,
-        -17.5,
-        15.5
+        -2.5,
+        -12.5,
+        20.5
       ]
     }
   }

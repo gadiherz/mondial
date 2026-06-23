@@ -136,6 +136,47 @@ def _matches(conn) -> list[dict]:
     return out
 
 
+def _winner_health(conn, matches: list[dict]) -> dict:
+    """Visibility canary for the auto-scraped Winner line.
+
+    A silent scrape failure (0 cards swallowed by @step, or the bankerim line
+    posted after the daily run) used to surface only as `winner_odds: null` on
+    individual matches. This summarises it so the frontend can show a banner --
+    per the project convention that a degraded/stale automated feed must announce
+    itself, not fail quietly.
+    """
+    row = conn.execute(
+        "SELECT MAX(ts) AS ts FROM odds_snapshots WHERE bookmaker='winner'"
+    ).fetchone()
+    last_ts = row["ts"] if row else None
+    stale_hours = None
+    if last_ts:
+        try:
+            dt = datetime.fromisoformat(last_ts)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=UTC)
+            stale_hours = round((_now() - dt).total_seconds() / 3600, 1)
+        except ValueError:
+            pass
+    missing = sum(1 for m in matches
+                  if m["status"] != "final" and m["winner_odds"] is None)
+    return {"last_winner_ts": last_ts, "stale_hours": stale_hours,
+            "upcoming_missing_count": missing}
+
+
+def _ratings_through(conn) -> str | None:
+    """Date of the latest FINAL match folded into the Glicko/momentum ratings.
+
+    Lets the UI show how current the model inputs are. Glicko-2 + momentum update
+    from every settled match (Routine B); the Dixon-Coles coefficients and the
+    calibration temperature are frozen at tournament start by design (the WC sample
+    is too small to re-fit against the 10k-match prior), so daily prediction
+    movement comes from these rating/momentum inputs, not from re-fitting."""
+    row = conn.execute(
+        "SELECT MAX(date) AS d FROM matches WHERE status='final'").fetchone()
+    return row["d"] if row else None
+
+
 def _bankroll(conn) -> dict:
     """Cumulative profit per player across settled matches, in time order.
 
@@ -211,13 +252,16 @@ def export() -> dict:
         history = _player_bets(conn)
         for row in board:                       # drill-down bet list per player card
             row["bets"] = history.get(row["player"], [])
+        matches = _matches(conn)
         payload = {
             "meta": {
                 "generated_at": now.isoformat().replace("+00:00", "Z"),
                 "kickoff_utc": KICKOFF_UTC,
                 "next_scrape_utc": _next_scrape(now),
+                "ratings_through": _ratings_through(conn),
             },
-            "matches": _matches(conn),
+            "matches": matches,
+            "winner_odds_health": _winner_health(conn, matches),
             "leaderboard": board,
             "bankroll": _bankroll(conn),
         }

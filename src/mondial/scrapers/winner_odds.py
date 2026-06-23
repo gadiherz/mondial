@@ -242,6 +242,11 @@ class WinnerOddsScraper:
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                           "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
             "Accept-Language": "he-IL,he;q=0.9,en;q=0.8"}, timeout=30)
+        # Log status + body size BEFORE raise_for_status so a bot/geo wall (403/429
+        # or a tiny challenge page served only to datacenter IPs) is visible in the
+        # GitHub Actions log -- it distinguishes "blocked" from "markup drifted".
+        log.info("winner_odds: GET %s -> HTTP %s, %d bytes",
+                 url, resp.status_code, len(resp.content))
         resp.raise_for_status()
         return resp.text
 
@@ -255,17 +260,31 @@ class WinnerOddsScraper:
         urls = [WINNER16_URL] + ([WINNER_LINE_URL] if line else [])
         for url in urls:
             try:
-                page = parse_cards(self._get(url))
-                if not page:
-                    log.warning(
-                        "winner_odds: 0 football 1X2 cards parsed from %s -- the "
-                        "aggregator markup may have changed again, or this page is "
-                        "now client-rendered (the WINNER-16 coupon is). The full "
-                        "Winner-Line page is the working source; see parse_cards.",
-                        url)
-                records += page
+                html = self._get(url)
             except requests.RequestException as e:
                 log.warning("winner_odds: fetch failed for %s: %s", url, e)
+                continue
+            page = parse_cards(html)
+            # Per-URL diagnostics so a future breakage is pinpointed from the log
+            # alone: cards present but 0 parsed => markup drift; cards + parsed but
+            # 0 resolved => the page lists no national-team fixtures yet (the line
+            # is not posted at this run time -- a scheduling miss, not a code bug).
+            n_cards = len(_CARD.findall(html))
+            n_market = html.count(MARKET_1X2)
+            n_resolved = sum(
+                1 for r in page
+                if he_to_english(r["home_he"]) and he_to_english(r["away_he"]))
+            log.info("winner_odds: %s -> %d game cards, %d %s markets, %d parsed, "
+                     "%d resolved-to-national-team", url, n_cards, n_market,
+                     MARKET_1X2, len(page), n_resolved)
+            if not page:
+                log.warning(
+                    "winner_odds: 0 football 1X2 cards parsed from %s -- the "
+                    "aggregator markup may have changed again, or this page is "
+                    "now client-rendered (the WINNER-16 coupon is). The full "
+                    "Winner-Line page is the working source; see parse_cards.",
+                    url)
+            records += page
         # de-dup by (date, home_he, away_he)
         seen, deduped = set(), []
         for r in records:

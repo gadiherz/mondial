@@ -348,8 +348,30 @@ function matchCard(m) {
   return card;
 }
 
+// Visibility canary: surface a stale / incomplete Winner-odds feed instead of
+// letting it fail silently as scattered "no odds" cells. Reads the
+// winner_odds_health summary the exporter writes.
+const ODDS_STALE_HOURS = 24;
+function renderOddsBanner() {
+  const b = $("#odds-banner");
+  if (!b) return;
+  const h = STATE.winner_odds_health;
+  if (!h) { b.hidden = true; return; }
+  const stale = typeof h.stale_hours === "number" && h.stale_hours >= ODDS_STALE_HOURS;
+  const missing = (h.upcoming_missing_count || 0) > 0;
+  if (!stale && !missing) { b.hidden = true; return; }
+  const parts = [];
+  if (missing) parts.push(`${h.upcoming_missing_count} upcoming match` +
+    `${h.upcoming_missing_count === 1 ? "" : "es"} awaiting Winner odds`);
+  if (stale) parts.push(`last Winner update ${Math.round(h.stale_hours)}h ago`);
+  b.textContent = "Winner odds: " + parts.join(" · ") +
+    ". They auto-fill when the bookmaker posts the line.";
+  b.hidden = false;
+}
+
 function render() {
   tickClocks();
+  renderOddsBanner();
   if (STATE.meta.generated_at) {
     $("#updated").textContent = "Updated " +
       new Date(STATE.meta.generated_at).toLocaleString();

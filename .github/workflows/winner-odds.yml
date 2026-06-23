@@ -1,0 +1,43 @@
+name: winner-odds
+
+# Routine C: cheap, frequent Winner-line refresh.
+#
+# Why separate from markets-intel (Routine A): the bankerim Winner line for a
+# play-day is often posted AFTER A's single 14:00 UTC run, leaving matches
+# unpriced all day. This routine re-attempts ONLY the Winner scrape (no Odds API,
+# no LLM intel, no re-predict), so it is cheap enough to run several times a day.
+#
+# PRIMARY trigger is the Cloudflare cron worker (cron-worker/), which pokes this
+# via workflow_dispatch as soon as it sees an upcoming match still missing its
+# Winner odds -- so the line is captured within minutes of bankerim posting it.
+# The cron below is a sparse safety net spread across the day in case the worker
+# is down; it costs almost no Actions minutes.
+on:
+  schedule:
+    - cron: "0 6,10,14,18,22 * * *"   # backup net; Cloudflare worker is the real trigger
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mondial-data        # share the lock with markets-intel/results — no commit races
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .          # base only — C doesn't scrape Odds API or embed intel
+      - name: Refresh Winner odds
+        run: python -m mondial.pipelines.refresh_winner
+      - name: Commit refreshed data
+        run: bash scripts/commit_data.sh winner-odds

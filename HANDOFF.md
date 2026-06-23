@@ -17,6 +17,44 @@ pass.** What's left is the **TOTO scraper**, the **frontend**, and **deployment*
 
 ### Updates since 2026-05-31 (read these — they supersede older notes below)
 
+- **WINNER-ODDS SELF-HEALING + verification pass (2026-06-23).** Winner odds had
+  gone stale (last update 06-21; 17/20 upcoming matches unpriced). Root cause was
+  NOT the parser — it extracts the live bankerim line fine (verified: 24 national-
+  team WC matches parsed). The breaks were **scheduling + silent failure**:
+  `scrape_winner` ran only in Routine A's single 14:00 UTC slot, but bankerim posts
+  the day's Winner line later, and a 0-card scrape was swallowed by `@step` →
+  `winner_odds: null` with no alarm. Fixes:
+  - **Routine C — `pipelines/refresh_winner.py`** (`scrape_winner` →
+    `place_virtual_bets` → `publish_web`, no Odds API / intel / re-predict): a cheap
+    idempotent Winner-only refresh runnable many times/day.
+  - **`.github/workflows/winner-odds.yml`** — cron `0 6,10,14,18,22` + dispatch,
+    shares the `mondial-data` concurrency group.
+  - **Cloudflare worker (`cron-worker/worker.js`)** now also pokes `winner-odds.yml`
+    when a near match (≤2 days) is still unpriced, rate-limited to ~hourly. So a late
+    line is captured within the hour, deploy-and-forget.
+  - **Self-diagnosing logging** in `scrapers/winner_odds.py` (HTTP status + bytes +
+    card/2X1/parsed/resolved counts per URL) so a future break is pinpointed from the
+    Actions log (geo/bot wall vs markup drift vs line-not-posted-yet).
+  - **Staleness canary** in `pipelines/export_web.py` (`winner_odds_health` +
+    `meta.ratings_through`) shown as a banner on the site (`web/js/app.js`), so a
+    degraded feed announces itself instead of failing quietly.
+  - Backfilled 23 Winner rows immediately → upcoming-missing 17→4 (the 4 are 06-27
+    matches bankerim hasn't posted yet; they auto-fill).
+  - **MODEL VERIFIED (keep DC + calibration FROZEN — by design).** Glicko-2 ratings
+    AND momentum (resid_ewma / gd_ewma) DO update daily from every settled score
+    (`ratings.stream_backfill` via Routine B); confirmed live (Argentina/France/Norway
+    etc. moved from 06-22/23 WC results, `team_state.as_of_date=2026-06-23`), and
+    predictions regenerate every Routine A run. The Dixon-Coles coefficients and the
+    calibration temperature (T≈0.86) are deliberately NOT re-fit during the WC (tiny
+    sample vs the 10k-match prior) — daily prediction movement comes through the
+    updated rating/momentum INPUTS, not re-fitting. Do not add a daily DC re-fit
+    without shrinkage/min-sample guards.
+  - **KNOCKOUT VERIFIED (wiring only).** `bracket.generate_knockout` (Routine B,
+    Cloudflare-triggered) auto-advances group→R32→…→final with zero input; 55 tests
+    pass incl. `test_bracket.py`. ONE manual step remains: a penalty shootout (a draw
+    on 90'/120' goals) can't be inferred from goals — `_winner_loser` logs and defers;
+    nudge that one match's goals to advance the bracket past it.
+
 - **§7.3 backtest BUILT + RUN** (`eval/backtest.py`, `scripts/run_backtest.py`).
   Raw model beats the uniform 1/X/2 floor on WC18/WC22/Euro24/Copa24 (real skill).
 - **CALIBRATION FIXED (2026-06-05).** The old per-class isotonic calibrator

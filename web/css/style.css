@@ -105,6 +105,12 @@ a { color: inherit; text-decoration: none; }
 .odd.pick .v { color: var(--accent); }
 .no-odds { color: var(--muted); font-size: .8rem; text-align: center; padding: 8px; }
 
+/* Winner-odds staleness canary (shown only when odds are stale/incomplete). */
+.odds-banner { margin: 0 0 14px; padding: 10px 14px; border-radius: 8px;
+  border: 1px solid var(--gold); background: rgba(255,196,0,.08);
+  color: var(--gold); font-size: .85rem; line-height: 1.4; }
+.odds-banner[hidden] { display: none; }
+
 /* Labels for the two number sets on a match card */
 .metric-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 12px; }
 .metric-k { color: var(--muted); font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .09em; }

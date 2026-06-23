@@ -23,9 +23,12 @@ const FEED_API_URL =
   `https://api.github.com/repos/${REPO}/contents/web/data/dashboard.json?ref=main`;
 const DISPATCH_URL =
   `https://api.github.com/repos/${REPO}/actions/workflows/results.yml/dispatches`;
+const DISPATCH_WINNER_URL =
+  `https://api.github.com/repos/${REPO}/actions/workflows/winner-odds.yml/dispatches`;
 
 const FINISH_AFTER_MIN = 110;       // a match is "done" ~110 min after kickoff
 const GIVE_UP_AFTER_MIN = 8 * 60;   // stop poking 8 h after kickoff (mirrors results.py)
+const WINNER_WINDOW_DAYS = 2;       // only chase Winner odds for matches within ~2 days
 
 function ghHeaders(env, accept) {
   if (!env.GH_TOKEN) throw new Error("GH_TOKEN secret is not set");
@@ -65,23 +68,68 @@ function matchAwaitingResult(feed, now) {
   return null;
 }
 
-// Trigger the GitHub `results` workflow on main. Success is HTTP 204.
-async function dispatch(env) {
-  const r = await fetch(DISPATCH_URL, {
+// Return a description of the first upcoming match (within WINNER_WINDOW_DAYS) that
+// is still missing its Winner odds, or null. The bankerim line is often posted
+// AFTER Routine A's daily run; this lets the worker poke the winner-odds workflow
+// so a late line is captured within the hour. Windowed to near matches because
+// bankerim only lists a fixture ~1-2 days out -- chasing far-future matches would
+// poke forever. Matches go null->priced once the line is scraped, ending the pokes.
+function upcomingMissingWinnerOdds(feed, now) {
+  for (const m of (feed && feed.matches) || []) {
+    if (m.status === "final" || m.winner_odds || !m.date) continue;
+    const days = (Date.parse(`${m.date}T00:00:00Z`) - now) / 86400000;
+    if (days >= -1 && days <= WINNER_WINDOW_DAYS) {
+      return `${m.home} v ${m.away} (${m.date}) missing Winner odds`;
+    }
+  }
+  return null;
+}
+
+// Trigger a GitHub workflow on main by its dispatch URL. Success is HTTP 204.
+async function dispatchUrl(env, url, label) {
+  const r = await fetch(url, {
     method: "POST",
     headers: { ...ghHeaders(env, "application/vnd.github+json"), "Content-Type": "application/json" },
     body: JSON.stringify({ ref: "main" }),
   });
   if (r.status !== 204) {
-    throw new Error(`dispatch HTTP ${r.status}: ${(await r.text()).slice(0, 200)}`);
+    throw new Error(`${label} dispatch HTTP ${r.status}: ${(await r.text()).slice(0, 200)}`);
   }
 }
 
+// Trigger the GitHub `results` workflow on main. Success is HTTP 204.
+async function dispatch(env) {
+  await dispatchUrl(env, DISPATCH_URL, "results");
+}
+
 async function run(env, now) {
-  const reason = matchAwaitingResult(await fetchFeed(env), now);
-  if (!reason) return { dispatched: false, reason: "no match awaiting a result" };
-  await dispatch(env);
-  return { dispatched: true, reason };
+  const feed = await fetchFeed(env);
+  const out = {};
+
+  // (1) results: poke whenever a match has finished but has no score yet.
+  const resultReason = matchAwaitingResult(feed, now);
+  if (resultReason) {
+    await dispatch(env);
+    out.results = { dispatched: true, reason: resultReason };
+  } else {
+    out.results = { dispatched: false, reason: "no match awaiting a result" };
+  }
+
+  // (2) winner odds: poke when a near match is still unpriced, but only on the
+  // top-of-hour invocation so the every-10-min cron costs ~24 dispatches/day max
+  // (the winner-odds workflow also has its own sparse cron as a backstop).
+  if (new Date(now).getUTCMinutes() < 10) {
+    const winnerReason = upcomingMissingWinnerOdds(feed, now);
+    if (winnerReason) {
+      await dispatchUrl(env, DISPATCH_WINNER_URL, "winner-odds");
+      out.winner = { dispatched: true, reason: winnerReason };
+    } else {
+      out.winner = { dispatched: false, reason: "no near match missing Winner odds" };
+    }
+  } else {
+    out.winner = { dispatched: false, reason: "skipped (hourly gate)" };
+  }
+  return out;
 }
 
 export default {
@@ -110,11 +158,15 @@ export default {
       if (authed) {
         return Response.json(await run(env, now));
       }
-      const reason = matchAwaitingResult(await fetchFeed(env), now);
+      const feed = await fetchFeed(env);
+      const resultReason = matchAwaitingResult(feed, now);
+      const winnerReason = upcomingMissingWinnerOdds(feed, now);
       return Response.json({
         dryRun: true,
-        wouldDispatch: Boolean(reason),
-        reason: reason || "no match awaiting a result",
+        results: { wouldDispatch: Boolean(resultReason),
+                   reason: resultReason || "no match awaiting a result" },
+        winner: { wouldDispatch: Boolean(winnerReason),
+                  reason: winnerReason || "no near match missing Winner odds" },
       });
     } catch (e) {
       return new Response(`error: ${e && e.message}`, { status: 500 });

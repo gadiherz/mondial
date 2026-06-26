@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated_at": "2026-06-26T20:50:44.167286Z",
+    "generated_at": "2026-06-26T21:00:47.778750Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-27T14:00:00Z",
-    "ratings_through": "2026-06-25"
+    "ratings_through": "2026-06-26"
   },
   "matches": [
     {
@@ -8440,10 +8440,13 @@
       "home_code": "no",
       "away_code": "fr",
       "venue": null,
-      "status": "scheduled",
-      "kickoff_utc": "2026-06-26T19:00:00Z",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "kickoff_utc": "2026-06-26T19:01:00Z",
+      "result": "A",
+      "score": [
+        1,
+        4
+      ],
       "model": {
         "home": 0.198,
         "draw": 0.26,
@@ -10055,20 +10058,20 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-23T19:39:54.557644+00:00",
-    "stale_hours": 73.2,
+    "stale_hours": 73.3,
     "upcoming_missing_count": 4
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 64,
-      "n_settled": 58,
-      "wins": 31,
-      "hit_rate": 0.5345,
+      "n_settled": 59,
+      "wins": 32,
+      "hit_rate": 0.5424,
       "staked": 640.0,
-      "returned": 557.0,
-      "profit": -83.0,
-      "roi": -0.1297,
+      "returned": 572.5,
+      "profit": -67.5,
+      "roi": -0.1055,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -10095,14 +10098,17 @@
           "home": "Norway",
           "away": "France",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            4
+          ],
           "stake": 10.0,
           "odd": 1.55,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.5,
+          "profit": 5.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-26",
@@ -11151,13 +11157,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 64,
-      "n_settled": 58,
-      "wins": 34,
-      "hit_rate": 0.5862,
+      "n_settled": 59,
+      "wins": 35,
+      "hit_rate": 0.5932,
       "staked": 640.0,
-      "returned": 552.5,
-      "profit": -87.5,
-      "roi": -0.1367,
+      "returned": 568.0,
+      "profit": -72.0,
+      "roi": -0.1125,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -11184,14 +11190,17 @@
           "home": "Norway",
           "away": "France",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            4
+          ],
           "stake": 10.0,
           "odd": 1.55,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.5,
+          "profit": 5.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-26",
@@ -12240,13 +12249,13 @@
     {
       "player": "safe",
       "n_bets": 64,
-      "n_settled": 58,
-      "wins": 37,
-      "hit_rate": 0.6379,
+      "n_settled": 59,
+      "wins": 38,
+      "hit_rate": 0.6441,
       "staked": 640.0,
-      "returned": 569.0,
-      "profit": -71.0,
-      "roi": -0.1109,
+      "returned": 584.5,
+      "profit": -55.5,
+      "roi": -0.0867,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -12273,14 +12282,17 @@
           "home": "Norway",
           "away": "France",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            4
+          ],
           "stake": 10.0,
           "odd": 1.55,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.5,
+          "profit": 5.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-26",
@@ -13329,9 +13341,9 @@
     {
       "player": "tide",
       "n_bets": 64,
-      "n_settled": 58,
+      "n_settled": 59,
       "wins": 16,
-      "hit_rate": 0.2759,
+      "hit_rate": 0.2712,
       "staked": 640.0,
       "returned": 729.5,
       "profit": 89.5,
@@ -13362,14 +13374,17 @@
           "home": "Norway",
           "away": "France",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            4
+          ],
           "stake": 10.0,
           "odd": 3.9,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-26",
@@ -14418,9 +14433,9 @@
     {
       "player": "risk",
       "n_bets": 64,
-      "n_settled": 58,
+      "n_settled": 59,
       "wins": 5,
-      "hit_rate": 0.0862,
+      "hit_rate": 0.0847,
       "staked": 640.0,
       "returned": 196.0,
       "profit": -444.0,
@@ -14451,14 +14466,17 @@
           "home": "Norway",
           "away": "France",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            4
+          ],
           "stake": 10.0,
           "odd": 4.7,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-26",
@@ -15507,9 +15525,9 @@
     {
       "player": "monkey",
       "n_bets": 64,
-      "n_settled": 58,
+      "n_settled": 59,
       "wins": 21,
-      "hit_rate": 0.3621,
+      "hit_rate": 0.3559,
       "staked": 640.0,
       "returned": 552.5,
       "profit": -87.5,
@@ -15540,14 +15558,17 @@
           "home": "Norway",
           "away": "France",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            4
+          ],
           "stake": 10.0,
           "odd": 4.7,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-26",
@@ -16595,7 +16616,7 @@
     }
   ],
   "bankroll": {
-    "n": 58,
+    "n": 59,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -16654,7 +16675,8 @@
       "2026-06-25",
       "2026-06-25",
       "2026-06-25",
-      "2026-06-25"
+      "2026-06-25",
+      "2026-06-26"
     ],
     "series": {
       "model_full": [
@@ -16715,7 +16737,8 @@
         -27.5,
         -3.0,
         -13.0,
-        -23.0
+        -23.0,
+        -17.5
       ],
       "model_fundamental": [
         4.0,
@@ -16775,7 +16798,8 @@
         -8.5,
         -18.5,
         -28.5,
-        -27.5
+        -27.5,
+        -22.0
       ],
       "safe": [
         4.0,
@@ -16835,7 +16859,8 @@
         8.0,
         -2.0,
         -12.0,
-        -11.0
+        -11.0,
+        -5.5
       ],
       "tide": [
         -10.0,
@@ -16895,7 +16920,8 @@
         147.5,
         137.5,
         159.5,
-        149.5
+        149.5,
+        139.5
       ],
       "risk": [
         -10.0,
@@ -16955,7 +16981,8 @@
         -354.0,
         -364.0,
         -374.0,
-        -384.0
+        -384.0,
+        -394.0
       ],
       "monkey": [
         4.0,
@@ -17015,7 +17042,8 @@
         2.5,
         -7.5,
         -17.5,
-        -27.5
+        -27.5,
+        -37.5
       ]
     }
   }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-26T03:50:50.990826Z",
+    "generated_at": "2026-06-26T04:00:54.441056Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-26T14:00:00Z",
     "ratings_through": "2026-06-25"
@@ -6559,10 +6559,13 @@
       "home_code": "py",
       "away_code": "au",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-06-26T02:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "D",
+      "score": [
+        0,
+        0
+      ],
       "model": {
         "home": 0.277,
         "draw": 0.333,
@@ -10049,16 +10052,16 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-23T19:39:54.557644+00:00",
-    "stale_hours": 56.2,
+    "stale_hours": 56.3,
     "upcoming_missing_count": 4
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 58,
-      "n_settled": 56,
+      "n_settled": 57,
       "wins": 31,
-      "hit_rate": 0.5536,
+      "hit_rate": 0.5439,
       "staked": 580.0,
       "returned": 557.0,
       "profit": -23.0,
@@ -10143,14 +10146,17 @@
           "home": "Paraguay",
           "away": "Australia",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-25",
@@ -11055,9 +11061,9 @@
     {
       "player": "model_fundamental",
       "n_bets": 58,
-      "n_settled": 56,
+      "n_settled": 57,
       "wins": 34,
-      "hit_rate": 0.6071,
+      "hit_rate": 0.5965,
       "staked": 580.0,
       "returned": 552.5,
       "profit": -27.5,
@@ -11142,14 +11148,17 @@
           "home": "Paraguay",
           "away": "Australia",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-25",
@@ -12054,13 +12063,13 @@
     {
       "player": "safe",
       "n_bets": 58,
-      "n_settled": 56,
-      "wins": 36,
-      "hit_rate": 0.6429,
+      "n_settled": 57,
+      "wins": 37,
+      "hit_rate": 0.6491,
       "staked": 580.0,
-      "returned": 547.5,
-      "profit": -32.5,
-      "roi": -0.056,
+      "returned": 569.0,
+      "profit": -11.0,
+      "roi": -0.019,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -12141,14 +12150,17 @@
           "home": "Paraguay",
           "away": "Australia",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
           "stake": 10.0,
           "odd": 2.15,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 21.5,
+          "profit": 11.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-25",
@@ -13053,13 +13065,13 @@
     {
       "player": "tide",
       "n_bets": 58,
-      "n_settled": 56,
-      "wins": 15,
-      "hit_rate": 0.2679,
+      "n_settled": 57,
+      "wins": 16,
+      "hit_rate": 0.2807,
       "staked": 580.0,
-      "returned": 708.0,
-      "profit": 128.0,
-      "roi": 0.2207,
+      "returned": 729.5,
+      "profit": 149.5,
+      "roi": 0.2578,
       "best_bet": {
         "match": "Spain v Cape Verde",
         "pick": "Draw",
@@ -13140,14 +13152,17 @@
           "home": "Paraguay",
           "away": "Australia",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
           "stake": 10.0,
           "odd": 2.15,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 21.5,
+          "profit": 11.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-25",
@@ -14052,9 +14067,9 @@
     {
       "player": "risk",
       "n_bets": 58,
-      "n_settled": 56,
+      "n_settled": 57,
       "wins": 5,
-      "hit_rate": 0.0893,
+      "hit_rate": 0.0877,
       "staked": 580.0,
       "returned": 196.0,
       "profit": -384.0,
@@ -14139,14 +14154,17 @@
           "home": "Paraguay",
           "away": "Australia",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-25",
@@ -15051,9 +15069,9 @@
     {
       "player": "monkey",
       "n_bets": 58,
-      "n_settled": 56,
+      "n_settled": 57,
       "wins": 20,
-      "hit_rate": 0.3571,
+      "hit_rate": 0.3509,
       "staked": 580.0,
       "returned": 519.0,
       "profit": -61.0,
@@ -15138,14 +15156,17 @@
           "home": "Paraguay",
           "away": "Australia",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
           "stake": 10.0,
           "odd": 2.7,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-25",
@@ -16049,7 +16070,7 @@
     }
   ],
   "bankroll": {
-    "n": 56,
+    "n": 57,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -16103,6 +16124,7 @@
       "2026-06-24",
       "2026-06-24",
       "2026-06-24",
+      "2026-06-25",
       "2026-06-25",
       "2026-06-25",
       "2026-06-25",
@@ -16162,10 +16184,11 @@
         -13.0,
         -10.0,
         -8.5,
-        -7.5,
-        17.0,
+        -18.5,
+        -17.5,
         7.0,
-        -3.0
+        -3.0,
+        -13.0
       ],
       "model_fundamental": [
         4.0,
@@ -16220,10 +16243,11 @@
         6.0,
         9.0,
         10.5,
-        11.5,
+        0.5,
         1.5,
         -8.5,
-        -7.5
+        -18.5,
+        -17.5
       ],
       "safe": [
         4.0,
@@ -16278,10 +16302,11 @@
         1.0,
         4.0,
         5.5,
-        6.5,
-        -3.5,
-        -13.5,
-        -12.5
+        17.0,
+        18.0,
+        8.0,
+        -2.0,
+        -1.0
       ],
       "tide": [
         -10.0,
@@ -16336,10 +16361,11 @@
         176.0,
         166.0,
         156.0,
-        146.0,
-        136.0,
-        158.0,
-        148.0
+        167.5,
+        157.5,
+        147.5,
+        169.5,
+        159.5
       ],
       "risk": [
         -10.0,
@@ -16397,7 +16423,8 @@
         -334.0,
         -344.0,
         -354.0,
-        -364.0
+        -364.0,
+        -374.0
       ],
       "monkey": [
         4.0,
@@ -16452,10 +16479,11 @@
         -3.5,
         -13.5,
         -12.0,
-        -11.0,
+        -22.0,
         -21.0,
         -31.0,
-        -41.0
+        -41.0,
+        -51.0
       ]
     }
   }

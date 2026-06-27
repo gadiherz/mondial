@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-27T04:50:44.956455Z",
+    "generated_at": "2026-06-27T05:00:44.494341Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-27T14:00:00Z",
     "ratings_through": "2026-06-26"
@@ -7107,10 +7107,13 @@
       "home_code": "nz",
       "away_code": "be",
       "venue": null,
-      "status": "scheduled",
-      "kickoff_utc": "2026-06-27T03:00:00Z",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "kickoff_utc": "2026-06-27T03:01:00Z",
+      "result": "A",
+      "score": [
+        1,
+        5
+      ],
       "model": {
         "home": 0.156,
         "draw": 0.265,
@@ -9355,16 +9358,16 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-23T19:39:54.557644+00:00",
-    "stale_hours": 81.2,
+    "stale_hours": 81.3,
     "upcoming_missing_count": 4
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 64,
-      "n_settled": 62,
+      "n_settled": 63,
       "wins": 33,
-      "hit_rate": 0.5323,
+      "hit_rate": 0.5238,
       "staked": 640.0,
       "returned": 587.0,
       "profit": -53.0,
@@ -9449,14 +9452,17 @@
           "home": "New Zealand",
           "away": "Belgium",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            5
+          ],
           "stake": 10.0,
           "odd": 12.0,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-26",
@@ -10463,13 +10469,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 64,
-      "n_settled": 62,
-      "wins": 37,
-      "hit_rate": 0.5968,
+      "n_settled": 63,
+      "wins": 38,
+      "hit_rate": 0.6032,
       "staked": 640.0,
-      "returned": 594.5,
-      "profit": -45.5,
-      "roi": -0.0711,
+      "returned": 606.0,
+      "profit": -34.0,
+      "roi": -0.0531,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -10550,14 +10556,17 @@
           "home": "New Zealand",
           "away": "Belgium",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            5
+          ],
           "stake": 10.0,
           "odd": 1.15,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 11.5,
+          "profit": 1.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-26",
@@ -11564,13 +11573,13 @@
     {
       "player": "safe",
       "n_bets": 64,
-      "n_settled": 62,
-      "wins": 40,
-      "hit_rate": 0.6452,
+      "n_settled": 63,
+      "wins": 41,
+      "hit_rate": 0.6508,
       "staked": 640.0,
-      "returned": 611.0,
-      "profit": -29.0,
-      "roi": -0.0453,
+      "returned": 622.5,
+      "profit": -17.5,
+      "roi": -0.0273,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -11651,14 +11660,17 @@
           "home": "New Zealand",
           "away": "Belgium",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            5
+          ],
           "stake": 10.0,
           "odd": 1.15,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 11.5,
+          "profit": 1.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-26",
@@ -12665,9 +12677,9 @@
     {
       "player": "tide",
       "n_bets": 64,
-      "n_settled": 62,
+      "n_settled": 63,
       "wins": 17,
-      "hit_rate": 0.2742,
+      "hit_rate": 0.2698,
       "staked": 640.0,
       "returned": 761.5,
       "profit": 121.5,
@@ -12752,14 +12764,17 @@
           "home": "New Zealand",
           "away": "Belgium",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            5
+          ],
           "stake": 10.0,
           "odd": 6.0,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-26",
@@ -13766,9 +13781,9 @@
     {
       "player": "risk",
       "n_bets": 64,
-      "n_settled": 62,
+      "n_settled": 63,
       "wins": 6,
-      "hit_rate": 0.0968,
+      "hit_rate": 0.0952,
       "staked": 640.0,
       "returned": 228.0,
       "profit": -412.0,
@@ -13853,14 +13868,17 @@
           "home": "New Zealand",
           "away": "Belgium",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            5
+          ],
           "stake": 10.0,
           "odd": 12.0,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-26",
@@ -14867,9 +14885,9 @@
     {
       "player": "monkey",
       "n_bets": 64,
-      "n_settled": 62,
+      "n_settled": 63,
       "wins": 21,
-      "hit_rate": 0.3387,
+      "hit_rate": 0.3333,
       "staked": 640.0,
       "returned": 552.5,
       "profit": -87.5,
@@ -14954,14 +14972,17 @@
           "home": "New Zealand",
           "away": "Belgium",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            5
+          ],
           "stake": 10.0,
           "odd": 6.0,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-26",
@@ -15967,7 +15988,7 @@
     }
   ],
   "bankroll": {
-    "n": 62,
+    "n": 63,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -16027,6 +16048,7 @@
       "2026-06-25",
       "2026-06-25",
       "2026-06-25",
+      "2026-06-26",
       "2026-06-26",
       "2026-06-26",
       "2026-06-26",
@@ -16093,9 +16115,10 @@
         -13.0,
         -23.0,
         -33.0,
-        -28.5,
-        -23.0,
-        -33.0
+        -43.0,
+        -38.5,
+        -33.0,
+        -43.0
       ],
       "model_fundamental": [
         4.0,
@@ -16156,10 +16179,11 @@
         -18.5,
         -28.5,
         -27.5,
-        -37.5,
-        -33.0,
-        -27.5,
-        -25.5
+        -26.0,
+        -36.0,
+        -31.5,
+        -26.0,
+        -24.0
       ],
       "safe": [
         4.0,
@@ -16220,10 +16244,11 @@
         -2.0,
         -12.0,
         -11.0,
-        -21.0,
-        -16.5,
-        -11.0,
-        -9.0
+        -9.5,
+        -19.5,
+        -15.0,
+        -9.5,
+        -7.5
       ],
       "tide": [
         -10.0,
@@ -16284,10 +16309,11 @@
         137.5,
         159.5,
         149.5,
-        171.5,
+        139.5,
         161.5,
         151.5,
-        141.5
+        141.5,
+        131.5
       ],
       "risk": [
         -10.0,
@@ -16348,10 +16374,11 @@
         -364.0,
         -374.0,
         -384.0,
-        -362.0,
+        -394.0,
         -372.0,
         -382.0,
-        -392.0
+        -392.0,
+        -402.0
       ],
       "monkey": [
         4.0,
@@ -16415,7 +16442,8 @@
         -37.5,
         -47.5,
         -57.5,
-        -67.5
+        -67.5,
+        -77.5
       ]
     }
   }

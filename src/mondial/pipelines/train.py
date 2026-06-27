@@ -241,13 +241,16 @@ def fit() -> None:
 
 HOLDOUT_FRAC = 0.15  # most-recent time slice held out to fit calibration
 
-# Stage-B calibrator. 'temperature' (single-parameter, Guo et al. 2017) is the V1
-# choice: the raw DC model is already well-calibrated, so the flexible per-class
-# 'isotonic' overfits its holdout and generalises NEGATIVELY to held-out
-# tournaments (it pushed WC-2022 backtest log-loss above the uniform floor).
-# Temperature can't overfit or collapse a class, so it's do-no-harm + softens any
-# real over-confidence. The backtest (eval/backtest.py) mirrors this exactly.
-CALIBRATION_METHOD = "temperature"
+# Stage-B calibrator. 'temperature_draw' (temperature + a draw-class log-bias, 2
+# parameters) is the V1 choice. Plain single-parameter 'temperature' (Guo et al.
+# 2017) keeps the model well-calibrated overall, but the fitted T<1 SHARPENS and so
+# demotes the draw class (rarely the argmax) -- the model then almost never picks a
+# draw despite a ~25-30% real draw rate. The one extra draw-bias parameter restores
+# the draw to its honest frequency while keeping H/A sharpness, and -- being just one
+# DoF beyond temperature -- keeps the anti-overfit property that ruled out the
+# flexible per-class 'isotonic' (which overfit its holdout and broke the WC-2022
+# backtest). The backtest (eval/backtest.py) mirrors this exactly.
+CALIBRATION_METHOD = "temperature_draw"
 
 
 def calibrate() -> None:
@@ -300,12 +303,20 @@ def calibrate() -> None:
 
     cal = make_calibrator(CALIBRATION_METHOD).fit(probs, outs)
     cal_probs = cal.transform(probs)
-    log.info("holdout RAW : log-loss=%.4f  brier=%.4f",
-             log_loss(probs, outs), brier_score(probs, outs))
-    log.info("holdout CAL : log-loss=%.4f  brier=%.4f  (method=%s%s)",
+    # Draw-frequency calibration check: mean predicted P(D) should track the
+    # empirical draw rate on the holdout (the whole point of the draw-bias param).
+    draw_rate = float(np.mean(outs == 1))
+    log.info("holdout RAW : log-loss=%.4f  brier=%.4f  meanP(D)=%.3f",
+             log_loss(probs, outs), brier_score(probs, outs), float(probs[:, 1].mean()))
+    extra = ""
+    if hasattr(cal, "temperature"):
+        extra = f", T={cal.temperature:.3f}"
+    if hasattr(cal, "draw_bias"):
+        extra += f", draw_bias={cal.draw_bias:.3f}"
+    log.info("holdout CAL : log-loss=%.4f  brier=%.4f  meanP(D)=%.3f  "
+             "(empirical draw rate=%.3f; method=%s%s)",
              log_loss(cal_probs, outs), brier_score(cal_probs, outs),
-             CALIBRATION_METHOD,
-             f", T={cal.temperature:.3f}" if hasattr(cal, "temperature") else "")
+             float(cal_probs[:, 1].mean()), draw_rate, CALIBRATION_METHOD, extra)
     cal.save(CALIBRATOR_PATH)
     log.info("calibrator written to %s", CALIBRATOR_PATH)
 

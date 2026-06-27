@@ -25,9 +25,10 @@ def main() -> None:
     ap.add_argument("--tournament", choices=list(TOURNAMENTS) + ["all"], default="all")
     ap.add_argument("--no-calib", action="store_true",
                     help="skip Stage-B calibration (raw DC only; faster)")
-    ap.add_argument("--calib-method", choices=["temperature", "isotonic"],
-                    default="temperature",
-                    help="Stage-B calibrator (default: temperature, the production choice)")
+    ap.add_argument("--calib-method",
+                    choices=["temperature_draw", "temperature", "isotonic"],
+                    default="temperature_draw",
+                    help="Stage-B calibrator (default: temperature_draw, the production choice)")
     ap.add_argument("--reliability", action="store_true",
                     help="also print the pooled per-bin reliability table")
     args = ap.parse_args()

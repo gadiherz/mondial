@@ -16,8 +16,10 @@ Flow (the two routines call these):
                final, compute the payout (stake*odd if the pick hit, else 0).
 
 Picks come from eval/simulator.pick_per_player: model_full value-picks vs the
-Winner line; model_fundamental backs the model's most-likely outcome (argmax,
-ignores the market); safe = lowest Winner odd; tide = draw; risk = highest Winner
+Winner line (with a relaxed edge floor for draws); model_fundamental backs the
+model's most-likely outcome but DRAW-AWARE (argmax_draw_aware: picks the draw when
+its probability clears DRAW_THRESHOLD, so it doesn't cede every X), ignoring the
+market; safe = lowest Winner odd; tide = draw; risk = highest Winner
 odd; monkey = uniform random over H/D/A, seeded PER MATCH with a STRING (so
 consecutive match_ids decorrelate -- a raw int seed left the Mersenne Twister's
 first draw correlated and the monkey almost never picked the draw). Reproducible

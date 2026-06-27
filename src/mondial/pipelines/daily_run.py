@@ -77,11 +77,14 @@ def scrape_winner() -> None:
     """Fetch Winner (Israeli TOTO) 1X2 odds via the bankerim aggregator.
 
     The WINNER-16 eval reference (ARCHITECTURE D2), written to odds_snapshots as
-    bookmaker='winner'. Failure-isolated: a layout change on the third-party
-    aggregator must never break the prediction pipeline. See scrapers/winner_odds.
+    bookmaker='winner'. Reads the Cloudflare-committed bankerim cache (CI's source;
+    the live site blocks the runner IP), falling back to a live fetch locally. Failure-
+    isolated HERE so a Routine-A blip never breaks odds/intel/predict; the AUTHORITATIVE
+    winner path is Routine C (refresh_winner), which fails LOUD via verify_winner_fresh.
+    See scrapers/winner_odds.
     """
     scraper = WinnerOddsScraper()
-    records = scraper.fetch()
+    records = scraper.fetch_records()
     with connect() as conn:
         scraper.upsert(records, conn)
     log.info("scrape_winner: %d Winner football matches parsed", len(records))

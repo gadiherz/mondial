@@ -1,4 +1,5 @@
 {
-  "method": "temperature",
-  "temperature": 0.8555102697425515
+  "method": "temperature_draw",
+  "temperature": 0.8862104643310136,
+  "draw_bias": 0.03931067957370483
 }

@@ -21,6 +21,44 @@ CALIBRATOR_PATH = DATA_DIR / "calibrator.json"
 # bet count. Re-run the sweep (ideally adding Euro24/Copa24 odds) before changing it.
 MIN_PROB_EDGE = 0.08
 
+# --- Draw-aware decision rule (eval/simulator.py; ARCHITECTURE.md §7.1) ---------
+# Football models pick a draw almost never under plain argmax (the draw is rarely
+# the single most-likely outcome) and the value picker's MIN_PROB_EDGE guard reverts
+# value-draws to the favorite -- so the two model players historically picked D ~0-4%
+# of the time vs a ~25-28% real draw rate. These let both model players select draws
+# at roughly the historical base rate (the calibration fix lifts the draw PROBABILITY
+# honestly; these turn an honest probability into an honest PICK):
+#   DRAW_THRESHOLD     -- the Purist (argmax) picks D when p_draw >= this, else
+#                         argmax(H,A). Below 1/3 so a strong-but-not-modal draw is
+#                         still picked.
+#   DRAW_MIN_PROB_EDGE -- the Quant (value_pick) uses this (smaller) edge for a draw
+#                         instead of MIN_PROB_EDGE, so a value-draw is not bounced
+#                         back to the favorite as readily as a long-odds underdog.
+# Both are TUNED by scripts/sweep_draw.py on the real WC2018/WC2022/Euro2024/Copa2024
+# fields (production-faithful calibrated probs); re-run that sweep before changing
+# them (do NOT hand-tweak).
+#   DRAW_THRESHOLD=0.32 : across the four tournaments the Purist's mean pick(D) is
+#     ~25.6% vs a ~26.3% mean real draw rate (0.30 over-picks at ~44%, 0.34 under at
+#     ~14%); per-tournament accuracy 0.45-0.59. Was effectively 1.0 (plain argmax ->
+#     pick(D) ~ 0%).
+#   DRAW_MIN_PROB_EDGE=0.02 : lifts the Quant's value-draws from ~0-4% toward the base
+#     rate (WC2018 9%->25%) while ROI stays ~breakeven (WC2018 -1.8%, WC2022 +6.1%);
+#     a lower floor than the underdog MIN_PROB_EDGE=0.08 because the longshot-chasing
+#     that guard prevents is an underdog-WIN problem, not a draw problem.
+DRAW_THRESHOLD = 0.32
+DRAW_MIN_PROB_EDGE = 0.02
+
+# --- Winner-odds freshness gate (pipelines/refresh_winner.py) ------------------
+# Root cause of the recurring Winner-odds staleness (2026-06): bankerim.co.il
+# geo/bot-blocks GitHub Actions datacenter IPs, so the CI scrape returned 0 rows
+# while a local Israeli IP worked -- and the failure was committed GREEN. The fix
+# moves the FETCH to the Cloudflare worker (an allowed network), which commits the
+# raw page to data/winner_cache/; CI parses it offline. These bound the hard gate
+# that fails the job RED when that pipeline stops delivering, so a stale Winner feed
+# can never again masquerade as a successful run. See HANDOFF / ARCHITECTURE.
+WINNER_NEAR_DAYS = 2            # an upcoming match within this many days must be priced
+WINNER_CACHE_MAX_AGE_HOURS = 6  # the worker-committed bankerim cache must be fresher
+
 
 class Settings(BaseSettings):
     odds_api_key: str = ""

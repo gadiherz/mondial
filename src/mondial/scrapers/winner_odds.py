@@ -38,6 +38,7 @@ odds_api.NAME_ALIASES.
 """
 from __future__ import annotations
 
+import json
 import logging
 import re
 import sqlite3
@@ -47,10 +48,35 @@ from typing import Any
 import requests
 from tenacity import retry, stop_after_attempt, wait_exponential
 
+from mondial.config import DATA_DIR
 from mondial.scrapers.base import RateLimit
 from mondial.scrapers.odds_api import _norm_index, resolve_match, resolve_team_id
 
 log = logging.getLogger("winner_odds")
+
+# --- Cloudflare-fetched cache (CI's primary source) ---------------------------
+# bankerim.co.il geo/bot-blocks GitHub Actions datacenter IPs (the root cause of
+# the 2026-06 Winner-odds staleness: a local Israeli IP scraped fine, CI got 0
+# rows, and the failure committed green). So the page is fetched by the Cloudflare
+# worker (served from an allowed network) and the raw HTML committed here; CI parses
+# the cache offline with the SAME parser -- no live network on the runner. The live
+# fetch below stays as a fallback for local/manual runs from an IL/residential IP.
+# See cron-worker/worker.js + pipelines/refresh_winner.verify_winner_fresh.
+CACHE_DIR = DATA_DIR / "winner_cache"
+CACHE_FILES = {"coupon": "bankerim_coupon.html", "line": "bankerim_line.html"}
+CACHE_META = "meta.json"
+
+
+def read_cache_meta() -> dict | None:
+    """The worker's cache manifest ({fetched_at, results:[{url,http_status,bytes}]})
+    or None if it has never been written. Used by the freshness gate."""
+    p = CACHE_DIR / CACHE_META
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return None
 
 # bankerim aggregator pages (URL-encoded Hebrew slugs).
 WINNER16_URL = ("https://www.bankerim.co.il/%D7%9E%D7%A9%D7%97%D7%A7%D7%99%D7%9D/"
@@ -207,6 +233,21 @@ def parse_cards(html: str) -> list[dict[str, Any]]:
     return out
 
 
+def _dedup(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """De-dup parsed cards by (commence-date, home_he, away_he).
+
+    The coupon is a curated subset of the line, and the cache holds both pages, so
+    merging them double-lists shared fixtures -- collapse to one record each.
+    """
+    seen, out = set(), []
+    for r in records:
+        key = ((r["commence"] or "")[:10], r["home_he"], r["away_he"])
+        if key not in seen:
+            seen.add(key)
+            out.append(r)
+    return out
+
+
 def _resolve_pair(conn: sqlite3.Connection, home_id: int, away_id: int) -> sqlite3.Row | None:
     """Resolve a WC fixture by unordered team pair when the card carries no date.
 
@@ -285,16 +326,62 @@ class WinnerOddsScraper:
                     "Winner-Line page is the working source; see parse_cards.",
                     url)
             records += page
-        # de-dup by (date, home_he, away_he)
-        seen, deduped = set(), []
-        for r in records:
-            key = ((r["commence"] or "")[:10], r["home_he"], r["away_he"])
-            if key not in seen:
-                seen.add(key)
-                deduped.append(r)
+        deduped = _dedup(records)
         log.info("winner_odds: parsed %d football 1X2 matches (%d raw)",
                  len(deduped), len(records))
         return deduped
+
+    def fetch_cached(self) -> list[dict[str, Any]]:
+        """Parse the Cloudflare-committed bankerim HTML cache (CI's primary source).
+
+        Identical parser to `fetch`, but the HTML comes from data/winner_cache/
+        (committed by the worker from an allowed network) instead of a live GET --
+        because bankerim blocks the GitHub Actions runner IP. Returns [] (logged
+        loudly) if no cache file exists yet. See module docstring + worker.js.
+        """
+        records: list[dict[str, Any]] = []
+        found = False
+        for role, fname in CACHE_FILES.items():
+            p = CACHE_DIR / fname
+            if not p.exists():
+                log.warning("winner_odds: cache file missing: %s", p)
+                continue
+            found = True
+            html = p.read_text(encoding="utf-8", errors="replace")
+            page = parse_cards(html)
+            n_cards = len(_CARD.findall(html))
+            n_resolved = sum(
+                1 for r in page
+                if he_to_english(r["home_he"]) and he_to_english(r["away_he"]))
+            log.info("winner_odds[cache:%s]: %d game cards, %d parsed, %d "
+                     "resolved-to-national-team (%d bytes)",
+                     role, n_cards, len(page), n_resolved, len(html))
+            records += page
+        if not found:
+            log.warning(
+                "winner_odds: NO cache files under %s -- the Cloudflare worker has "
+                "not committed a bankerim page yet (or the deploy path is wrong). "
+                "The freshness gate will fail loudly if a near match is unpriced. "
+                "See cron-worker/worker.js.", CACHE_DIR)
+        return _dedup(records)
+
+    def fetch_records(self, *, prefer_cache: bool = True, line: bool = True
+                      ) -> list[dict[str, Any]]:
+        """Winner records, cache-first (CI) with a live fallback (local IL runs).
+
+        CI MUST use the cache: bankerim blocks the runner IP, so a live GET returns
+        nothing there. A local/manual run from an Israeli/residential IP can still
+        fetch live, so if the cache is absent/empty we fall back to `fetch` (which is
+        logged when it then fails from a blocked IP). The verification gate, not this
+        method, is what turns a persistent miss into a hard failure.
+        """
+        if prefer_cache:
+            cached = self.fetch_cached()
+            if cached:
+                return cached
+            log.warning("winner_odds: cache empty -> trying a live fetch "
+                        "(works from an IL/residential IP; blocked from CI).")
+        return self.fetch(line=line)
 
     def upsert(self, records: list[dict[str, Any]], conn: sqlite3.Connection) -> None:
         """Resolve each Hebrew match to a DB fixture and write a `winner` odds row.

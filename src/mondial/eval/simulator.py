@@ -7,7 +7,7 @@ from __future__ import annotations
 import random
 from dataclasses import dataclass
 
-from mondial.config import MIN_PROB_EDGE
+from mondial.config import DRAW_MIN_PROB_EDGE, DRAW_THRESHOLD, MIN_PROB_EDGE
 
 STAKE_NIS = 10.0
 OUTCOMES = ("H", "D", "A")
@@ -45,6 +45,23 @@ class ModelProbs:
             )
         ]
 
+    def argmax_draw_aware(self, draw_threshold: float = DRAW_THRESHOLD) -> str:
+        """Most-likely outcome, but able to actually pick the draw.
+
+        Plain argmax almost never selects D: the draw is rarely the single highest
+        of the three even when it is a genuinely likely (~25-30%) outcome, so a
+        pure-argmax player picks D ~0% of the time and cedes every draw. This picks
+        D when its (calibrated) probability clears `draw_threshold` -- a base-rate-
+        tuned cutoff below 1/3, so a strong-but-not-modal draw is still backed --
+        and otherwise the more likely of H/A. A high `draw_threshold` (>= 1) means
+        the draw is never picked (it reduces to argmax over {H, A}). High p_draw only
+        co-occurs with a balanced H/A field (a 0.70 favourite leaves no room for
+        p_draw >= 0.30), so this never backs a dominated draw.
+        """
+        if self.p_draw >= draw_threshold:
+            return "D"
+        return "H" if self.p_home >= self.p_away else "A"
+
 
 def _book_probs(odds: MatchOdds) -> dict[str, float]:
     """De-vigged (margin-free) implied probability per outcome from decimal odds.
@@ -58,7 +75,8 @@ def _book_probs(odds: MatchOdds) -> dict[str, float]:
 
 
 def value_pick(probs: ModelProbs, odds: MatchOdds,
-               min_prob_edge: float = MIN_PROB_EDGE) -> str:
+               min_prob_edge: float = MIN_PROB_EDGE,
+               draw_min_prob_edge: float = DRAW_MIN_PROB_EDGE) -> str:
     """Expected-value pick WITH a min-edge guard before deserting the favorite.
 
     The candidate is argmax_o (p_o * odd_o): the outcome whose price most
@@ -69,12 +87,18 @@ def value_pick(probs: ModelProbs, odds: MatchOdds,
     But the unguarded rule flips on ANY sliver of edge and so chases long-odds
     outcomes on noise. The guard: when the candidate is NOT the market favorite
     (lowest odd), keep it only if the model's probability exceeds the book's
-    margin-free implied probability by at least `min_prob_edge` probability points
-    -- i.e. the deviation from the price is strong enough; otherwise fall back to
-    the favorite. `min_prob_edge <= 0` restores the pure-EV behaviour. We measure
+    margin-free implied probability by at least an edge floor -- i.e. the deviation
+    from the price is strong enough; otherwise fall back to the favorite. We measure
     the gap in probability space (not EV) on purpose: a tiny absolute prob bump on
     a longshot is a huge EV edge, so an EV gate would still chase longshots.
-    Calibrate `min_prob_edge` with scripts/sweep_min_edge.py (see ARCHITECTURE §7.1).
+
+    The DRAW gets a smaller floor (`draw_min_prob_edge` <= `min_prob_edge`): the
+    longshot-chasing the main guard exists to stop is an underdog-WIN problem, and
+    holding draws to the same high bar is what kept the model picking D only ~4% of
+    the time vs a ~25-30% real draw rate. The floor used for a draw is
+    min(min_prob_edge, draw_min_prob_edge) so an explicit `min_prob_edge <= 0`
+    (pure-EV) still applies to draws too. Calibrate both with scripts/sweep_draw.py
+    (draw) and scripts/sweep_min_edge.py (underdog); see ARCHITECTURE §7.1.
 
     For a fixed 1X2 coupon (TOTO WINNER 16) we always pick one of the three; "no
     bet when no positive edge" is moot because the coupon must be filled -- the
@@ -88,8 +112,10 @@ def value_pick(probs: ModelProbs, odds: MatchOdds,
     favorite = odds.lowest()
     if candidate == favorite or min_prob_edge <= 0.0:
         return candidate
+    edge_floor = (min(min_prob_edge, draw_min_prob_edge) if candidate == "D"
+                  else min_prob_edge)
     prob_edge = probs.by_outcome(candidate) - _book_probs(odds)[candidate]
-    return candidate if prob_edge >= min_prob_edge else favorite
+    return candidate if prob_edge >= edge_floor else favorite
 
 
 def pick_per_player(
@@ -100,12 +126,14 @@ def pick_per_player(
     min_prob_edge: float = MIN_PROB_EDGE,
 ) -> dict[str, str]:
     return {
-        # The Quant: bet the outcome whose price most over-rewards the model.
+        # The Quant: bet the outcome whose price most over-rewards the model
+        # (with the draw-relaxed edge floor so it can back value draws).
         "model_full": value_pick(model_full, odds, min_prob_edge),
-        # The Purist: bet the model's single most-likely outcome, ignoring the
-        # market entirely (pure argmax probability). Distinct from model_full,
-        # which only deserts the favourite when the odds justify it.
-        "model_fundamental": model_fundamental.argmax(),
+        # The Purist: bet the model's most-likely outcome, ignoring the market --
+        # but draw-aware (argmax_draw_aware) so a genuinely likely draw is backed
+        # instead of always ceding it. Distinct from model_full, which deserts the
+        # favourite only when the odds justify it.
+        "model_fundamental": model_fundamental.argmax_draw_aware(),
         "safe": odds.lowest(),
         "tide": "D",
         "risk": odds.highest(),

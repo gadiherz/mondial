@@ -109,7 +109,7 @@ def _fit_slice(df: pd.DataFrame, *, maxiter: int = 2000):
     return dc_fit(sl, Xh, Xa, l2=train.DC_L2, maxiter=maxiter)
 
 
-def _fit_calibrator(train_df: pd.DataFrame, *, method: str = "temperature"):
+def _fit_calibrator(train_df: pd.DataFrame, *, method: str = "temperature_draw"):
     """Production calibrate-on-holdout: refit DC on the earlier 85% of the
     train slice, predict the most-recent 15%, fit the calibrator on it.
 
@@ -219,7 +219,7 @@ class TournamentPredictions:
 
 
 def predict_tournament(conn, key: str, *, calibrate: bool = True,
-                       calib_method: str = "temperature") -> TournamentPredictions:
+                       calib_method: str = "temperature_draw") -> TournamentPredictions:
     """Refit DC strictly pre-tournament and predict every tournament match.
 
     Shared by run_backtest (skill + ROI report) and scripts/sweep_min_edge.py (the
@@ -276,7 +276,7 @@ def predict_tournament(conn, key: str, *, calibrate: bool = True,
 
 
 def run_backtest(key: str, *, calibrate: bool = True,
-                 calib_method: str = "temperature",
+                 calib_method: str = "temperature_draw",
                  min_prob_edge: float = sim.MIN_PROB_EDGE, conn=None) -> BacktestResult:
     """Backtest one tournament. `key` must be in TOURNAMENTS.
 
@@ -349,7 +349,7 @@ def _simulate(probs: np.ndarray, outs: np.ndarray, match_ids: list[int],
 
 
 def run_all(*, calibrate: bool = True,
-            calib_method: str = "temperature") -> list[BacktestResult]:
+            calib_method: str = "temperature_draw") -> list[BacktestResult]:
     with connect() as conn:
         return [run_backtest(k, calibrate=calibrate, calib_method=calib_method,
                              conn=conn) for k in TOURNAMENTS]

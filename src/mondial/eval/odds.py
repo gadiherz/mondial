@@ -8,6 +8,7 @@ the margin-free implied probabilities for display ("the market's true HDA").
 from __future__ import annotations
 
 import sqlite3
+from datetime import UTC, datetime, timedelta
 
 from mondial.eval.simulator import MatchOdds
 
@@ -80,6 +81,36 @@ def load_eval_odds(
     if row is None:
         return None
     return MatchOdds(row["odd_home"], row["odd_draw"], row["odd_away"]), bookmaker
+
+
+def upcoming_unpriced_winner(
+    conn: sqlite3.Connection, within_days: int
+) -> list[sqlite3.Row]:
+    """Upcoming scheduled WC matches within `within_days` that lack a Winner price.
+
+    These are exactly the fixtures the eval (six-player sim + site) needs priced. A
+    non-empty result with a stale/empty cache is the failure the winner-odds gate
+    turns RED (see pipelines/refresh_winner.verify_winner_fresh). Returns rows with
+    match_id, date, home, away. Date-scoped to today..+within_days so historical WC
+    editions (same tournament='WC' tag) never leak in.
+    """
+    today = datetime.now(UTC).date()
+    horizon = (today + timedelta(days=within_days)).isoformat()
+    return conn.execute(
+        """SELECT m.match_id, m.date, h.name AS home, a.name AS away
+           FROM matches m
+           JOIN teams h ON h.team_id = m.home_id
+           JOIN teams a ON a.team_id = m.away_id
+           WHERE m.tournament='WC' AND m.status='scheduled'
+             AND m.date >= ? AND m.date <= ?
+             AND NOT EXISTS (
+                 SELECT 1 FROM odds_snapshots o
+                 WHERE o.match_id = m.match_id AND o.bookmaker='winner'
+                   AND o.odd_home IS NOT NULL AND o.odd_draw IS NOT NULL
+                   AND o.odd_away IS NOT NULL)
+           ORDER BY m.date, m.match_id""",
+        (today.isoformat(), horizon),
+    ).fetchall()
 
 
 def devig(odds: MatchOdds) -> tuple[float, float, float]:

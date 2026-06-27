@@ -82,6 +82,23 @@ these). Then update your local `.env` with the new values too (for local runs).
 
 Every future push (including the scheduled Actions commits) redeploys automatically.
 
+## 5b. The cron Worker (reliable clock + Winner-odds fetcher)
+
+A small standalone **Cloudflare Worker** (`cron-worker/`) pokes the `results` job when
+a match finishes AND fetches the Winner odds page (bankerim.co.il blocks GitHub's
+datacenter IPs, so the fetch must happen from Cloudflare, not CI — see HANDOFF). Full
+setup is in **`cron-worker/README.md`**. Two things to get right:
+
+- The worker's `GH_TOKEN` fine-grained PAT needs **Actions: Read and write** AND
+  **Contents: Read AND Write** — the write scope is what lets it commit the bankerim
+  cache to `data/winner_cache/`. (A Contents: Read-only token silently fails the
+  cache commit and the winner-odds job will go red on staleness.)
+- When `cron-worker/worker.js` changes, **re-paste it** into the Worker editor and
+  Deploy (Cloudflare does not auto-pull this standalone worker from Git).
+
+If Cloudflare's egress is ever blocked by bankerim too, route the fetch through an
+Israeli residential proxy (one secret) — the CI/parse/gate side is unchanged.
+
 ## 6. Turn on visitor analytics (no code to build)
 
 Cloudflare gives you this for free, behind your Cloudflare login (which has 2FA +

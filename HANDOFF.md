@@ -17,7 +17,50 @@ pass.** What's left is the **TOTO scraper**, the **frontend**, and **deployment*
 
 ### Updates since 2026-05-31 (read these — they supersede older notes below)
 
-- **WINNER-ODDS SELF-HEALING + verification pass (2026-06-23).** Winner odds had
+- **WINNER-ODDS ROOT CAUSE FIXED FOR GOOD + DRAW CALIBRATION (2026-06-27).** Two
+  things, both verified on real data:
+  - **Winner odds — the ACTUAL root cause, finally.** It was never the parser. Hard
+    evidence: across every winner-odds CI run 06-25→06-26, `winner_odds_health.
+    last_winner_ts` was frozen at 06-23T19:39 and CI wrote **0** winner rows each run,
+    while the SAME scraper run locally (Israeli IP) resolved 9 WC matches. **bankerim.
+    co.il geo/bot-blocks GitHub Actions datacenter IPs** — CI never received the page,
+    and a 0-row scrape committed GREEN, so it sat stale for days and three parser-level
+    "fixes" did nothing (wrong layer). **Fix = move the FETCH off CI to the Cloudflare
+    worker** (an allowed network), which now fetches the bankerim coupon+line pages and
+    commits the raw HTML to `data/winner_cache/` in one commit (Git Data API), then
+    dispatches `winner-odds.yml`. CI parses that cache OFFLINE (`winner_odds.
+    fetch_cached`, cache-first via `fetch_records`). Routine C (`refresh_winner`) is now
+    the AUTHORITATIVE winner path and **fails the job RED** (`verify_winner_fresh`, NOT
+    @step-wrapped) whenever a near (≤`WINNER_NEAR_DAYS`=2) upcoming WC match is unpriced
+    from a fresh page — so a stale feed can never again pass as green. Gate is false-red-
+    free: cache absent/stale → RED (worker down); fresh cache that lists the fixture but
+    didn't price it → RED (parser/alias bug); fresh cache that doesn't list it → WARN
+    (line not posted yet). Worker refuses to commit a tiny/blocked page (`MIN_HTML_BYTES`)
+    so a CF block surfaces as staleness, not a poisoned cache. **Verified end-to-end on
+    the real DB**: seeded the cache from a live IL fetch, ran refresh_winner → all 4 of
+    today's near matches priced, health stale 81.5h→0.0h / missing 4→0, gate OK, exit 0.
+    A seed `data/winner_cache/*.html` is committed so CI re-prices immediately even before
+    the worker redeploy. **ACTION REQUIRED at deploy: re-paste cron-worker/worker.js AND
+    bump the worker's GH_TOKEN to Contents: Read AND WRITE** (was Read only); see
+    cron-worker/README.md. If Cloudflare egress is ALSO blocked, switch the fetch to the
+    residential-proxy fallback (same downstream).
+  - **Draw under-picking FIXED (calibration + decision rule).** The model almost never
+    picked Draw (Purist argmax 0%, Quant value-pick ~4%) vs a ~25-30% real draw rate.
+    Two causes, both addressed: (1) temperature T≈0.86 (<1) SHARPENS and demotes the
+    rarely-modal draw class → replaced the calibrator with **`temperature_draw`** (T + a
+    single draw log-bias `b_D`, `model/calibration.TemperatureDrawScaler`), fit jointly
+    by holdout log-loss. Refit gives T=0.886, b_D=0.039 and **calibrated mean P(D)=0.231
+    == the empirical holdout draw rate** (honest draws), log-loss 0.847→0.845. All 4
+    backtest tournaments still PASS the skill gate. (2) The PICK rule: the Purist now uses
+    **`argmax_draw_aware`** (pick D when p_draw ≥ `DRAW_THRESHOLD`) and the Quant's
+    `value_pick` uses a relaxed **`DRAW_MIN_PROB_EDGE`** for draws. Tuned by
+    `scripts/sweep_draw.py` on WC18/22/Euro24/Copa24 → **DRAW_THRESHOLD=0.32** (mean
+    pick(D) ~25.6% vs ~26.3% real) and **DRAW_MIN_PROB_EDGE=0.02** (lifts Quant draws to
+    ~base rate at ~breakeven ROI). Accepted trade-off: backing draws lowers raw win-
+    accuracy vs always favouring the favourite. 66 tests pass.
+
+- **WINNER-ODDS SELF-HEALING + verification pass (2026-06-23).** _(superseded by the
+  2026-06-27 entry above — the real cause was the CI IP block, not scheduling.)_ Winner odds had
   gone stale (last update 06-21; 17/20 upcoming matches unpriced). Root cause was
   NOT the parser — it extracts the live bankerim line fine (verified: 24 national-
   team WC matches parsed). The breaks were **scheduling + silent failure**:

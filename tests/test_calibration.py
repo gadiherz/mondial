@@ -9,6 +9,7 @@ import numpy as np
 
 from mondial.model.calibration import (
     IndependentIsotonic,
+    TemperatureDrawScaler,
     TemperatureScaler,
     calibrate_hda,
     load_calibrator,
@@ -52,6 +53,46 @@ def test_temperature_roundtrip_and_dispatch(tmp_path):
     loaded = load_calibrator(path)
     assert isinstance(loaded, TemperatureScaler)
     assert np.isclose(loaded.temperature, 0.856)
+
+
+def test_temperature_draw_bias_lifts_draw_only():
+    """A positive draw_bias raises the draw class and lowers H/A; T=1 isolates the
+    bias effect. Negative bias does the reverse. Rows stay valid distributions."""
+    p = np.array([[0.50, 0.25, 0.25]])
+    up = TemperatureDrawScaler(1.0, 0.5).transform(p)[0]
+    down = TemperatureDrawScaler(1.0, -0.5).transform(p)[0]
+    assert up[1] > 0.25 > down[1]                 # draw lifted / lowered
+    assert up[0] < 0.50 and up[2] < 0.25          # H and A give way to the draw
+    for row in (up, down):
+        assert np.isclose(row.sum(), 1.0)
+    # draw_bias=0 reduces to plain temperature.
+    p2 = np.array([[0.6, 0.25, 0.15], [0.2, 0.3, 0.5]])
+    assert np.allclose(TemperatureDrawScaler(0.8, 0.0).transform(p2),
+                       TemperatureScaler(0.8).transform(p2))
+
+
+def test_temperature_draw_fit_recovers_draw_deficit():
+    """If draws occur MORE often than the probabilities imply, the fitted draw_bias
+    should be positive (it lifts the under-stated draw class)."""
+    rng = np.random.default_rng(1)
+    base = np.array([0.45, 0.20, 0.35])           # draw understated at 0.20...
+    probs = np.tile(base, (800, 1))
+    # ...but draws actually land ~33% of the time.
+    u = rng.random(800)
+    outs = np.where(u < 0.33, 1, np.where(u < 0.66, 0, 2))
+    cal = TemperatureDrawScaler().fit(probs, outs)
+    assert cal.draw_bias > 0.0
+    assert cal.transform(probs)[:, 1].mean() > base[1]   # mean P(D) lifted toward base rate
+
+
+def test_temperature_draw_roundtrip_and_dispatch(tmp_path):
+    path = tmp_path / "cal.json"
+    TemperatureDrawScaler(0.886, 0.04).save(path)
+    assert json.loads(path.read_text())["method"] == "temperature_draw"
+    loaded = load_calibrator(path)
+    assert isinstance(loaded, TemperatureDrawScaler)
+    assert np.isclose(loaded.temperature, 0.886) and np.isclose(loaded.draw_bias, 0.04)
+    assert isinstance(make_calibrator("temperature_draw"), TemperatureDrawScaler)
 
 
 def test_isotonic_dispatch_and_backcompat(tmp_path):

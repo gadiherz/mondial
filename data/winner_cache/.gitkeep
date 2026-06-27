@@ -1,0 +1,4 @@
+# Cloudflare-worker-written bankerim HTML cache lives here.
+# cron-worker/worker.js commits bankerim_coupon.html, bankerim_line.html and
+# meta.json into this dir from an allowed network (bankerim geo-blocks CI IPs);
+# scrapers/winner_odds.fetch_cached() parses them offline. See HANDOFF / ARCHITECTURE.

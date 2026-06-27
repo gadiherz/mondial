@@ -22,11 +22,14 @@ Every day, on its own, the project:
    adjustment (recent form).
 3. **Predicts each match** — a **Dixon-Coles** bivariate-Poisson goal model turns
    the ratings into probabilities for home win / draw / away win.
-4. **Calibrates** — **temperature scaling** (Guo et al. 2017) keeps the
-   probabilities honest, cross-validated on past tournaments.
+4. **Calibrates** — **temperature scaling + a draw-class bias** (Guo et al. 2017,
+   plus one extra parameter) keeps the probabilities honest — including the draw
+   frequency — cross-validated on past tournaments.
 5. **Runs the betting sim** — six strategies (two model variants, plus "safe",
    "draw-tide", "risk", and a random "monkey") each stake a flat ₪10 per match on
-   the match day, settled at the Winner price once the result is in.
+   the match day, settled at the Winner price once the result is in. The two model
+   players are **draw-aware** (they back a draw at roughly its real ~25-30% rate,
+   not the ~0% a plain "pick the single most-likely outcome" rule gives).
 6. **Publishes** the predictions, odds, and player leaderboard to the live site.
 
 The model methods are documented inline; key academic sources: Elo (1978),
@@ -37,10 +40,15 @@ scaling, 2017).
 
 You don't run anything by hand once it's deployed:
 
-- **GitHub Actions** runs the Python on a schedule (a daily "markets-intel" job and
-  a 2-hourly "results" job — see `.github/workflows/`).
+- **GitHub Actions** runs the Python on a schedule (a daily "markets-intel" job, a
+  2-hourly "results" job, and a "winner-odds" refresh — see `.github/workflows/`).
 - Each run writes fresh numbers into **`web/data/dashboard.json`** and commits it.
 - **Cloudflare** watches the repo and re-publishes the static site within minutes.
+- A small **Cloudflare Worker** (`cron-worker/`) is the reliable clock: it pokes the
+  results job when a match finishes, and — because the Israeli odds site bankerim.co.il
+  blocks GitHub's datacenter IPs — it also **fetches the Winner odds page itself** and
+  commits it to `data/winner_cache/` for the Python to parse offline. If the Winner feed
+  ever goes stale, the winner-odds job fails loudly (red) instead of committing nothing.
 
 So: *GitHub clock → runs Python → writes a data file → Cloudflare re-publishes.*
 The website (`web/`) is plain HTML/CSS/JavaScript with **zero external

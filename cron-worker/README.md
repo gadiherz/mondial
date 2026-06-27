@@ -1,23 +1,38 @@
-# mondial-results-cron — reliable results trigger
+# mondial-results-cron — reliable results trigger + Winner-odds fetcher
 
 GitHub Actions' cron drops scheduled runs for hours, so finished matches showed up
 late. This tiny **Cloudflare Worker** is the reliable clock: every 10 minutes it
 reads the live dashboard feed and, **only when a match has finished but is still
 missing its score**, pokes the GitHub `results` workflow (`workflow_dispatch`).
 
+It **also fetches the Winner odds.** The Israeli aggregator **bankerim.co.il geo/bot-
+blocks GitHub Actions' datacenter IPs** (that was the root cause of the recurring
+Winner-odds staleness — CI got 0 rows and committed green). Cloudflare's network is
+not blocked, so when an upcoming match is still unpriced the worker fetches the
+bankerim coupon+line pages, commits the raw HTML to `data/winner_cache/` (one commit,
+via the Git Data API), then pokes the `winner-odds` workflow — which parses that cache
+**offline** and hard-verifies it. If the worker can't get a real page (block/outage),
+it commits nothing, so the cache goes stale and the winner-odds job fails **red** —
+loud, never a silent empty commit.
+
 It is separate from the site Worker, so it **cannot affect the live site**. Because
-GitHub runs only when a result is actually pending, it costs a handful of Actions
-runs per match — not one every 10 minutes — so it stays well inside the free
-Actions-minute budget.
+GitHub runs (and the cache commit) happen only when a result/price is actually
+pending, it costs a handful of Actions runs + commits per match — not one every 10
+minutes — so it stays well inside the free Actions-minute budget.
+
+> **Updating the worker:** when `worker.js` changes (as in the 2026-06 Winner-fetch
+> rework), re-paste it into the Cloudflare editor and Deploy, and make sure the token
+> below has **Contents: Read AND Write** (the worker now commits the cache).
 
 ## One-time setup (Cloudflare dashboard — no Node needed)
 
 **1. Create the GitHub token** (if you haven't): GitHub → Settings → Developer
 settings → **Fine-grained tokens** → Generate. Repository access: **Only
 `gadiherz/mondial`**. Permissions → Repository → **Actions: Read and write** AND
-**Contents: Read** (the worker reads the feed from the repo via the API). Generate
-and copy it. *(If your existing token has only Actions, edit it and add Contents:
-Read.)*
+**Contents: Read and write** (the worker reads the feed AND commits the bankerim
+cache via the API). Generate and copy it. *(If your existing token has Contents:
+Read only, edit it and upgrade Contents to Read and write — without write the
+Winner-odds cache commit fails.)*
 
 **2. Create the Worker:** Cloudflare dashboard → Workers & Pages → **Create** →
 **Create Worker** → name it `mondial-results-cron` → Deploy. Then **Edit code**,

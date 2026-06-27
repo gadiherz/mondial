@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-27T05:10:51.244766Z",
+    "generated_at": "2026-06-27T08:30:09.527718Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-27T14:00:00Z",
     "ratings_through": "2026-06-26"
@@ -9361,20 +9361,20 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-23T19:39:54.557644+00:00",
-    "stale_hours": 81.5,
+    "stale_hours": 84.8,
     "upcoming_missing_count": 4
   },
   "leaderboard": [
     {
       "player": "model_full",
-      "n_bets": 64,
+      "n_bets": 66,
       "n_settled": 64,
       "wins": 33,
       "hit_rate": 0.5156,
-      "staked": 640.0,
+      "staked": 660.0,
       "returned": 587.0,
-      "profit": -53.0,
-      "roi": -0.0828,
+      "profit": -73.0,
+      "roi": -0.1106,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -9382,6 +9382,34 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-06-27",
+          "home": "Jordan",
+          "away": "Argentina",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.2,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Algeria",
+          "away": "Austria",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.5,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-26",
           "home": "Senegal",
@@ -10474,14 +10502,14 @@
     },
     {
       "player": "model_fundamental",
-      "n_bets": 64,
+      "n_bets": 66,
       "n_settled": 64,
       "wins": 38,
       "hit_rate": 0.5938,
-      "staked": 640.0,
+      "staked": 660.0,
       "returned": 606.0,
-      "profit": -34.0,
-      "roi": -0.0531,
+      "profit": -54.0,
+      "roi": -0.0818,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -10489,6 +10517,34 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-06-27",
+          "home": "Jordan",
+          "away": "Argentina",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.2,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Algeria",
+          "away": "Austria",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.55,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-26",
           "home": "Senegal",
@@ -11581,14 +11637,14 @@
     },
     {
       "player": "safe",
-      "n_bets": 64,
+      "n_bets": 66,
       "n_settled": 64,
       "wins": 41,
       "hit_rate": 0.6406,
-      "staked": 640.0,
+      "staked": 660.0,
       "returned": 622.5,
-      "profit": -17.5,
-      "roi": -0.0273,
+      "profit": -37.5,
+      "roi": -0.0568,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -11596,6 +11652,34 @@
         "profit": 15.5
       },
       "bets": [
+        {
+          "date": "2026-06-27",
+          "home": "Jordan",
+          "away": "Argentina",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.2,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Algeria",
+          "away": "Austria",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-26",
           "home": "Senegal",
@@ -12688,14 +12772,14 @@
     },
     {
       "player": "tide",
-      "n_bets": 64,
+      "n_bets": 66,
       "n_settled": 64,
       "wins": 18,
       "hit_rate": 0.2812,
-      "staked": 640.0,
+      "staked": 660.0,
       "returned": 787.0,
-      "profit": 147.0,
-      "roi": 0.2297,
+      "profit": 127.0,
+      "roi": 0.1924,
       "best_bet": {
         "match": "Spain v Cape Verde",
         "pick": "Draw",
@@ -12703,6 +12787,34 @@
         "profit": 85.0
       },
       "bets": [
+        {
+          "date": "2026-06-27",
+          "home": "Jordan",
+          "away": "Argentina",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 5.8,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Algeria",
+          "away": "Austria",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-26",
           "home": "Senegal",
@@ -13795,14 +13907,14 @@
     },
     {
       "player": "risk",
-      "n_bets": 64,
+      "n_bets": 66,
       "n_settled": 64,
       "wins": 6,
       "hit_rate": 0.0938,
-      "staked": 640.0,
+      "staked": 660.0,
       "returned": 228.0,
-      "profit": -412.0,
-      "roi": -0.6438,
+      "profit": -432.0,
+      "roi": -0.6545,
       "best_bet": {
         "match": "South Africa v South Korea",
         "pick": "South Africa",
@@ -13810,6 +13922,34 @@
         "profit": 38.0
       },
       "bets": [
+        {
+          "date": "2026-06-27",
+          "home": "Jordan",
+          "away": "Argentina",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 11.5,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Algeria",
+          "away": "Austria",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.5,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-26",
           "home": "Senegal",
@@ -14902,14 +15042,14 @@
     },
     {
       "player": "monkey",
-      "n_bets": 64,
+      "n_bets": 66,
       "n_settled": 64,
       "wins": 21,
       "hit_rate": 0.3281,
-      "staked": 640.0,
+      "staked": 660.0,
       "returned": 552.5,
-      "profit": -87.5,
-      "roi": -0.1367,
+      "profit": -107.5,
+      "roi": -0.1629,
       "best_bet": {
         "match": "Ecuador v Curaçao",
         "pick": "Draw",
@@ -14917,6 +15057,34 @@
         "profit": 68.0
       },
       "bets": [
+        {
+          "date": "2026-06-27",
+          "home": "Jordan",
+          "away": "Argentina",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 11.5,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Algeria",
+          "away": "Austria",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.55,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-06-26",
           "home": "Senegal",

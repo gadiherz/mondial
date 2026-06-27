@@ -304,19 +304,33 @@ def resolve_r32(conn: sqlite3.Connection) -> dict[int, tuple[str, str]]:
 def _winner_loser(conn, bracket_no: int) -> tuple[str | None, str | None]:
     """(winner, loser) team names of a final knockout match, or (None, None).
 
-    Decided on goals; a level score (penalty shootout) cannot be resolved from the
-    goals alone -> returns (None, None) and the caller defers that branch.
+    Advancement is decided AFTER extra time / penalties, so it reads `matches.winner_id`
+    (set by results.resolve_knockout_winners: the goal winner, or the penalty-shootout
+    winner for a level tie). Falls back to a decisive goal score; a level score with no
+    winner_id yet is DEFERRED -> (None, None), and the caller retries next run. (The 1X2
+    bet settles separately on the 90' result -- see eval/betting + matches.reg_result.)
     """
     r = conn.execute(
-        """SELECT th.name h, ta.name a, m.home_goals hg, m.away_goals ag, m.status
+        """SELECT th.name h, ta.name a, m.home_goals hg, m.away_goals ag, m.status,
+                  m.winner_id, m.home_id, m.away_id
            FROM matches m JOIN teams th ON th.team_id=m.home_id
            JOIN teams ta ON ta.team_id=m.away_id
            WHERE m.bracket_no=?""", (bracket_no,)).fetchone()
     if r is None or r["status"] != "final" or r["hg"] is None or r["ag"] is None:
         return None, None
+    if r["winner_id"] is not None:
+        if r["winner_id"] == r["home_id"]:
+            return r["h"], r["a"]
+        if r["winner_id"] == r["away_id"]:
+            return r["a"], r["h"]
+        log.warning("bracket %d: winner_id %s matches neither side -- deferring.",
+                    bracket_no, r["winner_id"])
+        return None, None
     if r["hg"] == r["ag"]:
-        log.warning("bracket %d level at %d-%d (penalties) -- cannot advance from "
-                    "goals alone; resolve manually.", bracket_no, r["hg"], r["ag"])
+        log.warning("bracket %d level at %d-%d and winner_id not set yet -- cannot "
+                    "advance; results.resolve_knockout_winners will fill it from the "
+                    "penalty result (or set it via scripts/set_knockout_result.py).",
+                    bracket_no, r["hg"], r["ag"])
         return None, None
     return (r["h"], r["a"]) if r["hg"] > r["ag"] else (r["a"], r["h"])
 

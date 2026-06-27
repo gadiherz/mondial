@@ -93,6 +93,54 @@ def test_settle_pays_winners_only(tmp_path):
         assert r["payout"] == (STAKE_NIS * r["odd"] if r["pick"] == "H" else 0.0)
 
 
+def _seed_knockout(path):
+    """A scheduled, priced, predicted R32 knockout fixture (bracket_no set)."""
+    init_db(path)
+    with connect(path) as conn:
+        conn.execute("INSERT INTO teams (team_id, name, confederation) VALUES "
+                     "(1,'France','UEFA'),(2,'Italy','UEFA')")
+        conn.execute("INSERT INTO matches (match_id, date, home_id, away_id, tournament, "
+                     "neutral, status, stage, bracket_no) VALUES "
+                     "(200,'2026-06-30',1,2,'WC',1,'scheduled','R32',73)")
+        conn.execute("INSERT INTO predictions (match_id,p_home,p_draw,p_away,predicted_at) "
+                     "VALUES (200,0.40,0.30,0.30,'t')")
+        conn.execute("INSERT INTO odds_snapshots (match_id,bookmaker,ts,odd_home,odd_draw,"
+                     "odd_away) VALUES (200,'winner','t',2.00,3.20,3.50)")
+    return path
+
+
+def test_settle_knockout_uses_90min_reg_result(tmp_path):
+    """A knockout level at 90' but decided 2-1 in extra time settles the 1X2 bet on the
+    90' DRAW (reg_result='D'), not the extra-time goal score."""
+    db = _seed_knockout(tmp_path / "ko.db")
+    with connect(db) as conn:
+        place_bets(conn, as_of="2026-06-30")
+        conn.execute("UPDATE matches SET home_goals=2, away_goals=1, status='final', "
+                     "reg_result='D' WHERE match_id=200")           # 1-1 at 90', 2-1 in ET
+        settle_bets(conn)
+        by = {r["player_name"]: r for r in conn.execute(
+            "SELECT player_name, pick, odd, payout FROM bets WHERE match_id=200")}
+    assert by["tide"]["pick"] == "D"                                # backed the draw
+    assert by["tide"]["payout"] == STAKE_NIS * by["tide"]["odd"]    # wins on the 90' draw
+    assert by["safe"]["pick"] == "H"                                # lowest odd = home
+    assert by["safe"]["payout"] == 0.0                              # 90' was NOT a home win
+
+
+def test_settle_penalty_tie_falls_back_to_draw(tmp_path):
+    """A penalty tie (level GOAL score, no reg_result captured) still settles as a Draw
+    via the goal-score fallback -- the recorded level score IS the 90'/ET result."""
+    db = _seed_knockout(tmp_path / "pk.db")
+    with connect(db) as conn:
+        place_bets(conn, as_of="2026-06-30")
+        conn.execute("UPDATE matches SET home_goals=1, away_goals=1, status='final' "
+                     "WHERE match_id=200")                          # level, reg_result NULL
+        settle_bets(conn)
+        by = {r["player_name"]: r for r in conn.execute(
+            "SELECT player_name, pick, odd, payout FROM bets WHERE match_id=200")}
+    assert by["tide"]["payout"] == STAKE_NIS * by["tide"]["odd"]    # D wins via fallback
+    assert by["safe"]["payout"] == 0.0
+
+
 def test_invested_counts_before_results(tmp_path):
     # A placed-but-unsettled bet is already "paid": it shows in staked with 0 back.
     db = _seed(tmp_path / "b.db")

@@ -135,3 +135,24 @@ def test_generate_knockout_noop_before_group_stage(tmp_path):
     init_db(tmp_path / "e.db")
     with connect(tmp_path / "e.db") as conn:
         assert generate_knockout(conn) == 0
+
+
+def test_winner_loser_advances_via_winner_id(tmp_path):
+    """A knockout level at 90'/ET (penalties) cannot advance from goals -> it advances
+    by `winner_id` instead; a decisive score still resolves without one."""
+    init_db(tmp_path / "ko.db")
+    with connect(tmp_path / "ko.db") as conn:
+        conn.execute("INSERT INTO teams (team_id, name, confederation) VALUES "
+                     "(1,'France','UEFA'),(2,'Italy','UEFA')")
+        conn.execute("INSERT INTO matches (match_id, date, home_id, away_id, tournament, "
+                     "neutral, status, stage, bracket_no, home_goals, away_goals) VALUES "
+                     "(200,'2026-06-30',1,2,'WC',1,'final','R32',73,1,1)")     # level 1-1
+        # Level + no winner_id -> deferred (the old stuck case).
+        assert B._winner_loser(conn, 73) == (None, None)
+        # Penalty winner recorded -> advances Italy (the loser is France).
+        conn.execute("UPDATE matches SET winner_id=2 WHERE match_id=200")
+        assert B._winner_loser(conn, 73) == ("Italy", "France")
+        # Decisive goals still resolve with winner_id cleared.
+        conn.execute("UPDATE matches SET winner_id=NULL, home_goals=2, away_goals=0 "
+                     "WHERE match_id=200")
+        assert B._winner_loser(conn, 73) == ("France", "Italy")

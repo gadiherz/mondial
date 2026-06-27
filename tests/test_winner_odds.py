@@ -68,6 +68,38 @@ def test_parse_filters_non_football_and_derivatives():
     assert len(parse_cards(_REAL_FOOTBALL + _NON_FOOTBALL + _HANDICAP)) == 1
 
 
+# A FINISHED card marks the winning 1X2 cell with a `win` class. This one is a DRAW
+# (bet-x win) -- the case that matters for knockouts (90' draw -> bet settles D, even
+# though ET/penalties decide who advances).
+_FINISHED_DRAW = (
+    '<div class="game is-father colorB disableBtns closedEvent hasExtraData" '
+    'data-info-peroid="90 דק\'" data-event-type="2X1" data-sportid="2"> '
+    '<span class="status"><span data-original-title="22:00 07.06.2026" class="time">'
+    'הסתיים</span></span> <span class="desc">יוון - איטליה</span> '
+    '<span class="bet-home "> <span class="box-colors"><span>1.80</span></span> </span> '
+    '<span class="bet-x win"> <span class="box-colors"><span>3.00</span></span> </span> '
+    '<span class="bet-guest "> <span class="box-colors"><span>2.80</span></span> </span>'
+)
+# A clearly SCHEDULED card: no `win` class anywhere -> result is None.
+_SCHEDULED = (
+    '<div class="game is-father" data-event-type="2X1" data-sportid="2"> '
+    '<span data-original-title="22:00 07.06.2026" class="time">ראשון 22:00</span> '
+    '<span class="desc">יוון - איטליה</span> '
+    '<span class="bet-home "><span class="box-colors"><span>1.80</span></span></span> '
+    '<span class="bet-x "><span class="box-colors"><span>3.00</span></span></span> '
+    '<span class="bet-guest "><span class="box-colors"><span>2.80</span></span></span>'
+)
+
+
+def test_parse_reads_90min_result_flag():
+    # The captured real card is a FINISHED home win (bet-home win) -> 'H' at 90'.
+    assert parse_cards(_REAL_FOOTBALL)[0]["result"] == "H"
+    # bet-x win -> Draw at 90'.
+    assert parse_cards(_FINISHED_DRAW)[0]["result"] == "D"
+    # No win flag yet -> None (not settled).
+    assert parse_cards(_SCHEDULED)[0]["result"] is None
+
+
 def test_he_to_english_mapping_and_geresh():
     assert he_to_english("יוון") == "Greece"
     assert he_to_english("איטליה") == "Italy"

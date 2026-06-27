@@ -189,6 +189,23 @@ def _odd(card: str, cls: str) -> float | None:
     return float(m.group(1)) if m else None
 
 
+# A FINISHED bankerim card marks the winning 1X2 cell with a `win` class on the
+# bet-* span (e.g. `<span class="bet-guest win">`). data-info-peroid="90 דק'" -> the
+# 1X2 market is the 90-minute result, which is exactly what the Winner bet settles
+# on (a knockout level at 90' shows `bet-x win` = Draw, even if ET/penalties later
+# decide who advances). The flag is in bankerim's home/away orientation; upsert
+# flips H<->A to our DB orientation. Returns 'H'|'D'|'A' or None (not yet settled).
+_WIN = {"bet-home": "H", "bet-x": "D", "bet-guest": "A"}
+
+
+def _result_flag(card: str) -> str | None:
+    for cls, out in _WIN.items():
+        m = re.search(r'class="' + re.escape(cls) + r'\b([^"]*)"', card)
+        if m and re.search(r"\bwin\b", m.group(1)):
+            return out
+    return None
+
+
 def parse_cards(html: str) -> list[dict[str, Any]]:
     """Parse bankerim game cards into football 1X2 odds records.
 
@@ -229,6 +246,7 @@ def parse_cards(html: str) -> list[dict[str, Any]]:
             "commence": _parse_dt(tm.group(1)) if tm else None,
             "home_he": home_he, "away_he": away_he,
             "odd_home": oh, "odd_draw": od, "odd_away": oa,
+            "result": _result_flag(card),   # 90' 1X2 outcome on a FINISHED card, else None
         })
     return out
 
@@ -420,6 +438,25 @@ class WinnerOddsScraper:
             if m is None:
                 skipped_match += 1
                 continue
+            # Orient to OUR DB home/away (the aggregator may differ for neutral venues).
+            db_home_is_winner_home = m["home_id"] == h_id
+            # Capture the 90' Winner 1X2 outcome from a FINISHED card -> reg_result, the
+            # result the bet settles on. KNOCKOUTS only (for a group match the goal score
+            # already IS the 90' result); a knockout level at 90' settles as Draw even
+            # though ET/penalties decide who advances (-> matches.winner_id). Set once
+            # (don't clobber a manual override). Done BEFORE the odds-overwrite skip below
+            # so an already-priced finished knockout still records its 90' result.
+            if r.get("result"):
+                reg = r["result"]
+                if reg in ("H", "A") and not db_home_is_winner_home:
+                    reg = "A" if reg == "H" else "H"
+                cur = conn.execute(
+                    "UPDATE matches SET reg_result=? WHERE match_id=? "
+                    "AND bracket_no IS NOT NULL AND reg_result IS NULL",
+                    (reg, m["match_id"]))
+                if cur.rowcount:
+                    log.info("winner_odds: reg_result=%s recorded for knockout "
+                             "match_id=%d (90' Winner outcome)", reg, m["match_id"])
             if m["status"] == "final" and conn.execute(
                     "SELECT 1 FROM odds_snapshots WHERE match_id=? AND bookmaker='winner'",
                     (m["match_id"],)).fetchone():
@@ -431,8 +468,6 @@ class WinnerOddsScraper:
                 # match missed during the outage can be back-priced and counted.
                 skipped_settled += 1
                 continue
-            # Orient to OUR DB home/away (the aggregator may differ for neutral venues).
-            db_home_is_winner_home = m["home_id"] == h_id
             odd_home = r["odd_home"] if db_home_is_winner_home else r["odd_away"]
             odd_away = r["odd_away"] if db_home_is_winner_home else r["odd_home"]
             conn.execute("DELETE FROM odds_snapshots WHERE match_id=? AND bookmaker=?",

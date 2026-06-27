@@ -106,9 +106,18 @@ def place_bets(conn: sqlite3.Connection, *, as_of: str | None = None) -> int:
 
 
 def settle_bets(conn: sqlite3.Connection) -> int:
-    """Settle every open bet whose match is now final. Returns bets settled."""
+    """Settle every open bet whose match is now final. Returns bets settled.
+
+    Settles on the 90-MINUTE Winner 1X2 outcome -- `matches.reg_result` when the
+    Winner line has marked it (a knockout level at 90' is a Draw even if extra time /
+    penalties later decide who advances), falling back to the goal score otherwise.
+    For group matches and most knockouts the goal score IS the 90' result, so the
+    fallback is correct; the only gap is a knockout decided BY A GOAL in extra time
+    with no reg_result captured yet -- flagged loudly so it can be corrected.
+    """
     rows = conn.execute(
-        """SELECT b.bet_id, b.pick, b.stake, b.odd, m.home_goals, m.away_goals
+        """SELECT b.bet_id, b.match_id, b.pick, b.stake, b.odd,
+                  m.home_goals, m.away_goals, m.reg_result, m.bracket_no
            FROM bets b
            JOIN matches m ON m.match_id = b.match_id
            WHERE b.settled = 0 AND m.status = 'final'
@@ -116,12 +125,26 @@ def settle_bets(conn: sqlite3.Connection) -> int:
     ).fetchall()
 
     settled = 0
+    ko_no_reg: set[int] = set()
     for r in rows:
-        actual = actual_outcome(int(r["home_goals"]), int(r["away_goals"]))
+        if r["reg_result"] in ("H", "D", "A"):
+            actual = r["reg_result"]            # the priced-on 90' Winner outcome
+        else:
+            actual = actual_outcome(int(r["home_goals"]), int(r["away_goals"]))
+            # A decisive-goal knockout with no 90' result captured could be an
+            # extra-time-decided tie mis-settled on the ET score -- flag it (a
+            # level-goal/penalty tie settles correctly as a Draw via this fallback).
+            if r["bracket_no"] is not None and int(r["home_goals"]) != int(r["away_goals"]):
+                ko_no_reg.add(r["match_id"])
         payout = settle(r["pick"], actual, r["odd"], r["stake"])
         conn.execute("UPDATE bets SET payout = ?, settled = 1 WHERE bet_id = ?",
                      (payout, r["bet_id"]))
         settled += 1
+    if ko_no_reg:
+        log.warning("settle_bets: %d knockout match(es) settled on the goal score (no 90' "
+                    "reg_result from the Winner line yet). If any went to extra time, "
+                    "correct the 90' result via scripts/set_knockout_result.py.",
+                    len(ko_no_reg))
     log.info("settle_bets: %d bets settled", settled)
     return settled
 

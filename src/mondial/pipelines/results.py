@@ -180,6 +180,64 @@ def ingest_results() -> int:
     return finalized
 
 
+def resolve_knockout_winners() -> int:
+    """Fill matches.winner_id for FINAL knockout ties -- the team that ADVANCES.
+
+    Decisive on goals (90'+ET) -> the higher score. Level on goals (a penalty shootout,
+    since results.csv excludes penalties) -> the martj42 shootouts.csv winner, matched by
+    unordered team pair (our knockout fixtures carry a placeholder date, so pair-not-date
+    is the key). A level tie with no shootout record yet is DEFERRED (loud log) and
+    retried next run. This drives bracket advancement ONLY (model/bracket); the 1X2 bet
+    settles separately on the 90' result (eval/betting + matches.reg_result), so a tie
+    that goes to penalties still settles as a Draw.
+    """
+    with connect() as conn:
+        rows = conn.execute(
+            """SELECT m.match_id, m.home_id, m.away_id, m.home_goals, m.away_goals,
+                      th.name hn, ta.name an
+               FROM matches m JOIN teams th ON th.team_id=m.home_id
+               JOIN teams ta ON ta.team_id=m.away_id
+               WHERE m.tournament='WC' AND m.bracket_no IS NOT NULL
+                 AND m.status='final' AND m.winner_id IS NULL
+                 AND m.home_goals IS NOT NULL AND m.away_goals IS NOT NULL"""
+        ).fetchall()
+        if not rows:
+            return 0
+        # Only pull the shootouts CSV when a level tie actually needs it.
+        shootouts: dict = {}
+        if any(r["home_goals"] == r["away_goals"] for r in rows):
+            try:
+                shootouts = HistoricalResultsScraper().fetch_shootouts(
+                    since=datetime(2026, 1, 1))
+            except Exception as e:  # noqa: BLE001
+                log.warning("results: shootouts.csv fetch failed (%s); level ties "
+                            "deferred to next run", e)
+        name_to_id = {r["name"]: r["team_id"]
+                      for r in conn.execute("SELECT team_id, name FROM teams")}
+        filled = 0
+        for r in rows:
+            hg, ag = r["home_goals"], r["away_goals"]
+            if hg != ag:
+                wid = r["home_id"] if hg > ag else r["away_id"]
+            else:
+                wname = shootouts.get(frozenset((r["hn"], r["an"])))
+                wid = name_to_id.get(wname) if wname else None
+                if wid is None:
+                    log.warning("results: knockout %s v %s level at %d-%d but no penalty "
+                                "winner found yet -- DEFERRED (bracket waits). Correct "
+                                "manually via scripts/set_knockout_result.py if it stalls.",
+                                r["hn"], r["an"], hg, ag)
+                    continue
+            conn.execute("UPDATE matches SET winner_id=? WHERE match_id=?",
+                         (wid, r["match_id"]))
+            filled += 1
+            log.info("results: %s advances (winner_id set, match_id=%d)",
+                     r["hn"] if wid == r["home_id"] else r["an"], r["match_id"])
+    if filled:
+        log.info("results: resolved %d knockout advancing team(s)", filled)
+    return filled
+
+
 def main() -> int:
     logging.basicConfig(level=logging.INFO,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -201,6 +259,13 @@ def main() -> int:
     else:
         log.info("results: nothing new; ratings unchanged.")
 
+    # Resolve who ADVANCES for any finished knockout tie (goals, else penalty winner)
+    # BEFORE settling/bracketing, so the bracket can advance past a draw and the loud
+    # "deferred" warning fires while there is still a chance to correct it.
+    try:
+        resolve_knockout_winners()
+    except Exception as e:  # noqa: BLE001
+        log.warning("results: knockout winner resolution skipped (%s)", e)
     # Always settle: a bet placed by Routine A may have a match that finalized in
     # an earlier results run. Cheap + idempotent (no-op when nothing is open/final).
     settle_virtual_bets()

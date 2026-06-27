@@ -5,14 +5,19 @@ title = "mondial secret scan"
 [extend]
 useDefault = true   # all of gitleaks' built-in rules (Groq gsk_, generic high-entropy, etc.)
 
-# Global allowlist: the Cloudflare Web Analytics beacon token is a PUBLIC site
-# identifier that ships in the page HTML (web/*.html), not a secret. gitleaks'
-# default high-entropy rule flags the 32-hex token, so allowlist any line carrying
-# the beacon attribute (line-target keeps it robust if the token is rotated).
+# Global allowlist (applies to ALL rules, incl. gitleaks' defaults):
+#  1. the Cloudflare Web Analytics beacon token is a PUBLIC site identifier that ships
+#     in the page HTML (web/*.html), not a secret -- allowlist any line carrying the
+#     beacon attribute (line-target keeps it robust if the token is rotated);
+#  2. data/winner_cache/ holds CACHED THIRD-PARTY HTML (the bankerim Winner pages the
+#     Cloudflare worker commits for the CI parser). Those pages are full of inline-JS
+#     hashes / high-entropy asset tokens that trip the default high-entropy rule -- they
+#     are not our secrets, so exclude the whole path.
 [allowlist]
-description = "Cloudflare Web Analytics beacon token is a public site id (ships in HTML), not a secret"
+description = "Public Cloudflare beacon id + cached third-party bankerim HTML — not secrets"
 regexTarget = "line"
 regexes = ['''data-cf-beacon''']
+paths = ['''data/winner_cache/''']
 
 # Targeted rule: any of THIS project's key env-vars assigned a literal value.
 # Empty assignments (.env.example: KEY=) and GitHub Actions ${{ secrets.* }} do

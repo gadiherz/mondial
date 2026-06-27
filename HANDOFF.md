@@ -17,6 +17,31 @@ pass.** What's left is the **TOTO scraper**, the **frontend**, and **deployment*
 
 ### Updates since 2026-05-31 (read these — they supersede older notes below)
 
+- **KNOCKOUT 90'/ADVANCEMENT SPLIT + gitleaks fix (2026-06-27).**
+  - **gitleaks** had started failing: the committed `data/winner_cache/*.html` (the
+    bankerim pages) trip the default high-entropy rule. No secret leaked — fixed by
+    a path allowlist in `.gitleaks.toml` (`paths = ['''data/winner_cache/''']`).
+  - **Knockout score separation.** A 1X2 Winner bet settles on the **90-minute**
+    result (a knockout level at 90' = a Draw), but **advancement** is decided after
+    extra time / penalties. Before, both `settle_bets` and `bracket._winner_loser`
+    used the single `home_goals/away_goals`, so a level knockout mis-settled and the
+    bracket got **stuck**. Now split into two persisted fields on `matches`:
+    `reg_result` ('H'/'D'/'A', the 90' Winner outcome → settlement) and `winner_id`
+    (the advancing team → bracket). **Sources:** `reg_result` from bankerim's `win`
+    class on finished cards (the Winner line is a 90' market — `winner_odds.
+    _result_flag` / `parse_cards`, written in `upsert` for knockouts); `winner_id`
+    from goals (decisive) or martj42 **`shootouts.csv`** (penalty winner, matched by
+    team pair — `historical_results.fetch_shootouts`), filled by `results.
+    resolve_knockout_winners` (Routine B, before bracket/settle). `settle_bets` uses
+    `reg_result` else the goal score (correct for groups + penalty ties + 90'-decided
+    knockouts); `bracket._winner_loser` advances by `winner_id` else decisive goals
+    else defers. The one irreducible gap — a tie DECIDED BY A GOAL IN EXTRA TIME (no
+    penalties), where free data can't recover the 90' score — is flagged loudly and
+    corrected with `scripts/set_knockout_result.py --bracket N --reg D --winner TEAM`
+    (re-opens that match's bets to re-settle). 71 tests pass. Verified: shootouts
+    spot-checks (2022 ARG-NED→Argentina, 2018 CRO-RUS→Croatia), bankerim `win`-flag
+    parse, bracket advances past a level tie via winner_id.
+
 - **WINNER-ODDS ROOT CAUSE FIXED FOR GOOD + DRAW CALIBRATION (2026-06-27).** Two
   things, both verified on real data:
   - **Winner odds — the ACTUAL root cause, finally.** It was never the parser. Hard

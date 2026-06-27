@@ -23,6 +23,11 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 from mondial.scrapers.base import RateLimit
 
 CSV_URL = "https://raw.githubusercontent.com/martj42/international_results/master/results.csv"
+# Penalty-shootout winners (cols: date,home_team,away_team,winner,first_shooter). The
+# main results.csv score is end-of-extra-time EXCLUDING penalties, so a tie decided on
+# penalties shows as a level score there; this file says who actually advanced. Used to
+# fill matches.winner_id for knockout ties (the 1X2 bet still settles on the 90' draw).
+SHOOTOUTS_URL = "https://raw.githubusercontent.com/martj42/international_results/master/shootouts.csv"
 TRAINING_START = "2014-01-01"
 
 # Map the dataset's tournament strings to the K-factor categories that
@@ -109,6 +114,28 @@ class HistoricalResultsScraper:
         cutoff = since.date().isoformat() if since else TRAINING_START
         df = df[df["date"] >= cutoff].copy()
         return df.to_dict(orient="records")
+
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=1, max=30))
+    def fetch_shootouts(self, *, since: datetime | None = None
+                        ) -> dict[frozenset[str], str]:
+        """Penalty-shootout winners keyed by the UNORDERED team-name pair.
+
+        Keyed by `frozenset({home_team, away_team})` (not date) because our generated
+        knockout fixtures carry a placeholder date, not the real one -- and a given
+        national-team pair meets at most once in a tournament window, so the pair is a
+        safe key. Scoped to `since` (default training start) to bound the result. The
+        `winner` value is a martj42 team name (== our DB names, which were bootstrapped
+        from this same dataset). Returns {} on any parse hiccup (caller degrades)."""
+        resp = requests.get(SHOOTOUTS_URL, timeout=60)
+        resp.raise_for_status()
+        df = pd.read_csv(StringIO(resp.text))
+        cutoff = since.date().isoformat() if since else TRAINING_START
+        df = df[df["date"] >= cutoff]
+        out: dict[frozenset[str], str] = {}
+        for r in df.itertuples(index=False):
+            if isinstance(r.winner, str) and r.winner:
+                out[frozenset((r.home_team, r.away_team))] = r.winner
+        return out
 
     def upsert(self, records: list[dict[str, Any]], conn: sqlite3.Connection) -> None:
         cur = conn.cursor()

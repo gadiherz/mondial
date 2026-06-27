@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-27T05:00:44.494341Z",
+    "generated_at": "2026-06-27T05:10:51.244766Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-27T14:00:00Z",
     "ratings_through": "2026-06-26"
@@ -6900,10 +6900,13 @@
       "home_code": "eg",
       "away_code": "ir",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-06-27T03:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "D",
+      "score": [
+        1,
+        1
+      ],
       "model": {
         "home": 0.231,
         "draw": 0.363,
@@ -9358,16 +9361,16 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-23T19:39:54.557644+00:00",
-    "stale_hours": 81.3,
+    "stale_hours": 81.5,
     "upcoming_missing_count": 4
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 64,
-      "n_settled": 63,
+      "n_settled": 64,
       "wins": 33,
-      "hit_rate": 0.5238,
+      "hit_rate": 0.5156,
       "staked": 640.0,
       "returned": 587.0,
       "profit": -53.0,
@@ -9469,14 +9472,17 @@
           "home": "Egypt",
           "away": "Iran",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
           "stake": 10.0,
           "odd": 3.45,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-25",
@@ -10469,9 +10475,9 @@
     {
       "player": "model_fundamental",
       "n_bets": 64,
-      "n_settled": 63,
+      "n_settled": 64,
       "wins": 38,
-      "hit_rate": 0.6032,
+      "hit_rate": 0.5938,
       "staked": 640.0,
       "returned": 606.0,
       "profit": -34.0,
@@ -10573,14 +10579,17 @@
           "home": "Egypt",
           "away": "Iran",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
           "stake": 10.0,
           "odd": 3.45,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-25",
@@ -11573,9 +11582,9 @@
     {
       "player": "safe",
       "n_bets": 64,
-      "n_settled": 63,
+      "n_settled": 64,
       "wins": 41,
-      "hit_rate": 0.6508,
+      "hit_rate": 0.6406,
       "staked": 640.0,
       "returned": 622.5,
       "profit": -17.5,
@@ -11677,14 +11686,17 @@
           "home": "Egypt",
           "away": "Iran",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
           "stake": 10.0,
           "odd": 2.35,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-25",
@@ -12677,13 +12689,13 @@
     {
       "player": "tide",
       "n_bets": 64,
-      "n_settled": 63,
-      "wins": 17,
-      "hit_rate": 0.2698,
+      "n_settled": 64,
+      "wins": 18,
+      "hit_rate": 0.2812,
       "staked": 640.0,
-      "returned": 761.5,
-      "profit": 121.5,
-      "roi": 0.1898,
+      "returned": 787.0,
+      "profit": 147.0,
+      "roi": 0.2297,
       "best_bet": {
         "match": "Spain v Cape Verde",
         "pick": "Draw",
@@ -12781,14 +12793,17 @@
           "home": "Egypt",
           "away": "Iran",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
           "stake": 10.0,
           "odd": 2.55,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 25.5,
+          "profit": 15.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-25",
@@ -13781,9 +13796,9 @@
     {
       "player": "risk",
       "n_bets": 64,
-      "n_settled": 63,
+      "n_settled": 64,
       "wins": 6,
-      "hit_rate": 0.0952,
+      "hit_rate": 0.0938,
       "staked": 640.0,
       "returned": 228.0,
       "profit": -412.0,
@@ -13885,14 +13900,17 @@
           "home": "Egypt",
           "away": "Iran",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
           "stake": 10.0,
           "odd": 3.45,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-25",
@@ -14885,9 +14903,9 @@
     {
       "player": "monkey",
       "n_bets": 64,
-      "n_settled": 63,
+      "n_settled": 64,
       "wins": 21,
-      "hit_rate": 0.3333,
+      "hit_rate": 0.3281,
       "staked": 640.0,
       "returned": 552.5,
       "profit": -87.5,
@@ -14989,14 +15007,17 @@
           "home": "Egypt",
           "away": "Iran",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "D",
+          "score": [
+            1,
+            1
+          ],
           "stake": 10.0,
           "odd": 2.35,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-25",
@@ -15988,7 +16009,7 @@
     }
   ],
   "bankroll": {
-    "n": 63,
+    "n": 64,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -16048,6 +16069,7 @@
       "2026-06-25",
       "2026-06-25",
       "2026-06-25",
+      "2026-06-26",
       "2026-06-26",
       "2026-06-26",
       "2026-06-26",
@@ -16116,9 +16138,10 @@
         -23.0,
         -33.0,
         -43.0,
-        -38.5,
-        -33.0,
-        -43.0
+        -53.0,
+        -48.5,
+        -43.0,
+        -53.0
       ],
       "model_fundamental": [
         4.0,
@@ -16179,11 +16202,12 @@
         -18.5,
         -28.5,
         -27.5,
-        -26.0,
+        -37.5,
         -36.0,
-        -31.5,
-        -26.0,
-        -24.0
+        -46.0,
+        -41.5,
+        -36.0,
+        -34.0
       ],
       "safe": [
         4.0,
@@ -16244,11 +16268,12 @@
         -2.0,
         -12.0,
         -11.0,
-        -9.5,
+        -21.0,
         -19.5,
-        -15.0,
-        -9.5,
-        -7.5
+        -29.5,
+        -25.0,
+        -19.5,
+        -17.5
       ],
       "tide": [
         -10.0,
@@ -16309,11 +16334,12 @@
         137.5,
         159.5,
         149.5,
-        139.5,
-        161.5,
-        151.5,
-        141.5,
-        131.5
+        165.0,
+        155.0,
+        177.0,
+        167.0,
+        157.0,
+        147.0
       ],
       "risk": [
         -10.0,
@@ -16375,10 +16401,11 @@
         -374.0,
         -384.0,
         -394.0,
-        -372.0,
+        -404.0,
         -382.0,
         -392.0,
-        -402.0
+        -402.0,
+        -412.0
       ],
       "monkey": [
         4.0,
@@ -16443,7 +16470,8 @@
         -47.5,
         -57.5,
         -67.5,
-        -77.5
+        -77.5,
+        -87.5
       ]
     }
   }

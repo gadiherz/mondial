@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-28T01:30:43.377035Z",
+    "generated_at": "2026-06-28T01:40:43.406710Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-28T14:00:00Z",
     "ratings_through": "2026-06-27"
@@ -8072,10 +8072,13 @@
       "home_code": "cd",
       "away_code": "uz",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-06-27T23:30:00Z",
-      "result": null,
-      "score": null,
+      "result": "H",
+      "score": [
+        3,
+        1
+      ],
       "model": {
         "home": 0.259,
         "draw": 0.343,
@@ -8694,16 +8697,16 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-27T22:58:32.641577+00:00",
-    "stale_hours": 2.5,
+    "stale_hours": 2.7,
     "upcoming_missing_count": 0
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 70,
-      "n_settled": 67,
+      "n_settled": 68,
       "wins": 34,
-      "hit_rate": 0.5075,
+      "hit_rate": 0.5,
       "staked": 700.0,
       "returned": 605.5,
       "profit": -94.5,
@@ -8754,14 +8757,17 @@
           "home": "DR Congo",
           "away": "Uzbekistan",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            3,
+            1
+          ],
           "stake": 10.0,
           "odd": 4.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-27",
@@ -9901,9 +9907,9 @@
     {
       "player": "model_fundamental",
       "n_bets": 70,
-      "n_settled": 67,
+      "n_settled": 68,
       "wins": 40,
-      "hit_rate": 0.597,
+      "hit_rate": 0.5882,
       "staked": 700.0,
       "returned": 636.0,
       "profit": -64.0,
@@ -9954,14 +9960,17 @@
           "home": "DR Congo",
           "away": "Uzbekistan",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            3,
+            1
+          ],
           "stake": 10.0,
           "odd": 4.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-27",
@@ -11101,13 +11110,13 @@
     {
       "player": "safe",
       "n_bets": 70,
-      "n_settled": 67,
-      "wins": 43,
-      "hit_rate": 0.6418,
+      "n_settled": 68,
+      "wins": 44,
+      "hit_rate": 0.6471,
       "staked": 700.0,
-      "returned": 652.5,
-      "profit": -47.5,
-      "roi": -0.0679,
+      "returned": 668.5,
+      "profit": -31.5,
+      "roi": -0.045,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -11154,14 +11163,17 @@
           "home": "DR Congo",
           "away": "Uzbekistan",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            3,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 16.0,
+          "profit": 6.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-27",
@@ -12301,9 +12313,9 @@
     {
       "player": "tide",
       "n_bets": 70,
-      "n_settled": 67,
+      "n_settled": 68,
       "wins": 19,
-      "hit_rate": 0.2836,
+      "hit_rate": 0.2794,
       "staked": 700.0,
       "returned": 822.5,
       "profit": 122.5,
@@ -12354,14 +12366,17 @@
           "home": "DR Congo",
           "away": "Uzbekistan",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            3,
+            1
+          ],
           "stake": 10.0,
           "odd": 4.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-27",
@@ -13501,9 +13516,9 @@
     {
       "player": "risk",
       "n_bets": 70,
-      "n_settled": 67,
+      "n_settled": 68,
       "wins": 7,
-      "hit_rate": 0.1045,
+      "hit_rate": 0.1029,
       "staked": 700.0,
       "returned": 263.5,
       "profit": -436.5,
@@ -13554,14 +13569,17 @@
           "home": "DR Congo",
           "away": "Uzbekistan",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            3,
+            1
+          ],
           "stake": 10.0,
           "odd": 4.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-27",
@@ -14701,9 +14719,9 @@
     {
       "player": "monkey",
       "n_bets": 70,
-      "n_settled": 67,
+      "n_settled": 68,
       "wins": 23,
-      "hit_rate": 0.3433,
+      "hit_rate": 0.3382,
       "staked": 700.0,
       "returned": 606.5,
       "profit": -93.5,
@@ -14754,14 +14772,17 @@
           "home": "DR Congo",
           "away": "Uzbekistan",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            3,
+            1
+          ],
           "stake": 10.0,
           "odd": 4.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-27",
@@ -15900,7 +15921,7 @@
     }
   ],
   "bankroll": {
-    "n": 67,
+    "n": 68,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -15966,6 +15987,7 @@
       "2026-06-26",
       "2026-06-26",
       "2026-06-26",
+      "2026-06-27",
       "2026-06-27",
       "2026-06-27",
       "2026-06-27"
@@ -16038,7 +16060,8 @@
         -53.0,
         -63.0,
         -73.0,
-        -64.5
+        -83.0,
+        -74.5
       ],
       "model_fundamental": [
         4.0,
@@ -16106,8 +16129,9 @@
         -36.0,
         -34.0,
         -44.0,
-        -42.5,
-        -34.0
+        -54.0,
+        -52.5,
+        -44.0
       ],
       "safe": [
         4.0,
@@ -16175,8 +16199,9 @@
         -19.5,
         -17.5,
         -27.5,
-        -26.0,
-        -17.5
+        -21.5,
+        -20.0,
+        -11.5
       ],
       "tide": [
         -10.0,
@@ -16245,7 +16270,8 @@
         147.0,
         172.5,
         162.5,
-        152.5
+        152.5,
+        142.5
       ],
       "risk": [
         -10.0,
@@ -16314,7 +16340,8 @@
         -412.0,
         -386.5,
         -396.5,
-        -406.5
+        -406.5,
+        -416.5
       ],
       "monkey": [
         4.0,
@@ -16383,7 +16410,8 @@
         -87.5,
         -62.0,
         -72.0,
-        -63.5
+        -82.0,
+        -73.5
       ]
     }
   }

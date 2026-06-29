@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-29T16:52:52.069745Z",
+    "generated_at": "2026-06-29T18:50:43.107789Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-30T14:00:00Z",
     "ratings_through": "2026-06-28"
@@ -8211,9 +8211,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.273,
-        "draw": 0.354,
-        "away": 0.373
+        "home": 0.258,
+        "draw": 0.351,
+        "away": 0.391
       },
       "winner_odds": {
         "home": 2.2,
@@ -8230,12 +8230,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 0.8,
-          "away": 0.965
+          "home": 0.776,
+          "away": 0.996
         },
         "log_lambda": {
-          "home": -0.22289035948411368,
-          "away": -0.03548041618664391
+          "home": -0.2538687261706518,
+          "away": -0.004502049500105784
         },
         "components": {
           "home": {
@@ -8243,24 +8243,24 @@
             "attack": 0.7663675669213595,
             "opp_defence": -0.991915180413156,
             "home_adv": 0.0,
-            "features": -0.043687222800846304
+            "features": -0.07466558948738442
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.35456568602180205,
             "opp_defence": -0.441553372914926,
             "home_adv": 0.0,
-            "features": 0.0051627938979510206
+            "features": 0.03614116058448914
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": -0.05563340810855721,
-            "x_away": 0.05563340810855721,
-            "contrib_home": -0.010516748231326985,
-            "contrib_away": 0.010516748231326985,
+            "x_home": -0.2195084081085571,
+            "x_away": 0.2195084081085571,
+            "contrib_home": -0.04149511491786511,
+            "contrib_away": 0.04149511491786511,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -8304,49 +8304,49 @@
           {
             "h": 0,
             "a": 0,
-            "p": 0.1775
+            "p": 0.1764
           },
           {
             "h": 0,
             "a": 1,
-            "p": 0.1588
+            "p": 0.163
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.1385
+            "p": 0.1377
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.1306
+            "p": 0.1256
           },
           {
             "h": 0,
             "a": 2,
-            "p": 0.0797
+            "p": 0.0843
           },
           {
             "h": 1,
             "a": 2,
-            "p": 0.0638
+            "p": 0.0654
           }
         ],
         "raw_probs": {
-          "home": 0.2827,
-          "draw": 0.3438,
-          "away": 0.3734
+          "home": 0.2688,
+          "draw": 0.3418,
+          "away": 0.3894
         },
         "glicko": {
           "home": {
             "rating": 1775,
             "rd": 81,
-            "intel_points": 33.8
+            "intel_points": 1.5
           },
           "away": {
             "rating": 1823,
             "rd": 81,
-            "intel_points": 7.2
+            "intel_points": 40.5
           },
           "home_expected": 0.432
         },
@@ -8365,27 +8365,27 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.225,
-            "confidence": 0.6,
-            "summary": "Netherlands have a strong team spirit and tactical plan under Ronald Koeman, with players like Brian Brobbey and Cody Gakpo making a positive impact",
+            "composite": 0.01,
+            "confidence": 0.2,
+            "summary": "Netherlands face Morocco, odds to qualify -188",
             "dims": {
-              "form_outlook": 0.5,
+              "form_outlook": 0.0,
               "availability": 0.0,
-              "coach_stability": 0.5,
-              "morale": 0.5,
+              "coach_stability": 0.0,
+              "morale": 0.0,
               "motivation": 0.5
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.048,
-            "confidence": 0.3,
-            "summary": "Morocco made a positive impression, have a tough match upcoming",
+            "composite": 0.27,
+            "confidence": 0.6,
+            "summary": "Morocco has maintained form, impressed in buildup, and has key players like Bouaddi performing well",
             "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.0,
+              "form_outlook": 0.5,
+              "availability": 0.5,
               "coach_stability": 0.0,
-              "morale": 0.2,
+              "morale": 0.5,
               "motivation": 0.5
             }
           }
@@ -8393,14 +8393,14 @@
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.2827,
-            0.3438,
-            0.3734
+            0.2688,
+            0.3418,
+            0.3894
           ],
           "calibrated": [
-            0.2728,
-            0.3538,
-            0.3734
+            0.2575,
+            0.3512,
+            0.3912
           ]
         }
       }
@@ -8414,13 +8414,13 @@
       "away_code": "jp",
       "venue": null,
       "status": "scheduled",
-      "kickoff_utc": "2026-06-29T17:00:00Z",
+      "kickoff_utc": null,
       "result": null,
       "score": null,
       "model": {
-        "home": 0.568,
-        "draw": 0.261,
-        "away": 0.171
+        "home": 0.576,
+        "draw": 0.258,
+        "away": 0.166
       },
       "winner_odds": {
         "home": 1.55,
@@ -8437,12 +8437,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.568,
-          "away": 0.815
+          "home": 1.587,
+          "away": 0.805
         },
         "log_lambda": {
-          "home": 0.4496960815993206,
-          "away": -0.2045216749742244
+          "home": 0.4621016060161265,
+          "away": -0.2169271993910303
         },
         "components": {
           "home": {
@@ -8450,24 +8450,24 @@
             "attack": 0.9187005815348613,
             "opp_defence": -0.5014525805916662,
             "home_adv": 0.0,
-            "features": -0.013896396152403581
+            "features": -0.0014908717355976906
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.7483478902546937,
             "opp_defence": -0.9746654045941887,
             "home_adv": 0.0,
-            "features": -0.024548637443258463
+            "features": -0.03695416186006436
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.07542251745038414,
-            "x_away": -0.07542251745038414,
-            "contrib_home": 0.014257613437069853,
-            "contrib_away": -0.014257613437069853,
+            "x_home": 0.14104751745038413,
+            "x_away": -0.14104751745038413,
+            "contrib_home": 0.026663137853875744,
+            "contrib_away": -0.026663137853875744,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -8511,49 +8511,49 @@
           {
             "h": 1,
             "a": 0,
-            "p": 0.139
+            "p": 0.1395
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.1236
+            "p": 0.1224
           },
           {
             "h": 2,
             "a": 0,
-            "p": 0.1134
+            "p": 0.1152
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.098
+            "p": 0.097
           },
           {
             "h": 2,
             "a": 1,
-            "p": 0.0924
+            "p": 0.0927
           },
           {
             "h": 0,
             "a": 1,
-            "p": 0.0695
+            "p": 0.068
           }
         ],
         "raw_probs": {
-          "home": 0.5461,
-          "draw": 0.265,
-          "away": 0.1889
+          "home": 0.5537,
+          "draw": 0.2625,
+          "away": 0.1838
         },
         "glicko": {
           "home": {
             "rating": 1827,
             "rd": 79,
-            "intel_points": 10.2
+            "intel_points": 17.7
           },
           "away": {
             "rating": 1778,
             "rd": 83,
-            "intel_points": 28.4
+            "intel_points": 9.6
           },
           "home_expected": 0.567
         },
@@ -8572,42 +8572,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.068,
+            "composite": 0.118,
             "confidence": 0.4,
-            "summary": "Brazil faces Japan, with some concerns about player availability and untested squad limits under Carlo Ancelotti",
+            "summary": "Brazil has superstar firepower with Vinicius Junior and fit-again Neymar, but limited information on team dynamics and coach stability.",
             "dims": {
               "form_outlook": 0.2,
-              "availability": -0.2,
-              "coach_stability": 0.5,
+              "availability": 0.5,
+              "coach_stability": 0.0,
               "morale": 0.3,
               "motivation": 0.5
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.189,
-            "confidence": 0.7,
-            "summary": "Japan shows resilience, has a strong squad, and a stable coach in Hajime Moriyasu, but faces a tough test against Brazil",
+            "composite": 0.064,
+            "confidence": 0.4,
+            "summary": "Japan cohesive, seeking first World Cup knockout tie win, recent friendly win against Brazil",
             "dims": {
               "form_outlook": 0.2,
               "availability": 0.0,
-              "coach_stability": 0.8,
-              "morale": 0.4,
-              "motivation": 0.6
+              "coach_stability": 0.0,
+              "morale": 0.2,
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.5461,
-            0.265,
-            0.1889
+            0.5537,
+            0.2625,
+            0.1838
           ],
           "calibrated": [
-            0.5676,
-            0.2611,
-            0.1713
+            0.5759,
+            0.2581,
+            0.166
           ]
         }
       }
@@ -8625,9 +8625,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.277,
-        "draw": 0.316,
-        "away": 0.407
+        "home": 0.269,
+        "draw": 0.314,
+        "away": 0.417
       },
       "winner_odds": {
         "home": 3.5,
@@ -8644,12 +8644,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 0.932,
-          "away": 1.158
+          "home": 0.918,
+          "away": 1.177
         },
         "log_lambda": {
-          "home": -0.07009208972087413,
-          "away": 0.14687728563698102
+          "home": -0.08590027226343253,
+          "away": 0.1626854681795394
         },
         "components": {
           "home": {
@@ -8657,24 +8657,24 @@
             "attack": 0.3450024832161568,
             "opp_defence": -0.4338017891759403,
             "home_adv": 0.0,
-            "features": -0.02763726056961965
+            "features": -0.043445443112178045
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.5280087412832842,
             "opp_defence": -0.4189073814825021,
             "home_adv": 0.0,
-            "features": -0.008568550972330138
+            "features": 0.007239631570228254
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": -0.031568222211024025,
-            "x_away": 0.031568222211024025,
-            "contrib_home": -0.005967548212327812,
-            "contrib_away": 0.005967548212327812,
+            "x_home": -0.11519322221102414,
+            "x_away": 0.11519322221102414,
+            "contrib_home": -0.021775730754886202,
+            "contrib_away": 0.021775730754886202,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -8718,49 +8718,49 @@
           {
             "h": 1,
             "a": 1,
-            "p": 0.1399
+            "p": 0.1394
           },
           {
             "h": 0,
             "a": 1,
-            "p": 0.1368
+            "p": 0.1385
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.13
+            "p": 0.1296
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.1088
+            "p": 0.1066
           },
           {
             "h": 0,
             "a": 2,
-            "p": 0.0829
+            "p": 0.0853
           },
           {
             "h": 1,
             "a": 2,
-            "p": 0.0773
+            "p": 0.0782
           }
         ],
         "raw_probs": {
-          "home": 0.2867,
-          "draw": 0.3106,
-          "away": 0.4026
+          "home": 0.279,
+          "draw": 0.3094,
+          "away": 0.4116
         },
         "glicko": {
           "home": {
             "rating": 1666,
             "rd": 76,
-            "intel_points": 0.0
+            "intel_points": -4.2
           },
           "away": {
             "rating": 1679,
             "rd": 76,
-            "intel_points": 0.0
+            "intel_points": 29.2
           },
           "home_expected": 0.482
         },
@@ -8778,43 +8778,43 @@
         },
         "intel": {
           "home": {
-            "status": "no_signal",
-            "composite": 0.0,
-            "confidence": 0.0,
-            "summary": "No relevant information about team performance or dynamics.",
+            "status": "informed",
+            "composite": -0.028,
+            "confidence": 0.4,
+            "summary": "Ivory Coast struggling with recent losses and injuries, but still motivated",
             "dims": {
-              "form_outlook": 0.0,
+              "form_outlook": -0.2,
               "availability": 0.0,
               "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "morale": -0.3,
+              "motivation": 0.5
             }
           },
           "away": {
-            "status": "no_signal",
-            "composite": 0.0,
-            "confidence": 0.0,
-            "summary": "No relevant information about Norway team",
+            "status": "informed",
+            "composite": 0.195,
+            "confidence": 0.6,
+            "summary": "Norway beat Iraq 4-1, Haaland in form, but upcoming match against Senegal is crucial",
             "dims": {
-              "form_outlook": 0.0,
+              "form_outlook": 0.5,
               "availability": 0.0,
               "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "morale": 0.5,
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.2867,
-            0.3106,
-            0.4026
+            0.279,
+            0.3094,
+            0.4116
           ],
           "calibrated": [
-            0.2774,
-            0.3158,
-            0.4068
+            0.2688,
+            0.3143,
+            0.4169
           ]
         }
       }
@@ -8851,12 +8851,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 0.893,
-          "away": 1.167
+          "home": 0.894,
+          "away": 1.166
         },
         "log_lambda": {
-          "home": -0.1134023439779463,
-          "away": 0.15460222298120302
+          "home": -0.11226812460269554,
+          "away": 0.15346800360595225
         },
         "components": {
           "home": {
@@ -8864,24 +8864,24 @@
             "attack": 0.5840535071919988,
             "opp_defence": -0.7702372164978866,
             "home_adv": 0.0,
-            "features": 0.026436888519412442
+            "features": 0.027571107894663202
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.7280255116396032,
             "opp_defence": -0.5564331831740014,
             "home_adv": 0.0,
-            "features": -0.06333458229292782
+            "features": -0.06446880166817859
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.09658758418405285,
-            "x_away": -0.09658758418405285,
-            "contrib_home": 0.018258584898370473,
-            "contrib_away": -0.018258584898370473,
+            "x_home": 0.1025875841840525,
+            "x_away": -0.1025875841840525,
+            "contrib_home": 0.019392804273621233,
+            "contrib_away": -0.019392804273621233,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -8925,49 +8925,49 @@
           {
             "h": 0,
             "a": 1,
-            "p": 0.1424
+            "p": 0.1422
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.1392
+            "p": 0.1393
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.1338
+            "p": 0.1339
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.1074
+            "p": 0.1076
           },
           {
             "h": 0,
             "a": 2,
-            "p": 0.0868
+            "p": 0.0866
           },
           {
             "h": 1,
             "a": 2,
-            "p": 0.0775
+            "p": 0.0774
           }
         ],
         "raw_probs": {
-          "home": 0.2733,
-          "draw": 0.3119,
-          "away": 0.4148
+          "home": 0.2738,
+          "draw": 0.312,
+          "away": 0.4141
         },
         "glicko": {
           "home": {
             "rating": 1757,
             "rd": 76,
-            "intel_points": 0.0
+            "intel_points": 1.5
           },
           "away": {
             "rating": 1715,
             "rd": 79,
-            "intel_points": 3.3
+            "intel_points": 2.4
           },
           "home_expected": 0.558
         },
@@ -8985,43 +8985,43 @@
         },
         "intel": {
           "home": {
-            "status": "no_signal",
-            "composite": 0.0,
-            "confidence": 0.0,
-            "summary": "No relevant information about Mexico's team performance or status",
+            "status": "informed",
+            "composite": 0.01,
+            "confidence": 0.2,
+            "summary": "Mexico hosts Czechia, no significant player or coach info",
             "dims": {
               "form_outlook": 0.0,
               "availability": 0.0,
               "coach_stability": 0.0,
               "morale": 0.0,
-              "motivation": 0.0
+              "motivation": 0.5
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.022,
+            "composite": 0.016,
             "confidence": 0.2,
-            "summary": "Ecuador beat Germany 2-1, but limited info on current form",
+            "summary": "Ecuador needs a win, recent draw with Curaçao",
             "dims": {
-              "form_outlook": 0.2,
+              "form_outlook": 0.0,
               "availability": 0.0,
               "coach_stability": 0.0,
-              "morale": 0.2,
-              "motivation": 0.0
+              "morale": -0.2,
+              "motivation": 1.0
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.2733,
-            0.3119,
-            0.4148
+            0.2738,
+            0.312,
+            0.4141
           ],
           "calibrated": [
-            0.2626,
-            0.317,
-            0.4204
+            0.2632,
+            0.3172,
+            0.4197
           ]
         }
       }
@@ -9035,13 +9035,13 @@
       "away_code": "cd",
       "venue": null,
       "status": "scheduled",
-      "kickoff_utc": "2026-07-01T16:00:00Z",
+      "kickoff_utc": null,
       "result": null,
       "score": null,
       "model": {
-        "home": 0.688,
-        "draw": 0.229,
-        "away": 0.084
+        "home": 0.682,
+        "draw": 0.232,
+        "away": 0.086
       },
       "winner_odds": {
         "home": 1.25,
@@ -9058,12 +9058,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.678,
-          "away": 0.504
+          "home": 1.661,
+          "away": 0.509
         },
         "log_lambda": {
-          "home": 0.5176480969648652,
-          "away": -0.685269867577286
+          "home": 0.5072983451657016,
+          "away": -0.6749201157781224
         },
         "components": {
           "home": {
@@ -9071,24 +9071,24 @@
             "attack": 0.6304208755504488,
             "opp_defence": -0.30280129931334826,
             "home_adv": 0.0,
-            "features": 0.14368404391923567
+            "features": 0.13333429212007197
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.2712000042127227,
             "opp_defence": -0.821780859686654,
             "home_adv": 0.0,
-            "features": -0.18103348891188378
+            "features": -0.17068373711272009
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.5519977505461003,
-            "x_away": -0.5519977505461003,
-            "contrib_home": 0.10434775729404307,
-            "contrib_away": -0.10434775729404307,
+            "x_home": 0.49724775054610065,
+            "x_away": -0.49724775054610065,
+            "contrib_home": 0.09399800549487936,
+            "contrib_away": -0.09399800549487936,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -9132,49 +9132,49 @@
           {
             "h": 1,
             "a": 0,
-            "p": 0.1847
+            "p": 0.185
           },
           {
             "h": 2,
             "a": 0,
-            "p": 0.1588
+            "p": 0.1575
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.1174
+            "p": 0.1188
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.1
+            "p": 0.1012
           },
           {
             "h": 3,
             "a": 0,
-            "p": 0.0888
+            "p": 0.0872
           },
           {
             "h": 2,
             "a": 1,
-            "p": 0.08
+            "p": 0.0802
           }
         ],
         "raw_probs": {
-          "home": 0.6583,
-          "draw": 0.2396,
-          "away": 0.1021
+          "home": 0.6528,
+          "draw": 0.2425,
+          "away": 0.1047
         },
         "glicko": {
           "home": {
             "rating": 1822,
             "rd": 81,
-            "intel_points": 0.0
+            "intel_points": -0.3
           },
           "away": {
             "rating": 1601,
             "rd": 76,
-            "intel_points": 0.0
+            "intel_points": 21.6
           },
           "home_expected": 0.775
         },
@@ -9193,42 +9193,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "No recent performance data, only general World Cup context",
+            "composite": -0.002,
+            "confidence": 0.4,
+            "summary": "England has some experienced players, but injuries and coach uncertainty are concerns",
             "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
+              "form_outlook": 0.1,
+              "availability": -0.2,
+              "coach_stability": -0.5,
               "morale": 0.0,
-              "motivation": 0.0
+              "motivation": 0.5
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "Limited info, one recent draw vs Portugal",
+            "composite": 0.144,
+            "confidence": 0.6,
+            "summary": "DR Congo has a must-win match, showed encouraging signs against Portugal, and has a passionate message from the President",
             "dims": {
-              "form_outlook": 0.0,
+              "form_outlook": 0.2,
               "availability": 0.0,
               "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "morale": 0.5,
+              "motivation": 1.0
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.6583,
-            0.2396,
-            0.1021
+            0.6528,
+            0.2425,
+            0.1047
           ],
           "calibrated": [
-            0.6875,
-            0.2285,
-            0.0839
+            0.6816,
+            0.2319,
+            0.0865
           ]
         }
       }
@@ -9242,11 +9242,11 @@
       "away_code": "sn",
       "venue": null,
       "status": "scheduled",
-      "kickoff_utc": "2026-07-01T20:00:00Z",
+      "kickoff_utc": null,
       "result": null,
       "score": null,
       "model": {
-        "home": 0.418,
+        "home": 0.417,
         "draw": 0.306,
         "away": 0.276
       },
@@ -9265,12 +9265,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.218,
-          "away": 0.966
+          "home": 1.217,
+          "away": 0.967
         },
         "log_lambda": {
-          "home": 0.19711202293686864,
-          "away": -0.03505542014762346
+          "home": 0.196048692272571,
+          "away": -0.03399208948332581
         },
         "components": {
           "home": {
@@ -9278,24 +9278,24 @@
             "attack": 0.7412450886157762,
             "opp_defence": -0.5974404102252884,
             "home_adv": 0.0,
-            "features": 0.00696286773785176
+            "features": 0.0058995370735541106
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.3860810313339472,
             "opp_defence": -0.4238647886343471,
             "home_adv": 0.0,
-            "features": -0.0436161396557526
+            "features": -0.04255280899145496
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.022166715649449317,
-            "x_away": -0.022166715649449317,
-            "contrib_home": 0.004190319729213513,
-            "contrib_away": -0.004190319729213513,
+            "x_home": 0.016541715649449316,
+            "x_away": -0.016541715649449316,
+            "contrib_home": 0.003126989064915865,
+            "contrib_away": -0.003126989064915865,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -9344,44 +9344,44 @@
           {
             "h": 1,
             "a": 0,
-            "p": 0.1308
+            "p": 0.1307
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.119
+            "p": 0.1191
           },
           {
             "h": 0,
             "a": 1,
-            "p": 0.1024
+            "p": 0.1025
           },
           {
             "h": 2,
             "a": 0,
-            "p": 0.0835
+            "p": 0.0834
           },
           {
             "h": 2,
             "a": 1,
-            "p": 0.0807
+            "p": 0.0806
           }
         ],
         "raw_probs": {
-          "home": 0.4124,
-          "draw": 0.3023,
-          "away": 0.2853
+          "home": 0.4118,
+          "draw": 0.3024,
+          "away": 0.2859
         },
         "glicko": {
           "home": {
             "rating": 1711,
             "rd": 78,
-            "intel_points": 11.2
+            "intel_points": 19.8
           },
           "away": {
             "rating": 1714,
             "rd": 76,
-            "intel_points": 0.0
+            "intel_points": 10.8
           },
           "home_expected": 0.497
         },
@@ -9400,42 +9400,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.075,
+            "composite": 0.132,
             "confidence": 0.6,
-            "summary": "Lukaku included in squad despite injury, coach Garcia has chance to impress",
+            "summary": "Belgium has a fully fit squad, but Jérémy Doku is ruled out due to illness. Romelu Lukaku may start after coming off the bench with immediate effect against Egypt.",
             "dims": {
               "form_outlook": 0.2,
-              "availability": -0.3,
+              "availability": 0.0,
               "coach_stability": 0.5,
-              "morale": 0.1,
+              "morale": 0.3,
               "motivation": 0.5
             }
           },
           "away": {
-            "status": "no_signal",
-            "composite": 0.0,
-            "confidence": 0.0,
-            "summary": "No relevant information about Senegal team",
+            "status": "informed",
+            "composite": 0.072,
+            "confidence": 0.4,
+            "summary": "Senegal has skilled players, but their performance against France was underwhelming. They have a crucial match against Norway.",
             "dims": {
-              "form_outlook": 0.0,
+              "form_outlook": 0.2,
               "availability": 0.0,
               "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "morale": 0.1,
+              "motivation": 0.8
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.4124,
-            0.3023,
-            0.2853
+            0.4118,
+            0.3024,
+            0.2859
           ],
           "calibrated": [
-            0.4179,
-            0.3062,
-            0.2758
+            0.4173,
+            0.3063,
+            0.2764
           ]
         }
       }
@@ -9453,9 +9453,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.47,
-        "draw": 0.293,
-        "away": 0.236
+        "home": 0.481,
+        "draw": 0.291,
+        "away": 0.228
       },
       "winner_odds": {
         "home": 1.75,
@@ -9472,12 +9472,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.335,
-          "away": 0.912
+          "home": 1.356,
+          "away": 0.898
         },
         "log_lambda": {
-          "home": 0.28892638534917164,
-          "away": -0.09203347521373795
+          "home": 0.30438012433696415,
+          "away": -0.10748721420153046
         },
         "components": {
           "home": {
@@ -9485,24 +9485,24 @@
             "attack": 0.7308428016457583,
             "opp_defence": -0.5505501443170039,
             "home_adv": 0.0,
-            "features": 0.06228925121188815
+            "features": 0.07774299019968067
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.6214603478863854,
             "opp_defence": -0.6595548936275882,
             "home_adv": 0.0,
-            "features": -0.10028340628106414
+            "features": -0.11573714526885664
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.23023137140599317,
-            "x_away": -0.23023137140599317,
-            "contrib_home": 0.04352214703987436,
-            "contrib_away": -0.04352214703987436,
+            "x_home": 0.3119813714059933,
+            "x_away": -0.3119813714059933,
+            "contrib_home": 0.05897588602766687,
+            "contrib_away": -0.05897588602766687,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -9546,49 +9546,49 @@
           {
             "h": 1,
             "a": 0,
-            "p": 0.1349
+            "p": 0.1362
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.1349
+            "p": 0.134
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.1119
+            "p": 0.1111
           },
           {
             "h": 2,
             "a": 0,
-            "p": 0.0942
+            "p": 0.0965
           },
           {
             "h": 0,
             "a": 1,
-            "p": 0.0902
+            "p": 0.0881
           },
           {
             "h": 2,
             "a": 1,
-            "p": 0.0859
+            "p": 0.0867
           }
         ],
         "raw_probs": {
-          "home": 0.4588,
-          "draw": 0.2917,
-          "away": 0.2495
+          "home": 0.4681,
+          "draw": 0.2897,
+          "away": 0.2422
         },
         "glicko": {
           "home": {
             "rating": 1782,
             "rd": 80,
-            "intel_points": 3.3
+            "intel_points": 45.0
           },
           "away": {
             "rating": 1693,
             "rd": 80,
-            "intel_points": 0.0
+            "intel_points": 9.0
           },
           "home_expected": 0.621
         },
@@ -9607,42 +9607,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.022,
-            "confidence": 0.2,
-            "summary": "Portugal had a big win and a draw, limited information",
+            "composite": 0.3,
+            "confidence": 0.6,
+            "summary": "Portugal won 5-0, Ronaldo scored 2 goals, need win over Colombia for top spot",
+            "dims": {
+              "form_outlook": 0.5,
+              "availability": 0.5,
+              "coach_stability": 0.0,
+              "morale": 0.5,
+              "motivation": 1.0
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.06,
+            "confidence": 0.4,
+            "summary": "Croatia needs a win, some players struggling with form, Baturina a bright spot",
             "dims": {
               "form_outlook": 0.2,
               "availability": 0.0,
               "coach_stability": 0.0,
-              "morale": 0.2,
-              "motivation": 0.0
-            }
-          },
-          "away": {
-            "status": "no_signal",
-            "composite": 0.0,
-            "confidence": 0.0,
-            "summary": "No relevant information about Croatia team",
-            "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "morale": 0.1,
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.4588,
-            0.2917,
-            0.2495
+            0.4681,
+            0.2897,
+            0.2422
           ],
           "calibrated": [
-            0.4702,
-            0.2934,
-            0.2365
+            0.4806,
+            0.2909,
+            0.2285
           ]
         }
       }
@@ -9660,9 +9660,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.691,
-        "draw": 0.206,
-        "away": 0.102
+        "home": 0.702,
+        "draw": 0.201,
+        "away": 0.097
       },
       "winner_odds": {
         "home": 1.3,
@@ -9679,12 +9679,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.915,
-          "away": 0.689
+          "home": 1.948,
+          "away": 0.678
         },
         "log_lambda": {
-          "home": 0.6497302967967786,
-          "away": -0.372068512102774
+          "home": 0.6667081430700645,
+          "away": -0.38904635837605983
         },
         "components": {
           "home": {
@@ -9692,24 +9692,24 @@
             "attack": 0.8902889833154088,
             "opp_defence": -0.44098140791154916,
             "home_adv": 0.0,
-            "features": 0.1540782445843899
+            "features": 0.17105609085767576
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.5036018875894589,
             "opp_defence": -0.7288066836435247,
             "home_adv": 0.0,
-            "features": -0.19320819285723717
+            "features": -0.21018603913052303
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.6781050830061804,
-            "x_away": -0.6781050830061804,
-            "contrib_home": 0.1281866539336131,
-            "contrib_away": -0.1281866539336131,
+            "x_home": 0.7679175830061808,
+            "x_away": -0.7679175830061808,
+            "contrib_home": 0.14516450020689894,
+            "contrib_away": -0.14516450020689894,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -9751,51 +9751,51 @@
         ],
         "scorelines": [
           {
-            "h": 1,
-            "a": 0,
-            "p": 0.1369
-          },
-          {
             "h": 2,
             "a": 0,
-            "p": 0.1356
+            "p": 0.1373
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.1364
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.1023
+            "p": 0.1002
           },
           {
             "h": 2,
             "a": 1,
-            "p": 0.0935
+            "p": 0.0931
           },
           {
             "h": 3,
             "a": 0,
-            "p": 0.0866
+            "p": 0.0892
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.0787
+            "p": 0.077
           }
         ],
         "raw_probs": {
-          "home": 0.6602,
-          "draw": 0.2183,
-          "away": 0.1215
+          "home": 0.6701,
+          "draw": 0.2137,
+          "away": 0.1162
         },
         "glicko": {
           "home": {
             "rating": 1908,
             "rd": 85,
-            "intel_points": 0.6
+            "intel_points": 42.5
           },
           "away": {
             "rating": 1638,
             "rd": 80,
-            "intel_points": 0.0
+            "intel_points": 6.0
           },
           "home_expected": 0.819
         },
@@ -9814,42 +9814,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.004,
-            "confidence": 0.2,
-            "summary": "Spain beat Saudi Arabia 4-0 and Uruguay, but no recent player form info",
+            "composite": 0.2835,
+            "confidence": 0.7,
+            "summary": "Spain need a win, Lamine Yamal's fitness is key, coach Luis de la Fuente makes changes",
             "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.2,
-              "motivation": 0.0
+              "form_outlook": 0.2,
+              "availability": 0.5,
+              "coach_stability": 0.8,
+              "morale": 0.3,
+              "motivation": 0.8
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "Limited information, no clear signals about Austria's team",
+            "composite": 0.04,
+            "confidence": 0.4,
+            "summary": "Austria has a high-energy style of play under Ralf Rangnick, but results have been mixed",
             "dims": {
               "form_outlook": 0.0,
               "availability": 0.0,
-              "coach_stability": 0.0,
+              "coach_stability": 0.5,
               "morale": 0.0,
-              "motivation": 0.0
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.6602,
-            0.2183,
-            0.1215
+            0.6701,
+            0.2137,
+            0.1162
           ],
           "calibrated": [
-            0.6913,
-            0.2063,
-            0.1024
+            0.7018,
+            0.2011,
+            0.0972
           ]
         }
       }
@@ -9867,9 +9867,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.411,
-        "draw": 0.281,
-        "away": 0.308
+        "home": 0.403,
+        "draw": 0.282,
+        "away": 0.315
       },
       "winner_odds": {
         "home": 1.95,
@@ -9886,12 +9886,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.353,
-          "away": 1.159
+          "home": 1.336,
+          "away": 1.173
         },
         "log_lambda": {
-          "home": 0.30242805395831923,
-          "away": 0.14736871290131573
+          "home": 0.289880752119607,
+          "away": 0.15991601474002795
         },
         "components": {
           "home": {
@@ -9899,24 +9899,24 @@
             "attack": 0.5889378902105773,
             "opp_defence": -0.29303447185966475,
             "home_adv": 0.0,
-            "features": -0.03981984120112236
+            "features": -0.052367143039834585
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.5675062654631564,
             "opp_defence": -0.46984929763731675,
             "home_adv": 0.0,
-            "features": 0.0033672682669470323
+            "features": 0.015914570105659255
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": -0.036572593230609414,
-            "x_away": 0.036572593230609414,
-            "contrib_home": -0.006913557307554058,
-            "contrib_away": 0.006913557307554058,
+            "x_home": -0.1029475932306093,
+            "x_away": 0.1029475932306093,
+            "contrib_home": -0.01946085914626628,
+            "contrib_away": 0.01946085914626628,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -9960,38 +9960,38 @@
           {
             "h": 1,
             "a": 1,
-            "p": 0.1333
+            "p": 0.1336
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.1036
+            "p": 0.1025
           },
           {
             "h": 0,
             "a": 1,
-            "p": 0.0879
+            "p": 0.0893
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.0872
+            "p": 0.0874
           },
           {
             "h": 2,
             "a": 1,
-            "p": 0.086
+            "p": 0.0852
           },
           {
-            "h": 2,
-            "a": 0,
-            "p": 0.0743
+            "h": 1,
+            "a": 2,
+            "p": 0.0748
           }
         ],
         "raw_probs": {
-          "home": 0.4062,
-          "draw": 0.28,
-          "away": 0.3139
+          "home": 0.3984,
+          "draw": 0.2806,
+          "away": 0.321
         },
         "glicko": {
           "home": {
@@ -10002,7 +10002,7 @@
           "away": {
             "rating": 1702,
             "rd": 77,
-            "intel_points": 0.0
+            "intel_points": 26.6
           },
           "home_expected": 0.48
         },
@@ -10023,7 +10023,7 @@
             "status": "informed",
             "composite": 0.0,
             "confidence": 0.1,
-            "summary": "Switzerland more fancied than Morocco, no other info",
+            "summary": "No relevant information about Switzerland's team performance or players",
             "dims": {
               "form_outlook": 0.0,
               "availability": 0.0,
@@ -10034,29 +10034,29 @@
           },
           "away": {
             "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.2,
-            "summary": "Limited information, some drama in previous matches",
+            "composite": 0.177,
+            "confidence": 0.6,
+            "summary": "Algeria has a perfect record in Group J, winning both matches, and has an 11-point cushion on fair play. Ibrahim Maza is a key player.",
             "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
+              "form_outlook": 0.2,
+              "availability": 0.5,
               "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "morale": 0.3,
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.4062,
-            0.28,
-            0.3139
+            0.3984,
+            0.2806,
+            0.321
           ],
           "calibrated": [
-            0.4113,
-            0.2812,
-            0.3075
+            0.4026,
+            0.282,
+            0.3155
           ]
         }
       }
@@ -10074,9 +10074,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.881,
-        "draw": 0.1,
-        "away": 0.018
+        "home": 0.888,
+        "draw": 0.095,
+        "away": 0.017
       },
       "winner_odds": {
         "home": 1.15,
@@ -10093,12 +10093,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 2.496,
-          "away": 0.297
+          "home": 2.546,
+          "away": 0.291
         },
         "log_lambda": {
-          "home": 0.9145175411721574,
-          "away": -1.2145312354573297
+          "home": 0.9345081576609533,
+          "away": -1.2345218519461256
         },
         "components": {
           "home": {
@@ -10106,24 +10106,24 @@
             "attack": 0.8404440488763454,
             "opp_defence": -0.2663648850845855,
             "home_adv": 0.0,
-            "features": 0.29409390057186846
+            "features": 0.3140845170606643
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.06687783989769489,
             "opp_defence": -0.9944511949847901,
             "home_adv": 0.0,
-            "features": -0.33330235717876366
+            "features": -0.3532929736675595
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 1.086971338419674,
-            "x_away": -1.086971338419674,
-            "contrib_home": 0.2054773253963192,
-            "contrib_away": -0.2054773253963192,
+            "x_home": 1.192721338419674,
+            "x_away": -1.192721338419674,
+            "contrib_home": 0.225467941885115,
+            "contrib_away": -0.225467941885115,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -10167,49 +10167,49 @@
           {
             "h": 2,
             "a": 0,
-            "p": 0.1908
+            "p": 0.19
           },
           {
             "h": 3,
             "a": 0,
-            "p": 0.1587
+            "p": 0.1612
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.1507
+            "p": 0.1471
           },
           {
             "h": 4,
             "a": 0,
-            "p": 0.099
+            "p": 0.1026
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.0635
+            "p": 0.0607
           },
           {
             "h": 2,
             "a": 1,
-            "p": 0.0566
+            "p": 0.0553
           }
         ],
         "raw_probs": {
-          "home": 0.8524,
-          "draw": 0.1202,
-          "away": 0.0274
+          "home": 0.8595,
+          "draw": 0.1149,
+          "away": 0.0256
         },
         "glicko": {
           "home": {
             "rating": 1941,
             "rd": 85,
-            "intel_points": 0.0
+            "intel_points": 79.8
           },
           "away": {
             "rating": 1503,
             "rd": 79,
-            "intel_points": 3.0
+            "intel_points": 40.5
           },
           "home_expected": 0.92
         },
@@ -10228,42 +10228,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "No performance data, only general tournament odds",
+            "composite": 0.532,
+            "confidence": 0.8,
+            "summary": "Argentina won first two matches, Messi in top form, squad changes expected",
             "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "form_outlook": 0.8,
+              "availability": 0.5,
+              "coach_stability": 0.8,
+              "morale": 0.8,
+              "motivation": 0.2
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.02,
-            "confidence": 0.2,
-            "summary": "Cape Verde topped qualifying group, recent draws with Portugal and Saudi Arabia",
+            "composite": 0.27,
+            "confidence": 0.6,
+            "summary": "Cape Verde drew 0-0 with Spain, Vozinha had a great game",
             "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.0,
+              "form_outlook": 0.5,
+              "availability": 0.5,
               "coach_stability": 0.0,
-              "morale": 0.1,
-              "motivation": 0.0
+              "morale": 0.5,
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.8524,
-            0.1202,
-            0.0274
+            0.8595,
+            0.1149,
+            0.0256
           ],
           "calibrated": [
-            0.8813,
-            0.1005,
-            0.0182
+            0.8878,
+            0.0954,
+            0.0168
           ]
         }
       }
@@ -10281,9 +10281,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.797,
-        "draw": 0.158,
-        "away": 0.045
+        "home": 0.794,
+        "draw": 0.16,
+        "away": 0.046
       },
       "winner_odds": {
         "home": 1.5,
@@ -10300,12 +10300,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 2.1,
-          "away": 0.427
+          "home": 2.087,
+          "away": 0.43
         },
         "log_lambda": {
-          "home": 0.7420453094162802,
-          "away": -0.8513621997668764
+          "home": 0.735523548008588,
+          "away": -0.8448404383591843
         },
         "components": {
           "home": {
@@ -10313,24 +10313,24 @@
             "attack": 0.833242056821132,
             "opp_defence": -0.3465512410792463,
             "home_adv": 0.0,
-            "features": 0.2090100168658655
+            "features": 0.20248825545817328
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.2417324590251795,
             "opp_defence": -0.8928534270244748,
             "home_adv": 0.0,
-            "features": -0.24658570857611017
+            "features": -0.240063947168418
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.8245924258794594,
-            "x_away": -0.8245924258794594,
-            "contrib_home": 0.15587811768626036,
-            "contrib_away": -0.15587811768626036,
+            "x_home": 0.7900924258794595,
+            "x_away": -0.7900924258794595,
+            "contrib_home": 0.14935635627856816,
+            "contrib_away": -0.14935635627856816,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -10374,49 +10374,49 @@
           {
             "h": 2,
             "a": 0,
-            "p": 0.1762
+            "p": 0.1758
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.1643
+            "p": 0.165
           },
           {
             "h": 3,
             "a": 0,
-            "p": 0.1234
+            "p": 0.1223
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.0833
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0752
+            "p": 0.0843
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.0751
+            "p": 0.0759
+          },
+          {
+            "h": 2,
+            "a": 1,
+            "p": 0.0755
           }
         ],
         "raw_probs": {
-          "home": 0.7643,
-          "draw": 0.1762,
-          "away": 0.0595
+          "home": 0.7612,
+          "draw": 0.1781,
+          "away": 0.0607
         },
         "glicko": {
           "home": {
             "rating": 1810,
             "rd": 78,
-            "intel_points": 0.0
+            "intel_points": 23.7
           },
           "away": {
             "rating": 1484,
             "rd": 80,
-            "intel_points": -3.8
+            "intel_points": 33.8
           },
           "home_expected": 0.86
         },
@@ -10435,42 +10435,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "No recent performance data or team news",
+            "composite": 0.158,
+            "confidence": 0.4,
+            "summary": "Colombia need a point, have stronger side, and are optimistic",
             "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "form_outlook": 0.2,
+              "availability": 0.5,
+              "coach_stability": 0.5,
+              "morale": 0.5,
+              "motivation": 0.8
             }
           },
           "away": {
             "status": "informed",
-            "composite": -0.025,
-            "confidence": 0.2,
-            "summary": "Ghana has injuries, including Mohammed Kudus and Alexander Djiku, affecting squad availability",
+            "composite": 0.225,
+            "confidence": 0.6,
+            "summary": "Ghana has been a surprise package, with a good job in their games, and Carlos Queiroz has quickly moulded the team in his image",
             "dims": {
-              "form_outlook": 0.0,
-              "availability": -0.5,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "form_outlook": 0.5,
+              "availability": 0.0,
+              "coach_stability": 0.5,
+              "morale": 0.5,
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.7643,
-            0.1762,
-            0.0595
+            0.7612,
+            0.1781,
+            0.0607
           ],
           "calibrated": [
-            0.797,
-            0.1582,
-            0.0447
+            0.7939,
+            0.1603,
+            0.0458
           ]
         }
       }
@@ -10488,9 +10488,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.381,
-        "draw": 0.359,
-        "away": 0.26
+        "home": 0.367,
+        "draw": 0.361,
+        "away": 0.272
       },
       "winner_odds": {
         "home": 3.1,
@@ -10502,17 +10502,17 @@
           0.375
         ]
       },
-      "model_pick": "H",
+      "model_pick": "A",
       "breakdown": {
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 0.956,
-          "away": 0.761
+          "home": 0.933,
+          "away": 0.779
         },
         "log_lambda": {
-          "home": -0.044955573212681246,
-          "away": -0.2736172293092803
+          "home": -0.06905773493676126,
+          "away": -0.24951506758520028
         },
         "components": {
           "home": {
@@ -10520,24 +10520,24 @@
             "attack": 0.5800069020522266,
             "opp_defence": -0.6583866555802992,
             "home_adv": 0.0,
-            "features": -0.012920296493137706
+            "features": -0.03702245821721773
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.31924764342622636,
             "opp_defence": -0.6156429934167177,
             "home_adv": 0.0,
-            "features": -0.023566356127318017
+            "features": 0.0005358055967620054
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.025283122870014267,
-            "x_away": -0.025283122870014267,
-            "contrib_home": 0.004779434637669569,
-            "contrib_away": -0.004779434637669569,
+            "x_home": -0.10221687712998573,
+            "x_away": 0.10221687712998573,
+            "contrib_home": -0.019322727086410453,
+            "contrib_away": 0.019322727086410453,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -10581,49 +10581,49 @@
           {
             "h": 0,
             "a": 0,
-            "p": 0.186
+            "p": 0.1867
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.1655
+            "p": 0.1621
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.1369
+            "p": 0.1375
           },
           {
             "h": 0,
             "a": 1,
-            "p": 0.1304
+            "p": 0.1343
           },
           {
             "h": 2,
             "a": 0,
-            "p": 0.0821
+            "p": 0.0786
           },
           {
             "h": 2,
             "a": 1,
-            "p": 0.0625
+            "p": 0.0612
           }
         ],
         "raw_probs": {
-          "home": 0.38,
-          "draw": 0.3487,
-          "away": 0.2714
+          "home": 0.3678,
+          "draw": 0.3501,
+          "away": 0.282
         },
         "glicko": {
           "home": {
             "rating": 1672,
             "rd": 78,
-            "intel_points": 0.0
+            "intel_points": 1.5
           },
           "away": {
             "rating": 1662,
             "rd": 75,
-            "intel_points": 0.0
+            "intel_points": 52.5
           },
           "home_expected": 0.514
         },
@@ -10641,43 +10641,43 @@
         },
         "intel": {
           "home": {
-            "status": "no_signal",
-            "composite": 0.0,
-            "confidence": 0.0,
-            "summary": "No relevant information about team performance or dynamics.",
+            "status": "informed",
+            "composite": 0.01,
+            "confidence": 0.2,
+            "summary": "Little performance info, Australia needs win/draw to advance",
             "dims": {
               "form_outlook": 0.0,
               "availability": 0.0,
               "coach_stability": 0.0,
               "morale": 0.0,
-              "motivation": 0.0
+              "motivation": 0.5
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "No relevant information about Egypt team",
+            "composite": 0.35,
+            "confidence": 0.7,
+            "summary": "Egypt has key players like Mohamed Salah and Omar Marmoush, and the team showed encouraging signs in their 1-1 draw against Belgium.",
             "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "form_outlook": 0.5,
+              "availability": 0.5,
+              "coach_stability": 0.5,
+              "morale": 0.5,
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.38,
-            0.3487,
-            0.2714
+            0.3678,
+            0.3501,
+            0.282
           ],
           "calibrated": [
-            0.3805,
-            0.3592,
-            0.2603
+            0.367,
+            0.361,
+            0.272
           ]
         }
       }
@@ -10691,13 +10691,13 @@
       "away_code": "py",
       "venue": null,
       "status": "scheduled",
-      "kickoff_utc": "2026-06-29T20:30:00Z",
+      "kickoff_utc": null,
       "result": null,
       "score": null,
       "model": {
-        "home": 0.491,
-        "draw": 0.283,
-        "away": 0.226
+        "home": 0.489,
+        "draw": 0.284,
+        "away": 0.227
       },
       "winner_odds": {
         "home": 1.3,
@@ -10714,12 +10714,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.409,
-          "away": 0.921
+          "home": 1.406,
+          "away": 0.923
         },
         "log_lambda": {
-          "home": 0.3429189281443035,
-          "away": -0.08244623825710057
+          "home": 0.34086315552666147,
+          "away": -0.08039046563945848
         },
         "components": {
           "home": {
@@ -10727,24 +10727,24 @@
             "attack": 0.8204154296692986,
             "opp_defence": -0.6645818760696655,
             "home_adv": 0.0,
-            "features": 0.14074089773614135
+            "features": 0.1386851251184993
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.4902359814302315,
             "opp_defence": -0.4408842861727827,
             "home_adv": 0.0,
-            "features": -0.17814241032307843
+            "features": -0.17608663770543634
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.41705009274355576,
-            "x_away": -0.41705009274355576,
-            "contrib_home": 0.07883771593998237,
-            "contrib_away": -0.07883771593998237,
+            "x_home": 0.40617509274355595,
+            "x_away": -0.40617509274355595,
+            "contrib_home": 0.0767819433223403,
+            "contrib_away": -0.0767819433223403,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -10788,49 +10788,49 @@
           {
             "h": 1,
             "a": 1,
-            "p": 0.1323
+            "p": 0.1325
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.131
+            "p": 0.1309
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.1034
+            "p": 0.1035
           },
           {
             "h": 2,
             "a": 0,
-            "p": 0.0966
+            "p": 0.0963
           },
           {
             "h": 2,
             "a": 1,
-            "p": 0.089
+            "p": 0.0889
           },
           {
             "h": 0,
             "a": 1,
-            "p": 0.0835
+            "p": 0.0838
           }
         ],
         "raw_probs": {
-          "home": 0.4771,
-          "draw": 0.2831,
-          "away": 0.2398
+          "home": 0.4758,
+          "draw": 0.2834,
+          "away": 0.2408
         },
         "glicko": {
           "home": {
             "rating": 1744,
             "rd": 79,
-            "intel_points": 28.4
+            "intel_points": 17.7
           },
           "away": {
             "rating": 1606,
             "rd": 78,
-            "intel_points": 0.0
+            "intel_points": -6.3
           },
           "home_expected": 0.684
         },
@@ -10849,42 +10849,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.189,
-            "confidence": 0.6,
-            "summary": "Germany has depth, but recent loss to Ecuador and comments from players suggest some issues with desire and message discipline",
+            "composite": 0.118,
+            "confidence": 0.4,
+            "summary": "Germany not ultra-impressive, but heavy favorites",
             "dims": {
               "form_outlook": 0.2,
               "availability": 0.5,
-              "coach_stability": 0.5,
-              "morale": -0.3,
-              "motivation": 0.8
+              "coach_stability": 0.0,
+              "morale": 0.3,
+              "motivation": 0.5
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "No performance data, just fixture and general info",
+            "composite": -0.042,
+            "confidence": 0.6,
+            "summary": "Paraguay among weakest teams to make knockouts, struggled in group phase",
             "dims": {
-              "form_outlook": 0.0,
+              "form_outlook": -0.2,
               "availability": 0.0,
               "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "morale": -0.3,
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.4771,
-            0.2831,
-            0.2398
+            0.4758,
+            0.2834,
+            0.2408
           ],
           "calibrated": [
-            0.4908,
-            0.2833,
-            0.2259
+            0.4894,
+            0.2836,
+            0.2269
           ]
         }
       }
@@ -10898,13 +10898,13 @@
       "away_code": "se",
       "venue": null,
       "status": "scheduled",
-      "kickoff_utc": "2026-06-30T21:00:00Z",
+      "kickoff_utc": null,
       "result": null,
       "score": null,
       "model": {
-        "home": 0.629,
-        "draw": 0.237,
-        "away": 0.134
+        "home": 0.64,
+        "draw": 0.233,
+        "away": 0.128
       },
       "winner_odds": {
         "home": 1.25,
@@ -10921,12 +10921,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.714,
-          "away": 0.739
+          "home": 1.743,
+          "away": 0.727
         },
         "log_lambda": {
-          "home": 0.5386589115891856,
-          "away": -0.3025369155571376
+          "home": 0.5553886473741354,
+          "away": -0.3192666513420873
         },
         "components": {
           "home": {
@@ -10934,24 +10934,24 @@
             "attack": 0.7311410837636996,
             "opp_defence": -0.4739403705997499,
             "home_adv": 0.0,
-            "features": 0.2351137216167069
+            "features": 0.25184345740165665
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.5142968033670574,
             "opp_defence": -0.5916943390257862,
             "home_adv": 0.0,
-            "features": -0.27148385670693786
+            "features": -0.2882135924918876
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.8814513116773134,
-            "x_away": -0.8814513116773134,
-            "contrib_home": 0.1666265260074437,
-            "contrib_away": -0.1666265260074437,
+            "x_home": 0.9699513116773136,
+            "x_away": -0.9699513116773136,
+            "contrib_home": 0.18335626179239342,
+            "contrib_away": -0.18335626179239342,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -10995,17 +10995,17 @@
           {
             "h": 1,
             "a": 0,
-            "p": 0.1422
+            "p": 0.1423
           },
           {
             "h": 2,
             "a": 0,
-            "p": 0.1264
+            "p": 0.1285
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.1142
+            "p": 0.1123
           },
           {
             "h": 2,
@@ -11015,29 +11015,29 @@
           {
             "h": 0,
             "a": 0,
-            "p": 0.0913
+            "p": 0.0898
           },
           {
             "h": 3,
             "a": 0,
-            "p": 0.0722
+            "p": 0.0747
           }
         ],
         "raw_probs": {
-          "home": 0.602,
-          "draw": 0.2453,
-          "away": 0.1527
+          "home": 0.6121,
+          "draw": 0.2413,
+          "away": 0.1467
         },
         "glicko": {
           "home": {
             "rating": 1877,
             "rd": 78,
-            "intel_points": 0.0
+            "intel_points": 40.5
           },
           "away": {
             "rating": 1528,
             "rd": 75,
-            "intel_points": -3.3
+            "intel_points": 1.8
           },
           "home_expected": 0.876
         },
@@ -11056,42 +11056,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "No relevant performance data, only general tournament context",
+            "composite": 0.27,
+            "confidence": 0.6,
+            "summary": "France has talented attackers, but coach stability and availability are uncertain",
             "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
+              "form_outlook": 0.5,
+              "availability": 0.5,
               "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
+              "morale": 0.5,
+              "motivation": 0.5
             }
           },
           "away": {
             "status": "informed",
-            "composite": -0.022,
-            "confidence": 0.2,
-            "summary": "Sweden lost 5-1 to Netherlands, drew 1-1 with unknown opponent",
+            "composite": 0.012,
+            "confidence": 0.4,
+            "summary": "Sweden suffered heavy losses, but remains in contention",
             "dims": {
-              "form_outlook": -0.2,
+              "form_outlook": 0.0,
               "availability": 0.0,
               "coach_stability": 0.0,
               "morale": -0.2,
-              "motivation": 0.0
+              "motivation": 0.5
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.602,
-            0.2453,
-            0.1527
+            0.6121,
+            0.2413,
+            0.1467
           ],
           "calibrated": [
-            0.6288,
-            0.2375,
-            0.1337
+            0.6397,
+            0.2327,
+            0.1276
           ]
         }
       }
@@ -11128,12 +11128,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.904,
-          "away": 0.751
+          "home": 1.902,
+          "away": 0.752
         },
         "log_lambda": {
-          "home": 0.6441250381265313,
-          "away": -0.2869452824835744
+          "home": 0.6428490413293741,
+          "away": -0.2856692856864172
         },
         "components": {
           "home": {
@@ -11141,24 +11141,24 @@
             "attack": 0.7212201816677085,
             "opp_defence": -0.2543546994635343,
             "home_adv": 0.0,
-            "features": 0.13091507911382805
+            "features": 0.12963908231667085
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.3118400261999603,
             "opp_defence": -0.4775229498784276,
             "home_adv": 0.0,
-            "features": -0.16760683561363618
+            "features": -0.16633083881647898
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.6110950384701375,
-            "x_away": -0.6110950384701375,
-            "contrib_home": 0.11551930545874632,
-            "contrib_away": -0.11551930545874632,
+            "x_home": 0.6043450384701373,
+            "x_away": -0.6043450384701373,
+            "contrib_home": 0.11424330866158912,
+            "contrib_away": -0.11424330866158912,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -11207,12 +11207,12 @@
           {
             "h": 2,
             "a": 0,
-            "p": 0.1275
+            "p": 0.1273
           },
           {
             "h": 1,
             "a": 1,
-            "p": 0.1053
+            "p": 0.1055
           },
           {
             "h": 2,
@@ -11222,18 +11222,18 @@
           {
             "h": 3,
             "a": 0,
-            "p": 0.0809
+            "p": 0.0807
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.0751
+            "p": 0.0753
           }
         ],
         "raw_probs": {
-          "home": 0.6421,
-          "draw": 0.2226,
-          "away": 0.1353
+          "home": 0.6413,
+          "draw": 0.223,
+          "away": 0.1357
         },
         "glicko": {
           "home": {
@@ -11244,7 +11244,7 @@
           "away": {
             "rating": 1413,
             "rd": 81,
-            "intel_points": 0.0
+            "intel_points": 2.7
           },
           "home_expected": 0.796
         },
@@ -11262,10 +11262,10 @@
         },
         "intel": {
           "home": {
-            "status": "no_signal",
+            "status": "informed",
             "composite": 0.0,
-            "confidence": 0.0,
-            "summary": "No relevant information about the US team",
+            "confidence": 0.1,
+            "summary": "No relevant performance data",
             "dims": {
               "form_outlook": 0.0,
               "availability": 0.0,
@@ -11275,12 +11275,12 @@
             }
           },
           "away": {
-            "status": "no_signal",
-            "composite": 0.0,
-            "confidence": 0.0,
-            "summary": "No relevant information about team performance",
+            "status": "informed",
+            "composite": 0.018,
+            "confidence": 0.2,
+            "summary": "Edin Dzeko expected to score against Qatar, limited info",
             "dims": {
-              "form_outlook": 0.0,
+              "form_outlook": 0.2,
               "availability": 0.0,
               "coach_stability": 0.0,
               "morale": 0.0,
@@ -11291,14 +11291,14 @@
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.6421,
-            0.2226,
-            0.1353
+            0.6413,
+            0.223,
+            0.1357
           ],
           "calibrated": [
-            0.6724,
-            0.2116,
-            0.116
+            0.6715,
+            0.212,
+            0.1164
           ]
         }
       }
@@ -11306,7 +11306,7 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-29T16:52:52.034896+00:00",
-    "stale_hours": 0.0,
+    "stale_hours": 2.0,
     "upcoming_missing_count": 0
   },
   "leaderboard": [

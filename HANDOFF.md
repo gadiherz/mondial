@@ -17,6 +17,31 @@ pass.** What's left is the **TOTO scraper**, the **frontend**, and **deployment*
 
 ### Updates since 2026-05-31 (read these — they supersede older notes below)
 
+- **KNOCKOUT DUPLICATES + WINNER-ODDS RED EMAIL STORM FIXED (2026-06-29).** winner-odds
+  began failing RED hourly at 06-29 00:00Z (an email storm) when the June-30 knockout
+  fixtures entered the gate's 2-day window. It was **NOT** the worker (verified
+  first-hand on GitHub: the worker commits a fresh `data/winner_cache/` every hour;
+  the live `meta.json` was minutes old). Three stacked bugs at the group→knockout
+  transition: (1) **phantom duplicates** — `results.refresh_international_results`
+  INSERT-OR-IGNORE'd the Jurisoo CSV's real-dated knockout games as NEW rows
+  (stage/bracket_no NULL) alongside the bracket's placeholder-dated (`2026-06-30`)
+  `bracket_no` rows; `UNIQUE(date,home,away)` didn't dedup → 14 duplicate rows (bogus
+  July "group" games, stranded bracket rows, gate RED); (2) the **gate** RED'd on a
+  near-unpriced fixture whose pair was in the cache (the phantom); (3) **wrong R32
+  thirds** — `bracket._match_thirds` used a valid-but-arbitrary bipartite matching
+  (`THIRD_PLACE_OVERRIDE` empty) → 3 best-thirds in the wrong slots vs the official
+  draw. **Fixes:** WC-2026 results are now a score-only UPDATE resolved by unordered
+  team pair, date-floored to 2026, **never an insert** (`results._resolve_wc2026_
+  fixture`/`_is_wc2026`); `verify_winner_fresh` never REDs when the pair is already
+  priced on a sibling row (duplicate/placeholder), only on a genuine parser miss;
+  `bracket.THIRD_PLACE_OVERRIDE[frozenset("BDEFIJKL")]={B:81,D:74,E:79,F:77,I:82,
+  J:85,K:80,L:87}` (the real draw: Germany-Paraguay/France-Sweden/USA-Bosnia); one-time
+  `scripts/repair_knockout_dupes.py` cleaned the live DB (removed 14 strays, moved the
+  South Africa 0-1 Canada result onto its bracket row, re-slotted bno74/77/81). Verified
+  end-to-end on the production DB: winner-odds CI **green**, feed clean (72 group + 16
+  R32, 0 unpriced). **76 tests.** NB: the DB/cache on `main` are production truth — the
+  local repo lags; don't diagnose from it.
+
 - **KNOCKOUT 90'/ADVANCEMENT SPLIT + gitleaks fix (2026-06-27).**
   - **gitleaks** had started failing: the committed `data/winner_cache/*.html` (the
     bankerim pages) trip the default high-entropy rule. No secret leaked — fixed by

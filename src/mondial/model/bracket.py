@@ -114,10 +114,21 @@ def _stage_of(no: int) -> str:
 _STAGE_DATE = {"R32": "2026-06-30", "R16": "2026-07-04", "QF": "2026-07-09",
                "SF": "2026-07-14", "3P": "2026-07-18", "F": "2026-07-19"}
 
-# Optional FIFA-exact override: {frozenset(qualifying third groups): {group: match_no}}.
-# Empty until the qualifying combination is known (post group stage); the bipartite
-# matching is used until then.
-THIRD_PLACE_OVERRIDE: dict[frozenset, dict[str, int]] = {}
+# FIFA-exact override: {frozenset(qualifying third groups): {group: match_no}}.
+# The bipartite matching in `_match_thirds` finds *a* valid thirds->slot assignment, but
+# not necessarily FIFA's official Annex-C one -- when they differ, the generated R32 has
+# the right teams in the wrong slots, producing fixtures that never happen (so they go
+# unpriced and the bracket stalls). Register the official mapping for the ACTUAL
+# qualifying combination once the group stage ends -- only ONE combination ever occurs.
+#
+# 2026 combination (verified against the real Round-of-32 draw): the qualifying thirds are
+# from groups B,D,E,F,I,J,K,L. The bipartite default placed B/D/F in slots 74/77/81 the
+# wrong way round (Germany-Bosnia/France-Paraguay/USA-Sweden); the official draw is
+# Germany-Paraguay(74)/France-Sweden(77)/USA-Bosnia(81). E,I,J,K,L are unchanged.
+THIRD_PLACE_OVERRIDE: dict[frozenset, dict[str, int]] = {
+    frozenset("BDEFIJKL"): {"B": 81, "D": 74, "E": 79, "F": 77,
+                            "I": 82, "J": 85, "K": 80, "L": 87},
+}
 
 
 # --------------------------------------------------------------------------- #

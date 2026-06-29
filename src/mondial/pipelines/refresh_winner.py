@@ -89,7 +89,13 @@ def verify_winner_fresh(records: list[dict[str, Any]]) -> int:
       * Near unpriced + cache absent/stale             -> RAISE (the worker fetch
         pipeline is down -- the actual root cause: check cron-worker/worker.js egress;
         bankerim blocks CI).
+      * Near unpriced + the SAME team-pair is already priced on another DB fixture
+                                                        -> WARN, never RED (this row is
+        a duplicate/placeholder artifact, not a missed parse -- the price landed on the
+        sibling fixture, e.g. a knockout bracket row vs a stray dated copy of the same
+        pairing. Guards against a phantom-duplicate hourly email storm).
       * Near unpriced + FRESH cache that lists the match (resolves to its two teams)
+        and the pair is NOT priced anywhere
                                                         -> RAISE (we had the page but
         the parser/alias/resolver dropped it -- a real bug to fix).
       * Near unpriced + fresh cache that does NOT list it
@@ -101,6 +107,19 @@ def verify_winner_fresh(records: list[dict[str, Any]]) -> int:
     """
     with connect() as conn:
         unpriced = upcoming_unpriced_winner(conn, WINNER_NEAR_DAYS)
+        # Unordered team-pairs that ARE priced somewhere with a complete Winner line.
+        # A near-unpriced fixture whose pair is in this set is a duplicate/placeholder
+        # (the price landed on the sibling row), NOT a parser miss -- never RED on it.
+        priced_pairs = {
+            frozenset((r["home"], r["away"]))
+            for r in conn.execute(
+                """SELECT h.name AS home, a.name AS away FROM odds_snapshots o
+                   JOIN matches m ON m.match_id = o.match_id
+                   JOIN teams h ON h.team_id = m.home_id
+                   JOIN teams a ON a.team_id = m.away_id
+                   WHERE o.bookmaker='winner' AND o.odd_home IS NOT NULL
+                     AND o.odd_draw IS NOT NULL AND o.odd_away IS NOT NULL""")
+        }
     if not unpriced:
         log.info("winner gate OK: no near (<=%dd) upcoming WC match is unpriced.",
                  WINNER_NEAR_DAYS)
@@ -118,8 +137,20 @@ def verify_winner_fresh(records: list[dict[str, Any]]) -> int:
             "geo-blocks CI IPs; if Cloudflare egress is blocked too, switch to the "
             "residential-proxy fallback). See HANDOFF.")
 
+    # A near-unpriced fixture whose pair is already priced elsewhere is a
+    # duplicate/placeholder row (the price landed on its sibling) -- WARN, never RED.
+    dup_priced = [f"{r['home']} v {r['away']} ({r['date']})" for r in unpriced
+                  if frozenset((r["home"], r["away"])) in priced_pairs]
+    if dup_priced:
+        log.warning(
+            "winner gate: %d near 'unpriced' fixture(s) are duplicate/placeholder rows "
+            "whose team-pair is ALREADY priced on a sibling fixture -- ignoring (not a "
+            "parser miss): %s. If these persist, a duplicate WC-2026 row may exist; see "
+            "scripts/repair_knockout_dupes.py.", len(dup_priced), "; ".join(dup_priced))
+
     dropped = [f"{r['home']} v {r['away']} ({r['date']})" for r in unpriced
-               if _resolved_card_for_fixture(records, r["home"], r["away"])]
+               if _resolved_card_for_fixture(records, r["home"], r["away"])
+               and frozenset((r["home"], r["away"])) not in priced_pairs]
     if dropped:
         raise RuntimeError(
             "WINNER GATE FAILED: the FRESH bankerim cache lists these near fixtures "

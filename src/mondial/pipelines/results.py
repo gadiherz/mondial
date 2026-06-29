@@ -34,6 +34,51 @@ log = logging.getLogger("results")
 # still picked up on the next run.
 REFRESH_OVERLAP_DAYS = 7
 
+# The entire WC-2026 schedule (group + knockout) already lives in the DB: the 72
+# group fixtures are seeded and the knockout fixtures are created by
+# model.bracket.generate_knockout (with a placeholder date + bracket_no). So the
+# Jurisoo CSV must only ever supply SCORES for WC-2026 -- it must NEVER insert a
+# WC-2026 fixture row. The blind INSERT-OR-IGNORE upsert keys on
+# UNIQUE(date, home_id, away_id); the bracket's placeholder date differs from the
+# real knockout date, so a blind insert created a DUPLICATE (stage/bracket_no NULL)
+# of every knockout game, which (a) littered the site with phantom "group" games,
+# (b) stranded the real bracket row as 'scheduled' so the bracket stalled, and
+# (c) tripped the winner-odds freshness gate RED (the phantom was unpriced while
+# its team-pair WAS in the cache). We therefore route WC-2026 results through a
+# pair-based, score-only UPDATE of the existing fixture and keep them out of the
+# generic insert path. Date-floored to 2026 so a pair never lands on the historical
+# 2014/2018/2022 WC editions that share tournament='WC'.
+WC2026_FLOOR = "2026-01-01"
+
+
+def _is_wc2026(rec: dict) -> bool:
+    return rec.get("tournament") == "FIFA World Cup" and str(rec["date"]) >= WC2026_FLOOR
+
+
+def _resolve_wc2026_fixture(conn, h_id: int, a_id: int):
+    """Existing WC-2026 fixture for an unordered team pair (or None).
+
+    Prefers a still-'scheduled' row, then the one nearest today -- the same shape as
+    scrapers.winner_odds._resolve_pair, but date-floored to 2026 so it can't resolve
+    onto a historical WC edition. A national-team pair meets at most once in a
+    tournament window, so the unordered pair is a safe key even though the bracket
+    row carries a placeholder date.
+    """
+    rows = conn.execute(
+        """SELECT match_id, home_id, away_id, date, status FROM matches
+           WHERE tournament='WC' AND date >= ?
+             AND ((home_id=? AND away_id=?) OR (home_id=? AND away_id=?))""",
+        (WC2026_FLOOR, h_id, a_id, a_id, h_id),
+    ).fetchall()
+    if not rows:
+        return None
+    today = datetime.now(UTC).date()
+    return min(
+        rows,
+        key=lambda r: (r["status"] != "scheduled",
+                       abs((datetime.fromisoformat(r["date"]).date() - today).days)),
+    )
+
 
 def refresh_international_results() -> int:
     """Comprehensive results refresh from the Jurisoo CSV (incl. prep friendlies).
@@ -58,19 +103,24 @@ def refresh_international_results() -> int:
     since = datetime.fromisoformat(last or "2014-01-01") - timedelta(days=REFRESH_OVERLAP_DAYS)
 
     records = HistoricalResultsScraper().fetch(since=since)
+    # WC-2026 results are score-only UPDATES of the already-present fixtures (see
+    # WC2026_FLOOR note); everything else (training data / friendlies / other
+    # tournaments) goes through the generic insert+promote path unchanged.
+    wc_records = [r for r in records if _is_wc2026(r)]
+    other_records = [r for r in records if not _is_wc2026(r)]
     scraper = HistoricalResultsScraper()
     with connect() as conn:
         before = conn.execute(
             "SELECT COUNT(*) AS n FROM matches WHERE status='final'"
         ).fetchone()["n"]
         # Creates any new teams, inserts brand-new played matches as 'final' and
-        # brand-new fixtures as 'scheduled' (existing rows untouched).
-        scraper.upsert(records, conn)
-        # Promotion pass: finalize any still-'scheduled' fixture whose score is
-        # now present in the fresh records (the INSERT-OR-IGNORE gap).
+        # brand-new fixtures as 'scheduled' (existing rows untouched). NOT WC-2026.
+        scraper.upsert(other_records, conn)
         name_to_id = {r["name"]: r["team_id"]
                       for r in conn.execute("SELECT team_id, name FROM teams")}
-        for rec in records:
+        # Promotion pass: finalize any still-'scheduled' NON-WC-2026 fixture whose
+        # score is now present in the fresh records (the INSERT-OR-IGNORE gap).
+        for rec in other_records:
             if _is_nan(rec["home_score"]) or _is_nan(rec["away_score"]):
                 continue
             h = name_to_id.get(rec["home_team"]); a = name_to_id.get(rec["away_team"])
@@ -81,6 +131,36 @@ def refresh_international_results() -> int:
                    WHERE date=? AND home_id=? AND away_id=? AND status='scheduled'""",
                 (int(rec["home_score"]), int(rec["away_score"]), rec["date"], h, a),
             )
+        # WC-2026 pass: pair-match the existing fixture (group OR knockout bracket
+        # row) and write the score onto it -- NEVER insert a new row. Finalizes a
+        # still-'scheduled' fixture (the bracket row keeps a placeholder date until
+        # its real result lands here, then we set the real date too), orienting goals
+        # to OUR DB home/away. This is what advances the knockout bracket and what
+        # keeps the phantom duplicates from ever being created.
+        wc_updated = 0
+        for rec in wc_records:
+            if _is_nan(rec["home_score"]) or _is_nan(rec["away_score"]):
+                continue
+            h = name_to_id.get(rec["home_team"]); a = name_to_id.get(rec["away_team"])
+            if h is None or a is None:
+                continue
+            m = _resolve_wc2026_fixture(conn, h, a)
+            if m is None:
+                log.warning("results: WC-2026 CSV record %s v %s (%s) matches no "
+                            "existing fixture -- skipped (NOT inserting a duplicate).",
+                            rec["home_team"], rec["away_team"], rec["date"])
+                continue
+            csv_h, csv_a = int(rec["home_score"]), int(rec["away_score"])
+            hg, ag = (csv_h, csv_a) if m["home_id"] == h else (csv_a, csv_h)
+            cur = conn.execute(
+                """UPDATE matches SET home_goals=?, away_goals=?, status='final', date=?
+                   WHERE match_id=? AND status='scheduled'""",
+                (hg, ag, rec["date"], m["match_id"]),
+            )
+            wc_updated += cur.rowcount
+        if wc_updated:
+            log.info("results: WC-2026 score-only pass finalized %d existing "
+                     "fixture(s) (no duplicates inserted)", wc_updated)
         after = conn.execute(
             "SELECT COUNT(*) AS n FROM matches WHERE status='final'"
         ).fetchone()["n"]

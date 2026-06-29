@@ -196,3 +196,21 @@ def test_gate_ok_when_match_is_priced(tmp_path, monkeypatch):
     conn.execute("INSERT INTO odds_snapshots VALUES (10,'winner',1.8,3.4,4.2)")
     conn.commit(); conn.close()
     assert rw.verify_winner_fresh([]) == 0
+
+
+def test_gate_does_not_red_on_duplicate_pair(tmp_path, monkeypatch):
+    """A near 'unpriced' fixture that is a duplicate/placeholder of an ALREADY-priced
+    sibling (same team-pair, different match row) must WARN, never RED -- even though
+    the fresh cache lists the pair. This is the guard against the phantom-duplicate
+    hourly email storm (2026-06-29)."""
+    fresh = {"fetched_at": datetime.now(UTC).isoformat()}
+    rw, db = _gate_env(tmp_path, monkeypatch, meta=fresh)
+    conn = sqlite3.connect(db)
+    # A sibling France v Spain fixture (beyond the 2-day window) that IS priced.
+    far = (date.today() + timedelta(days=5)).isoformat()
+    conn.execute("INSERT INTO matches VALUES (11,'WC','scheduled',?,1,2)", (far,))
+    conn.execute("INSERT INTO odds_snapshots VALUES (11,'winner',1.8,3.4,4.2)")
+    conn.commit(); conn.close()
+    records = [{"home_he": "צרפת", "away_he": "ספרד", "commence": None}]  # cache lists pair
+    # The near match 10 is still unpriced, but its pair is priced on sibling 11.
+    assert rw.verify_winner_fresh(records) == 1   # soft WARN, no raise

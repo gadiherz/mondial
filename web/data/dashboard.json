@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-29T10:46:38.670029Z",
+    "generated_at": "2026-06-29T10:50:04.406676Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-06-29T14:00:00Z",
     "ratings_through": "2026-06-28"
@@ -11306,16 +11306,16 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-29T10:46:38.640324+00:00",
-    "stale_hours": 0.0,
+    "stale_hours": 0.1,
     "upcoming_missing_count": 0
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 71,
-      "n_settled": 70,
+      "n_settled": 71,
       "wins": 35,
-      "hit_rate": 0.5,
+      "hit_rate": 0.493,
       "staked": 710.0,
       "returned": 617.5,
       "profit": -92.5,
@@ -11339,10 +11339,10 @@
           ],
           "stake": 10.0,
           "odd": 3.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-27",
@@ -12539,13 +12539,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 71,
-      "n_settled": 70,
-      "wins": 41,
-      "hit_rate": 0.5857,
+      "n_settled": 71,
+      "wins": 42,
+      "hit_rate": 0.5915,
       "staked": 710.0,
-      "returned": 648.0,
-      "profit": -62.0,
-      "roi": -0.0873,
+      "returned": 664.0,
+      "profit": -46.0,
+      "roi": -0.0648,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -12565,10 +12565,10 @@
           ],
           "stake": 10.0,
           "odd": 1.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 16.0,
+          "profit": 6.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-27",
@@ -13765,13 +13765,13 @@
     {
       "player": "safe",
       "n_bets": 71,
-      "n_settled": 70,
-      "wins": 46,
-      "hit_rate": 0.6571,
+      "n_settled": 71,
+      "wins": 47,
+      "hit_rate": 0.662,
       "staked": 710.0,
-      "returned": 703.5,
-      "profit": -6.5,
-      "roi": -0.0092,
+      "returned": 719.5,
+      "profit": 9.5,
+      "roi": 0.0134,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -13791,10 +13791,10 @@
           ],
           "stake": 10.0,
           "odd": 1.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 16.0,
+          "profit": 6.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-27",
@@ -14991,9 +14991,9 @@
     {
       "player": "tide",
       "n_bets": 71,
-      "n_settled": 70,
+      "n_settled": 71,
       "wins": 20,
-      "hit_rate": 0.2857,
+      "hit_rate": 0.2817,
       "staked": 710.0,
       "returned": 845.5,
       "profit": 135.5,
@@ -15017,10 +15017,10 @@
           ],
           "stake": 10.0,
           "odd": 3.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-27",
@@ -16217,9 +16217,9 @@
     {
       "player": "risk",
       "n_bets": 71,
-      "n_settled": 70,
+      "n_settled": 71,
       "wins": 7,
-      "hit_rate": 0.1,
+      "hit_rate": 0.0986,
       "staked": 710.0,
       "returned": 263.5,
       "profit": -446.5,
@@ -16243,10 +16243,10 @@
           ],
           "stake": 10.0,
           "odd": 5.7,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-27",
@@ -17443,13 +17443,13 @@
     {
       "player": "monkey",
       "n_bets": 71,
-      "n_settled": 70,
-      "wins": 23,
-      "hit_rate": 0.3286,
+      "n_settled": 71,
+      "wins": 24,
+      "hit_rate": 0.338,
       "staked": 710.0,
-      "returned": 606.5,
-      "profit": -103.5,
-      "roi": -0.1458,
+      "returned": 622.5,
+      "profit": -87.5,
+      "roi": -0.1232,
       "best_bet": {
         "match": "Ecuador v Curaçao",
         "pick": "Draw",
@@ -17469,10 +17469,10 @@
           ],
           "stake": 10.0,
           "odd": 1.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 16.0,
+          "profit": 6.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-27",
@@ -18668,7 +18668,7 @@
     }
   ],
   "bankroll": {
-    "n": 70,
+    "n": 71,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -18739,7 +18739,8 @@
       "2026-06-27",
       "2026-06-27",
       "2026-06-27",
-      "2026-06-27"
+      "2026-06-27",
+      "2026-06-28"
     ],
     "series": {
       "model_full": [
@@ -18812,7 +18813,8 @@
         -71.0,
         -81.0,
         -91.0,
-        -82.5
+        -82.5,
+        -92.5
       ],
       "model_fundamental": [
         4.0,
@@ -18884,7 +18886,8 @@
         -52.0,
         -62.0,
         -60.5,
-        -52.0
+        -52.0,
+        -46.0
       ],
       "safe": [
         4.0,
@@ -18956,7 +18959,8 @@
         -12.5,
         -6.5,
         -5.0,
-        3.5
+        3.5,
+        9.5
       ],
       "tide": [
         -10.0,
@@ -19028,7 +19032,8 @@
         175.5,
         165.5,
         155.5,
-        145.5
+        145.5,
+        135.5
       ],
       "risk": [
         -10.0,
@@ -19100,7 +19105,8 @@
         -406.5,
         -416.5,
         -426.5,
-        -436.5
+        -436.5,
+        -446.5
       ],
       "monkey": [
         4.0,
@@ -19172,7 +19178,8 @@
         -82.0,
         -92.0,
         -102.0,
-        -93.5
+        -93.5,
+        -87.5
       ]
     }
   }

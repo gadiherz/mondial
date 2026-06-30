@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-30T18:50:38.149573Z",
+    "generated_at": "2026-06-30T19:00:40.326711Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-01T14:00:00Z",
     "ratings_through": "2026-06-30"
@@ -7914,10 +7914,13 @@
       "home_code": "ci",
       "away_code": "no",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-06-30T17:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "A",
+      "score": [
+        1,
+        2
+      ],
       "model": {
         "home": 0.269,
         "draw": 0.314,
@@ -10615,20 +10618,36 @@
       "model": null,
       "winner_odds": null,
       "model_pick": null
+    },
+    {
+      "date": "2026-07-04",
+      "stage": "R16",
+      "home": "Brazil",
+      "away": "Norway",
+      "home_code": "br",
+      "away_code": "no",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": null,
+      "result": null,
+      "score": null,
+      "model": null,
+      "winner_odds": null,
+      "model_pick": null
     }
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-30T16:20:16.783158+00:00",
-    "stale_hours": 2.5,
-    "upcoming_missing_count": 1
+    "stale_hours": 2.7,
+    "upcoming_missing_count": 2
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 86,
-      "n_settled": 74,
+      "n_settled": 75,
       "wins": 35,
-      "hit_rate": 0.473,
+      "hit_rate": 0.4667,
       "staked": 860.0,
       "returned": 617.5,
       "profit": -242.5,
@@ -10816,14 +10835,17 @@
           "home": "Ivory Coast",
           "away": "Norway",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 3.35,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -12071,13 +12093,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 86,
-      "n_settled": 74,
-      "wins": 44,
-      "hit_rate": 0.5946,
+      "n_settled": 75,
+      "wins": 45,
+      "hit_rate": 0.6,
       "staked": 860.0,
-      "returned": 709.5,
-      "profit": -150.5,
-      "roi": -0.175,
+      "returned": 729.5,
+      "profit": -130.5,
+      "roi": -0.1517,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -12261,14 +12283,17 @@
           "home": "Ivory Coast",
           "away": "Norway",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 2.0,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 20.0,
+          "profit": 10.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-30",
@@ -13516,13 +13541,13 @@
     {
       "player": "safe",
       "n_bets": 86,
-      "n_settled": 74,
-      "wins": 48,
-      "hit_rate": 0.6486,
+      "n_settled": 75,
+      "wins": 49,
+      "hit_rate": 0.6533,
       "staked": 860.0,
-      "returned": 735.0,
-      "profit": -125.0,
-      "roi": -0.1453,
+      "returned": 755.0,
+      "profit": -105.0,
+      "roi": -0.1221,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -13706,14 +13731,17 @@
           "home": "Ivory Coast",
           "away": "Norway",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 2.0,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 20.0,
+          "profit": 10.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-30",
@@ -14961,9 +14989,9 @@
     {
       "player": "tide",
       "n_bets": 86,
-      "n_settled": 74,
+      "n_settled": 75,
       "wins": 22,
-      "hit_rate": 0.2973,
+      "hit_rate": 0.2933,
       "staked": 860.0,
       "returned": 924.5,
       "profit": 64.5,
@@ -15151,14 +15179,17 @@
           "home": "Ivory Coast",
           "away": "Norway",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 3.35,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -16406,9 +16437,9 @@
     {
       "player": "risk",
       "n_bets": 86,
-      "n_settled": 74,
+      "n_settled": 75,
       "wins": 7,
-      "hit_rate": 0.0946,
+      "hit_rate": 0.0933,
       "staked": 860.0,
       "returned": 263.5,
       "profit": -596.5,
@@ -16596,14 +16627,17 @@
           "home": "Ivory Coast",
           "away": "Norway",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 3.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -17851,9 +17885,9 @@
     {
       "player": "monkey",
       "n_bets": 86,
-      "n_settled": 74,
+      "n_settled": 75,
       "wins": 24,
-      "hit_rate": 0.3243,
+      "hit_rate": 0.32,
       "staked": 860.0,
       "returned": 622.5,
       "profit": -237.5,
@@ -18041,14 +18075,17 @@
           "home": "Ivory Coast",
           "away": "Norway",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 3.35,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -19295,7 +19332,7 @@
     }
   ],
   "bankroll": {
-    "n": 74,
+    "n": 75,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -19368,6 +19405,7 @@
       "2026-06-27",
       "2026-06-27",
       "2026-06-28",
+      "2026-06-30",
       "2026-06-30",
       "2026-06-30",
       "2026-06-30"
@@ -19447,7 +19485,8 @@
         -92.5,
         -102.5,
         -112.5,
-        -122.5
+        -122.5,
+        -132.5
       ],
       "model_fundamental": [
         4.0,
@@ -19523,7 +19562,8 @@
         -46.0,
         -26.0,
         -20.5,
-        -30.5
+        -10.5,
+        -20.5
       ],
       "safe": [
         4.0,
@@ -19599,7 +19639,8 @@
         9.5,
         -0.5,
         5.0,
-        -5.0
+        15.0,
+        5.0
       ],
       "tide": [
         -10.0,
@@ -19675,7 +19716,8 @@
         135.5,
         155.5,
         145.5,
-        184.5
+        135.5,
+        174.5
       ],
       "risk": [
         -10.0,
@@ -19751,7 +19793,8 @@
         -446.5,
         -456.5,
         -466.5,
-        -476.5
+        -476.5,
+        -486.5
       ],
       "monkey": [
         4.0,
@@ -19827,7 +19870,8 @@
         -87.5,
         -97.5,
         -107.5,
-        -117.5
+        -117.5,
+        -127.5
       ]
     }
   }

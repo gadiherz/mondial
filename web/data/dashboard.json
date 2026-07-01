@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-01T04:00:38.256239Z",
+    "generated_at": "2026-07-01T04:10:40.156696Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-01T14:00:00Z",
     "ratings_through": "2026-06-30"
@@ -7412,10 +7412,13 @@
       "home_code": "mx",
       "away_code": "ec",
       "venue": null,
-      "status": "scheduled",
-      "kickoff_utc": "2026-07-01T01:00:00Z",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "kickoff_utc": "2026-07-01T02:00:00Z",
+      "result": "H",
+      "score": [
+        2,
+        0
+      ],
       "model": {
         "home": 0.263,
         "draw": 0.317,
@@ -9945,16 +9948,16 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-06-30T23:05:58.332628+00:00",
-    "stale_hours": 4.9,
+    "stale_hours": 5.1,
     "upcoming_missing_count": 3
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 86,
-      "n_settled": 76,
+      "n_settled": 77,
       "wins": 35,
-      "hit_rate": 0.4605,
+      "hit_rate": 0.4545,
       "staked": 860.0,
       "returned": 617.5,
       "profit": -242.5,
@@ -10131,14 +10134,17 @@
           "home": "Mexico",
           "away": "Ecuador",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.55,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -11403,9 +11409,9 @@
     {
       "player": "model_fundamental",
       "n_bets": 86,
-      "n_settled": 76,
+      "n_settled": 77,
       "wins": 46,
-      "hit_rate": 0.6053,
+      "hit_rate": 0.5974,
       "staked": 860.0,
       "returned": 742.0,
       "profit": -118.0,
@@ -11582,14 +11588,17 @@
           "home": "Mexico",
           "away": "Ecuador",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.55,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -12854,13 +12863,13 @@
     {
       "player": "safe",
       "n_bets": 86,
-      "n_settled": 76,
-      "wins": 50,
-      "hit_rate": 0.6579,
+      "n_settled": 77,
+      "wins": 51,
+      "hit_rate": 0.6623,
       "staked": 860.0,
-      "returned": 767.5,
-      "profit": -92.5,
-      "roi": -0.1076,
+      "returned": 789.0,
+      "profit": -71.0,
+      "roi": -0.0826,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -13033,14 +13042,17 @@
           "home": "Mexico",
           "away": "Ecuador",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 2.15,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 21.5,
+          "profit": 11.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-30",
@@ -14305,9 +14317,9 @@
     {
       "player": "tide",
       "n_bets": 86,
-      "n_settled": 76,
+      "n_settled": 77,
       "wins": 22,
-      "hit_rate": 0.2895,
+      "hit_rate": 0.2857,
       "staked": 860.0,
       "returned": 924.5,
       "profit": 64.5,
@@ -14484,14 +14496,17 @@
           "home": "Mexico",
           "away": "Ecuador",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 2.9,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -15756,9 +15771,9 @@
     {
       "player": "risk",
       "n_bets": 86,
-      "n_settled": 76,
+      "n_settled": 77,
       "wins": 7,
-      "hit_rate": 0.0921,
+      "hit_rate": 0.0909,
       "staked": 860.0,
       "returned": 263.5,
       "profit": -596.5,
@@ -15935,14 +15950,17 @@
           "home": "Mexico",
           "away": "Ecuador",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.55,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -17207,9 +17225,9 @@
     {
       "player": "monkey",
       "n_bets": 86,
-      "n_settled": 76,
+      "n_settled": 77,
       "wins": 25,
-      "hit_rate": 0.3289,
+      "hit_rate": 0.3247,
       "staked": 860.0,
       "returned": 635.0,
       "profit": -225.0,
@@ -17386,14 +17404,17 @@
           "home": "Mexico",
           "away": "Ecuador",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.55,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -18657,7 +18678,7 @@
     }
   ],
   "bankroll": {
-    "n": 76,
+    "n": 77,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -18730,6 +18751,7 @@
       "2026-06-27",
       "2026-06-27",
       "2026-06-28",
+      "2026-06-30",
       "2026-06-30",
       "2026-06-30",
       "2026-06-30",
@@ -18813,7 +18835,8 @@
         -112.5,
         -122.5,
         -132.5,
-        -142.5
+        -142.5,
+        -152.5
       ],
       "model_fundamental": [
         4.0,
@@ -18891,7 +18914,8 @@
         -20.5,
         -10.5,
         -20.5,
-        -18.0
+        -30.5,
+        -28.0
       ],
       "safe": [
         4.0,
@@ -18968,8 +18992,9 @@
         -0.5,
         5.0,
         15.0,
-        5.0,
-        7.5
+        26.5,
+        16.5,
+        19.0
       ],
       "tide": [
         -10.0,
@@ -19046,8 +19071,9 @@
         155.5,
         145.5,
         135.5,
-        174.5,
-        164.5
+        125.5,
+        164.5,
+        154.5
       ],
       "risk": [
         -10.0,
@@ -19125,7 +19151,8 @@
         -466.5,
         -476.5,
         -486.5,
-        -496.5
+        -496.5,
+        -506.5
       ],
       "monkey": [
         4.0,
@@ -19203,7 +19230,8 @@
         -107.5,
         -117.5,
         -127.5,
-        -125.0
+        -137.5,
+        -135.0
       ]
     }
   }

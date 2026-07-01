@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-01T17:50:47.066514Z",
+    "generated_at": "2026-07-01T18:00:48.362602Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-02T14:00:00Z",
     "ratings_through": "2026-06-30"
@@ -7622,10 +7622,13 @@
       "home_code": "gb-eng",
       "away_code": "cd",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-07-01T16:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "H",
+      "score": [
+        2,
+        1
+      ],
       "model": {
         "home": 0.682,
         "draw": 0.232,
@@ -10490,20 +10493,36 @@
           ]
         }
       }
+    },
+    {
+      "date": "2026-07-04",
+      "stage": "R16",
+      "home": "Mexico",
+      "away": "England",
+      "home_code": "mx",
+      "away_code": "gb-eng",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": null,
+      "result": null,
+      "score": null,
+      "model": null,
+      "winner_odds": null,
+      "model_pick": null
     }
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-01T16:21:53.912551+00:00",
-    "stale_hours": 1.5,
-    "upcoming_missing_count": 3
+    "stale_hours": 1.6,
+    "upcoming_missing_count": 4
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 86,
-      "n_settled": 77,
+      "n_settled": 78,
       "wins": 35,
-      "hit_rate": 0.4545,
+      "hit_rate": 0.4487,
       "staked": 860.0,
       "returned": 617.5,
       "profit": -242.5,
@@ -10666,14 +10685,17 @@
           "home": "England",
           "away": "DR Congo",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
           "stake": 10.0,
           "odd": 5.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -11955,13 +11977,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 86,
-      "n_settled": 77,
-      "wins": 46,
-      "hit_rate": 0.5974,
+      "n_settled": 78,
+      "wins": 47,
+      "hit_rate": 0.6026,
       "staked": 860.0,
-      "returned": 742.0,
-      "profit": -118.0,
-      "roi": -0.1372,
+      "returned": 754.5,
+      "profit": -105.5,
+      "roi": -0.1227,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -12120,14 +12142,17 @@
           "home": "England",
           "away": "DR Congo",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.25,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 12.5,
+          "profit": 2.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-30",
@@ -13409,13 +13434,13 @@
     {
       "player": "safe",
       "n_bets": 86,
-      "n_settled": 77,
-      "wins": 51,
-      "hit_rate": 0.6623,
+      "n_settled": 78,
+      "wins": 52,
+      "hit_rate": 0.6667,
       "staked": 860.0,
-      "returned": 789.0,
-      "profit": -71.0,
-      "roi": -0.0826,
+      "returned": 801.5,
+      "profit": -58.5,
+      "roi": -0.068,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -13574,14 +13599,17 @@
           "home": "England",
           "away": "DR Congo",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.25,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 12.5,
+          "profit": 2.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-30",
@@ -14863,9 +14891,9 @@
     {
       "player": "tide",
       "n_bets": 86,
-      "n_settled": 77,
+      "n_settled": 78,
       "wins": 22,
-      "hit_rate": 0.2857,
+      "hit_rate": 0.2821,
       "staked": 860.0,
       "returned": 924.5,
       "profit": 64.5,
@@ -15028,14 +15056,17 @@
           "home": "England",
           "away": "DR Congo",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
           "stake": 10.0,
           "odd": 5.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -16317,9 +16348,9 @@
     {
       "player": "risk",
       "n_bets": 86,
-      "n_settled": 77,
+      "n_settled": 78,
       "wins": 7,
-      "hit_rate": 0.0909,
+      "hit_rate": 0.0897,
       "staked": 860.0,
       "returned": 263.5,
       "profit": -596.5,
@@ -16482,14 +16513,17 @@
           "home": "England",
           "away": "DR Congo",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
           "stake": 10.0,
           "odd": 10.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -17771,9 +17805,9 @@
     {
       "player": "monkey",
       "n_bets": 86,
-      "n_settled": 77,
+      "n_settled": 78,
       "wins": 25,
-      "hit_rate": 0.3247,
+      "hit_rate": 0.3205,
       "staked": 860.0,
       "returned": 635.0,
       "profit": -225.0,
@@ -17936,14 +17970,17 @@
           "home": "England",
           "away": "DR Congo",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            1
+          ],
           "stake": 10.0,
           "odd": 10.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -19224,7 +19261,7 @@
     }
   ],
   "bankroll": {
-    "n": 77,
+    "n": 78,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -19297,6 +19334,7 @@
       "2026-06-27",
       "2026-06-27",
       "2026-06-28",
+      "2026-06-30",
       "2026-06-30",
       "2026-06-30",
       "2026-06-30",
@@ -19382,7 +19420,8 @@
         -122.5,
         -132.5,
         -142.5,
-        -152.5
+        -152.5,
+        -162.5
       ],
       "model_fundamental": [
         4.0,
@@ -19460,8 +19499,9 @@
         -20.5,
         -10.5,
         -20.5,
-        -30.5,
-        -28.0
+        -18.0,
+        -28.0,
+        -25.5
       ],
       "safe": [
         4.0,
@@ -19539,8 +19579,9 @@
         5.0,
         15.0,
         26.5,
-        16.5,
-        19.0
+        29.0,
+        19.0,
+        21.5
       ],
       "tide": [
         -10.0,
@@ -19618,8 +19659,9 @@
         145.5,
         135.5,
         125.5,
-        164.5,
-        154.5
+        115.5,
+        154.5,
+        144.5
       ],
       "risk": [
         -10.0,
@@ -19698,7 +19740,8 @@
         -476.5,
         -486.5,
         -496.5,
-        -506.5
+        -506.5,
+        -516.5
       ],
       "monkey": [
         4.0,
@@ -19777,7 +19820,8 @@
         -117.5,
         -127.5,
         -137.5,
-        -135.0
+        -147.5,
+        -145.0
       ]
     }
   }

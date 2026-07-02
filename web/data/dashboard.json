@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated_at": "2026-07-02T08:46:43.421239Z",
+    "generated_at": "2026-07-02T08:51:02.865669Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-02T14:00:00Z",
-    "ratings_through": "2026-06-30"
+    "ratings_through": "2026-07-01"
   },
   "matches": [
     {
@@ -8629,17 +8629,20 @@
       }
     },
     {
-      "date": "2026-06-30",
+      "date": "2026-07-01",
       "stage": "R32",
       "home": "United States",
       "away": "Bosnia and Herzegovina",
       "home_code": "us",
       "away_code": "ba",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": null,
-      "result": null,
-      "score": null,
+      "result": "H",
+      "score": [
+        2,
+        0
+      ],
       "model": {
         "home": 0.672,
         "draw": 0.212,
@@ -9471,24 +9474,40 @@
       "model": null,
       "winner_odds": null,
       "model_pick": null
+    },
+    {
+      "date": "2026-07-04",
+      "stage": "R16",
+      "home": "United States",
+      "away": "Belgium",
+      "home_code": "us",
+      "away_code": "be",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": null,
+      "result": null,
+      "score": null,
+      "model": null,
+      "winner_odds": null,
+      "model_pick": null
     }
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-02T08:46:43.388946+00:00",
-    "stale_hours": 0.0,
-    "upcoming_missing_count": 1
+    "stale_hours": 0.1,
+    "upcoming_missing_count": 2
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 86,
-      "n_settled": 79,
-      "wins": 36,
-      "hit_rate": 0.4557,
+      "n_settled": 80,
+      "wins": 37,
+      "hit_rate": 0.4625,
       "staked": 860.0,
-      "returned": 638.5,
-      "profit": -221.5,
-      "roi": -0.2576,
+      "returned": 652.0,
+      "profit": -208.0,
+      "roi": -0.2419,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -9497,18 +9516,21 @@
       },
       "bets": [
         {
-          "date": "2026-06-30",
+          "date": "2026-07-01",
           "home": "United States",
           "away": "Bosnia and Herzegovina",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 1.35,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 13.5,
+          "profit": 3.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-30",
@@ -10942,13 +10964,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 86,
-      "n_settled": 79,
-      "wins": 48,
-      "hit_rate": 0.6076,
+      "n_settled": 80,
+      "wins": 49,
+      "hit_rate": 0.6125,
       "staked": 860.0,
-      "returned": 775.5,
-      "profit": -84.5,
-      "roi": -0.0983,
+      "returned": 789.0,
+      "profit": -71.0,
+      "roi": -0.0826,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -10957,18 +10979,21 @@
       },
       "bets": [
         {
-          "date": "2026-06-30",
+          "date": "2026-07-01",
           "home": "United States",
           "away": "Bosnia and Herzegovina",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 1.35,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 13.5,
+          "profit": 3.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-30",
@@ -12402,13 +12427,13 @@
     {
       "player": "safe",
       "n_bets": 86,
-      "n_settled": 79,
-      "wins": 53,
-      "hit_rate": 0.6709,
+      "n_settled": 80,
+      "wins": 54,
+      "hit_rate": 0.675,
       "staked": 860.0,
-      "returned": 822.5,
-      "profit": -37.5,
-      "roi": -0.0436,
+      "returned": 836.0,
+      "profit": -24.0,
+      "roi": -0.0279,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -12417,18 +12442,21 @@
       },
       "bets": [
         {
-          "date": "2026-06-30",
+          "date": "2026-07-01",
           "home": "United States",
           "away": "Bosnia and Herzegovina",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 1.35,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 13.5,
+          "profit": 3.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-06-30",
@@ -13862,9 +13890,9 @@
     {
       "player": "tide",
       "n_bets": 86,
-      "n_settled": 79,
+      "n_settled": 80,
       "wins": 22,
-      "hit_rate": 0.2785,
+      "hit_rate": 0.275,
       "staked": 860.0,
       "returned": 924.5,
       "profit": 64.5,
@@ -13877,18 +13905,21 @@
       },
       "bets": [
         {
-          "date": "2026-06-30",
+          "date": "2026-07-01",
           "home": "United States",
           "away": "Bosnia and Herzegovina",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 4.7,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -15322,9 +15353,9 @@
     {
       "player": "risk",
       "n_bets": 86,
-      "n_settled": 79,
+      "n_settled": 80,
       "wins": 7,
-      "hit_rate": 0.0886,
+      "hit_rate": 0.0875,
       "staked": 860.0,
       "returned": 263.5,
       "profit": -596.5,
@@ -15337,18 +15368,21 @@
       },
       "bets": [
         {
-          "date": "2026-06-30",
+          "date": "2026-07-01",
           "home": "United States",
           "away": "Bosnia and Herzegovina",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 8.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -16782,9 +16816,9 @@
     {
       "player": "monkey",
       "n_bets": 86,
-      "n_settled": 79,
+      "n_settled": 80,
       "wins": 26,
-      "hit_rate": 0.3291,
+      "hit_rate": 0.325,
       "staked": 860.0,
       "returned": 656.0,
       "profit": -204.0,
@@ -16797,18 +16831,21 @@
       },
       "bets": [
         {
-          "date": "2026-06-30",
+          "date": "2026-07-01",
           "home": "United States",
           "away": "Bosnia and Herzegovina",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 8.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-06-30",
@@ -18241,7 +18278,7 @@
     }
   ],
   "bankroll": {
-    "n": 79,
+    "n": 80,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -18321,7 +18358,8 @@
       "2026-06-30",
       "2026-06-30",
       "2026-06-30",
-      "2026-06-30"
+      "2026-06-30",
+      "2026-07-01"
     ],
     "series": {
       "model_full": [
@@ -18403,7 +18441,8 @@
         -142.5,
         -131.5,
         -141.5,
-        -151.5
+        -151.5,
+        -148.0
       ],
       "model_fundamental": [
         4.0,
@@ -18484,7 +18523,8 @@
         -18.0,
         -7.0,
         -17.0,
-        -14.5
+        -14.5,
+        -11.0
       ],
       "safe": [
         4.0,
@@ -18565,7 +18605,8 @@
         29.0,
         40.0,
         30.0,
-        32.5
+        32.5,
+        36.0
       ],
       "tide": [
         -10.0,
@@ -18646,7 +18687,8 @@
         115.5,
         105.5,
         144.5,
-        134.5
+        134.5,
+        124.5
       ],
       "risk": [
         -10.0,
@@ -18727,7 +18769,8 @@
         -496.5,
         -506.5,
         -516.5,
-        -526.5
+        -526.5,
+        -536.5
       ],
       "monkey": [
         4.0,
@@ -18808,7 +18851,8 @@
         -137.5,
         -126.5,
         -136.5,
-        -134.0
+        -134.0,
+        -144.0
       ]
     }
   }

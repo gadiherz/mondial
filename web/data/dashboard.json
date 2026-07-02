@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-02T05:00:46.309768Z",
+    "generated_at": "2026-07-02T06:00:50.397166Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-02T14:00:00Z",
     "ratings_through": "2026-06-30"
@@ -6985,12 +6985,12 @@
       },
       "winner_odds": {
         "home": 1.7,
-        "draw": 3.45,
-        "away": 4.7,
+        "draw": 3.35,
+        "away": 4.9,
         "true": [
           0.539,
-          0.266,
-          0.195
+          0.274,
+          0.187
         ]
       },
       "model_pick": "H",
@@ -7398,16 +7398,16 @@
         "away": 0.315
       },
       "winner_odds": {
-        "home": 1.95,
+        "home": 1.9,
         "draw": 3.1,
-        "away": 3.8,
+        "away": 4.15,
         "true": [
-          0.467,
-          0.294,
-          0.24
+          0.483,
+          0.296,
+          0.221
         ]
       },
-      "model_pick": "H",
+      "model_pick": "A",
       "breakdown": {
         "neutral": true,
         "rho": -0.04813971608415197,
@@ -9474,7 +9474,7 @@
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-02T05:00:46.283245+00:00",
+    "last_winner_ts": "2026-07-02T06:00:50.365071+00:00",
     "stale_hours": 0.0,
     "upcoming_missing_count": 1
   },

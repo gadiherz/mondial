@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-02T19:19:13.191859Z",
+    "generated_at": "2026-07-02T20:00:50.383140Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-03T14:00:00Z",
     "ratings_through": "2026-07-01"
@@ -6985,12 +6985,12 @@
       },
       "winner_odds": {
         "home": 1.7,
-        "draw": 3.2,
-        "away": 5.4,
+        "draw": 3.1,
+        "away": 5.7,
         "true": [
           0.542,
-          0.288,
-          0.171
+          0.297,
+          0.162
         ]
       },
       "model_pick": "H",
@@ -7192,15 +7192,15 @@
       },
       "winner_odds": {
         "home": 1.25,
-        "draw": 5.3,
-        "away": 10.0,
+        "draw": 5.1,
+        "away": 11.0,
         "true": [
-          0.735,
-          0.173,
-          0.092
+          0.736,
+          0.18,
+          0.084
         ]
       },
-      "model_pick": "D",
+      "model_pick": "H",
       "breakdown": {
         "neutral": true,
         "rho": -0.04813971608415197,
@@ -7398,13 +7398,13 @@
         "away": 0.315
       },
       "winner_odds": {
-        "home": 1.9,
-        "draw": 3.1,
-        "away": 4.15,
+        "home": 1.8,
+        "draw": 3.05,
+        "away": 4.9,
         "true": [
-          0.483,
-          0.296,
-          0.221
+          0.511,
+          0.301,
+          0.188
         ]
       },
       "model_pick": "A",
@@ -7812,13 +7812,13 @@
         "away": 0.046
       },
       "winner_odds": {
-        "home": 1.5,
-        "draw": 3.8,
-        "away": 6.6,
+        "home": 1.45,
+        "draw": 3.95,
+        "away": 7.0,
         "true": [
-          0.617,
-          0.243,
-          0.14
+          0.635,
+          0.233,
+          0.132
         ]
       },
       "model_pick": "H",
@@ -9493,8 +9493,8 @@
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-02T19:15:57.753037+00:00",
-    "stale_hours": 0.1,
+    "last_winner_ts": "2026-07-02T20:00:50.352784+00:00",
+    "stale_hours": 0.0,
     "upcoming_missing_count": 2
   },
   "leaderboard": [

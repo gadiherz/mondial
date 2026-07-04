@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-04T23:00:35.144194Z",
+    "generated_at": "2026-07-04T23:10:35.251600Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-05T14:00:00Z",
     "ratings_through": "2026-07-04"
@@ -7145,10 +7145,13 @@
       "home_code": "py",
       "away_code": "fr",
       "venue": null,
-      "status": "scheduled",
-      "kickoff_utc": "2026-07-04T21:00:00Z",
-      "result": null,
-      "score": null,
+      "status": "final",
+      "kickoff_utc": "2026-07-04T21:03:00Z",
+      "result": "A",
+      "score": [
+        0,
+        1
+      ],
       "model": {
         "home": 0.174,
         "draw": 0.287,
@@ -8378,20 +8381,36 @@
           ]
         }
       }
+    },
+    {
+      "date": "2026-07-09",
+      "stage": "QF",
+      "home": "France",
+      "away": "Morocco",
+      "home_code": "fr",
+      "away_code": "ma",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": null,
+      "result": null,
+      "score": null,
+      "model": null,
+      "winner_odds": null,
+      "model_pick": null
     }
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-04T22:52:51.764203+00:00",
-    "stale_hours": 0.1,
-    "upcoming_missing_count": 0
+    "stale_hours": 0.3,
+    "upcoming_missing_count": 1
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 94,
-      "n_settled": 87,
+      "n_settled": 88,
       "wins": 42,
-      "hit_rate": 0.4828,
+      "hit_rate": 0.4773,
       "staked": 940.0,
       "returned": 728.5,
       "profit": -211.5,
@@ -8478,14 +8497,17 @@
           "home": "Paraguay",
           "away": "France",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 13.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-04",
@@ -9985,13 +10007,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 94,
-      "n_settled": 87,
-      "wins": 55,
-      "hit_rate": 0.6322,
+      "n_settled": 88,
+      "wins": 56,
+      "hit_rate": 0.6364,
       "staked": 940.0,
-      "returned": 893.5,
-      "profit": -46.5,
-      "roi": -0.0495,
+      "returned": 905.5,
+      "profit": -34.5,
+      "roi": -0.0367,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -10074,14 +10096,17 @@
           "home": "Paraguay",
           "away": "France",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 12.0,
+          "profit": 2.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-07-04",
@@ -11581,13 +11606,13 @@
     {
       "player": "safe",
       "n_bets": 94,
-      "n_settled": 87,
-      "wins": 60,
-      "hit_rate": 0.6897,
+      "n_settled": 88,
+      "wins": 61,
+      "hit_rate": 0.6932,
       "staked": 940.0,
-      "returned": 930.5,
-      "profit": -9.5,
-      "roi": -0.0101,
+      "returned": 942.5,
+      "profit": 2.5,
+      "roi": 0.0027,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -11670,14 +11695,17 @@
           "home": "Paraguay",
           "away": "France",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 1.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 12.0,
+          "profit": 2.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-07-04",
@@ -13177,9 +13205,9 @@
     {
       "player": "tide",
       "n_bets": 94,
-      "n_settled": 87,
+      "n_settled": 88,
       "wins": 23,
-      "hit_rate": 0.2644,
+      "hit_rate": 0.2614,
       "staked": 940.0,
       "returned": 952.5,
       "profit": 12.5,
@@ -13266,14 +13294,17 @@
           "home": "Paraguay",
           "away": "France",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 6.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-04",
@@ -14773,9 +14804,9 @@
     {
       "player": "risk",
       "n_bets": 94,
-      "n_settled": 87,
+      "n_settled": 88,
       "wins": 7,
-      "hit_rate": 0.0805,
+      "hit_rate": 0.0795,
       "staked": 940.0,
       "returned": 263.5,
       "profit": -676.5,
@@ -14862,14 +14893,17 @@
           "home": "Paraguay",
           "away": "France",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 13.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-04",
@@ -16369,9 +16403,9 @@
     {
       "player": "monkey",
       "n_bets": 94,
-      "n_settled": 87,
+      "n_settled": 88,
       "wins": 29,
-      "hit_rate": 0.3333,
+      "hit_rate": 0.3295,
       "staked": 940.0,
       "returned": 721.0,
       "profit": -219.0,
@@ -16458,14 +16492,17 @@
           "home": "Paraguay",
           "away": "France",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            0,
+            1
+          ],
           "stake": 10.0,
           "odd": 6.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-04",
@@ -17964,7 +18001,7 @@
     }
   ],
   "bankroll": {
-    "n": 87,
+    "n": 88,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -18052,6 +18089,7 @@
       "2026-07-03",
       "2026-07-03",
       "2026-07-03",
+      "2026-07-04",
       "2026-07-04"
     ],
     "series": {
@@ -18142,7 +18180,8 @@
         -126.5,
         -121.5,
         -131.5,
-        -141.5
+        -141.5,
+        -151.5
       ],
       "model_fundamental": [
         4.0,
@@ -18231,7 +18270,8 @@
         10.5,
         15.5,
         33.5,
-        23.5
+        23.5,
+        25.5
       ],
       "safe": [
         4.0,
@@ -18320,7 +18360,8 @@
         57.5,
         62.5,
         52.5,
-        60.5
+        60.5,
+        62.5
       ],
       "tide": [
         -10.0,
@@ -18409,7 +18450,8 @@
         84.5,
         74.5,
         92.5,
-        82.5
+        82.5,
+        72.5
       ],
       "risk": [
         -10.0,
@@ -18498,7 +18540,8 @@
         -576.5,
         -586.5,
         -596.5,
-        -606.5
+        -606.5,
+        -616.5
       ],
       "monkey": [
         4.0,
@@ -18587,7 +18630,8 @@
         -147.0,
         -157.0,
         -139.0,
-        -149.0
+        -149.0,
+        -159.0
       ]
     }
   }

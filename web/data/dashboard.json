@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-04T02:00:44.738464Z",
+    "generated_at": "2026-07-04T02:33:06.536775Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-04T14:00:00Z",
     "ratings_through": "2026-07-02"
@@ -5880,7 +5880,7 @@
       "away_code": "ba",
       "venue": null,
       "status": "final",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-02T00:00:00Z",
       "result": "H",
       "score": [
         2,
@@ -6090,7 +6090,7 @@
       "away_code": "hr",
       "venue": null,
       "status": "final",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-02T23:00:00Z",
       "result": "H",
       "score": [
         2,
@@ -6300,7 +6300,7 @@
       "away_code": "at",
       "venue": null,
       "status": "final",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-02T19:00:00Z",
       "result": "H",
       "score": [
         3,
@@ -6510,7 +6510,7 @@
       "away_code": "dz",
       "venue": null,
       "status": "final",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-03T03:00:00Z",
       "result": "H",
       "score": [
         2,
@@ -7383,7 +7383,7 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-04T02:00:44.708470+00:00",
-    "stale_hours": 0.0,
+    "stale_hours": 0.5,
     "upcoming_missing_count": 3
   },
   "leaderboard": [

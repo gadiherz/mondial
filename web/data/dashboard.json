@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-07-05T13:22:57.308198Z",
+    "generated_at": "2026-07-05T15:07:13.144198Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
-    "next_scrape_utc": "2026-07-05T14:00:00Z",
+    "next_scrape_utc": "2026-07-06T14:00:00Z",
     "ratings_through": "2026-07-04"
   },
   "matches": [
@@ -7323,17 +7323,199 @@
       "away_code": "ma",
       "venue": null,
       "status": "scheduled",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-09T20:00:00Z",
       "result": null,
       "score": null,
-      "model": null,
+      "model": {
+        "home": 0.323,
+        "draw": 0.378,
+        "away": 0.298
+      },
       "winner_odds": null,
-      "model_pick": null
+      "model_pick": "D",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 0.822,
+          "away": 0.782
+        },
+        "log_lambda": {
+          "home": -0.1962294124900038,
+          "away": -0.24587731874207208
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.7311410837636996,
+            "opp_defence": -0.991915180413156,
+            "home_adv": 0.0,
+            "features": 0.018200207350923536
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.35456568602180205,
+            "opp_defence": -0.5916943390257862,
+            "home_adv": 0.0,
+            "features": -0.05509314254661703
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": 0.23235494666241494,
+            "x_away": -0.23235494666241494,
+            "contrib_home": 0.04392358040664716,
+            "contrib_away": -0.04392358040664716,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.4428196191180428,
+            "x_away": 0.4428196191180428,
+            "contrib_home": -0.01844646759784675,
+            "contrib_away": -0.01844646759784675,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": -0.005079992736922563,
+            "x_away": 0.005079992736922563,
+            "contrib_home": 0.00028632582023189996,
+            "contrib_away": -0.00028632582023189996,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": -0.030354534291555935,
+            "x_away": 0.030354534291555935,
+            "contrib_home": -0.007563231278108774,
+            "contrib_away": 0.007563231278108774,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0,
+            "x_away": -0.0,
+            "contrib_home": 0.0,
+            "contrib_away": -0.0,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.2073
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.1591
+          },
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.1511
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.1355
+          },
+          {
+            "h": 2,
+            "a": 0,
+            "p": 0.0679
+          },
+          {
+            "h": 0,
+            "a": 2,
+            "p": 0.0615
+          }
+        ],
+        "raw_probs": {
+          "home": 0.3288,
+          "draw": 0.3651,
+          "away": 0.3061
+        },
+        "glicko": {
+          "home": {
+            "rating": 1891,
+            "rd": 77,
+            "intel_points": 50.4
+          },
+          "away": {
+            "rating": 1838,
+            "rd": 78,
+            "intel_points": 10.2
+          },
+          "home_expected": 0.573
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.054,
+            "gd_ewma": 1.51,
+            "idle_days": 5
+          },
+          "away": {
+            "resid_ewma": 0.059,
+            "gd_ewma": 1.63,
+            "idle_days": 5
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.336,
+            "confidence": 0.6,
+            "summary": "France showing good team spirit, Mbappe and Olise in form",
+            "dims": {
+              "form_outlook": 0.5,
+              "availability": 0.5,
+              "coach_stability": 0.5,
+              "morale": 0.8,
+              "motivation": 0.8
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.068,
+            "confidence": 0.4,
+            "summary": "Morocco beat Netherlands, potential quarter-final vs France",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.3,
+              "motivation": 0.5
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8862,
+          "raw": [
+            0.3288,
+            0.3651,
+            0.3061
+          ],
+          "calibrated": [
+            0.3233,
+            0.3785,
+            0.2982
+          ]
+        }
+      }
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-05T11:26:19.696966+00:00",
-    "stale_hours": 1.9,
+    "last_winner_ts": "2026-07-05T15:07:13.108331+00:00",
+    "stale_hours": 0.0,
     "upcoming_missing_count": 1
   },
   "leaderboard": [

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-05T22:00:37.967689Z",
+    "generated_at": "2026-07-05T22:10:35.640484Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-06T14:00:00Z",
     "ratings_through": "2026-07-04"
@@ -5870,10 +5870,13 @@
       "home_code": "br",
       "away_code": "no",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-07-05T20:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "A",
+      "score": [
+        1,
+        2
+      ],
       "model": {
         "home": 0.67,
         "draw": 0.226,
@@ -7515,16 +7518,16 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-05T19:07:45.262813+00:00",
-    "stale_hours": 2.9,
+    "stale_hours": 3.0,
     "upcoming_missing_count": 1
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 94,
-      "n_settled": 88,
+      "n_settled": 89,
       "wins": 42,
-      "hit_rate": 0.4773,
+      "hit_rate": 0.4719,
       "staked": 940.0,
       "returned": 728.5,
       "profit": -211.5,
@@ -7628,14 +7631,17 @@
           "home": "Brazil",
           "away": "Norway",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 1.8,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-04",
@@ -9121,9 +9127,9 @@
     {
       "player": "model_fundamental",
       "n_bets": 94,
-      "n_settled": 88,
+      "n_settled": 89,
       "wins": 56,
-      "hit_rate": 0.6364,
+      "hit_rate": 0.6292,
       "staked": 940.0,
       "returned": 905.5,
       "profit": -34.5,
@@ -9227,14 +9233,17 @@
           "home": "Brazil",
           "away": "Norway",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 1.8,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-04",
@@ -10720,9 +10729,9 @@
     {
       "player": "safe",
       "n_bets": 94,
-      "n_settled": 88,
+      "n_settled": 89,
       "wins": 61,
-      "hit_rate": 0.6932,
+      "hit_rate": 0.6854,
       "staked": 940.0,
       "returned": 942.5,
       "profit": 2.5,
@@ -10826,14 +10835,17 @@
           "home": "Brazil",
           "away": "Norway",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 1.8,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-04",
@@ -12319,9 +12331,9 @@
     {
       "player": "tide",
       "n_bets": 94,
-      "n_settled": 88,
+      "n_settled": 89,
       "wins": 23,
-      "hit_rate": 0.2614,
+      "hit_rate": 0.2584,
       "staked": 940.0,
       "returned": 952.5,
       "profit": 12.5,
@@ -12425,14 +12437,17 @@
           "home": "Brazil",
           "away": "Norway",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 3.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-04",
@@ -13918,13 +13933,13 @@
     {
       "player": "risk",
       "n_bets": 94,
-      "n_settled": 88,
-      "wins": 7,
-      "hit_rate": 0.0795,
+      "n_settled": 89,
+      "wins": 8,
+      "hit_rate": 0.0899,
       "staked": 940.0,
-      "returned": 263.5,
-      "profit": -676.5,
-      "roi": -0.7197,
+      "returned": 303.0,
+      "profit": -637.0,
+      "roi": -0.6777,
       "best_bet": {
         "match": "South Africa v South Korea",
         "pick": "South Africa",
@@ -14024,14 +14039,17 @@
           "home": "Brazil",
           "away": "Norway",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 3.95,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 39.5,
+          "profit": 29.5,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-07-04",
@@ -15517,9 +15535,9 @@
     {
       "player": "monkey",
       "n_bets": 94,
-      "n_settled": 88,
+      "n_settled": 89,
       "wins": 29,
-      "hit_rate": 0.3295,
+      "hit_rate": 0.3258,
       "staked": 940.0,
       "returned": 721.0,
       "profit": -219.0,
@@ -15623,14 +15641,17 @@
           "home": "Brazil",
           "away": "Norway",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "A",
+          "score": [
+            1,
+            2
+          ],
           "stake": 10.0,
           "odd": 1.8,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-04",
@@ -17115,7 +17136,7 @@
     }
   ],
   "bankroll": {
-    "n": 88,
+    "n": 89,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -17203,6 +17224,7 @@
       "2026-07-03",
       "2026-07-03",
       "2026-07-03",
+      "2026-07-04",
       "2026-07-04",
       "2026-07-04"
     ],
@@ -17295,7 +17317,8 @@
         -121.5,
         -131.5,
         -141.5,
-        -151.5
+        -151.5,
+        -161.5
       ],
       "model_fundamental": [
         4.0,
@@ -17385,7 +17408,8 @@
         15.5,
         33.5,
         23.5,
-        25.5
+        13.5,
+        15.5
       ],
       "safe": [
         4.0,
@@ -17475,7 +17499,8 @@
         62.5,
         52.5,
         60.5,
-        62.5
+        50.5,
+        52.5
       ],
       "tide": [
         -10.0,
@@ -17565,7 +17590,8 @@
         74.5,
         92.5,
         82.5,
-        72.5
+        72.5,
+        62.5
       ],
       "risk": [
         -10.0,
@@ -17655,7 +17681,8 @@
         -586.5,
         -596.5,
         -606.5,
-        -616.5
+        -577.0,
+        -587.0
       ],
       "monkey": [
         4.0,
@@ -17745,7 +17772,8 @@
         -157.0,
         -139.0,
         -149.0,
-        -159.0
+        -159.0,
+        -169.0
       ]
     }
   }

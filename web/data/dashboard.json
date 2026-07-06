@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-06T15:23:59.097618Z",
+    "generated_at": "2026-07-06T16:48:37.414703Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-07T14:00:00Z",
     "ratings_through": "2026-07-05"
@@ -6347,7 +6347,7 @@
           "away": 1.405
         },
         "log_lambda": {
-          "home": -0.05294425317529741,
+          "home": -0.0529442531752974,
           "away": 0.33990896107912744
         },
         "components": {
@@ -7352,14 +7352,196 @@
       "kickoff_utc": null,
       "result": null,
       "score": null,
-      "model": null,
+      "model": {
+        "home": 0.187,
+        "draw": 0.301,
+        "away": 0.513
+      },
       "winner_odds": null,
-      "model_pick": null
+      "model_pick": "A",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 0.733,
+          "away": 1.309
+        },
+        "log_lambda": {
+          "home": -0.3103307791278818,
+          "away": 0.26922197679593785
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.5280087412832842,
+            "opp_defence": -0.821780859686654,
+            "home_adv": 0.0,
+            "features": -0.06290313753304107
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.6304208755504488,
+            "opp_defence": -0.4338017891759403,
+            "home_adv": 0.0,
+            "features": 0.02625841361290033
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": -0.09810349521217233,
+            "x_away": 0.09810349521217233,
+            "contrib_home": -0.018545147508245395,
+            "contrib_away": 0.018545147508245395,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.4398403814423724,
+            "x_away": 0.4398403814423724,
+            "contrib_home": -0.01832236196007037,
+            "contrib_away": -0.01832236196007037,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": 0.16344373516000915,
+            "x_away": -0.16344373516000915,
+            "contrib_home": -0.00921224969305865,
+            "contrib_away": 0.00921224969305865,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": -0.06813001041463851,
+            "x_away": 0.06813001041463851,
+            "contrib_home": -0.016975487773805597,
+            "contrib_away": 0.016975487773805597,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0027397260273972603,
+            "x_away": -0.0027397260273972603,
+            "contrib_home": 0.000152109402138944,
+            "contrib_away": -0.000152109402138944,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.1638
+          },
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.1357
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.1305
+          },
+          {
+            "h": 0,
+            "a": 2,
+            "p": 0.1112
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.0891
+          },
+          {
+            "h": 1,
+            "a": 2,
+            "p": 0.0815
+          }
+        ],
+        "raw_probs": {
+          "home": 0.2031,
+          "draw": 0.2995,
+          "away": 0.4973
+        },
+        "glicko": {
+          "home": {
+            "rating": 1716,
+            "rd": 75,
+            "intel_points": 93.6
+          },
+          "away": {
+            "rating": 1845,
+            "rd": 79,
+            "intel_points": 3.0
+          },
+          "home_expected": 0.326
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.194,
+            "gd_ewma": 1.12,
+            "idle_days": 5
+          },
+          "away": {
+            "resid_ewma": 0.03,
+            "gd_ewma": 1.39,
+            "idle_days": 4
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.624,
+            "confidence": 0.8,
+            "summary": "Haaland in top form, Norway historic win, high stakes match",
+            "dims": {
+              "form_outlook": 0.8,
+              "availability": 0.8,
+              "coach_stability": 0.4,
+              "morale": 0.9,
+              "motivation": 0.9
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.02,
+            "confidence": 0.2,
+            "summary": "England faces challenges in Mexico City, but has emotional fan connection",
+            "dims": {
+              "form_outlook": 0.0,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.5,
+              "motivation": 0.5
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8862,
+          "raw": [
+            0.2031,
+            0.2995,
+            0.4973
+          ],
+          "calibrated": [
+            0.1866,
+            0.3008,
+            0.5126
+          ]
+        }
+      }
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-06T10:05:07.835164+00:00",
-    "stale_hours": 5.3,
+    "last_winner_ts": "2026-07-06T16:48:37.383828+00:00",
+    "stale_hours": 0.0,
     "upcoming_missing_count": 2
   },
   "leaderboard": [

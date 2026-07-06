@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-05T22:57:25.074567Z",
+    "generated_at": "2026-07-06T02:48:43.033996Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-06T14:00:00Z",
     "ratings_through": "2026-07-04"
@@ -2322,185 +2322,7 @@
           0.575
         ]
       },
-      "model_pick": "D",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 0.7,
-          "away": 1.406
-        },
-        "log_lambda": {
-          "home": -0.35733344601194283,
-          "away": 0.3409632567698517
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.21759170577228107,
-            "opp_defence": -0.5310472054275496,
-            "home_adv": 0.0,
-            "features": -0.0902224231652034
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.5172401533642669,
-            "opp_defence": -0.2761651631310248,
-            "home_adv": 0.0,
-            "features": 0.053543789728080535
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": -0.2774571032809098,
-            "x_away": 0.2774571032809098,
-            "contrib_home": -0.0524495370570295,
-            "contrib_away": 0.0524495370570295,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.44024739160068177,
-            "x_away": 0.44024739160068177,
-            "contrib_home": -0.018339316718561427,
-            "contrib_away": -0.018339316718561427,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": 0.046569121133114774,
-            "x_away": -0.046569121133114774,
-            "contrib_home": -0.002624795446852437,
-            "contrib_away": 0.002624795446852437,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": -0.06746091535258526,
-            "x_away": 0.06746091535258526,
-            "contrib_home": -0.016808773942760032,
-            "contrib_away": 0.016808773942760032,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0,
-            "x_away": -0.0,
-            "contrib_home": 0.0,
-            "contrib_away": -0.0,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 0,
-            "a": 1,
-            "p": 0.1654
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.1275
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1255
-          },
-          {
-            "h": 0,
-            "a": 2,
-            "p": 0.1204
-          },
-          {
-            "h": 1,
-            "a": 2,
-            "p": 0.0842
-          },
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.0794
-          }
-        ],
-        "raw_probs": {
-          "home": 0.1801,
-          "draw": 0.2859,
-          "away": 0.534
-        },
-        "glicko": {
-          "home": {
-            "rating": 1533,
-            "rd": 76,
-            "intel_points": 33.8
-          },
-          "away": {
-            "rating": 1649,
-            "rd": 78,
-            "intel_points": 29.3
-          },
-          "home_expected": 0.344
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.012,
-            "gd_ewma": 0.42,
-            "idle_days": 6
-          },
-          "away": {
-            "resid_ewma": -0.035,
-            "gd_ewma": 0.69,
-            "idle_days": 6
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.225,
-            "confidence": 0.6,
-            "summary": "South Africa won a shock 1-0 match, claimed a World Cup group stage win with low possession",
-            "dims": {
-              "form_outlook": 0.5,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.5,
-              "motivation": 1.0
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.195,
-            "confidence": 0.6,
-            "summary": "Canada has potent attacking duo, Jonathan David and Cyle Larin, and a player to watch in Nathan Saliba, but faces a tough match against South Africa",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.5,
-              "coach_stability": 0.0,
-              "morale": 0.3,
-              "motivation": 0.8
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.1801,
-            0.2859,
-            0.534
-          ],
-          "calibrated": [
-            0.1623,
-            0.2844,
-            0.5533
-          ]
-        }
-      }
+      "model_pick": "D"
     },
     {
       "date": "2026-06-30",
@@ -7518,7 +7340,7 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-05T22:57:24.962584+00:00",
-    "stale_hours": 0.0,
+    "stale_hours": 3.9,
     "upcoming_missing_count": 1
   },
   "leaderboard": [

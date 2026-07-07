@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-07T19:46:52.762275Z",
+    "generated_at": "2026-07-07T19:50:08.852211Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-08T14:00:00Z",
     "ratings_through": "2026-07-06"
@@ -7772,7 +7772,7 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-07T19:46:52.650197+00:00",
-    "stale_hours": 0.0,
+    "stale_hours": 0.1,
     "upcoming_missing_count": 0
   },
   "leaderboard": [

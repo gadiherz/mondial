@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-07T16:01:26.550750Z",
+    "generated_at": "2026-07-07T16:21:07.531749Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-08T14:00:00Z",
     "ratings_through": "2026-07-06"
@@ -7571,18 +7571,209 @@
       "away_code": "be",
       "venue": null,
       "status": "scheduled",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-10T19:00:00Z",
       "result": null,
       "score": null,
-      "model": null,
-      "winner_odds": null,
-      "model_pick": null
+      "model": {
+        "home": 0.596,
+        "draw": 0.233,
+        "away": 0.171
+      },
+      "winner_odds": {
+        "home": 1.6,
+        "draw": 3.85,
+        "away": 5.0,
+        "true": [
+          0.576,
+          0.239,
+          0.184
+        ]
+      },
+      "model_pick": "H",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 1.807,
+          "away": 0.944
+        },
+        "log_lambda": {
+          "home": 0.5918339528651998,
+          "away": -0.057575870934701553
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.8902889833154088,
+            "opp_defence": -0.4238647886343471,
+            "home_adv": 0.0,
+            "features": 0.07906528137560907
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.7412450886157762,
+            "opp_defence": -0.7288066836435247,
+            "home_adv": 0.0,
+            "features": -0.11635875271548206
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": 0.4478556930917426,
+            "x_away": -0.4478556930917426,
+            "contrib_home": 0.08466110073684022,
+            "contrib_away": -0.08466110073684022,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.4476271862543456,
+            "x_away": 0.4476271862543456,
+            "contrib_home": -0.01864673566993649,
+            "contrib_away": -0.01864673566993649,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": -0.07741586684770328,
+            "x_away": 0.07741586684770328,
+            "contrib_home": 0.004363423871263319,
+            "contrib_away": -0.004363423871263319,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": 0.03486668295642914,
+            "x_away": -0.03486668295642914,
+            "contrib_home": 0.00868749243744203,
+            "contrib_away": -0.00868749243744203,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0,
+            "x_away": -0.0,
+            "contrib_home": 0.0,
+            "contrib_away": -0.0,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.1142
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.1101
+          },
+          {
+            "h": 2,
+            "a": 0,
+            "p": 0.1043
+          },
+          {
+            "h": 2,
+            "a": 1,
+            "p": 0.0984
+          },
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.0691
+          },
+          {
+            "h": 3,
+            "a": 0,
+            "p": 0.0628
+          }
+        ],
+        "raw_probs": {
+          "home": 0.5716,
+          "draw": 0.2395,
+          "away": 0.1889
+        },
+        "glicko": {
+          "home": {
+            "rating": 1933,
+            "rd": 82,
+            "intel_points": 0.0
+          },
+          "away": {
+            "rating": 1751,
+            "rd": 75,
+            "intel_points": 3.0
+          },
+          "home_expected": 0.735
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.018,
+            "gd_ewma": 1.68,
+            "idle_days": 3
+          },
+          "away": {
+            "resid_ewma": 0.096,
+            "gd_ewma": 1.54,
+            "idle_days": 3
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.0,
+            "confidence": 0.1,
+            "summary": "Sparse info, no recent performance data on Spain",
+            "dims": {
+              "form_outlook": 0.0,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.0,
+              "motivation": 0.0
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.02,
+            "confidence": 0.2,
+            "summary": "Belgium came back from 2-0 down to win in extra time, little else known",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.1,
+              "motivation": 0.0
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8862,
+          "raw": [
+            0.5716,
+            0.2395,
+            0.1889
+          ],
+          "calibrated": [
+            0.5965,
+            0.2325,
+            0.171
+          ]
+        }
+      }
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-07T16:01:26.525495+00:00",
+    "last_winner_ts": "2026-07-07T16:21:07.500730+00:00",
     "stale_hours": 0.0,
-    "upcoming_missing_count": 1
+    "upcoming_missing_count": 0
   },
   "leaderboard": [
     {

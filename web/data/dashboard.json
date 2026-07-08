@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated_at": "2026-07-07T22:55:42.390073Z",
+    "generated_at": "2026-07-08T02:22:50.018930Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-08T14:00:00Z",
-    "ratings_through": "2026-07-06"
+    "ratings_through": "2026-07-07"
   },
   "matches": [
     {
@@ -2354,185 +2354,7 @@
           0.275
         ]
       },
-      "model_pick": "A",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 0.776,
-          "away": 0.996
-        },
-        "log_lambda": {
-          "home": -0.2538687261706518,
-          "away": -0.004502049500105784
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.7663675669213595,
-            "opp_defence": -0.991915180413156,
-            "home_adv": 0.0,
-            "features": -0.07466558948738442
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.35456568602180205,
-            "opp_defence": -0.441553372914926,
-            "home_adv": 0.0,
-            "features": 0.03614116058448914
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": -0.2195084081085571,
-            "x_away": 0.2195084081085571,
-            "contrib_home": -0.04149511491786511,
-            "contrib_away": 0.04149511491786511,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.46240216027895614,
-            "x_away": 0.46240216027895614,
-            "contrib_home": -0.01926221445144764,
-            "contrib_away": -0.01926221445144764,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": -0.05403504343201678,
-            "x_away": 0.05403504343201678,
-            "contrib_home": 0.003045600443380001,
-            "contrib_away": -0.003045600443380001,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": -0.06743272987033111,
-            "x_away": 0.06743272987033111,
-            "contrib_home": -0.016801751159312733,
-            "contrib_away": 0.016801751159312733,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": -0.0027397260273972603,
-            "x_away": 0.0027397260273972603,
-            "contrib_home": -0.000152109402138944,
-            "contrib_away": 0.000152109402138944,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.1764
-          },
-          {
-            "h": 0,
-            "a": 1,
-            "p": 0.163
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1377
-          },
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1256
-          },
-          {
-            "h": 0,
-            "a": 2,
-            "p": 0.0843
-          },
-          {
-            "h": 1,
-            "a": 2,
-            "p": 0.0654
-          }
-        ],
-        "raw_probs": {
-          "home": 0.2688,
-          "draw": 0.3418,
-          "away": 0.3894
-        },
-        "glicko": {
-          "home": {
-            "rating": 1775,
-            "rd": 81,
-            "intel_points": 1.5
-          },
-          "away": {
-            "rating": 1823,
-            "rd": 81,
-            "intel_points": 40.5
-          },
-          "home_expected": 0.432
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.0,
-            "gd_ewma": 1.37,
-            "idle_days": 5
-          },
-          "away": {
-            "resid_ewma": 0.054,
-            "gd_ewma": 1.64,
-            "idle_days": 6
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.01,
-            "confidence": 0.2,
-            "summary": "Netherlands face Morocco, odds to qualify -188",
-            "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.5
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.27,
-            "confidence": 0.6,
-            "summary": "Morocco has maintained form, impressed in buildup, and has key players like Bouaddi performing well",
-            "dims": {
-              "form_outlook": 0.5,
-              "availability": 0.5,
-              "coach_stability": 0.0,
-              "morale": 0.5,
-              "motivation": 0.5
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.2688,
-            0.3418,
-            0.3894
-          ],
-          "calibrated": [
-            0.2575,
-            0.3512,
-            0.3912
-          ]
-        }
-      }
+      "model_pick": "A"
     },
     {
       "date": "2026-06-30",
@@ -2564,185 +2386,7 @@
           0.17
         ]
       },
-      "model_pick": "D",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 1.587,
-          "away": 0.805
-        },
-        "log_lambda": {
-          "home": 0.4621016060161265,
-          "away": -0.2169271993910303
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.9187005815348613,
-            "opp_defence": -0.5014525805916662,
-            "home_adv": 0.0,
-            "features": -0.0014908717355976906
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.7483478902546937,
-            "opp_defence": -0.9746654045941887,
-            "home_adv": 0.0,
-            "features": -0.03695416186006436
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.14104751745038413,
-            "x_away": -0.14104751745038413,
-            "contrib_home": 0.026663137853875744,
-            "contrib_away": -0.026663137853875744,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.46144919192546807,
-            "x_away": 0.46144919192546807,
-            "contrib_home": -0.019222516797831022,
-            "contrib_away": -0.019222516797831022,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": -0.00989628116531413,
-            "x_away": 0.00989628116531413,
-            "contrib_home": 0.0005577883608590806,
-            "contrib_away": -0.0005577883608590806,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": -0.038695090689107925,
-            "x_away": 0.038695090689107925,
-            "contrib_home": -0.009641390554640437,
-            "contrib_away": 0.009641390554640437,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0027397260273972603,
-            "x_away": -0.0027397260273972603,
-            "contrib_home": 0.000152109402138944,
-            "contrib_away": -0.000152109402138944,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1395
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1224
-          },
-          {
-            "h": 2,
-            "a": 0,
-            "p": 0.1152
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.097
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0927
-          },
-          {
-            "h": 0,
-            "a": 1,
-            "p": 0.068
-          }
-        ],
-        "raw_probs": {
-          "home": 0.5537,
-          "draw": 0.2625,
-          "away": 0.1838
-        },
-        "glicko": {
-          "home": {
-            "rating": 1827,
-            "rd": 79,
-            "intel_points": 17.7
-          },
-          "away": {
-            "rating": 1778,
-            "rd": 83,
-            "intel_points": 9.6
-          },
-          "home_expected": 0.567
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.024,
-            "gd_ewma": 1.21,
-            "idle_days": 6
-          },
-          "away": {
-            "resid_ewma": 0.034,
-            "gd_ewma": 1.37,
-            "idle_days": 5
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.118,
-            "confidence": 0.4,
-            "summary": "Brazil has superstar firepower with Vinicius Junior and fit-again Neymar, but limited information on team dynamics and coach stability.",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.5,
-              "coach_stability": 0.0,
-              "morale": 0.3,
-              "motivation": 0.5
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.064,
-            "confidence": 0.4,
-            "summary": "Japan cohesive, seeking first World Cup knockout tie win, recent friendly win against Brazil",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.2,
-              "motivation": 0.5
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.5537,
-            0.2625,
-            0.1838
-          ],
-          "calibrated": [
-            0.5759,
-            0.2581,
-            0.166
-          ]
-        }
-      }
+      "model_pick": "D"
     },
     {
       "date": "2026-06-30",
@@ -2774,185 +2418,7 @@
           0.461
         ]
       },
-      "model_pick": "D",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 0.918,
-          "away": 1.177
-        },
-        "log_lambda": {
-          "home": -0.08590027226343253,
-          "away": 0.1626854681795394
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.3450024832161568,
-            "opp_defence": -0.4338017891759403,
-            "home_adv": 0.0,
-            "features": -0.043445443112178045
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.5280087412832842,
-            "opp_defence": -0.4189073814825021,
-            "home_adv": 0.0,
-            "features": 0.007239631570228254
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": -0.11519322221102414,
-            "x_away": 0.11519322221102414,
-            "contrib_home": -0.021775730754886202,
-            "contrib_away": 0.021775730754886202,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.4345721909038381,
-            "x_away": 0.4345721909038381,
-            "contrib_home": -0.018102905770974894,
-            "contrib_away": -0.018102905770974894,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": -0.008942938125163807,
-            "x_away": 0.008942938125163807,
-            "contrib_home": 0.0005040546761729926,
-            "contrib_away": -0.0005040546761729926,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": -0.01694861668751796,
-            "x_away": 0.01694861668751796,
-            "contrib_home": -0.004222970664628882,
-            "contrib_away": 0.004222970664628882,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0027397260273972603,
-            "x_away": -0.0027397260273972603,
-            "contrib_home": 0.000152109402138944,
-            "contrib_away": -0.000152109402138944,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1394
-          },
-          {
-            "h": 0,
-            "a": 1,
-            "p": 0.1385
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.1296
-          },
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1066
-          },
-          {
-            "h": 0,
-            "a": 2,
-            "p": 0.0853
-          },
-          {
-            "h": 1,
-            "a": 2,
-            "p": 0.0782
-          }
-        ],
-        "raw_probs": {
-          "home": 0.279,
-          "draw": 0.3094,
-          "away": 0.4116
-        },
-        "glicko": {
-          "home": {
-            "rating": 1666,
-            "rd": 76,
-            "intel_points": -4.2
-          },
-          "away": {
-            "rating": 1679,
-            "rd": 76,
-            "intel_points": 29.2
-          },
-          "home_expected": 0.482
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.126,
-            "gd_ewma": 1.06,
-            "idle_days": 5
-          },
-          "away": {
-            "resid_ewma": 0.135,
-            "gd_ewma": 1.13,
-            "idle_days": 4
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": -0.028,
-            "confidence": 0.4,
-            "summary": "Ivory Coast struggling with recent losses and injuries, but still motivated",
-            "dims": {
-              "form_outlook": -0.2,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": -0.3,
-              "motivation": 0.5
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.195,
-            "confidence": 0.6,
-            "summary": "Norway beat Iraq 4-1, Haaland in form, but upcoming match against Senegal is crucial",
-            "dims": {
-              "form_outlook": 0.5,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.5,
-              "motivation": 0.5
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.279,
-            0.3094,
-            0.4116
-          ],
-          "calibrated": [
-            0.2688,
-            0.3143,
-            0.4169
-          ]
-        }
-      }
+      "model_pick": "D"
     },
     {
       "date": "2026-06-30",
@@ -2984,185 +2450,7 @@
           0.258
         ]
       },
-      "model_pick": "A",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 0.894,
-          "away": 1.166
-        },
-        "log_lambda": {
-          "home": -0.11226812460269554,
-          "away": 0.15346800360595225
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.5840535071919988,
-            "opp_defence": -0.7702372164978866,
-            "home_adv": 0.0,
-            "features": 0.027571107894663202
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.7280255116396032,
-            "opp_defence": -0.5564331831740014,
-            "home_adv": 0.0,
-            "features": -0.06446880166817859
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.1025875841840525,
-            "x_away": -0.1025875841840525,
-            "contrib_home": 0.019392804273621233,
-            "contrib_away": -0.019392804273621233,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.4428767355173602,
-            "x_away": 0.4428767355173602,
-            "contrib_home": -0.01844884688675769,
-            "contrib_away": -0.01844884688675769,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": 0.0028050623296127924,
-            "x_away": -0.0028050623296127924,
-            "contrib_home": -0.00015810293713422487,
-            "contrib_away": 0.00015810293713422487,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": 0.10689038248492139,
-            "x_away": -0.10689038248492139,
-            "contrib_home": 0.02663314404279494,
-            "contrib_away": -0.02663314404279494,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0027397260273972603,
-            "x_away": -0.0027397260273972603,
-            "contrib_home": 0.000152109402138944,
-            "contrib_away": -0.000152109402138944,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 0,
-            "a": 1,
-            "p": 0.1422
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1393
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.1339
-          },
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1076
-          },
-          {
-            "h": 0,
-            "a": 2,
-            "p": 0.0866
-          },
-          {
-            "h": 1,
-            "a": 2,
-            "p": 0.0774
-          }
-        ],
-        "raw_probs": {
-          "home": 0.2738,
-          "draw": 0.312,
-          "away": 0.4141
-        },
-        "glicko": {
-          "home": {
-            "rating": 1757,
-            "rd": 76,
-            "intel_points": 1.5
-          },
-          "away": {
-            "rating": 1715,
-            "rd": 79,
-            "intel_points": 2.4
-          },
-          "home_expected": 0.558
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.084,
-            "gd_ewma": 0.95,
-            "idle_days": 6
-          },
-          "away": {
-            "resid_ewma": 0.081,
-            "gd_ewma": 0.52,
-            "idle_days": 5
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.01,
-            "confidence": 0.2,
-            "summary": "Mexico hosts Czechia, no significant player or coach info",
-            "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.5
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.016,
-            "confidence": 0.2,
-            "summary": "Ecuador needs a win, recent draw with Curaçao",
-            "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": -0.2,
-              "motivation": 1.0
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.2738,
-            0.312,
-            0.4141
-          ],
-          "calibrated": [
-            0.2632,
-            0.3172,
-            0.4197
-          ]
-        }
-      }
+      "model_pick": "A"
     },
     {
       "date": "2026-06-30",
@@ -3194,185 +2482,7 @@
           0.088
         ]
       },
-      "model_pick": "D",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 1.661,
-          "away": 0.509
-        },
-        "log_lambda": {
-          "home": 0.5072983451657016,
-          "away": -0.6749201157781224
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.6304208755504488,
-            "opp_defence": -0.30280129931334826,
-            "home_adv": 0.0,
-            "features": 0.13333429212007197
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.2712000042127227,
-            "opp_defence": -0.821780859686654,
-            "home_adv": 0.0,
-            "features": -0.17068373711272009
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.49724775054610065,
-            "x_away": -0.49724775054610065,
-            "contrib_home": 0.09399800549487936,
-            "contrib_away": -0.09399800549487936,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.4482990284775534,
-            "x_away": 0.4482990284775534,
-            "contrib_home": -0.01867472249632406,
-            "contrib_away": -0.01867472249632406,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": -0.10264256872096426,
-            "x_away": 0.10264256872096426,
-            "contrib_home": 0.0057852873422695305,
-            "contrib_away": -0.0057852873422695305,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": 0.2096045201259304,
-            "x_away": -0.2096045201259304,
-            "contrib_home": 0.052225721779247135,
-            "contrib_away": -0.052225721779247135,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0,
-            "x_away": -0.0,
-            "contrib_home": 0.0,
-            "contrib_away": -0.0,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.185
-          },
-          {
-            "h": 2,
-            "a": 0,
-            "p": 0.1575
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.1188
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1012
-          },
-          {
-            "h": 3,
-            "a": 0,
-            "p": 0.0872
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0802
-          }
-        ],
-        "raw_probs": {
-          "home": 0.6528,
-          "draw": 0.2425,
-          "away": 0.1047
-        },
-        "glicko": {
-          "home": {
-            "rating": 1822,
-            "rd": 81,
-            "intel_points": -0.3
-          },
-          "away": {
-            "rating": 1601,
-            "rd": 76,
-            "intel_points": 21.6
-          },
-          "home_expected": 0.775
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": -0.01,
-            "gd_ewma": 1.44,
-            "idle_days": 3
-          },
-          "away": {
-            "resid_ewma": 0.093,
-            "gd_ewma": 0.6,
-            "idle_days": 3
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": -0.002,
-            "confidence": 0.4,
-            "summary": "England has some experienced players, but injuries and coach uncertainty are concerns",
-            "dims": {
-              "form_outlook": 0.1,
-              "availability": -0.2,
-              "coach_stability": -0.5,
-              "morale": 0.0,
-              "motivation": 0.5
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.144,
-            "confidence": 0.6,
-            "summary": "DR Congo has a must-win match, showed encouraging signs against Portugal, and has a passionate message from the President",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.5,
-              "motivation": 1.0
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.6528,
-            0.2425,
-            0.1047
-          ],
-          "calibrated": [
-            0.6816,
-            0.2319,
-            0.0865
-          ]
-        }
-      }
+      "model_pick": "D"
     },
     {
       "date": "2026-06-30",
@@ -3404,185 +2514,7 @@
           0.266
         ]
       },
-      "model_pick": "H",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 1.217,
-          "away": 0.967
-        },
-        "log_lambda": {
-          "home": 0.196048692272571,
-          "away": -0.03399208948332581
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.7412450886157762,
-            "opp_defence": -0.5974404102252884,
-            "home_adv": 0.0,
-            "features": 0.0058995370735541106
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.3860810313339472,
-            "opp_defence": -0.4238647886343471,
-            "home_adv": 0.0,
-            "features": -0.04255280899145496
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.016541715649449316,
-            "x_away": -0.016541715649449316,
-            "contrib_home": 0.003126989064915865,
-            "contrib_away": -0.003126989064915865,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.4399429816039555,
-            "x_away": 0.4399429816039555,
-            "contrib_home": -0.018326635958950423,
-            "contrib_away": -0.018326635958950423,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": 0.08918291382591279,
-            "x_away": -0.08918291382591279,
-            "contrib_home": -0.005026655011980301,
-            "contrib_away": 0.005026655011980301,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": 0.10485434677852379,
-            "x_away": -0.10485434677852379,
-            "contrib_home": 0.02612583897956897,
-            "contrib_away": -0.02612583897956897,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0,
-            "x_away": -0.0,
-            "contrib_home": 0.0,
-            "contrib_away": -0.0,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1389
-          },
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1307
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.1191
-          },
-          {
-            "h": 0,
-            "a": 1,
-            "p": 0.1025
-          },
-          {
-            "h": 2,
-            "a": 0,
-            "p": 0.0834
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0806
-          }
-        ],
-        "raw_probs": {
-          "home": 0.4118,
-          "draw": 0.3024,
-          "away": 0.2859
-        },
-        "glicko": {
-          "home": {
-            "rating": 1711,
-            "rd": 78,
-            "intel_points": 19.8
-          },
-          "away": {
-            "rating": 1714,
-            "rd": 76,
-            "intel_points": 10.8
-          },
-          "home_expected": 0.497
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.045,
-            "gd_ewma": 1.48,
-            "idle_days": 4
-          },
-          "away": {
-            "resid_ewma": -0.044,
-            "gd_ewma": 1.06,
-            "idle_days": 4
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.132,
-            "confidence": 0.6,
-            "summary": "Belgium has a fully fit squad, but Jérémy Doku is ruled out due to illness. Romelu Lukaku may start after coming off the bench with immediate effect against Egypt.",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.0,
-              "coach_stability": 0.5,
-              "morale": 0.3,
-              "motivation": 0.5
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.072,
-            "confidence": 0.4,
-            "summary": "Senegal has skilled players, but their performance against France was underwhelming. They have a crucial match against Norway.",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.1,
-              "motivation": 0.8
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.4118,
-            0.3024,
-            0.2859
-          ],
-          "calibrated": [
-            0.4173,
-            0.3063,
-            0.2764
-          ]
-        }
-      }
+      "model_pick": "H"
     },
     {
       "date": "2026-06-30",
@@ -3614,185 +2546,7 @@
           0.106
         ]
       },
-      "model_pick": "A",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 1.406,
-          "away": 0.923
-        },
-        "log_lambda": {
-          "home": 0.34086315552666147,
-          "away": -0.08039046563945848
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.8204154296692986,
-            "opp_defence": -0.6645818760696655,
-            "home_adv": 0.0,
-            "features": 0.1386851251184993
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.4902359814302315,
-            "opp_defence": -0.4408842861727827,
-            "home_adv": 0.0,
-            "features": -0.17608663770543634
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.40617509274355595,
-            "x_away": -0.40617509274355595,
-            "contrib_home": 0.0767819433223403,
-            "contrib_away": -0.0767819433223403,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.4489239869458649,
-            "x_away": 0.4489239869458649,
-            "contrib_home": -0.018700756293468523,
-            "contrib_away": -0.018700756293468523,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": -0.09775070527068286,
-            "x_away": 0.09775070527068286,
-            "contrib_home": 0.005509565134108895,
-            "contrib_away": -0.005509565134108895,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": 0.3013863565932325,
-            "x_away": -0.3013863565932325,
-            "contrib_home": 0.07509437295551862,
-            "contrib_away": -0.07509437295551862,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0,
-            "x_away": -0.0,
-            "contrib_home": 0.0,
-            "contrib_away": -0.0,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1325
-          },
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1309
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.1035
-          },
-          {
-            "h": 2,
-            "a": 0,
-            "p": 0.0963
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0889
-          },
-          {
-            "h": 0,
-            "a": 1,
-            "p": 0.0838
-          }
-        ],
-        "raw_probs": {
-          "home": 0.4758,
-          "draw": 0.2834,
-          "away": 0.2408
-        },
-        "glicko": {
-          "home": {
-            "rating": 1744,
-            "rd": 79,
-            "intel_points": 17.7
-          },
-          "away": {
-            "rating": 1606,
-            "rd": 78,
-            "intel_points": -6.3
-          },
-          "home_expected": 0.684
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.048,
-            "gd_ewma": 1.29,
-            "idle_days": 5
-          },
-          "away": {
-            "resid_ewma": 0.146,
-            "gd_ewma": 0.09,
-            "idle_days": 5
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.118,
-            "confidence": 0.4,
-            "summary": "Germany not ultra-impressive, but heavy favorites",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.5,
-              "coach_stability": 0.0,
-              "morale": 0.3,
-              "motivation": 0.5
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": -0.042,
-            "confidence": 0.6,
-            "summary": "Paraguay among weakest teams to make knockouts, struggled in group phase",
-            "dims": {
-              "form_outlook": -0.2,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": -0.3,
-              "motivation": 0.5
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.4758,
-            0.2834,
-            0.2408
-          ],
-          "calibrated": [
-            0.4894,
-            0.2836,
-            0.2269
-          ]
-        }
-      }
+      "model_pick": "A"
     },
     {
       "date": "2026-06-30",
@@ -3824,185 +2578,7 @@
           0.098
         ]
       },
-      "model_pick": "D",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 1.743,
-          "away": 0.727
-        },
-        "log_lambda": {
-          "home": 0.5553886473741354,
-          "away": -0.3192666513420873
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.7311410837636996,
-            "opp_defence": -0.4739403705997499,
-            "home_adv": 0.0,
-            "features": 0.25184345740165665
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.5142968033670574,
-            "opp_defence": -0.5916943390257862,
-            "home_adv": 0.0,
-            "features": -0.2882135924918876
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.9699513116773136,
-            "x_away": -0.9699513116773136,
-            "contrib_home": 0.18335626179239342,
-            "contrib_away": -0.18335626179239342,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.4365445384732578,
-            "x_away": 0.4365445384732578,
-            "contrib_home": -0.01818506754511547,
-            "contrib_away": -0.01818506754511547,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": -0.007123466795843136,
-            "x_away": 0.007123466795843136,
-            "contrib_home": 0.000401503029401985,
-            "contrib_away": -0.000401503029401985,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": 0.3468525369875339,
-            "x_away": -0.3468525369875339,
-            "contrib_home": 0.08642286952711566,
-            "contrib_away": -0.08642286952711566,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": -0.0027397260273972603,
-            "x_away": 0.0027397260273972603,
-            "contrib_home": -0.000152109402138944,
-            "contrib_away": 0.000152109402138944,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1423
-          },
-          {
-            "h": 2,
-            "a": 0,
-            "p": 0.1285
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1123
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0934
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.0898
-          },
-          {
-            "h": 3,
-            "a": 0,
-            "p": 0.0747
-          }
-        ],
-        "raw_probs": {
-          "home": 0.6121,
-          "draw": 0.2413,
-          "away": 0.1467
-        },
-        "glicko": {
-          "home": {
-            "rating": 1877,
-            "rd": 78,
-            "intel_points": 40.5
-          },
-          "away": {
-            "rating": 1528,
-            "rd": 75,
-            "intel_points": 1.8
-          },
-          "home_expected": 0.876
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.04,
-            "gd_ewma": 1.44,
-            "idle_days": 4
-          },
-          "away": {
-            "resid_ewma": 0.047,
-            "gd_ewma": 0.05,
-            "idle_days": 5
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.27,
-            "confidence": 0.6,
-            "summary": "France has talented attackers, but coach stability and availability are uncertain",
-            "dims": {
-              "form_outlook": 0.5,
-              "availability": 0.5,
-              "coach_stability": 0.0,
-              "morale": 0.5,
-              "motivation": 0.5
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.012,
-            "confidence": 0.4,
-            "summary": "Sweden suffered heavy losses, but remains in contention",
-            "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": -0.2,
-              "motivation": 0.5
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.6121,
-            0.2413,
-            0.1467
-          ],
-          "calibrated": [
-            0.6397,
-            0.2327,
-            0.1276
-          ]
-        }
-      }
+      "model_pick": "D"
     },
     {
       "date": "2026-07-01",
@@ -6105,420 +4681,6 @@
       }
     },
     {
-      "date": "2026-07-04",
-      "stage": "R16",
-      "home": "Argentina",
-      "away": "Egypt",
-      "home_code": "ar",
-      "away_code": "eg",
-      "venue": null,
-      "status": "scheduled",
-      "kickoff_utc": null,
-      "result": null,
-      "score": null,
-      "model": {
-        "home": 0.671,
-        "draw": 0.251,
-        "away": 0.078
-      },
-      "winner_odds": {
-        "home": 1.35,
-        "draw": 4.8,
-        "away": 7.2,
-        "true": [
-          0.681,
-          0.191,
-          0.128
-        ]
-      },
-      "model_pick": "D",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 1.522,
-          "away": 0.424
-        },
-        "log_lambda": {
-          "home": 0.4203241056227883,
-          "away": -0.8588449762446507
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.8404440488763454,
-            "opp_defence": -0.6583866555802992,
-            "home_adv": 0.0,
-            "features": 0.19192223551821308
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.31924764342622636,
-            "opp_defence": -0.9944511949847901,
-            "home_adv": 0.0,
-            "features": -0.22998590149461606
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.6989698598929078,
-            "x_away": -0.6989698598929078,
-            "contrib_home": 0.1321308596344817,
-            "contrib_away": -0.1321308596344817,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.4568717013298171,
-            "x_away": 0.4568717013298171,
-            "contrib_home": -0.019031832988201495,
-            "contrib_away": -0.019031832988201495,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": 0.0027286166885159627,
-            "x_away": -0.0027286166885159627,
-            "contrib_home": -0.000153794198515149,
-            "contrib_away": 0.000153794198515149,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": 0.31696903873415505,
-            "x_away": -0.31696903873415505,
-            "contrib_home": 0.07897700307044803,
-            "contrib_away": -0.07897700307044803,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0,
-            "x_away": -0.0,
-            "contrib_home": 0.0,
-            "contrib_away": -0.0,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.213
-          },
-          {
-            "h": 2,
-            "a": 0,
-            "p": 0.1655
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.1473
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.0966
-          },
-          {
-            "h": 3,
-            "a": 0,
-            "p": 0.084
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0701
-          }
-        ],
-        "raw_probs": {
-          "home": 0.6442,
-          "draw": 0.2598,
-          "away": 0.096
-        },
-        "glicko": {
-          "home": {
-            "rating": 1944,
-            "rd": 85,
-            "intel_points": 32.9
-          },
-          "away": {
-            "rating": 1663,
-            "rd": 74,
-            "intel_points": 34.7
-          },
-          "home_expected": 0.829
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.045,
-            "gd_ewma": 1.85,
-            "idle_days": 1
-          },
-          "away": {
-            "resid_ewma": 0.042,
-            "gd_ewma": 0.58,
-            "idle_days": 1
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.219,
-            "confidence": 0.6,
-            "summary": "Argentina struggled against Cape Verde, needing extra time to win, but Messi's magic helped them progress",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.5,
-              "coach_stability": 0.5,
-              "morale": 0.5,
-              "motivation": 0.5
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.231,
-            "confidence": 0.6,
-            "summary": "Egypt beat Australia on penalties, Mohamed Salah scored a Panenka penalty, team morale and motivation boosted by the win",
-            "dims": {
-              "form_outlook": 0.5,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.8,
-              "motivation": 0.8
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.6442,
-            0.2598,
-            0.096
-          ],
-          "calibrated": [
-            0.6712,
-            0.2505,
-            0.0783
-          ]
-        }
-      }
-    },
-    {
-      "date": "2026-07-04",
-      "stage": "R16",
-      "home": "Switzerland",
-      "away": "Colombia",
-      "home_code": "ch",
-      "away_code": "co",
-      "venue": null,
-      "status": "scheduled",
-      "kickoff_utc": null,
-      "result": null,
-      "score": null,
-      "model": {
-        "home": 0.144,
-        "draw": 0.258,
-        "away": 0.598
-      },
-      "winner_odds": {
-        "home": 3.65,
-        "draw": 2.95,
-        "away": 2.1,
-        "true": [
-          0.252,
-          0.311,
-          0.437
-        ]
-      },
-      "model_pick": "A",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 0.714,
-          "away": 1.572
-        },
-        "log_lambda": {
-          "home": -0.33657359546575677,
-          "away": 0.4523968879421837
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.5889378902105773,
-            "opp_defence": -0.8928534270244748,
-            "home_adv": 0.0,
-            "features": -0.07900253546038831
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.833242056821132,
-            "opp_defence": -0.46984929763731675,
-            "home_adv": 0.0,
-            "features": 0.04265965194983943
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": -0.3360762252130655,
-            "x_away": 0.3360762252130655,
-            "contrib_home": -0.0635306943663031,
-            "contrib_away": 0.0635306943663031,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.4362174424026641,
-            "x_away": 0.4362174424026641,
-            "contrib_home": -0.018171441755274433,
-            "contrib_away": -0.018171441755274433,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": 0.04906405186979642,
-            "x_away": -0.04906405186979642,
-            "contrib_home": -0.0027654183033400054,
-            "contrib_away": 0.0027654183033400054,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": 0.021323015199376294,
-            "x_away": -0.021323015199376294,
-            "contrib_home": 0.0053129095623902925,
-            "contrib_away": -0.0053129095623902925,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": 0.0027397260273972603,
-            "x_away": -0.0027397260273972603,
-            "contrib_home": 0.000152109402138944,
-            "contrib_away": -0.000152109402138944,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 0,
-            "a": 1,
-            "p": 0.1543
-          },
-          {
-            "h": 0,
-            "a": 2,
-            "p": 0.1256
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1196
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.1071
-          },
-          {
-            "h": 1,
-            "a": 2,
-            "p": 0.0897
-          },
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.0671
-          }
-        ],
-        "raw_probs": {
-          "home": 0.163,
-          "draw": 0.2631,
-          "away": 0.5739
-        },
-        "glicko": {
-          "home": {
-            "rating": 1712,
-            "rd": 75,
-            "intel_points": 0.0
-          },
-          "away": {
-            "rating": 1815,
-            "rd": 78,
-            "intel_points": 31.1
-          },
-          "home_expected": 0.359
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": 0.09,
-            "gd_ewma": 1.09,
-            "idle_days": 2
-          },
-          "away": {
-            "resid_ewma": 0.041,
-            "gd_ewma": 1.0,
-            "idle_days": 1
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "No relevant performance data, only mentions of upcoming matches",
-            "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.207,
-            "confidence": 0.6,
-            "summary": "Colombia beat Ghana 1-0, advancing to Round of 16",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.5,
-              "coach_stability": 0.0,
-              "morale": 0.5,
-              "motivation": 0.8
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.163,
-            0.2631,
-            0.5739
-          ],
-          "calibrated": [
-            0.1445,
-            0.2578,
-            0.5977
-          ]
-        }
-      }
-    },
-    {
       "date": "2026-07-05",
       "stage": "R16",
       "home": "Mexico",
@@ -7149,6 +5311,426 @@
       }
     },
     {
+      "date": "2026-07-07",
+      "stage": "R16",
+      "home": "Argentina",
+      "away": "Egypt",
+      "home_code": "ar",
+      "away_code": "eg",
+      "venue": null,
+      "status": "final",
+      "kickoff_utc": null,
+      "result": "H",
+      "score": [
+        3,
+        2
+      ],
+      "model": {
+        "home": 0.671,
+        "draw": 0.251,
+        "away": 0.078
+      },
+      "winner_odds": {
+        "home": 1.35,
+        "draw": 4.8,
+        "away": 7.2,
+        "true": [
+          0.681,
+          0.191,
+          0.128
+        ]
+      },
+      "model_pick": "D",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 1.522,
+          "away": 0.424
+        },
+        "log_lambda": {
+          "home": 0.4203241056227883,
+          "away": -0.8588449762446507
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.8404440488763454,
+            "opp_defence": -0.6583866555802992,
+            "home_adv": 0.0,
+            "features": 0.19192223551821308
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.31924764342622636,
+            "opp_defence": -0.9944511949847901,
+            "home_adv": 0.0,
+            "features": -0.22998590149461606
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": 0.6989698598929078,
+            "x_away": -0.6989698598929078,
+            "contrib_home": 0.1321308596344817,
+            "contrib_away": -0.1321308596344817,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.4568717013298171,
+            "x_away": 0.4568717013298171,
+            "contrib_home": -0.019031832988201495,
+            "contrib_away": -0.019031832988201495,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": 0.0027286166885159627,
+            "x_away": -0.0027286166885159627,
+            "contrib_home": -0.000153794198515149,
+            "contrib_away": 0.000153794198515149,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": 0.31696903873415505,
+            "x_away": -0.31696903873415505,
+            "contrib_home": 0.07897700307044803,
+            "contrib_away": -0.07897700307044803,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0,
+            "x_away": -0.0,
+            "contrib_home": 0.0,
+            "contrib_away": -0.0,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.213
+          },
+          {
+            "h": 2,
+            "a": 0,
+            "p": 0.1655
+          },
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.1473
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.0966
+          },
+          {
+            "h": 3,
+            "a": 0,
+            "p": 0.084
+          },
+          {
+            "h": 2,
+            "a": 1,
+            "p": 0.0701
+          }
+        ],
+        "raw_probs": {
+          "home": 0.6442,
+          "draw": 0.2598,
+          "away": 0.096
+        },
+        "glicko": {
+          "home": {
+            "rating": 1944,
+            "rd": 85,
+            "intel_points": 32.9
+          },
+          "away": {
+            "rating": 1663,
+            "rd": 74,
+            "intel_points": 34.7
+          },
+          "home_expected": 0.829
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.045,
+            "gd_ewma": 1.85,
+            "idle_days": 1
+          },
+          "away": {
+            "resid_ewma": 0.042,
+            "gd_ewma": 0.58,
+            "idle_days": 1
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.219,
+            "confidence": 0.6,
+            "summary": "Argentina struggled against Cape Verde, needing extra time to win, but Messi's magic helped them progress",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.5,
+              "coach_stability": 0.5,
+              "morale": 0.5,
+              "motivation": 0.5
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.231,
+            "confidence": 0.6,
+            "summary": "Egypt beat Australia on penalties, Mohamed Salah scored a Panenka penalty, team morale and motivation boosted by the win",
+            "dims": {
+              "form_outlook": 0.5,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.8,
+              "motivation": 0.8
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8862,
+          "raw": [
+            0.6442,
+            0.2598,
+            0.096
+          ],
+          "calibrated": [
+            0.6712,
+            0.2505,
+            0.0783
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-07-07",
+      "stage": "R16",
+      "home": "Switzerland",
+      "away": "Colombia",
+      "home_code": "ch",
+      "away_code": "co",
+      "venue": null,
+      "status": "final",
+      "kickoff_utc": null,
+      "result": "D",
+      "score": [
+        0,
+        0
+      ],
+      "model": {
+        "home": 0.144,
+        "draw": 0.258,
+        "away": 0.598
+      },
+      "winner_odds": {
+        "home": 3.65,
+        "draw": 2.95,
+        "away": 2.1,
+        "true": [
+          0.252,
+          0.311,
+          0.437
+        ]
+      },
+      "model_pick": "A",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 0.714,
+          "away": 1.572
+        },
+        "log_lambda": {
+          "home": -0.33657359546575677,
+          "away": 0.4523968879421837
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.5889378902105773,
+            "opp_defence": -0.8928534270244748,
+            "home_adv": 0.0,
+            "features": -0.07900253546038831
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.833242056821132,
+            "opp_defence": -0.46984929763731675,
+            "home_adv": 0.0,
+            "features": 0.04265965194983943
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": -0.3360762252130655,
+            "x_away": 0.3360762252130655,
+            "contrib_home": -0.0635306943663031,
+            "contrib_away": 0.0635306943663031,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.4362174424026641,
+            "x_away": 0.4362174424026641,
+            "contrib_home": -0.018171441755274433,
+            "contrib_away": -0.018171441755274433,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": 0.04906405186979642,
+            "x_away": -0.04906405186979642,
+            "contrib_home": -0.0027654183033400054,
+            "contrib_away": 0.0027654183033400054,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": 0.021323015199376294,
+            "x_away": -0.021323015199376294,
+            "contrib_home": 0.0053129095623902925,
+            "contrib_away": -0.0053129095623902925,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0027397260273972603,
+            "x_away": -0.0027397260273972603,
+            "contrib_home": 0.000152109402138944,
+            "contrib_away": -0.000152109402138944,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.1543
+          },
+          {
+            "h": 0,
+            "a": 2,
+            "p": 0.1256
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.1196
+          },
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.1071
+          },
+          {
+            "h": 1,
+            "a": 2,
+            "p": 0.0897
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.0671
+          }
+        ],
+        "raw_probs": {
+          "home": 0.163,
+          "draw": 0.2631,
+          "away": 0.5739
+        },
+        "glicko": {
+          "home": {
+            "rating": 1712,
+            "rd": 75,
+            "intel_points": 0.0
+          },
+          "away": {
+            "rating": 1815,
+            "rd": 78,
+            "intel_points": 31.1
+          },
+          "home_expected": 0.359
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.09,
+            "gd_ewma": 1.09,
+            "idle_days": 2
+          },
+          "away": {
+            "resid_ewma": 0.041,
+            "gd_ewma": 1.0,
+            "idle_days": 1
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.0,
+            "confidence": 0.1,
+            "summary": "No relevant performance data, only mentions of upcoming matches",
+            "dims": {
+              "form_outlook": 0.0,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": 0.0,
+              "motivation": 0.0
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.207,
+            "confidence": 0.6,
+            "summary": "Colombia beat Ghana 1-0, advancing to Round of 16",
+            "dims": {
+              "form_outlook": 0.2,
+              "availability": 0.5,
+              "coach_stability": 0.0,
+              "morale": 0.5,
+              "motivation": 0.8
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8862,
+          "raw": [
+            0.163,
+            0.2631,
+            0.5739
+          ],
+          "calibrated": [
+            0.1445,
+            0.2578,
+            0.5977
+          ]
+        }
+      }
+    },
+    {
       "date": "2026-07-09",
       "stage": "QF",
       "home": "France",
@@ -7768,20 +6350,36 @@
           ]
         }
       }
+    },
+    {
+      "date": "2026-07-09",
+      "stage": "QF",
+      "home": "Argentina",
+      "away": "Switzerland",
+      "home_code": "ar",
+      "away_code": "ch",
+      "venue": null,
+      "status": "scheduled",
+      "kickoff_utc": null,
+      "result": null,
+      "score": null,
+      "model": null,
+      "winner_odds": null,
+      "model_pick": null
     }
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-07T22:55:42.363946+00:00",
-    "stale_hours": 0.0,
-    "upcoming_missing_count": 0
+    "stale_hours": 3.5,
+    "upcoming_missing_count": 1
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 94,
-      "n_settled": 92,
+      "n_settled": 94,
       "wins": 45,
-      "hit_rate": 0.4891,
+      "hit_rate": 0.4787,
       "staked": 940.0,
       "returned": 795.5,
       "profit": -144.5,
@@ -7793,6 +6391,40 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-07-07",
+          "home": "Switzerland",
+          "away": "Colombia",
+          "pick": "A",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 2.2,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-07-07",
+          "home": "Argentina",
+          "away": "Egypt",
+          "pick": "D",
+          "result": "H",
+          "score": [
+            3,
+            2
+          ],
+          "stake": 10.0,
+          "odd": 4.6,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
         {
           "date": "2026-07-06",
           "home": "Portugal",
@@ -7843,34 +6475,6 @@
           "profit": 13.5,
           "settled": true,
           "won": true
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Switzerland",
-          "away": "Colombia",
-          "pick": "A",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 2.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Argentina",
-          "away": "Egypt",
-          "pick": "D",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 4.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
         },
         {
           "date": "2026-07-04",
@@ -9390,13 +7994,13 @@
     {
       "player": "model_fundamental",
       "n_bets": 94,
-      "n_settled": 92,
-      "wins": 58,
-      "hit_rate": 0.6304,
+      "n_settled": 94,
+      "wins": 59,
+      "hit_rate": 0.6277,
       "staked": 940.0,
-      "returned": 949.0,
-      "profit": 9.0,
-      "roi": 0.0096,
+      "returned": 962.0,
+      "profit": 22.0,
+      "roi": 0.0234,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -9404,6 +8008,40 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-07-07",
+          "home": "Switzerland",
+          "away": "Colombia",
+          "pick": "A",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 2.2,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-07-07",
+          "home": "Argentina",
+          "away": "Egypt",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            3,
+            2
+          ],
+          "stake": 10.0,
+          "odd": 1.3,
+          "payout": 13.0,
+          "profit": 3.0,
+          "settled": true,
+          "won": true
+        },
         {
           "date": "2026-07-06",
           "home": "Portugal",
@@ -9454,34 +8092,6 @@
           "profit": -10.0,
           "settled": true,
           "won": false
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Switzerland",
-          "away": "Colombia",
-          "pick": "A",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 2.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Argentina",
-          "away": "Egypt",
-          "pick": "H",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 1.3,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
         },
         {
           "date": "2026-07-04",
@@ -11001,13 +9611,13 @@
     {
       "player": "safe",
       "n_bets": 94,
-      "n_settled": 92,
-      "wins": 64,
-      "hit_rate": 0.6957,
+      "n_settled": 94,
+      "wins": 65,
+      "hit_rate": 0.6915,
       "staked": 940.0,
-      "returned": 1009.5,
-      "profit": 69.5,
-      "roi": 0.0739,
+      "returned": 1022.5,
+      "profit": 82.5,
+      "roi": 0.0878,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -11015,6 +9625,40 @@
         "profit": 15.5
       },
       "bets": [
+        {
+          "date": "2026-07-07",
+          "home": "Switzerland",
+          "away": "Colombia",
+          "pick": "A",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 2.2,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-07-07",
+          "home": "Argentina",
+          "away": "Egypt",
+          "pick": "H",
+          "result": "H",
+          "score": [
+            3,
+            2
+          ],
+          "stake": 10.0,
+          "odd": 1.3,
+          "payout": 13.0,
+          "profit": 3.0,
+          "settled": true,
+          "won": true
+        },
         {
           "date": "2026-07-06",
           "home": "Portugal",
@@ -11065,34 +9709,6 @@
           "profit": 13.5,
           "settled": true,
           "won": true
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Switzerland",
-          "away": "Colombia",
-          "pick": "A",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 2.2,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Argentina",
-          "away": "Egypt",
-          "pick": "H",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 1.3,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
         },
         {
           "date": "2026-07-04",
@@ -12612,13 +11228,13 @@
     {
       "player": "tide",
       "n_bets": 94,
-      "n_settled": 92,
-      "wins": 23,
-      "hit_rate": 0.25,
+      "n_settled": 94,
+      "wins": 24,
+      "hit_rate": 0.2553,
       "staked": 940.0,
-      "returned": 952.5,
-      "profit": 12.5,
-      "roi": 0.0133,
+      "returned": 983.5,
+      "profit": 43.5,
+      "roi": 0.0463,
       "best_bet": {
         "match": "Spain v Cape Verde",
         "pick": "Draw",
@@ -12626,6 +11242,40 @@
         "profit": 85.0
       },
       "bets": [
+        {
+          "date": "2026-07-07",
+          "home": "Switzerland",
+          "away": "Colombia",
+          "pick": "D",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 3.1,
+          "payout": 31.0,
+          "profit": 21.0,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-07-07",
+          "home": "Argentina",
+          "away": "Egypt",
+          "pick": "D",
+          "result": "H",
+          "score": [
+            3,
+            2
+          ],
+          "stake": 10.0,
+          "odd": 4.6,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
         {
           "date": "2026-07-06",
           "home": "Portugal",
@@ -12676,34 +11326,6 @@
           "profit": -10.0,
           "settled": true,
           "won": false
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Switzerland",
-          "away": "Colombia",
-          "pick": "D",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 3.1,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Argentina",
-          "away": "Egypt",
-          "pick": "D",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 4.6,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
         },
         {
           "date": "2026-07-04",
@@ -14223,9 +12845,9 @@
     {
       "player": "risk",
       "n_bets": 94,
-      "n_settled": 92,
+      "n_settled": 94,
       "wins": 8,
-      "hit_rate": 0.087,
+      "hit_rate": 0.0851,
       "staked": 940.0,
       "returned": 303.0,
       "profit": -637.0,
@@ -14237,6 +12859,40 @@
         "profit": 38.0
       },
       "bets": [
+        {
+          "date": "2026-07-07",
+          "home": "Switzerland",
+          "away": "Colombia",
+          "pick": "H",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 3.25,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
+        {
+          "date": "2026-07-07",
+          "home": "Argentina",
+          "away": "Egypt",
+          "pick": "A",
+          "result": "H",
+          "score": [
+            3,
+            2
+          ],
+          "stake": 10.0,
+          "odd": 9.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
         {
           "date": "2026-07-06",
           "home": "Portugal",
@@ -14287,34 +12943,6 @@
           "profit": -10.0,
           "settled": true,
           "won": false
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Switzerland",
-          "away": "Colombia",
-          "pick": "H",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 3.25,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Argentina",
-          "away": "Egypt",
-          "pick": "A",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 9.0,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
         },
         {
           "date": "2026-07-04",
@@ -15834,13 +14462,13 @@
     {
       "player": "monkey",
       "n_bets": 94,
-      "n_settled": 92,
-      "wins": 30,
-      "hit_rate": 0.3261,
+      "n_settled": 94,
+      "wins": 31,
+      "hit_rate": 0.3298,
       "staked": 940.0,
-      "returned": 746.0,
-      "profit": -194.0,
-      "roi": -0.2064,
+      "returned": 777.0,
+      "profit": -163.0,
+      "roi": -0.1734,
       "best_bet": {
         "match": "Ecuador v Curaçao",
         "pick": "Draw",
@@ -15848,6 +14476,40 @@
         "profit": 68.0
       },
       "bets": [
+        {
+          "date": "2026-07-07",
+          "home": "Switzerland",
+          "away": "Colombia",
+          "pick": "D",
+          "result": "D",
+          "score": [
+            0,
+            0
+          ],
+          "stake": 10.0,
+          "odd": 3.1,
+          "payout": 31.0,
+          "profit": 21.0,
+          "settled": true,
+          "won": true
+        },
+        {
+          "date": "2026-07-07",
+          "home": "Argentina",
+          "away": "Egypt",
+          "pick": "A",
+          "result": "H",
+          "score": [
+            3,
+            2
+          ],
+          "stake": 10.0,
+          "odd": 9.0,
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
+        },
         {
           "date": "2026-07-06",
           "home": "Portugal",
@@ -15898,34 +14560,6 @@
           "profit": -10.0,
           "settled": true,
           "won": false
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Switzerland",
-          "away": "Colombia",
-          "pick": "D",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 3.1,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
-        },
-        {
-          "date": "2026-07-04",
-          "home": "Argentina",
-          "away": "Egypt",
-          "pick": "A",
-          "result": null,
-          "score": null,
-          "stake": 10.0,
-          "odd": 9.0,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
         },
         {
           "date": "2026-07-04",
@@ -17444,7 +16078,7 @@
     }
   ],
   "bankroll": {
-    "n": 92,
+    "n": 94,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -17537,7 +16171,9 @@
       "2026-07-04",
       "2026-07-05",
       "2026-07-06",
-      "2026-07-06"
+      "2026-07-06",
+      "2026-07-07",
+      "2026-07-07"
     ],
     "series": {
       "model_full": [
@@ -17632,7 +16268,9 @@
         -161.5,
         -148.0,
         -133.0,
-        -124.5
+        -124.5,
+        -134.5,
+        -144.5
       ],
       "model_fundamental": [
         4.0,
@@ -17726,7 +16364,9 @@
         15.5,
         5.5,
         20.5,
-        29.0
+        29.0,
+        32.0,
+        22.0
       ],
       "safe": [
         4.0,
@@ -17820,7 +16460,9 @@
         52.5,
         66.0,
         81.0,
-        89.5
+        89.5,
+        92.5,
+        82.5
       ],
       "tide": [
         -10.0,
@@ -17914,7 +16556,9 @@
         62.5,
         52.5,
         42.5,
-        32.5
+        32.5,
+        22.5,
+        43.5
       ],
       "risk": [
         -10.0,
@@ -18008,7 +16652,9 @@
         -587.0,
         -597.0,
         -607.0,
-        -617.0
+        -617.0,
+        -627.0,
+        -637.0
       ],
       "monkey": [
         4.0,
@@ -18102,7 +16748,9 @@
         -169.0,
         -179.0,
         -164.0,
-        -174.0
+        -174.0,
+        -184.0,
+        -163.0
       ]
     }
   }

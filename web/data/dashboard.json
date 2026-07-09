@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated_at": "2026-07-09T22:01:16.786493Z",
+    "generated_at": "2026-07-09T22:11:23.325271Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-10T14:00:00Z",
-    "ratings_through": "2026-07-07"
+    "ratings_through": "2026-07-09"
   },
   "matches": [
     {
@@ -5560,10 +5560,13 @@
       "home_code": "fr",
       "away_code": "ma",
       "venue": null,
-      "status": "scheduled",
+      "status": "final",
       "kickoff_utc": "2026-07-09T20:00:00Z",
-      "result": null,
-      "score": null,
+      "result": "H",
+      "score": [
+        2,
+        0
+      ],
       "model": {
         "home": 0.335,
         "draw": 0.378,
@@ -6383,16 +6386,16 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-09T19:29:01.342035+00:00",
-    "stale_hours": 2.5,
+    "stale_hours": 2.7,
     "upcoming_missing_count": 0
   },
   "leaderboard": [
     {
       "player": "model_full",
       "n_bets": 98,
-      "n_settled": 94,
+      "n_settled": 95,
       "wins": 45,
-      "hit_rate": 0.4787,
+      "hit_rate": 0.4737,
       "staked": 980.0,
       "returned": 795.5,
       "profit": -184.5,
@@ -6451,14 +6454,17 @@
           "home": "France",
           "away": "Morocco",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 6.4,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-07",
@@ -8063,9 +8069,9 @@
     {
       "player": "model_fundamental",
       "n_bets": 98,
-      "n_settled": 94,
+      "n_settled": 95,
       "wins": 59,
-      "hit_rate": 0.6277,
+      "hit_rate": 0.6211,
       "staked": 980.0,
       "returned": 962.0,
       "profit": -18.0,
@@ -8124,14 +8130,17 @@
           "home": "France",
           "away": "Morocco",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.8,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-07",
@@ -9736,13 +9745,13 @@
     {
       "player": "safe",
       "n_bets": 98,
-      "n_settled": 94,
-      "wins": 65,
-      "hit_rate": 0.6915,
+      "n_settled": 95,
+      "wins": 66,
+      "hit_rate": 0.6947,
       "staked": 980.0,
-      "returned": 1022.5,
-      "profit": 42.5,
-      "roi": 0.0434,
+      "returned": 1037.5,
+      "profit": 57.5,
+      "roi": 0.0587,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -9797,14 +9806,17 @@
           "home": "France",
           "away": "Morocco",
           "pick": "H",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 1.5,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 15.0,
+          "profit": 5.0,
+          "settled": true,
+          "won": true
         },
         {
           "date": "2026-07-07",
@@ -11409,9 +11421,9 @@
     {
       "player": "tide",
       "n_bets": 98,
-      "n_settled": 94,
+      "n_settled": 95,
       "wins": 24,
-      "hit_rate": 0.2553,
+      "hit_rate": 0.2526,
       "staked": 980.0,
       "returned": 983.5,
       "profit": 3.5,
@@ -11470,14 +11482,17 @@
           "home": "France",
           "away": "Morocco",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.8,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-07",
@@ -13082,9 +13097,9 @@
     {
       "player": "risk",
       "n_bets": 98,
-      "n_settled": 94,
+      "n_settled": 95,
       "wins": 8,
-      "hit_rate": 0.0851,
+      "hit_rate": 0.0842,
       "staked": 980.0,
       "returned": 303.0,
       "profit": -677.0,
@@ -13143,14 +13158,17 @@
           "home": "France",
           "away": "Morocco",
           "pick": "A",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 6.4,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-07",
@@ -14755,9 +14773,9 @@
     {
       "player": "monkey",
       "n_bets": 98,
-      "n_settled": 94,
+      "n_settled": 95,
       "wins": 31,
-      "hit_rate": 0.3298,
+      "hit_rate": 0.3263,
       "staked": 980.0,
       "returned": 777.0,
       "profit": -203.0,
@@ -14816,14 +14834,17 @@
           "home": "France",
           "away": "Morocco",
           "pick": "D",
-          "result": null,
-          "score": null,
+          "result": "H",
+          "score": [
+            2,
+            0
+          ],
           "stake": 10.0,
           "odd": 3.8,
-          "payout": null,
-          "profit": null,
-          "settled": false,
-          "won": null
+          "payout": 0.0,
+          "profit": -10.0,
+          "settled": true,
+          "won": false
         },
         {
           "date": "2026-07-07",
@@ -16427,7 +16448,7 @@
     }
   ],
   "bankroll": {
-    "n": 94,
+    "n": 95,
     "labels": [
       "2026-06-11",
       "2026-06-11",
@@ -16522,7 +16543,8 @@
       "2026-07-06",
       "2026-07-06",
       "2026-07-07",
-      "2026-07-07"
+      "2026-07-07",
+      "2026-07-09"
     ],
     "series": {
       "model_full": [
@@ -16619,7 +16641,8 @@
         -133.0,
         -124.5,
         -134.5,
-        -144.5
+        -144.5,
+        -154.5
       ],
       "model_fundamental": [
         4.0,
@@ -16715,7 +16738,8 @@
         20.5,
         29.0,
         32.0,
-        22.0
+        22.0,
+        12.0
       ],
       "safe": [
         4.0,
@@ -16811,7 +16835,8 @@
         81.0,
         89.5,
         92.5,
-        82.5
+        82.5,
+        87.5
       ],
       "tide": [
         -10.0,
@@ -16907,7 +16932,8 @@
         42.5,
         32.5,
         22.5,
-        43.5
+        43.5,
+        33.5
       ],
       "risk": [
         -10.0,
@@ -17003,7 +17029,8 @@
         -607.0,
         -617.0,
         -627.0,
-        -637.0
+        -637.0,
+        -647.0
       ],
       "monkey": [
         4.0,
@@ -17099,7 +17126,8 @@
         -164.0,
         -174.0,
         -184.0,
-        -163.0
+        -163.0,
+        -173.0
       ]
     }
   }

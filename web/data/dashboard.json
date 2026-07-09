@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-08T22:58:57.948175Z",
+    "generated_at": "2026-07-09T02:36:12.974518Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-09T14:00:00Z",
     "ratings_through": "2026-07-07"
@@ -2610,185 +2610,7 @@
           0.113
         ]
       },
-      "model_pick": "H",
-      "breakdown": {
-        "neutral": true,
-        "rho": -0.04813971608415197,
-        "lambda": {
-          "home": 1.902,
-          "away": 0.752
-        },
-        "log_lambda": {
-          "home": 0.6428490413293741,
-          "away": -0.2856692856864172
-        },
-        "components": {
-          "home": {
-            "base": 0.04634447680852906,
-            "attack": 0.7212201816677085,
-            "opp_defence": -0.2543546994635343,
-            "home_adv": 0.0,
-            "features": 0.12963908231667085
-          },
-          "away": {
-            "base": 0.04634447680852906,
-            "attack": 0.3118400261999603,
-            "opp_defence": -0.4775229498784276,
-            "home_adv": 0.0,
-            "features": -0.16633083881647898
-          }
-        },
-        "features": [
-          {
-            "name": "glicko_diff",
-            "weight": 0.1890365625418041,
-            "x_home": 0.6043450384701373,
-            "x_away": -0.6043450384701373,
-            "contrib_home": 0.11424330866158912,
-            "contrib_away": -0.11424330866158912,
-            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
-          },
-          {
-            "name": "rd_sum",
-            "weight": -0.04165684355762354,
-            "x_home": 0.44040490548753136,
-            "x_away": 0.44040490548753136,
-            "contrib_home": -0.018345878249904073,
-            "contrib_away": -0.018345878249904073,
-            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
-          },
-          {
-            "name": "resid_ewma_diff",
-            "weight": -0.056363431024382696,
-            "x_home": -0.18470992087943974,
-            "x_away": 0.18470992087943974,
-            "contrib_home": 0.010410884885007488,
-            "contrib_away": -0.010410884885007488,
-            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
-          },
-          {
-            "name": "gd_ewma_diff",
-            "weight": 0.2491631466147291,
-            "x_home": 0.09424698933678123,
-            "x_away": -0.09424698933678123,
-            "contrib_home": 0.023482876422117233,
-            "contrib_away": -0.023482876422117233,
-            "description": "Recent goal-difference form, (home - away) / 4"
-          },
-          {
-            "name": "idle_days_diff",
-            "weight": 0.05551993178071456,
-            "x_home": -0.0027397260273972603,
-            "x_away": 0.0027397260273972603,
-            "contrib_home": -0.000152109402138944,
-            "contrib_away": 0.000152109402138944,
-            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
-          }
-        ],
-        "scorelines": [
-          {
-            "h": 1,
-            "a": 0,
-            "p": 0.1291
-          },
-          {
-            "h": 2,
-            "a": 0,
-            "p": 0.1273
-          },
-          {
-            "h": 1,
-            "a": 1,
-            "p": 0.1055
-          },
-          {
-            "h": 2,
-            "a": 1,
-            "p": 0.0957
-          },
-          {
-            "h": 3,
-            "a": 0,
-            "p": 0.0807
-          },
-          {
-            "h": 0,
-            "a": 0,
-            "p": 0.0753
-          }
-        ],
-        "raw_probs": {
-          "home": 0.6413,
-          "draw": 0.223,
-          "away": 0.1357
-        },
-        "glicko": {
-          "home": {
-            "rating": 1657,
-            "rd": 73,
-            "intel_points": 0.0
-          },
-          "away": {
-            "rating": 1413,
-            "rd": 81,
-            "intel_points": 2.7
-          },
-          "home_expected": 0.796
-        },
-        "momentum": {
-          "home": {
-            "resid_ewma": -0.042,
-            "gd_ewma": 0.39,
-            "idle_days": 5
-          },
-          "away": {
-            "resid_ewma": 0.143,
-            "gd_ewma": 0.01,
-            "idle_days": 6
-          }
-        },
-        "intel": {
-          "home": {
-            "status": "informed",
-            "composite": 0.0,
-            "confidence": 0.1,
-            "summary": "No relevant performance data",
-            "dims": {
-              "form_outlook": 0.0,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
-            }
-          },
-          "away": {
-            "status": "informed",
-            "composite": 0.018,
-            "confidence": 0.2,
-            "summary": "Edin Dzeko expected to score against Qatar, limited info",
-            "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.0,
-              "coach_stability": 0.0,
-              "morale": 0.0,
-              "motivation": 0.0
-            }
-          }
-        },
-        "calibration": {
-          "temperature": 0.8862,
-          "raw": [
-            0.6413,
-            0.223,
-            0.1357
-          ],
-          "calibrated": [
-            0.6715,
-            0.212,
-            0.1164
-          ]
-        }
-      }
+      "model_pick": "H"
     },
     {
       "date": "2026-07-02",
@@ -4899,7 +4721,7 @@
       "away_code": "be",
       "venue": null,
       "status": "final",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-07T00:00:00Z",
       "result": "A",
       "score": [
         1,
@@ -5109,7 +4931,7 @@
       "away_code": "es",
       "venue": null,
       "status": "final",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-06T19:00:00Z",
       "result": "A",
       "score": [
         0,
@@ -5319,7 +5141,7 @@
       "away_code": "eg",
       "venue": null,
       "status": "final",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-07T16:01:00Z",
       "result": "H",
       "score": [
         3,
@@ -5529,7 +5351,7 @@
       "away_code": "co",
       "venue": null,
       "status": "final",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-07T20:00:00Z",
       "result": "D",
       "score": [
         0,
@@ -6561,7 +6383,7 @@
   ],
   "winner_odds_health": {
     "last_winner_ts": "2026-07-08T22:58:57.921292+00:00",
-    "stale_hours": 0.0,
+    "stale_hours": 3.6,
     "upcoming_missing_count": 0
   },
   "leaderboard": [

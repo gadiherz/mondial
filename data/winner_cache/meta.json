@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-07-12T01:01:07.677Z",
+  "fetched_at": "2026-07-12T02:01:04.767Z",
   "results": {
     "coupon": {
       "http_status": 200,
-      "bytes": 102268,
+      "bytes": 102264,
       "committed": true
     },
     "line": {
       "http_status": 200,
-      "bytes": 761356,
+      "bytes": 761351,
       "committed": true
     }
   }

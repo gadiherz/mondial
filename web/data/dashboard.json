@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-14T15:00:48.911638Z",
+    "generated_at": "2026-07-14T15:18:46.672713Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-15T14:00:00Z",
     "ratings_through": "2026-07-11"
@@ -4269,9 +4269,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.253,
+        "home": 0.254,
         "draw": 0.281,
-        "away": 0.466
+        "away": 0.465
       },
       "winner_odds": {
         "home": 2.1,
@@ -4288,12 +4288,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 1.014,
-          "away": 1.409
+          "home": 1.015,
+          "away": 1.408
         },
         "log_lambda": {
-          "home": 0.013729206376274922,
-          "away": 0.34267238759898094
+          "home": 0.014438093485806686,
+          "away": 0.3419635004894492
         },
         "components": {
           "home": {
@@ -4301,24 +4301,24 @@
             "attack": 0.7311410837636996,
             "opp_defence": -0.7288066836435247,
             "home_adv": 0.0,
-            "features": -0.03494967055242895
+            "features": -0.03424078344289719
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.8902889833154088,
             "opp_defence": -0.5916943390257862,
             "home_adv": 0.0,
-            "features": -0.0022667334991707897
+            "features": -0.0029756206087025554
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": -0.03753738958422673,
-            "x_away": 0.03753738958422673,
-            "contrib_home": -0.007095939093794741,
-            "contrib_away": 0.007095939093794741,
+            "x_home": -0.03378738958422673,
+            "x_away": 0.03378738958422673,
+            "contrib_home": -0.006387051984262976,
+            "contrib_away": 0.006387051984262976,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -4382,29 +4382,29 @@
           {
             "h": 0,
             "a": 2,
-            "p": 0.088
+            "p": 0.0879
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.0838
+            "p": 0.0839
           }
         ],
         "raw_probs": {
-          "home": 0.2649,
+          "home": 0.2653,
           "draw": 0.2807,
-          "away": 0.4544
+          "away": 0.454
         },
         "glicko": {
           "home": {
             "rating": 1911,
             "rd": 76,
-            "intel_points": 33.8
+            "intel_points": 72.0
           },
           "away": {
             "rating": 1943,
             "rd": 81,
-            "intel_points": 17.3
+            "intel_points": 54.1
           },
           "home_expected": 0.456
         },
@@ -4423,42 +4423,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.225,
-            "confidence": 0.6,
-            "summary": "France have great attacking and defensive qualities, but lack midfield craft. They face Spain in the semi-final.",
+            "composite": 0.48,
+            "confidence": 0.8,
+            "summary": "France's star-studded frontline, strong team preparations and motivation for revenge against Spain drive positive outlook",
             "dims": {
-              "form_outlook": 0.2,
-              "availability": 0.5,
-              "coach_stability": 0.5,
-              "morale": 0.3,
+              "form_outlook": 0.6,
+              "availability": 0.8,
+              "coach_stability": -0.2,
+              "morale": 0.7,
               "motivation": 0.8
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.1155,
+            "composite": 0.3605,
             "confidence": 0.7,
-            "summary": "Spain's form is improving with Pedri's finesse and Rodri's leadership, but some key players are missing",
+            "summary": "Spain have a strong defence, Lamine Yamal is in form, and they have momentum, but some injury concerns and a tough opponent in France",
             "dims": {
-              "form_outlook": 0.2,
-              "availability": -0.3,
-              "coach_stability": 0.5,
-              "morale": 0.4,
-              "motivation": 0.6
+              "form_outlook": 0.5,
+              "availability": 0.2,
+              "coach_stability": 0.8,
+              "morale": 0.7,
+              "motivation": 0.9
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.2649,
+            0.2653,
             0.2807,
-            0.4544
+            0.454
           ],
           "calibrated": [
-            0.2533,
-            0.2811,
-            0.4656
+            0.2537,
+            0.2812,
+            0.4651
           ]
         }
       }
@@ -4472,30 +4472,221 @@
       "away_code": "ar",
       "venue": null,
       "status": "scheduled",
-      "kickoff_utc": null,
+      "kickoff_utc": "2026-07-15T19:00:00Z",
       "result": null,
       "score": null,
-      "model": null,
-      "winner_odds": null,
-      "model_pick": null
+      "model": {
+        "home": 0.195,
+        "draw": 0.335,
+        "away": 0.47
+      },
+      "winner_odds": {
+        "home": 2.6,
+        "draw": 2.7,
+        "away": 3.0,
+        "true": [
+          0.353,
+          0.34,
+          0.306
+        ]
+      },
+      "model_pick": "A",
+      "breakdown": {
+        "neutral": true,
+        "rho": -0.04813971608415197,
+        "lambda": {
+          "home": 0.665,
+          "away": 1.124
+        },
+        "log_lambda": {
+          "home": -0.40832894679356485,
+          "away": 0.11716088520120306
+        },
+        "components": {
+          "home": {
+            "base": 0.04634447680852906,
+            "attack": 0.6304208755504488,
+            "opp_defence": -0.9944511949847901,
+            "home_adv": 0.0,
+            "features": -0.0906431041677526
+          },
+          "away": {
+            "base": 0.04634447680852906,
+            "attack": 0.8404440488763454,
+            "opp_defence": -0.821780859686654,
+            "home_adv": 0.0,
+            "features": 0.05215321920298267
+          }
+        },
+        "features": [
+          {
+            "name": "glicko_diff",
+            "weight": 0.1890365625418041,
+            "x_home": -0.23583728446648308,
+            "x_away": 0.23583728446648308,
+            "contrib_home": -0.04458186957473757,
+            "contrib_away": 0.04458186957473757,
+            "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
+          },
+          {
+            "name": "rd_sum",
+            "weight": -0.04165684355762354,
+            "x_home": 0.461987535271692,
+            "x_away": 0.461987535271692,
+            "contrib_home": -0.01924494248238496,
+            "contrib_away": -0.01924494248238496,
+            "description": "Total pre-match rating uncertainty, (home_rd + away_rd) / 350"
+          },
+          {
+            "name": "resid_ewma_diff",
+            "weight": -0.056363431024382696,
+            "x_home": -0.015027396697466291,
+            "x_away": 0.015027396697466291,
+            "contrib_home": 0.0008469956372336776,
+            "contrib_away": -0.0008469956372336776,
+            "description": "Momentum: EWMA result-minus-Glicko-expectation, home - away (positive = home over-performing lately / underrated)"
+          },
+          {
+            "name": "gd_ewma_diff",
+            "weight": 0.2491631466147291,
+            "x_home": -0.11102479689999406,
+            "x_away": 0.11102479689999406,
+            "contrib_home": -0.02766328774786374,
+            "contrib_away": 0.02766328774786374,
+            "description": "Recent goal-difference form, (home - away) / 4"
+          },
+          {
+            "name": "idle_days_diff",
+            "weight": 0.05551993178071456,
+            "x_home": 0.0,
+            "x_away": -0.0,
+            "contrib_home": 0.0,
+            "contrib_away": -0.0,
+            "description": "Rest/rust: (home_idle_days - away_idle_days) / 365"
+          }
+        ],
+        "scorelines": [
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.1819
+          },
+          {
+            "h": 0,
+            "a": 0,
+            "p": 0.1731
+          },
+          {
+            "h": 1,
+            "a": 1,
+            "p": 0.1309
+          },
+          {
+            "h": 0,
+            "a": 2,
+            "p": 0.1056
+          },
+          {
+            "h": 1,
+            "a": 0,
+            "p": 0.1051
+          },
+          {
+            "h": 1,
+            "a": 2,
+            "p": 0.0702
+          }
+        ],
+        "raw_probs": {
+          "home": 0.2108,
+          "draw": 0.3294,
+          "away": 0.4598
+        },
+        "glicko": {
+          "home": {
+            "rating": 1857,
+            "rd": 79,
+            "intel_points": 85.2
+          },
+          "away": {
+            "rating": 1963,
+            "rd": 83,
+            "intel_points": 73.0
+          },
+          "home_expected": 0.356
+        },
+        "momentum": {
+          "home": {
+            "resid_ewma": 0.047,
+            "gd_ewma": 1.37,
+            "idle_days": 3
+          },
+          "away": {
+            "resid_ewma": 0.062,
+            "gd_ewma": 1.81,
+            "idle_days": 3
+          }
+        },
+        "intel": {
+          "home": {
+            "status": "informed",
+            "composite": 0.568,
+            "confidence": 0.8,
+            "summary": "Unity among players, Kane's prolific record, and Bellingham's determination drive England's prospects",
+            "dims": {
+              "form_outlook": 0.6,
+              "availability": 0.8,
+              "coach_stability": 0.7,
+              "morale": 0.8,
+              "motivation": 0.9
+            }
+          },
+          "away": {
+            "status": "informed",
+            "composite": 0.4865,
+            "confidence": 0.7,
+            "summary": "Messi's exceptional form and experience drive Argentina's chances, despite some defensive concerns",
+            "dims": {
+              "form_outlook": 0.8,
+              "availability": 0.5,
+              "coach_stability": 0.5,
+              "morale": 0.7,
+              "motivation": 0.9
+            }
+          }
+        },
+        "calibration": {
+          "temperature": 0.8862,
+          "raw": [
+            0.2108,
+            0.3294,
+            0.4598
+          ],
+          "calibrated": [
+            0.1948,
+            0.3354,
+            0.4698
+          ]
+        }
+      }
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-14T15:00:48.888066+00:00",
+    "last_winner_ts": "2026-07-14T15:18:24.784392+00:00",
     "stale_hours": 0.0,
-    "upcoming_missing_count": 1
+    "upcoming_missing_count": 0
   },
   "leaderboard": [
     {
       "player": "model_full",
-      "n_bets": 99,
+      "n_bets": 100,
       "n_settled": 98,
       "wins": 47,
       "hit_rate": 0.4796,
-      "staked": 990.0,
+      "staked": 1000.0,
       "returned": 827.5,
-      "profit": -162.5,
-      "roi": -0.1641,
+      "profit": -172.5,
+      "roi": -0.1725,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -4503,6 +4694,20 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-07-14",
+          "home": "England",
+          "away": "Argentina",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.0,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "France",
@@ -6187,14 +6392,14 @@
     },
     {
       "player": "model_fundamental",
-      "n_bets": 99,
+      "n_bets": 100,
       "n_settled": 98,
       "wins": 62,
       "hit_rate": 0.6327,
-      "staked": 990.0,
+      "staked": 1000.0,
       "returned": 1012.0,
-      "profit": 22.0,
-      "roi": 0.0222,
+      "profit": 12.0,
+      "roi": 0.012,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -6202,6 +6407,20 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-07-14",
+          "home": "England",
+          "away": "Argentina",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.7,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "France",
@@ -7886,14 +8105,14 @@
     },
     {
       "player": "safe",
-      "n_bets": 99,
+      "n_bets": 100,
       "n_settled": 98,
       "wins": 69,
       "hit_rate": 0.7041,
-      "staked": 990.0,
+      "staked": 1000.0,
       "returned": 1087.5,
-      "profit": 97.5,
-      "roi": 0.0985,
+      "profit": 87.5,
+      "roi": 0.0875,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -7901,6 +8120,20 @@
         "profit": 15.5
       },
       "bets": [
+        {
+          "date": "2026-07-14",
+          "home": "England",
+          "away": "Argentina",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.6,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "France",
@@ -9585,14 +9818,14 @@
     },
     {
       "player": "tide",
-      "n_bets": 99,
+      "n_bets": 100,
       "n_settled": 98,
       "wins": 24,
       "hit_rate": 0.2449,
-      "staked": 990.0,
+      "staked": 1000.0,
       "returned": 983.5,
-      "profit": -6.5,
-      "roi": -0.0066,
+      "profit": -16.5,
+      "roi": -0.0165,
       "best_bet": {
         "match": "Spain v Cape Verde",
         "pick": "Draw",
@@ -9600,6 +9833,20 @@
         "profit": 85.0
       },
       "bets": [
+        {
+          "date": "2026-07-14",
+          "home": "England",
+          "away": "Argentina",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.7,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "France",
@@ -11284,14 +11531,14 @@
     },
     {
       "player": "risk",
-      "n_bets": 99,
+      "n_bets": 100,
       "n_settled": 98,
       "wins": 8,
       "hit_rate": 0.0816,
-      "staked": 990.0,
+      "staked": 1000.0,
       "returned": 303.0,
-      "profit": -687.0,
-      "roi": -0.6939,
+      "profit": -697.0,
+      "roi": -0.697,
       "best_bet": {
         "match": "South Africa v South Korea",
         "pick": "South Africa",
@@ -11299,6 +11546,20 @@
         "profit": 38.0
       },
       "bets": [
+        {
+          "date": "2026-07-14",
+          "home": "England",
+          "away": "Argentina",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.0,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "France",
@@ -12983,14 +13244,14 @@
     },
     {
       "player": "monkey",
-      "n_bets": 99,
+      "n_bets": 100,
       "n_settled": 98,
       "wins": 33,
       "hit_rate": 0.3367,
-      "staked": 990.0,
+      "staked": 1000.0,
       "returned": 810.5,
-      "profit": -179.5,
-      "roi": -0.1813,
+      "profit": -189.5,
+      "roi": -0.1895,
       "best_bet": {
         "match": "Ecuador v Curaçao",
         "pick": "Draw",
@@ -12998,6 +13259,20 @@
         "profit": 68.0
       },
       "bets": [
+        {
+          "date": "2026-07-14",
+          "home": "England",
+          "away": "Argentina",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.0,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "France",

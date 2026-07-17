@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-07-17T13:19:52.023583Z",
+    "generated_at": "2026-07-17T15:07:42.417641Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
-    "next_scrape_utc": "2026-07-17T14:00:00Z",
+    "next_scrape_utc": "2026-07-18T14:00:00Z",
     "ratings_through": "2026-07-14"
   },
   "matches": [
@@ -3977,9 +3977,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.311,
-        "draw": 0.327,
-        "away": 0.362
+        "home": 0.317,
+        "draw": 0.328,
+        "away": 0.355
       },
       "winner_odds": {
         "home": 1.85,
@@ -3996,12 +3996,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 0.959,
-          "away": 1.048
+          "home": 0.97,
+          "away": 1.035
         },
         "log_lambda": {
-          "home": -0.041729371338089245,
-          "away": 0.04645147140238842
+          "home": -0.030103622741768227,
+          "away": 0.03482572280606741
         },
         "components": {
           "home": {
@@ -4009,24 +4009,24 @@
             "attack": 0.7311410837636996,
             "opp_defence": -0.821780859686654,
             "home_adv": 0.0,
-            "features": 0.0025659277763361793
+            "features": 0.014191676372657197
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.6304208755504488,
             "opp_defence": -0.5916943390257862,
             "home_adv": 0.0,
-            "features": -0.03861954193080325
+            "features": -0.05024529052712426
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": 0.08069386744377084,
-            "x_away": -0.08069386744377084,
-            "contrib_home": 0.015254091319774435,
-            "contrib_away": -0.015254091319774435,
+            "x_home": 0.1421938674437712,
+            "x_away": -0.1421938674437712,
+            "contrib_home": 0.026879839916095452,
+            "contrib_away": -0.026879839916095452,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -4070,49 +4070,49 @@
           {
             "h": 1,
             "a": 1,
-            "p": 0.1416
+            "p": 0.1417
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.1409
+            "p": 0.1411
           },
           {
             "h": 0,
             "a": 1,
-            "p": 0.1343
+            "p": 0.1328
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.1224
+            "p": 0.1241
           },
           {
             "h": 0,
             "a": 2,
-            "p": 0.0738
+            "p": 0.0721
           },
           {
             "h": 1,
             "a": 2,
-            "p": 0.0707
+            "p": 0.07
           }
         ],
         "raw_probs": {
-          "home": 0.3166,
-          "draw": 0.3205,
-          "away": 0.3629
+          "home": 0.3226,
+          "draw": 0.3208,
+          "away": 0.3566
         },
         "glicko": {
           "home": {
             "rating": 1890,
             "rd": 74,
-            "intel_points": 72.0
+            "intel_points": 0.0
           },
           "away": {
             "rating": 1845,
             "rd": 78,
-            "intel_points": 85.2
+            "intel_points": -11.4
           },
           "home_expected": 0.563
         },
@@ -4131,42 +4131,42 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.48,
-            "confidence": 0.8,
-            "summary": "France's star-studded frontline, strong team preparations and motivation for revenge against Spain drive positive outlook",
+            "composite": 0.0,
+            "confidence": 0.2,
+            "summary": "France lost to Spain in semi-finals, faces England in third-place playoff",
             "dims": {
-              "form_outlook": 0.6,
-              "availability": 0.8,
-              "coach_stability": -0.2,
-              "morale": 0.7,
-              "motivation": 0.8
+              "form_outlook": 0.0,
+              "availability": 0.0,
+              "coach_stability": 0.0,
+              "morale": -0.2,
+              "motivation": 0.2
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.568,
-            "confidence": 0.8,
-            "summary": "Unity among players, Kane's prolific record, and Bellingham's determination drive England's prospects",
+            "composite": -0.076,
+            "confidence": 0.4,
+            "summary": "England's recent performance has been underwhelming, with the team being 'staggeringly lucky' to advance and eventually losing to Argentina, amidst a backdrop of violence and controversy.",
             "dims": {
-              "form_outlook": 0.6,
-              "availability": 0.8,
-              "coach_stability": 0.7,
-              "morale": 0.8,
-              "motivation": 0.9
+              "form_outlook": -0.2,
+              "availability": 0.0,
+              "coach_stability": -0.5,
+              "morale": -0.5,
+              "motivation": 0.0
             }
           }
         },
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.3166,
-            0.3205,
-            0.3629
+            0.3226,
+            0.3208,
+            0.3566
           ],
           "calibrated": [
-            0.3105,
-            0.3274,
-            0.3621
+            0.3171,
+            0.3277,
+            0.3551
           ]
         }
       }
@@ -4380,8 +4380,8 @@
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-17T11:18:15.392648+00:00",
-    "stale_hours": 2.0,
+    "last_winner_ts": "2026-07-17T15:07:32.732302+00:00",
+    "stale_hours": 0.0,
     "upcoming_missing_count": 0
   },
   "leaderboard": [

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-18T02:04:45.913348Z",
+    "generated_at": "2026-07-18T07:40:11.947990Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-18T14:00:00Z",
     "ratings_through": "2026-07-14"
@@ -4380,21 +4380,21 @@
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-17T22:42:37.146915+00:00",
-    "stale_hours": 3.4,
+    "last_winner_ts": "2026-07-18T07:40:11.879592+00:00",
+    "stale_hours": 0.0,
     "upcoming_missing_count": 0
   },
   "leaderboard": [
     {
       "player": "model_full",
-      "n_bets": 100,
+      "n_bets": 101,
       "n_settled": 100,
       "wins": 49,
       "hit_rate": 0.49,
-      "staked": 1000.0,
+      "staked": 1010.0,
       "returned": 891.0,
-      "profit": -109.0,
-      "roi": -0.109,
+      "profit": -119.0,
+      "roi": -0.1178,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -4402,6 +4402,20 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-07-18",
+          "home": "France",
+          "away": "England",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.6,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "England",
@@ -6106,14 +6120,14 @@
     },
     {
       "player": "model_fundamental",
-      "n_bets": 100,
+      "n_bets": 101,
       "n_settled": 100,
       "wins": 63,
       "hit_rate": 0.63,
-      "staked": 1000.0,
+      "staked": 1010.0,
       "returned": 1045.5,
-      "profit": 45.5,
-      "roi": 0.0455,
+      "profit": 35.5,
+      "roi": 0.0351,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -6121,6 +6135,20 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-07-18",
+          "home": "France",
+          "away": "England",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.7,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "England",
@@ -7825,14 +7853,14 @@
     },
     {
       "player": "safe",
-      "n_bets": 100,
+      "n_bets": 101,
       "n_settled": 100,
       "wins": 69,
       "hit_rate": 0.69,
-      "staked": 1000.0,
+      "staked": 1010.0,
       "returned": 1087.5,
-      "profit": 87.5,
-      "roi": 0.0875,
+      "profit": 77.5,
+      "roi": 0.0767,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -7840,6 +7868,20 @@
         "profit": 15.5
       },
       "bets": [
+        {
+          "date": "2026-07-18",
+          "home": "France",
+          "away": "England",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 1.85,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "England",
@@ -9544,14 +9586,14 @@
     },
     {
       "player": "tide",
-      "n_bets": 100,
+      "n_bets": 101,
       "n_settled": 100,
       "wins": 24,
       "hit_rate": 0.24,
-      "staked": 1000.0,
+      "staked": 1010.0,
       "returned": 983.5,
-      "profit": -16.5,
-      "roi": -0.0165,
+      "profit": -26.5,
+      "roi": -0.0262,
       "best_bet": {
         "match": "Spain v Cape Verde",
         "pick": "Draw",
@@ -9559,6 +9601,20 @@
         "profit": 85.0
       },
       "bets": [
+        {
+          "date": "2026-07-18",
+          "home": "France",
+          "away": "England",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.7,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "England",
@@ -11263,14 +11319,14 @@
     },
     {
       "player": "risk",
-      "n_bets": 100,
+      "n_bets": 101,
       "n_settled": 100,
       "wins": 10,
       "hit_rate": 0.1,
-      "staked": 1000.0,
+      "staked": 1010.0,
       "returned": 366.5,
-      "profit": -633.5,
-      "roi": -0.6335,
+      "profit": -643.5,
+      "roi": -0.6371,
       "best_bet": {
         "match": "South Africa v South Korea",
         "pick": "South Africa",
@@ -11278,6 +11334,20 @@
         "profit": 38.0
       },
       "bets": [
+        {
+          "date": "2026-07-18",
+          "home": "France",
+          "away": "England",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.7,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "England",
@@ -12982,14 +13052,14 @@
     },
     {
       "player": "monkey",
-      "n_bets": 100,
+      "n_bets": 101,
       "n_settled": 100,
       "wins": 35,
       "hit_rate": 0.35,
-      "staked": 1000.0,
+      "staked": 1010.0,
       "returned": 874.0,
-      "profit": -126.0,
-      "roi": -0.126,
+      "profit": -136.0,
+      "roi": -0.1347,
       "best_bet": {
         "match": "Ecuador v Curaçao",
         "pick": "Draw",
@@ -12997,6 +13067,20 @@
         "profit": 68.0
       },
       "bets": [
+        {
+          "date": "2026-07-18",
+          "home": "France",
+          "away": "England",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.6,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-14",
           "home": "England",

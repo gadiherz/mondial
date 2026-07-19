@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-19T02:21:33.051739Z",
+    "generated_at": "2026-07-19T08:06:15.515289Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
     "next_scrape_utc": "2026-07-19T14:00:00Z",
     "ratings_through": "2026-07-18"
@@ -4027,21 +4027,21 @@
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-18T22:42:49.148275+00:00",
-    "stale_hours": 3.6,
+    "last_winner_ts": "2026-07-19T08:06:15.442153+00:00",
+    "stale_hours": 0.0,
     "upcoming_missing_count": 0
   },
   "leaderboard": [
     {
       "player": "model_full",
-      "n_bets": 101,
+      "n_bets": 102,
       "n_settled": 101,
       "wins": 50,
       "hit_rate": 0.495,
-      "staked": 1010.0,
+      "staked": 1020.0,
       "returned": 927.0,
-      "profit": -83.0,
-      "roi": -0.0822,
+      "profit": -93.0,
+      "roi": -0.0912,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -4049,6 +4049,20 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-07-19",
+          "home": "Spain",
+          "away": "Argentina",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-18",
           "home": "France",
@@ -5770,14 +5784,14 @@
     },
     {
       "player": "model_fundamental",
-      "n_bets": 101,
+      "n_bets": 102,
       "n_settled": 101,
       "wins": 63,
       "hit_rate": 0.6238,
-      "staked": 1010.0,
+      "staked": 1020.0,
       "returned": 1045.5,
-      "profit": 35.5,
-      "roi": 0.0351,
+      "profit": 25.5,
+      "roi": 0.025,
       "best_bet": {
         "match": "Australia v Turkey",
         "pick": "Australia",
@@ -5785,6 +5799,20 @@
         "profit": 33.0
       },
       "bets": [
+        {
+          "date": "2026-07-19",
+          "home": "Spain",
+          "away": "Argentina",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-18",
           "home": "France",
@@ -7506,14 +7534,14 @@
     },
     {
       "player": "safe",
-      "n_bets": 101,
+      "n_bets": 102,
       "n_settled": 101,
       "wins": 69,
       "hit_rate": 0.6832,
-      "staked": 1010.0,
+      "staked": 1020.0,
       "returned": 1087.5,
-      "profit": 77.5,
-      "roi": 0.0767,
+      "profit": 67.5,
+      "roi": 0.0662,
       "best_bet": {
         "match": "South Korea v Czech Republic",
         "pick": "South Korea",
@@ -7521,6 +7549,20 @@
         "profit": 15.5
       },
       "bets": [
+        {
+          "date": "2026-07-19",
+          "home": "Spain",
+          "away": "Argentina",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.25,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-18",
           "home": "France",
@@ -9242,14 +9284,14 @@
     },
     {
       "player": "tide",
-      "n_bets": 101,
+      "n_bets": 102,
       "n_settled": 101,
       "wins": 24,
       "hit_rate": 0.2376,
-      "staked": 1010.0,
+      "staked": 1020.0,
       "returned": 983.5,
-      "profit": -26.5,
-      "roi": -0.0262,
+      "profit": -36.5,
+      "roi": -0.0358,
       "best_bet": {
         "match": "Spain v Cape Verde",
         "pick": "Draw",
@@ -9257,6 +9299,20 @@
         "profit": 85.0
       },
       "bets": [
+        {
+          "date": "2026-07-19",
+          "home": "Spain",
+          "away": "Argentina",
+          "pick": "D",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.9,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-18",
           "home": "France",
@@ -10978,14 +11034,14 @@
     },
     {
       "player": "risk",
-      "n_bets": 101,
+      "n_bets": 102,
       "n_settled": 101,
       "wins": 10,
       "hit_rate": 0.099,
-      "staked": 1010.0,
+      "staked": 1020.0,
       "returned": 366.5,
-      "profit": -643.5,
-      "roi": -0.6371,
+      "profit": -653.5,
+      "roi": -0.6407,
       "best_bet": {
         "match": "South Africa v South Korea",
         "pick": "South Africa",
@@ -10993,6 +11049,20 @@
         "profit": 38.0
       },
       "bets": [
+        {
+          "date": "2026-07-19",
+          "home": "Spain",
+          "away": "Argentina",
+          "pick": "A",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 3.3,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-18",
           "home": "France",
@@ -12714,14 +12784,14 @@
     },
     {
       "player": "monkey",
-      "n_bets": 101,
+      "n_bets": 102,
       "n_settled": 101,
       "wins": 36,
       "hit_rate": 0.3564,
-      "staked": 1010.0,
+      "staked": 1020.0,
       "returned": 910.0,
-      "profit": -100.0,
-      "roi": -0.099,
+      "profit": -110.0,
+      "roi": -0.1078,
       "best_bet": {
         "match": "Ecuador v Curaçao",
         "pick": "Draw",
@@ -12729,6 +12799,20 @@
         "profit": 68.0
       },
       "bets": [
+        {
+          "date": "2026-07-19",
+          "home": "Spain",
+          "away": "Argentina",
+          "pick": "H",
+          "result": null,
+          "score": null,
+          "stake": 10.0,
+          "odd": 2.25,
+          "payout": null,
+          "profit": null,
+          "settled": false,
+          "won": null
+        },
         {
           "date": "2026-07-18",
           "home": "France",

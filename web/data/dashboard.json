@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-07-19T13:08:50.606479Z",
+    "generated_at": "2026-07-19T14:48:49.170042Z",
     "kickoff_utc": "2026-06-11T19:00:00Z",
-    "next_scrape_utc": "2026-07-19T14:00:00Z",
+    "next_scrape_utc": "2026-07-20T14:00:00Z",
     "ratings_through": "2026-07-18"
   },
   "matches": [
@@ -3831,9 +3831,9 @@
       "result": null,
       "score": null,
       "model": {
-        "home": 0.267,
-        "draw": 0.316,
-        "away": 0.417
+        "home": 0.279,
+        "draw": 0.318,
+        "away": 0.404
       },
       "winner_odds": {
         "home": 2.25,
@@ -3850,12 +3850,12 @@
         "neutral": true,
         "rho": -0.04813971608415197,
         "lambda": {
-          "home": 0.909,
-          "away": 1.171
+          "home": 0.928,
+          "away": 1.146
         },
         "log_lambda": {
-          "home": -0.09563173525816275,
-          "away": 0.15759834829940195
+          "home": -0.07447145503863963,
+          "away": 0.13643806807987882
         },
         "components": {
           "home": {
@@ -3863,24 +3863,24 @@
             "attack": 0.8902889833154088,
             "opp_defence": -0.9944511949847901,
             "home_adv": 0.0,
-            "features": -0.037814000397310574
+            "features": -0.016653720177787452
           },
           "away": {
             "base": 0.04634447680852906,
             "attack": 0.8404440488763454,
             "opp_defence": -0.7288066836435247,
             "home_adv": 0.0,
-            "features": -0.0003834937419477432
+            "features": -0.021543773961470874
           }
         },
         "features": [
           {
             "name": "glicko_diff",
             "weight": 0.1890365625418041,
-            "x_home": -0.07313466458082417,
-            "x_away": 0.07313466458082417,
-            "contrib_home": -0.013825125595006833,
-            "contrib_away": 0.013825125595006833,
+            "x_home": 0.038802835419175494,
+            "x_away": -0.038802835419175494,
+            "contrib_home": 0.007335154624516299,
+            "contrib_away": -0.007335154624516299,
             "description": "Glicko-2 rating, (home - away) / 400 (positive = home stronger)"
           },
           {
@@ -3922,51 +3922,51 @@
         ],
         "scorelines": [
           {
-            "h": 0,
-            "a": 1,
-            "p": 0.1399
-          },
-          {
             "h": 1,
             "a": 1,
-            "p": 0.1394
+            "p": 0.1401
+          },
+          {
+            "h": 0,
+            "a": 1,
+            "p": 0.1376
           },
           {
             "h": 0,
             "a": 0,
-            "p": 0.1314
+            "p": 0.1321
           },
           {
             "h": 1,
             "a": 0,
-            "p": 0.1072
+            "p": 0.1102
           },
           {
             "h": 0,
             "a": 2,
-            "p": 0.0857
+            "p": 0.0825
           },
           {
             "h": 1,
             "a": 2,
-            "p": 0.0778
+            "p": 0.0766
           }
         ],
         "raw_probs": {
-          "home": 0.2774,
-          "draw": 0.3106,
-          "away": 0.412
+          "home": 0.2878,
+          "draw": 0.3122,
+          "away": 0.4
         },
         "glicko": {
           "home": {
             "rating": 1966,
             "rd": 79,
-            "intel_points": 54.1
+            "intel_points": 85.2
           },
           "away": {
             "rating": 1977,
             "rd": 82,
-            "intel_points": 73.0
+            "intel_points": 59.3
           },
           "home_expected": 0.486
         },
@@ -3985,27 +3985,27 @@
         "intel": {
           "home": {
             "status": "informed",
-            "composite": 0.3605,
-            "confidence": 0.7,
-            "summary": "Spain have a strong defence, Lamine Yamal is in form, and they have momentum, but some injury concerns and a tough opponent in France",
+            "composite": 0.568,
+            "confidence": 0.8,
+            "summary": "Spain's strong team cohesion, Rodri's exceptional form, and Luis de la Fuente's guiding philosophy drive their success, despite some injury concerns",
             "dims": {
-              "form_outlook": 0.5,
-              "availability": 0.2,
-              "coach_stability": 0.8,
-              "morale": 0.7,
+              "form_outlook": 0.8,
+              "availability": 0.4,
+              "coach_stability": 0.7,
+              "morale": 0.9,
               "motivation": 0.9
             }
           },
           "away": {
             "status": "informed",
-            "composite": 0.4865,
+            "composite": 0.3955,
             "confidence": 0.7,
-            "summary": "Messi's exceptional form and experience drive Argentina's chances, despite some defensive concerns",
+            "summary": "Argentina driven by Messi's brilliance, collective spirit, and late surge in knockout stage",
             "dims": {
-              "form_outlook": 0.8,
+              "form_outlook": 0.6,
               "availability": 0.5,
-              "coach_stability": 0.5,
-              "morale": 0.7,
+              "coach_stability": 0.0,
+              "morale": 0.8,
               "motivation": 0.9
             }
           }
@@ -4013,22 +4013,22 @@
         "calibration": {
           "temperature": 0.8862,
           "raw": [
-            0.2774,
-            0.3106,
-            0.412
+            0.2878,
+            0.3122,
+            0.4
           ],
           "calibrated": [
-            0.2671,
-            0.3156,
-            0.4173
+            0.2786,
+            0.3176,
+            0.4039
           ]
         }
       }
     }
   ],
   "winner_odds_health": {
-    "last_winner_ts": "2026-07-19T11:06:35.531823+00:00",
-    "stale_hours": 2.0,
+    "last_winner_ts": "2026-07-19T14:48:37.355937+00:00",
+    "stale_hours": 0.0,
     "upcoming_missing_count": 0
   },
   "leaderboard": [
